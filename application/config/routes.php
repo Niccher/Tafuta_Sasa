@@ -6,17 +6,24 @@ $route['admin/dashboard'] = 'admin';
 
 $route['admin/users'] = 'admin/users';
 $route['admin/users/view'] = 'admin/users';
+$route['admin/users/invite'] = 'admin/users_invite';
 
-$route['admin/questions'] = 'questions';
-$route['admin/questions/add'] = 'questions/add';
-$route['admin/questions/view'] = 'questions/view';
-$route['admin/questions/edit'] = 'questions/edit';
-$route['admin/questions/delete'] = 'questions/delete';
+$route['admin/questions'] = 'admin/questions';
+$route['admin/questions/add'] = 'admin/questions_add';
+$route['admin/questions/view'] = 'admin/questions_view';
+$route['admin/questions/edit'] = 'admin/edit';
+$route['admin/questions/delete'] = 'admin/delete';
 
 $route['admin/messages'] = 'messages';
 $route['admin/messages/sent'] = 'messages/sent';
 $route['admin/messages/inbox'] = 'messages/inbox';
 $route['admin/messages/view'] = 'messages/view';
+
+$route['admin/mails'] = 'admin/mails';
+$route['admin/chats'] = 'admin/chats';
+$route['admin/mail/view'] = 'admin/mail_read';
+$route['admin/mail/read'] = 'admin/mail_read';
+$route['admin/mail/create'] = 'admin/mail_compose';
 
 $route['admin/sales'] = 'admin/sales';
 $route['admin/analytics'] = 'admin/analytics';

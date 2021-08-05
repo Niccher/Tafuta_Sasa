@@ -25,7 +25,7 @@
                                 <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
                             </div>
                             <a class="navbar-brand" href="../index.html">
-                                <div class="d-flex align-items-center py-3"><img class="me-2" src="../assets/img/icons/spot-illustrations/falcon.png" alt="" width="40" /><span class="font-sans-serif">falcon</span></div>
+                                <div class="d-flex align-items-center py-3"><img class="me-2" src="../assets/img/icons/spot-illustrations/falcon.png" alt="" width="40" /><span class="font-sans-serif">Tafuta Sasa</span></div>
                             </a>
                         </div>
                         <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
@@ -40,12 +40,32 @@
                                             </div>
                                         </div>
                                         <!-- parent pages-->
-                                        <a class="nav-link" href="../app/calendar.html" role="button">
-                                            <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-tachometer-alt"></span></span><span class="nav-link-text ps-1">Dashboard</span></div>
+                                        <?php
+                                            if ($pg_name == 'home') {
+                                                echo '<a class="nav-link active" href="'.base_url('admin/home').'" role="button">';
+                                            }
+                                            else{
+                                                echo '<a class="nav-link" href="'.base_url('admin/home').'" role="button">';
+                                            }
+                                        ?>
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"><span class="fas fa-tachometer-alt"></span></span>
+                                                <span class="nav-link-text ps-1">Dashboard</span>
+                                            </div>
                                         </a>
                                         <!-- parent pages-->
-                                        <a class="nav-link" href="../app/chat.html" role="button">
-                                            <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="far fa-calendar-alt"></span></span><span class="nav-link-text ps-1">Calendar</span></div>
+                                        <?php
+                                            if ($pg_name == 'calendar') {
+                                                echo '<a class="nav-link active" href="'.base_url('admin/home').'" role="button">';
+                                            }
+                                            else{
+                                                echo '<a class="nav-link" href="'.base_url('admin/calendar').'" role="button">';
+                                            }
+                                        ?>
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"><span class="far fa-calendar-alt"></span></span>
+                                                <span class="nav-link-text ps-1">Calendar</span>
+                                            </div>
                                         </a>
                                         <!-- parent pages-->
                                     </li>
@@ -58,12 +78,32 @@
                                             </div>
                                         </div>
                                         <!-- parent pages-->
-                                        <a class="nav-link" href="../pages/starter.html" role="button">
-                                            <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-question"></span></span><span class="nav-link-text ps-1">View</span></div>
+                                        <?php
+                                            if ($pg_name == 'questions') {
+                                                echo '<a class="nav-link active" href="'.base_url('admin/questions').'" role="button">';
+                                            }
+                                            else{
+                                                echo '<a class="nav-link" href="'.base_url('admin/questions').'" role="button">';
+                                            }
+                                        ?>
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"><span class="fas fa-question"></span></span>
+                                                <span class="nav-link-text ps-1">View</span>
+                                            </div>
                                         </a>
                                         <!-- parent pages-->
-                                        <a class="nav-link" href="../pages/landing.html" role="button">
-                                            <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-plus"></span></span><span class="nav-link-text ps-1">Add</span></div>
+                                        <?php
+                                            if ($pg_name == 'questions_add') {
+                                                echo '<a class="nav-link active" href="'.base_url('admin/questions/add').'" role="button">';
+                                            }
+                                            else{
+                                                echo '<a class="nav-link" href="'.base_url('admin/questions/add').'" role="button">';
+                                            }
+                                        ?>
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"><span class="fas fa-plus"></span></span>
+                                                <span class="nav-link-text ps-1">Add</span>
+                                            </div>
                                         </a>
                                         <!-- parent pages-->
                                     </li>
@@ -76,12 +116,29 @@
                                             </div>
                                         </div>
                                         <!-- parent pages-->
-                                        <a class="nav-link" href="../pages/starter.html" role="button">
+                                        <?php
+                                            if ($pg_name == 'chat') {
+                                                echo '<a class="nav-link active" href="'.base_url('admin/chat').'" role="button">';
+                                            }
+                                            else{
+                                                echo '<a class="nav-link" href="'.base_url('admin/chat').'" role="button">';
+                                            }
+                                        ?>
                                             <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="far fa-comments"></span></span><span class="nav-link-text ps-1">Instant Chat</span></div>
                                         </a>
                                         <!-- parent pages-->
-                                        <a class="nav-link" href="../pages/landing.html" role="button">
-                                            <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="far fa-envelope"></span></span><span class="nav-link-text ps-1">Messages</span></div>
+                                        <?php
+                                            if ($pg_name == 'mails') {
+                                                echo '<a class="nav-link active" href="'.base_url('admin/mails').'" role="button">';
+                                            }
+                                            else{
+                                                echo '<a class="nav-link" href="'.base_url('admin/mails').'" role="button">';
+                                            }
+                                        ?>
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"><span class="far fa-envelope"></span></span>
+                                                <span class="nav-link-text ps-1">Messages</span>
+                                            </div>
                                         </a>
                                         <!-- parent pages-->
                                     </li>
@@ -94,8 +151,18 @@
                                             </div>
                                         </div>
                                         <!-- parent pages-->
-                                        <a class="nav-link" href="../widgets.html" role="button">
-                                            <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-chart-line"></span></span><span class="nav-link-text ps-1">Sales</span></div>
+                                        <?php
+                                            if ($pg_name == 'sales') {
+                                                echo '<a class="nav-link active" href="'.base_url('admin/sales').'" role="button">';
+                                            }
+                                            else{
+                                                echo '<a class="nav-link" href="'.base_url('admin/sales').'" role="button">';
+                                            }
+                                        ?>
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"><span class="fas fa-chart-line"></span></span>
+                                                <span class="nav-link-text ps-1">Sales</span>
+                                            </div>
                                         </a>
                                         <!-- parent pages-->
                                     </li>
@@ -108,36 +175,35 @@
                                             </div>
                                         </div>
                                         <!-- parent pages-->
-                                        <a class="nav-link" href="../pages/starter.html" role="button">
-                                            <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-users"></span></span><span class="nav-link-text ps-1">Users</span></div>
-                                        </a>
-                                        <!-- parent pages-->
-                                    </li>
-                                    <li class="nav-item">
-                                        <!-- label-->
-                                        <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
-                                            <div class="col-auto navbar-vertical-label">Misc</div>
-                                            <div class="col ps-0">
-                                                <hr class="mb-0 navbar-vertical-divider" />
+                                        <?php
+                                            if ($pg_name == 'users') {
+                                                echo '<a class="nav-link active" href="'.base_url('admin/users').'" role="button">';
+                                            }
+                                            else{
+                                                echo '<a class="nav-link" href="'.base_url('admin/users').'" role="button">';
+                                            }
+                                        ?>
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"><span class="fas fa-users"></span></span>
+                                                <span class="nav-link-text ps-1">Users</span>
                                             </div>
-                                        </div>
-                                        <!-- parent pages-->
-                                        <a class="nav-link" href="getting-started.html" role="button">
-                                            <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-user-plus"></span></span><span class="nav-link-text ps-1">Invite People</span></div>
                                         </a>
                                         <!-- parent pages-->
-                                        <a class="nav-link" href="gulp.html" role="button">
-                                            <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-info-circle"></span></span><span class="nav-link-text ps-1">Privacy Policy</span></div>
+                                        <?php
+                                            if ($pg_name == 'invite') {
+                                                echo '<a class="nav-link active" href="'.base_url('admin/users/invite').'" role="button">';
+                                            }
+                                            else{
+                                                echo '<a class="nav-link" href="'.base_url('admin/users/invite').'" role="button">';
+                                            }
+                                        ?>
+                                            <div class="d-flex align-items-center">
+                                                <span class="nav-link-icon"><span class="fas fa-user-plus"></span></span>
+                                                <span class="nav-link-text ps-1">Invite People</span>
+                                            </div>
                                         </a>
                                         <!-- parent pages-->
-                                        <a class="nav-link active" href="design-file.html" role="button">
-                                            <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-question-circle"></span></span><span class="nav-link-text ps-1">FAQ</span></div>
-                                        </a>
-                                        <!-- parent pages-->
-                                        <a class="nav-link" href="../changelog.html" role="button">
-                                            <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-code-branch"></span></span><span class="nav-link-text ps-1">Changelog</span></div>
-                                        </a>
-                                    </li>
+                                    </li >
                                 </ul>
                             </div>
                         </div>
