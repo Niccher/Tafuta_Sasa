@@ -2,7 +2,9 @@
         <main class="main" id="top">
             <nav class="navbar navbar-standard navbar-expand-lg fixed-top navbar-dark" data-navbar-darken-on-scroll="data-navbar-darken-on-scroll">
                 <div class="container">
-                    <a class="navbar-brand" href="../index.html"><span class="text-white dark__text-white">Tafuta Sasa</span></a><button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarStandard" aria-controls="navbarStandard" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <a class="navbar-brand" href="../index.html">
+                    	<span class="text-white dark__text-white">Tafuta Sasa</span>
+                    </a>
                     <div class="collapse navbar-collapse scrollbar" id="navbarStandard">
                         <ul class="navbar-nav" data-top-nav-dropdowns="data-top-nav-dropdowns">
                             <li class="nav-item">
@@ -119,7 +121,7 @@
                 <div class="container">
                     <div class="row flex-center pt-8 pt-lg-10 pb-lg-9 pb-xl-0">
 
-                        <div class="col-md-12 text-center text-xl-start">
+                        <div class="col-md-12 text-center text-xl-start" style="margin-bottom: 35px;">
                             <div class="row justify-content-center">
                                 <div class="col-12 col-md-10 col-md-8">
                                     <form class="card card-sm" action="<?php echo base_url('search'); ?>" method='GET'>
@@ -142,95 +144,82 @@
                                 <!--end of col-->
                             </div>
                         </div>
-
-                        <div class="col-md-12 text-center" style="margin-top: 20px; margin-bottom: 35px;">
-                            <a class="btn btn-outline-danger mb-4 fs--1 border-2 rounded-pill hidden" href="landing.html#!">
-                                <span class="me-2" role="img" aria-label="Gift">🎁</span>Become a pro
-                            </a>
-                            <h1 class="text-white fw-light">Bring 
-                                <span class="typed-text fw-bold" data-typed-text='["design","beauty","elegance","perfection"]'></span><br />to your ...
-                            </h1>
-                            <p class="lead text-white opacity-75">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod ...</p>
-                            <a class="btn btn-outline-light border-2 rounded-pill btn-lg mt-4 fs-0 py-2" href="<?php echo base_url('auth/register'); ?>)">Become a seller
-                                <span class="fas fa-play ms-2" data-fa-transform="shrink-6 down-1"></span>
-                            </a>
-                        </div>
+                        <br>
+                        <br>
 
                     </div>
                 </div>
                 <!-- end of .container-->
             </section>
-            <!-- <section> close ============================-->
-            <section class="bg-light text-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <h1 class="fs-2 fs-sm-4 fs-md-5">Here's what's in it for you</h1>
-                            <p class="lead">Things you will get right out of the box with Falcon.</p>
-                        </div>
-                    </div>
-                    <div class="row mt-6">
-                        <div class="col-lg-4">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img"><span class="fab fa-sass fs-4 text-info"></span></div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Bootstrap 5.x</h5>
-                                    <p>Build your webapp with the world's most popular front-end component library along with Falcon's 32 sets of carefully designed elements.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mt-6 mt-lg-0">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img"><span class="fab fa-node-js fs-5 text-success"></span></div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">SCSS &amp; Javascript files</h5>
-                                    <p>With your purchased copy of Falcon, you will get all the uncompressed & documented SCSS and Javascript source code files.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mt-6 mt-lg-0">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img"><span class="fab fa-gulp fs-6 text-danger"></span></div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Gulp based workflow</h5>
-                                    <p>All the painful or time-consuming tasks in your development workflow such as compiling the SCSS or transpiring the JS are automated.</p>
-                                </div>
-                            </div>
-                        </div>
 
-                    </div>
+		    <div class="container" style="margin-bottom: 60px;">
 
-                    <div class="row mt-6">
-                        <div class="col-lg-4">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img"><span class="fab fa-sass fs-4 text-info"></span></div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Bootstrap 5.x</h5>
-                                    <p>Build your webapp with the world's most popular front-end component library along with Falcon's 32 sets of carefully designed elements.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mt-6 mt-lg-0">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img"><span class="fab fa-node-js fs-5 text-success"></span></div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">SCSS &amp; Javascript files</h5>
-                                    <p>With your purchased copy of Falcon, you will get all the uncompressed & documented SCSS and Javascript source code files.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mt-6 mt-lg-0">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img"><span class="fab fa-gulp fs-6 text-danger"></span></div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Gulp based workflow</h5>
-                                    <p>All the painful or time-consuming tasks in your development workflow such as compiling the SCSS or transpiring the JS are automated.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
+		    	<br>
+				<div class="card mb-3">
+					<div class="card-body">
+						<div class="alert alert-success p-4 mb-0" role="alert">
+							<div class="d-flex">
+								<span class="fab fa-intentionally-kept fs-3"></span>
+								<div class="flex-1 ms-3">
+									<h4 class="alert-heading">The answer is free!</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
 
-                </div>
-            </section>
+				<div class="card">
+				    <div class="card-body bg-light">
+				        <h6>
+				        	<a href="pricing-default.html#!">How does Falcon's pricing work?
+				        	</a>
+				        </h6>
+				        <div class="row">
+				        	<div class="col-8">
+				        		<div class="float-left">
+						        	<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="You're assigned in this card" aria-label="Payable">
+										<span class="fas fa-cart-plus fa-xs"></span>&nbsp;&nbsp;Answer is for pro users
+									</span>
+								</div>
+				        	</div>
+				        	<div class="col-4">
+				        		<div class="float-left">
+						        	<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="You're assigned in this card" aria-label="Answer Viewed 4 Times">
+										<span class="fas fa-eye fa-xs"></span>&nbsp;&nbsp;4
+									</span>
+									<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="Last updated"> 
+										<span class="far fa-calendar fa-xs"></span> 12 Nov 2020
+									</span>
+								</div>
+				        	</div>
+				        </div>
+				        <p class="fs--1 mb-0">
+					        Protecting the data you trust to Falcon is our first priority. Falcon uses physical, procedural, and technical safeguards to preserve the integrity and security of your information. We regularly back up your data to prevent data loss and aid in recovery. Additionally, we host data in secure SSAE 16 / SOC1 certified data centers, implement firewalls and access restrictions on our servers to better protect your information, and work with third party security researchers to ensure our practices are secure.
+					    </p>
+
+				        <p class="fs--1 mb-0">
+				        	Dedicated, passionate, and accomplished Full Stack Developer with 9+ years of progressive experience working as an Independent Contractor for Google and developing and growing my educational social network that helps others learn programming, web design, game development, networking.
+				        </p>
+
+				        <p class="fs--1 mb-0">
+				        	I’ve acquired a wide depth of knowledge and expertise in using my technical skills in programming, computer science, software development, and mobile app development to developing solutions to help organizations increase productivity, and accelerate business performance.
+				        </p>
+
+				        <p class="fs--1 mb-0">
+				        	It’s great that we live in an age where we can share so much with technology but I’m but I’m ready for the next phase of my career, with a healthy balance between the virtual world and a workplace where I help others face-to-face.
+				        </p>
+
+				        <p class="fs--1 mb-0">
+				        	There’s always something new to learn, especially in IT-related fields. People like working with me because I can explain technology to everyone, from staff to executives who need me to tie together the details and the big picture. I can also implement the technologies that successful projects need.
+				        </p>
+
+				    </div>
+				</div>
+				<br>
+				<br>
+
+
+		    </div>
+
         </main>

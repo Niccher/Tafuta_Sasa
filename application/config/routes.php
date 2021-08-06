@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$route['admin/home'] = 'admin/test';
+$route['admin/home'] = 'admin';
 $route['admin/dashboard'] = 'admin';
 
 $route['admin/users'] = 'admin/users';
@@ -40,7 +40,13 @@ $route['auth/conditions'] = 'auth/terms';
 $route['auth/privacy'] = 'auth/privacy';
 $route['auth/home'] = 'auth/home';
 
+$route['home'] = 'pages/landing';
+$route['search'] = 'pages/search';
+$route['search/question'] = 'pages/view_answer';
+$route['search/question/clean'] = 'pages/view_answer_clean';
 
-$route['default_controller'] = 'admin';
+
+
+$route['default_controller'] = 'pages/landing';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -2,7 +2,9 @@
         <main class="main" id="top">
             <nav class="navbar navbar-standard navbar-expand-lg fixed-top navbar-dark" data-navbar-darken-on-scroll="data-navbar-darken-on-scroll">
                 <div class="container">
-                    <a class="navbar-brand" href="../index.html"><span class="text-white dark__text-white">Tafuta Sasa</span></a><button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarStandard" aria-controls="navbarStandard" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <a class="navbar-brand" href="../index.html">
+                    	<span class="text-white dark__text-white">Tafuta Sasa</span>
+                    </a>
                     <div class="collapse navbar-collapse scrollbar" id="navbarStandard">
                         <ul class="navbar-nav" data-top-nav-dropdowns="data-top-nav-dropdowns">
                             <li class="nav-item">
@@ -119,7 +121,7 @@
                 <div class="container">
                     <div class="row flex-center pt-8 pt-lg-10 pb-lg-9 pb-xl-0">
 
-                        <div class="col-md-12 text-center text-xl-start">
+                        <div class="col-md-12 text-center text-xl-start" style="margin-bottom: 35px;">
                             <div class="row justify-content-center">
                                 <div class="col-12 col-md-10 col-md-8">
                                     <form class="card card-sm" action="<?php echo base_url('search'); ?>" method='GET'>
@@ -142,95 +144,131 @@
                                 <!--end of col-->
                             </div>
                         </div>
-
-                        <div class="col-md-12 text-center" style="margin-top: 20px; margin-bottom: 35px;">
-                            <a class="btn btn-outline-danger mb-4 fs--1 border-2 rounded-pill hidden" href="landing.html#!">
-                                <span class="me-2" role="img" aria-label="Gift">🎁</span>Become a pro
-                            </a>
-                            <h1 class="text-white fw-light">Bring 
-                                <span class="typed-text fw-bold" data-typed-text='["design","beauty","elegance","perfection"]'></span><br />to your ...
-                            </h1>
-                            <p class="lead text-white opacity-75">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod ...</p>
-                            <a class="btn btn-outline-light border-2 rounded-pill btn-lg mt-4 fs-0 py-2" href="<?php echo base_url('auth/register'); ?>)">Become a seller
-                                <span class="fas fa-play ms-2" data-fa-transform="shrink-6 down-1"></span>
-                            </a>
-                        </div>
+                        <br>
+                        <br>
 
                     </div>
                 </div>
                 <!-- end of .container-->
             </section>
-            <!-- <section> close ============================-->
-            <section class="bg-light text-center">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <h1 class="fs-2 fs-sm-4 fs-md-5">Here's what's in it for you</h1>
-                            <p class="lead">Things you will get right out of the box with Falcon.</p>
-                        </div>
-                    </div>
-                    <div class="row mt-6">
-                        <div class="col-lg-4">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img"><span class="fab fa-sass fs-4 text-info"></span></div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Bootstrap 5.x</h5>
-                                    <p>Build your webapp with the world's most popular front-end component library along with Falcon's 32 sets of carefully designed elements.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mt-6 mt-lg-0">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img"><span class="fab fa-node-js fs-5 text-success"></span></div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">SCSS &amp; Javascript files</h5>
-                                    <p>With your purchased copy of Falcon, you will get all the uncompressed & documented SCSS and Javascript source code files.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mt-6 mt-lg-0">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img"><span class="fab fa-gulp fs-6 text-danger"></span></div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Gulp based workflow</h5>
-                                    <p>All the painful or time-consuming tasks in your development workflow such as compiling the SCSS or transpiring the JS are automated.</p>
-                                </div>
-                            </div>
-                        </div>
 
-                    </div>
+		    <div class="container" style="margin-bottom: 60px;">
 
-                    <div class="row mt-6">
-                        <div class="col-lg-4">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img"><span class="fab fa-sass fs-4 text-info"></span></div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Bootstrap 5.x</h5>
-                                    <p>Build your webapp with the world's most popular front-end component library along with Falcon's 32 sets of carefully designed elements.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mt-6 mt-lg-0">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img"><span class="fab fa-node-js fs-5 text-success"></span></div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">SCSS &amp; Javascript files</h5>
-                                    <p>With your purchased copy of Falcon, you will get all the uncompressed & documented SCSS and Javascript source code files.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mt-6 mt-lg-0">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img"><span class="fab fa-gulp fs-6 text-danger"></span></div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Gulp based workflow</h5>
-                                    <p>All the painful or time-consuming tasks in your development workflow such as compiling the SCSS or transpiring the JS are automated.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
+		    	<br>
 
-                </div>
-            </section>
+				<div class="card">
+					<div class="card-header">
+						<h4 class="text-center mb-0">Typed Question Here</h4>
+					</div>
+				</div>
+
+				<br>
+
+				<div class="card">
+				    <div class="card-body bg-light">
+				        <h6>
+				        	<a href="<?php echo base_url('search/question'); ?>">How does Falcon's pricing work?
+				        	</a>
+				        </h6>
+				        <p class="fs--1 mb-0">The free version of Falcon is available for teams of up to 15 people. Our Falcon Premium plans of 15 or fewer qualify for a small team discount. As your team grows to 20 users or more and gets more value out of Falcon, you'll get closer to our standard monthly price per seat. The price of a paid Falcon plan is tiered, starting in groups of 5 and 10 users, based on the number of people you have in your Team or Organization.</p>
+				        <div class="row">
+				        	<div class="col-8"></div>
+				        	<div class="col-4">
+				        		<div class="float-left">
+						        	<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="You're assigned in this card" aria-label="Answer Viewed 4 Times">
+										<span class="fas fa-eye fa-xs"></span>&nbsp;&nbsp;4
+									</span>
+									<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="Last updated"> 
+										<span class="far fa-calendar fa-xs"></span> 12 Nov 2020
+									</span>
+								</div>
+				        	</div>
+				        </div>
+				    </div>
+				</div>
+
+				<br>
+
+				<div class="card">
+				    <div class="card-body bg-light">
+				        <h6>
+				        	<a href="<?php echo base_url('search/question'); ?>">How does Falcon's pricing work?
+				        	</a>
+				        </h6>
+				        <p class="fs--1 mb-0">Protecting the data you trust to Falcon is our first priority. Falcon uses physical, procedural, and technical safeguards to preserve the integrity and security of your information. We regularly back up your data to prevent data loss and aid in recovery. Additionally, we host data in secure SSAE 16 / SOC1 certified data centers, implement firewalls and access restrictions on our servers to better protect your information, and work with third party security researchers to ensure our practices are secure.</p>
+				        <div class="row">
+				        	<div class="col-8"></div>
+				        	<div class="col-4">
+				        		<div class="float-left">
+						        	<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="You're assigned in this card" aria-label="Answer Viewed 4 Times">
+										<span class="fas fa-eye fa-xs"></span>&nbsp;&nbsp;4
+									</span>
+									<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="Last updated"> 
+										<span class="far fa-calendar fa-xs"></span> 12 Nov 2020
+									</span>
+								</div>
+				        	</div>
+				        </div>
+				    </div>
+				</div>
+
+				<br>
+
+				<div class="card">
+				    <div class="card-body bg-light">
+				        <h6>
+				        	<a href="<?php echo base_url('search/question'); ?>">How does Falcon's pricing work?
+				        	</a>
+				        </h6>
+				        <p class="fs--1 mb-0">As of May 2016, state and local sales tax will be applied to fees charged to customers with a billing address in the State of New York.</p>
+				        <div class="row">
+				        	<div class="col-8"></div>
+				        	<div class="col-4">
+				        		<div class="float-left">
+						        	<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="You're assigned in this card" aria-label="Answer Viewed 4 Times">
+										<span class="fas fa-eye fa-xs"></span>&nbsp;&nbsp;4
+									</span>
+									<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="Last updated"> 
+										<span class="far fa-calendar fa-xs"></span> 12 Nov 2020
+									</span>
+								</div>
+				        	</div>
+				        </div>
+				    </div>
+				</div>
+
+				<br>
+
+				<div class="card">
+				    <div class="card-body bg-light">
+				        <h6>
+				        	<a href="<?php echo base_url('search/question'); ?>">How does Falcon's pricing work?
+				        	</a>
+				        </h6>
+				        <p class="fs--1 mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				        <div class="row">
+				        	<div class="col-8"></div>
+				        	<div class="col-4">
+				        		<div class="float-left">
+						        	<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="You're assigned in this card" aria-label="Answer Viewed 4 Times">
+										<span class="fas fa-eye fa-xs"></span>&nbsp;&nbsp;4
+									</span>
+									<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="Last updated"> 
+										<span class="far fa-calendar fa-xs"></span> 12 Nov 2020
+									</span>
+								</div>
+				        	</div>
+				        </div>
+				    </div>
+				</div>
+
+				<br>
+
+		    </div>
+
         </main>
