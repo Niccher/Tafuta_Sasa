@@ -33,13 +33,22 @@
                                                 </div>
                                             </div>
                                             <form>
-                                                <div class="mb-3"><input class="form-control" type="email" placeholder="Email address" /></div>
-                                                <div class="mb-3"><input class="form-control" type="password" placeholder="Password" /></div>
+                                                <div class="mb-3">
+                                                    <input class="form-control" type="email" placeholder="Email address" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <input class="form-control" type="password" placeholder="Password" />
+                                                </div>
                                                 <div class="row flex-between-center">
                                                     <div class="col-auto">
-                                                        <div class="form-check mb-0"><input class="form-check-input" type="checkbox" id="modal-checkbox" /><label class="form-check-label" for="modal-checkbox">Remember me</label></div>
+                                                        <div class="form-check mb-0">
+                                                            <input class="form-check-input" type="checkbox" id="modal-checkbox" />
+                                                            <label class="form-check-label" for="modal-checkbox">Remember me</label>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-auto"><a class="fs--1" href="authentication/simple/forgot-password.html">Forgot Password?</a></div>
+                                                    <div class="col-auto">
+                                                        <a class="fs--1" href="<?php echo base_url('auth/forgot'); ?>">Forgot Password?</a>
+                                                    </div>
                                                 </div>
                                                 <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">Log in</button></div>
                                             </form>
@@ -48,8 +57,16 @@
                                                 <div class="divider-content-center">or log in with</div>
                                             </div>
                                             <div class="row g-2 mt-2">
-                                                <div class="col-sm-6"><a class="btn btn-outline-google-plus btn-sm d-block w-100" href="landing.html#"><span class="fab fa-google-plus-g me-2" data-fa-transform="grow-8"></span> google</a></div>
-                                                <div class="col-sm-6"><a class="btn btn-outline-facebook btn-sm d-block w-100" href="landing.html#"><span class="fab fa-facebook-square me-2" data-fa-transform="grow-8"></span> facebook</a></div>
+                                                <div class="col-sm-6">
+                                                    <a class="btn btn-outline-google-plus btn-sm d-block w-100" href="<?php echo base_url('auth/google'); ?>">
+                                                        <span class="fab fa-google-plus-g me-2" data-fa-transform="grow-8"></span> Google
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <a class="btn btn-outline-facebook btn-sm d-block w-100" href="<?php echo base_url('auth/facebook'); ?>">
+                                                        <span class="fab fa-facebook-square me-2" data-fa-transform="grow-8"></span> Facebook
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -104,8 +121,16 @@
                                 <div class="divider-content-center">or register with</div>
                             </div>
                             <div class="row g-2 mt-2">
-                                <div class="col-sm-6"><a class="btn btn-outline-google-plus btn-sm d-block w-100" href="landing.html#"><span class="fab fa-google-plus-g me-2" data-fa-transform="grow-8"></span> google</a></div>
-                                <div class="col-sm-6"><a class="btn btn-outline-facebook btn-sm d-block w-100" href="landing.html#"><span class="fab fa-facebook-square me-2" data-fa-transform="grow-8"></span> facebook</a></div>
+                                <div class="col-sm-6">
+                                    <a class="btn btn-outline-google-plus btn-sm d-block w-100" href="<?php echo base_url('auth/google'); ?>">
+                                        <span class="fab fa-google-plus-g me-2" data-fa-transform="grow-8"></span> Google
+                                    </a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="btn btn-outline-facebook btn-sm d-block w-100" href="<?php echo base_url('auth/facebook'); ?>">
+                                        <span class="fab fa-facebook-square me-2" data-fa-transform="grow-8"></span> Facebook
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

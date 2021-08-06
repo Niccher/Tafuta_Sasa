@@ -23,6 +23,8 @@
             <script src="<?php echo base_url('assets/plugins/anchorjs/anchor.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/is/is.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/prism/prism.js'); ?>"></script>
+            <script src="<?php echo base_url('assets/plugins/typed.js/typed.js'); ?>"></script>
+            <script src="<?php echo base_url('assets/plugins/swiper/swiper-bundle.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/fontawesome/all.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/lodash/lodash.min.js'); ?>"></script>
             <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll'); ?>"></script>

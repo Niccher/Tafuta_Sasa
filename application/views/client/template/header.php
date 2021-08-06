@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en-US" dir="ltr">
     <!DOCTYPE html>
     <html lang="en-US" dir="ltr">
         <head>
@@ -25,6 +23,13 @@
             <!-- ===============================================-->
             <!--    Stylesheets-->
             <!-- ===============================================-->
+            <link href="<?php echo  base_url('assets/plugins/fullcalendar/main.min.css'); ?>" rel="stylesheet">
+            <link href="<?php echo  base_url('assets/plugins/leaflet/leaflet.css'); ?>" rel="stylesheet">
+            <link href="<?php echo  base_url('assets/plugins/leaflet.markercluster/MarkerCluster.css'); ?>" rel="stylesheet">
+            <link href="<?php echo  base_url('assets/plugins/leaflet.markercluster/MarkerCluster.Default.css'); ?>" rel="stylesheet">
+            <link href="<?php echo  base_url('assets/plugins/flatpickr/flatpickr.min.css'); ?>" rel="stylesheet">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
             <link href="<?php echo  base_url('assets/plugins/prism/prism-okaidia.css'); ?>" rel="stylesheet">
             <link rel="preconnect" href="https://fonts.gstatic.com">
             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">

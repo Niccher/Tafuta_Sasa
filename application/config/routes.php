@@ -46,6 +46,18 @@ $route['search/question'] = 'pages/view_answer';
 $route['search/question/clean'] = 'pages/view_answer_clean';
 
 
+$route['client/home'] = 'client';
+$route['client/dashboard'] = 'client';
+
+$route['client/profile'] = 'client/profile';
+$route['client/users/invite'] = 'client/users_invite';
+
+$route['client/questions'] = 'client/questions';
+$route['client/sales'] = 'client/subscribe';
+$route['client/questions/view'] = 'client/questions_view';
+$route['client/chats'] = 'client/chats';
+
+
 
 $route['default_controller'] = 'pages/landing';
 $route['404_override'] = '';
