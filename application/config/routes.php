@@ -54,6 +54,9 @@ $route['client/users/invite'] = 'client/users_invite';
 
 $route['client/questions'] = 'client/questions';
 $route['client/sales'] = 'client/subscribe';
+$route['client/account'] = 'client/account';
+$route['client/invoice'] = 'client/invoice';
+$route['client/account/invoice'] = 'client/invoice';
 $route['client/questions/view'] = 'client/questions_view';
 $route['client/chats'] = 'client/chats';
 

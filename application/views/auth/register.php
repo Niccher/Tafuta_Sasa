@@ -5,7 +5,8 @@
             <div class="container-fluid">
                 <div class="row min-vh-100 flex-center g-0">
                     <div class="col-lg-8 col-xxl-5 py-3 position-relative">
-                        <img class="bg-auth-circle-shape" src="../../../assets/img/icons/spot-illustrations/bg-shape.png" alt="" width="250"><img class="bg-auth-circle-shape-2" src="../../../assets/img/icons/spot-illustrations/shape-1.png" alt="" width="150">
+                        <img class="bg-auth-circle-shape" src="../../../assets/img/icons/spot-illustrations/bg-shape.png" alt="" width="250">
+                        <img class="bg-auth-circle-shape-2" src="../../../assets/img/icons/spot-illustrations/shape-1.png" alt="" width="150">
                         <div class="card overflow-hidden z-index-1">
                             <div class="card-body p-0">
                                 <div class="row g-0 h-100">
@@ -30,23 +31,26 @@
                                     <div class="col-md-7 d-flex flex-center">
                                         <div class="p-4 p-md-5 flex-grow-1">
                                             <h3>Register</h3>
-                                            <form action="<?php echo base_url('auth/home');?> " method="POST">
+                                            <?php 
+                                            echo $errorcode;
+                                            echo validation_errors();
+                                            echo form_open('auth/register'); ?>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="card-name">Name</label>
-                                                    <input class="form-control" type="text" autocomplete="on" id="card-name" />
+                                                    <input class="form-control" type="text" autocomplete="on" id="card-name" name="rg_name" />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label class="form-label" for="card-email">Email address</label>
-                                                    <input class="form-control" type="email" autocomplete="on" id="card-email" />
+                                                    <input class="form-control" type="email" autocomplete="on" id="card-email" name="rg_email" />
                                                 </div>
                                                 <div class="row gx-2">
                                                     <div class="mb-3 col-sm-6">
                                                         <label class="form-label" for="card-password">Password</label>
-                                                        <input class="form-control" type="password" autocomplete="on" id="card-password" />
+                                                        <input class="form-control" type="password" autocomplete="on" id="card-password" name="rg_password" />
                                                     </div>
                                                     <div class="mb-3 col-sm-6">
                                                         <label class="form-label" for="card-confirm-password">Confirm Password</label>
-                                                        <input class="form-control" type="password" autocomplete="on" id="card-confirm-password" />
+                                                        <input class="form-control" type="password" autocomplete="on" id="card-confirm-password" name="rg_password1" />
                                                     </div>
                                                 </div>
                                                 <div class="form-check">

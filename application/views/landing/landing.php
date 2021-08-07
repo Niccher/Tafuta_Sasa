@@ -2,7 +2,12 @@
         <main class="main" id="top">
             <nav class="navbar navbar-standard navbar-expand-lg fixed-top navbar-dark" data-navbar-darken-on-scroll="data-navbar-darken-on-scroll">
                 <div class="container">
-                    <a class="navbar-brand" href="../index.html"><span class="text-white dark__text-white">Tafuta Sasa</span></a><button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarStandard" aria-controls="navbarStandard" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <a class="navbar-brand" href="#">
+                        <span class="text-white dark__text-white">Tafuta Sasa</span>
+                    </a>
+                    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarStandard" aria-controls="navbarStandard" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                     <div class="collapse navbar-collapse scrollbar" id="navbarStandard">
                         <ul class="navbar-nav" data-top-nav-dropdowns="data-top-nav-dropdowns">
                             <li class="nav-item">
@@ -20,7 +25,7 @@
                         </ul>
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownLogin" href="landing.html#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownLogin" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-card" aria-labelledby="navbarDropdownLogin">
                                     <div class="card shadow-none navbar-card-login">
                                         <div class="card-body fs--1 p-4 fw-normal">
@@ -29,15 +34,16 @@
                                                     <h5 class="mb-0">Log in</h5>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <p class="fs--1 text-600 mb-0">or <a href="authentication/simple/register.html">Create an account</a></p>
+                                                    <p class="fs--1 text-600 mb-0">or <a href="<?php echo base_url('auth/register'); ?>">Create an account</a></p>
                                                 </div>
                                             </div>
-                                            <form>
+                                            <?php echo validation_errors(); ?>
+                                            <?php echo form_open('auth/login'); ?>
                                                 <div class="mb-3">
-                                                    <input class="form-control" type="email" placeholder="Email address" />
+                                                    <input class="form-control" type="email" placeholder="Email address" name="lg_email" />
                                                 </div>
                                                 <div class="mb-3">
-                                                    <input class="form-control" type="password" placeholder="Password" />
+                                                    <input class="form-control" type="password" placeholder="Password" name="lg_password" />
                                                 </div>
                                                 <div class="row flex-between-center">
                                                     <div class="col-auto">
@@ -72,7 +78,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="landing.html#!" data-bs-toggle="modal" data-bs-target="#exampleModal">Register</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Register</a></li>
                         </ul>
                     </div>
                 </div>
@@ -87,29 +93,31 @@
                                 </div>
                                 <div class="col-auto">
                                     <p class="fs--1 text-600 mb-0">Have an account? 
-                                        <a href="authentication/simple/login.html">Login</a>
+                                        <a href="<?php echo base_url('auth/login'); ?>">Login</a>
                                     </p>
                                 </div>
                             </div>
-                            <form>
+                            <?php 
+                            echo validation_errors();
+                            echo form_open('auth/register'); ?>
                                 <div class="mb-3">
-                                    <input class="form-control" type="text" autocomplete="on" placeholder="Name" />
+                                    <input class="form-control" type="text" autocomplete="on" placeholder="Name" name="rg_name" />
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="email" autocomplete="on" placeholder="Email address" /></div>
+                                    <input class="form-control" type="email" autocomplete="on" placeholder="Email address" name="rg_email" /></div>
                                 <div class="row gx-2">
                                     <div class="mb-3 col-sm-6">
-                                        <input class="form-control" type="password" autocomplete="on" placeholder="Password" />
+                                        <input class="form-control" type="password" autocomplete="on" placeholder="Password"  name="rg_password"/>
                                     </div>
                                     <div class="mb-3 col-sm-6">
-                                        <input class="form-control" type="password" autocomplete="on" placeholder="Confirm Password" />
+                                        <input class="form-control" type="password" autocomplete="on" placeholder="Confirm Password" name="rg_password1" />
                                     </div>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="modal-register-checkbox" />
                                     <label class="form-label" for="modal-register-checkbox">I accept the 
-                                        <a href="landing.html#!">terms </a>and 
-                                        <a href="landing.html#!">privacy policy</a>
+                                        <a href="<?php echo base_url('auth/terms'); ?>">terms </a>and 
+                                        <a href="<?php echo base_url('auth/privacy'); ?>">privacy policy</a>
                                     </label>
                                 </div>
                                 <div class="mb-3">
@@ -173,7 +181,7 @@
                                 <span class="me-2" role="img" aria-label="Gift">🎁</span>Become a pro
                             </a>
                             <h1 class="text-white fw-light">Bring 
-                                <span class="typed-text fw-bold" data-typed-text='["design","beauty","elegance","perfection"]'></span><br />to your ...
+                                <span class="typed-text fw-bold" data-typed-text='[" answers to your questions","well explained concepts to your work","diversity to your class work","perfection and abundance to work"]'></span><br />to your ...
                             </h1>
                             <p class="lead text-white opacity-75">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod ...</p>
                             <a class="btn btn-outline-light border-2 rounded-pill btn-lg mt-4 fs-0 py-2" href="<?php echo base_url('auth/register'); ?>)">Become a seller
