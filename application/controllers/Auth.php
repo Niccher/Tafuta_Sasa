@@ -8,9 +8,11 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('lg_email','Email','required|trim');
         $this->form_validation->set_rules('lg_password','Password', 'required|trim');
 
+        $data['auth_error'] = '';
+
         if($this->form_validation->run() === FALSE) {
             $this->load->view('template/header');
-			$this->load->view('auth/'.$page);
+			$this->load->view('auth/'.$page, $data);
 			$this->load->view('template/tail');
         }else{
 
@@ -19,13 +21,12 @@ class Auth extends CI_Controller {
 
             echo $user_id = $this->mod_users->make_login($lg_eml,$lg_pwd);
             $lg_vars = $this->mod_users->get_vars($user_id);
-
-            $lg_name = $lg_vars->Name;
-            $lg_eml = $lg_vars->Email;
-            $user_phone = $lg_vars->Phone;
-            $user_type = $lg_vars->Privilege;
             
             if ($user_id) {
+            	$lg_name = $lg_vars->Name;
+	            $lg_eml = $lg_vars->Email;
+	            $user_phone = $lg_vars->Phone;
+	            $user_type = $lg_vars->Privilege;
                 $user_logged = array(
                     'log_mail' => $lg_eml,
                     'log_name' => $lg_name,
@@ -34,12 +35,28 @@ class Auth extends CI_Controller {
                     'log_type' => $user_type
                 );
                 $this->session->set_userdata($user_logged);
-                redirect('client/home');
 
+                if($user_type == 'Admin'){
+                	redirect('admin/home');
+                }
+                if($user_type == 'Client'){
+                	redirect('client/home');
+                }
             }else{
+            	$data['auth_error'] = 
+            		'
+            		<div class="card h-lg-100">
+					    <div class="bg-holder bg-card" style="background-image:url('.base_url('assets/img/icons/spot-illustrations/corner-1.png').');"></div>
+					    <div class="card-body position-relative">
+					        <h5 class="text-warning">Wrong credentials!</h5>
+					        <p class="fs--1 mb-0 text-warning" ><span class="fas fa-chevron-right ms-1"></span> Credentials provided are wrong, please try again.</p>
+					    </div>
+					</div>
+            		';
+
                 $this->session->set_flashdata("lg_fail", "Login was unsuccesful");
                 $this->load->view('template/header');
-				$this->load->view('auth/'.$page);
+				$this->load->view('auth/'.$page, $data);
 				$this->load->view('template/tail');
             }
             
@@ -84,6 +101,16 @@ class Auth extends CI_Controller {
 		$this->load->view('template/header');
 		$this->load->view('auth/'.$page);
 		$this->load->view('template/tail');
+	}
+
+	public function logout(){
+		$this->session->unset_userdata('log_mail');
+        $this->session->unset_userdata('log_name');
+        $this->session->unset_userdata('log_phone');
+        $this->session->unset_userdata('log_id');
+        $this->session->unset_userdata('log_type');
+
+        redirect('auth/login');
 	}
 
 	public function activate($page = 'activate'){

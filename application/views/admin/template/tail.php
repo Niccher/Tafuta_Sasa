@@ -19,6 +19,7 @@
             <!-- ===============================================-->
             <!--    JavaScripts-->
             <!-- ===============================================-->
+            <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
             <script src="<?php echo base_url('assets/plugins/popper/popper.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/bootstrap/bootstrap.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/anchorjs/anchor.min.js'); ?>"></script>
@@ -28,15 +29,30 @@
             <script src="<?php echo base_url('assets/plugins/lodash/lodash.min.js'); ?>"></script>
             <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/list.js/list.min.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/js/theme.js'); ?>"></script>
+            <script src="<?php echo base_url('assets/js/theme.js4'); ?>"></script>
 
             <script src="<?php echo base_url('assets/plugins/fullcalendar/main.min.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/plugins/glightbox/glightbox.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/js/emoji-button.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/plugins/tinymce/tinymce.min.js'); ?>"></script>
+
+            <script src="<?php echo base_url('assets/plugins/summernote/summernote-lite.js'); ?>"></script>
+
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#answer_note').summernote();
+                });
+            </script>
+
+            <script src="<?php echo base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
+
+            <script type="text/javascript">
+                //Dropzone.autoDiscover = false;
+                $(document).ready(function() {
+                });
+            </script>
 
 
             <script src="<?php echo base_url('assets/plugins/chart/chart.min.js'); ?>"></script>
+
             <script src="<?php echo base_url('assets/plugins/leaflet/leaflet.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/leaflet.markercluster/leaflet.markercluster.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js'); ?>"></script>
@@ -46,6 +62,7 @@
             <script src="<?php echo base_url('assets/plugins/progressbar/progressbar.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/dayjs/dayjs.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/js/flatpickr.js'); ?>"></script>
+
 
         </body>
     </html>

@@ -15,9 +15,15 @@
                     </script>
                     <nav class="navbar navbar-light navbar-vertical navbar-expand-xl" style="display: none;">
                         <script>
-                            var navbarStyle = localStorage.getItem("navbarStyle");
-                            if (navbarStyle && navbarStyle !== 'transparent') {
-                            document.querySelector('.navbar-vertical').classList.add(`navbar-${navbarStyle}`);
+                            var isFluid = JSON.parse(localStorage.getItem('isFluid'));
+                            if (isFluid) {
+                                var container = document.querySelector('[data-layout]');
+                                container.classList.remove('container');
+                                container.classList.add('container-fluid');
+                            }else{
+                                var container = document.querySelector('[data-layout]');
+                                container.classList.remove('container');
+                                container.classList.add('container-fluid');
                             }
                         </script>
                         <div class="d-flex align-items-center">
@@ -182,10 +188,10 @@
                                     <span class="toggle-line"></span>
                                 </span>
                             </button>
-                            <a class="navbar-brand me-1 me-sm-3" href="../index.html">
+                            <a class="navbar-brand me-1 me-sm-3" href="#">
                                 <div class="d-flex align-items-center">
-                                    <img class="me-2" src="../assets/img/icons/spot-illustrations/falcon.png" alt="" width="40" />
-                                    <span class="font-sans-serif">falcon</span>
+                                    <img class="me-2" src="<?php echo base_url('assets/img/icons/spot-illustrations/logo.png'); ?>" alt="" width="40" />
+                                    <span class="font-sans-serif">Tafuta Sasa</span>
                                 </div>
                             </a>
                             <ul class="navbar-nav align-items-center d-none d-lg-block">
@@ -194,7 +200,7 @@
                             </ul>
                             <ul class="navbar-nav navbar-nav-icons ms-auto flex-row align-items-center">
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link notification-indicator notification-indicator-primary px-0 fa-icon-wait" id="navbarDropdownNotification" href="design-file.html#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a class="nav-link notification-indicator notification-indicator-primary px-0 fa-icon-wait" id="navbarDropdownNotification" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <span class="fas fa-bell" data-fa-transform="shrink-6" style="font-size: 33px;"></span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-card dropdown-menu-notification" aria-labelledby="navbarDropdownNotification">
@@ -204,25 +210,35 @@
                                                     <div class="col-auto">
                                                         <h6 class="card-header-title mb-0">Notifications</h6>
                                                     </div>
+                                                    <div class="col-auto ps-0 ps-sm-3">
+                                                        <a class="card-link fw-normal" href="#">Mark all as read</a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="scrollbar-overlay">
+                                            <div class="scrollbar-overlay" style="max-height:10rem">
                                                 <div class="list-group list-group-flush fw-normal fs--1">
                                                     <div class="list-group-title border-bottom">NEW</div>
                                                     <div class="list-group-item">
                                                         <a class="border-bottom-0 notification-unread  notification notification-flush" href="#">
                                                             <div class="notification-avatar">
                                                                 <div class="avatar avatar-xl me-3">
-                                                                    <img class="rounded-circle" src="../assets/img/logos/oxford.png" alt="" />
+                                                                    <img class="rounded-circle" src="<?php echo base_url('assets/img/logos/oxford.png'); ?>" alt="" />
                                                                 </div>
                                                             </div>
                                                             <div class="notification-body">
-                                                                <p class="mb-1"><strong>University of Oxford</strong> created an event : "Causal Inference Hilary 2019"</p>
-                                                                <span class="notification-time"><span class="me-2" role="img" aria-label="Emoji">✌️</span>1w</span>
+                                                                <p class="mb-1">
+                                                                    <strong>University of Oxford</strong> created an event : "Causal Inference Hilary 2019"
+                                                                </p>
+                                                                <span class="notification-time">
+                                                                    <span class="me-2" role="img" aria-label="Emoji">✌️</span>1w
+                                                                </span>
                                                             </div>
                                                         </a>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div class="card-footer text-center border-top">
+                                                <a class="card-link d-block" href="#">View all</a>
                                             </div>
                                         </div>
                                     </div>
@@ -230,7 +246,7 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link pe-0" id="navbarDropdownUser" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <div class="avatar avatar-xl">
-                                            <img class="rounded-circle" src="../assets/img/team/3-thumb.png" alt="" />
+                                            <img class="rounded-circle" src="#" alt="" />
                                         </div>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end py-0" aria-labelledby="navbarDropdownUser">
@@ -249,22 +265,9 @@
                             var navbarVertical = document.querySelector('.navbar-vertical');
                             var navbarTopVertical = document.querySelector('.content .navbar-top');
                             var navbarTop = document.querySelector('[data-layout] .navbar-top');
-                            var navbarTopCombo = document.querySelector('.content [data-navbar-top="combo"]');
-                            if (navbarPosition === 'top') {
-                            navbarTop.removeAttribute('style');
-                            navbarTopVertical.remove(navbarTopVertical);
-                            navbarVertical.remove(navbarVertical);
-                            navbarTopCombo.remove(navbarTopCombo);
-                            } else if (navbarPosition === 'combo') {
-                            navbarVertical.removeAttribute('style');
-                            navbarTopCombo.removeAttribute('style');
-                            navbarTop.remove(navbarTop);
-                            navbarTopVertical.remove(navbarTopVertical);
-                            } else {
+
                             navbarVertical.removeAttribute('style');
                             navbarTopVertical.removeAttribute('style');
                             navbarTop.remove(navbarTop);
-                            navbarTopCombo.remove(navbarTopCombo);
-                            }
                         </script>
                         

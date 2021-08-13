@@ -2,88 +2,54 @@
     <div class="card-header bg-light d-flex justify-content-between">
         <h5 class="mb-0">Events</h5>
         <form>
-            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                <option selected="selected">Select Category</option>
-                <option>Health &amp; Wellness</option>
-                <option>Business &amp; Professional</option>
-                <option>Performing &amp; Visual Arts</option>
-                <option>Science &amp; Technology</option>
-                <option>Sports &amp; Fitness</option>
-                <option>Charity &amp; Causes</option>
-                <option>Film &amp; Media</option>
-                <option>Fashion &amp; Beauty</option>
-                <option>Travel &amp; Outdoor</option>
-                <option>Entertainment</option>
-                <option>Other</option>
+            <select class="form-select form-select-sm" id="event-topic" name="ans_subject">
+                <option value="subject_history" elected="selected">History</option>
+                <option value="subject_business">Business</option>
+                <option value="subject_computing">Computing</option>
+                <option value="subject_medicine">Medicine</option>
+                <option value="subject_philosophy">Philosophy</option>
+                <option value="subject_biology">Biology</option>
+                <option value="subject_chemistry">Chemistry</option>
+                <option value="subject_engineering">Engineering</option>
+                <option value="subject_physical">Physical Education</option>
             </select>
         </form>
     </div>
     <div class="card-body fs--1">
         <div class="row">
-            <div class="col-md-6 h-100">
-                <div class="d-flex btn-reveal-trigger">
-                    <div class="calendar"><span class="calendar-month">Mar</span><span class="calendar-day">26</span></div>
-                    <div class="flex-1 position-relative ps-3">
-                        <h6 class="fs-0 mb-0"><a href="<?php echo base_url('admin/questions/view'); ?>">Crain's New York Business <span class="badge badge-soft-success rounded-pill">Free</span></a></h6>
-                        <p class="mb-1">Organized by <a href="<?php echo base_url('admin/questions/view'); ?>" class="text-700">AID MIT</a></p>
-                        <p class="text-1000 mb-0">Time: 11:00AM</p>
-                        <p class="text-1000 mb-0">Duration: Feb 29 - Mar 2</p>
-                        The Liberty Warehouse, New Yourk
-                        <div class="border-dashed-bottom my-3"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 h-100">
-                <div class="d-flex btn-reveal-trigger">
-                    <div class="calendar"><span class="calendar-month">Feb</span><span class="calendar-day">29</span></div>
-                    <div class="flex-1 position-relative ps-3">
-                        <h6 class="fs-0 mb-0"><a href="<?php echo base_url('admin/questions/view'); ?>">Film Festival</a></h6>
-                        <p class="mb-1">Organized by <a href="<?php echo base_url('admin/questions/view'); ?>" class="text-700">American Nuclear Society</a></p>
-                        <p class="text-1000 mb-0">Time: 11:00AM</p>
-                        <p class="text-1000 mb-0">Duration: Feb 29 - Mar 2</p>
-                        Place: Workbar - Central Square, Cambridge
-                        <div class="border-dashed-bottom my-3"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 h-100">
-                <div class="d-flex btn-reveal-trigger">
-                    <div class="calendar"><span class="calendar-month">Feb</span><span class="calendar-day">21</span></div>
-                    <div class="flex-1 position-relative ps-3">
-                        <h6 class="fs-0 mb-0"><a href="<?php echo base_url('admin/questions/view'); ?>">Newmarket Nights</a></h6>
-                        <p class="mb-1">Organized by <a href="<?php echo base_url('admin/questions/view'); ?>" class="text-700">University of Oxford</a></p>
-                        <p class="text-1000 mb-0">Time: 6:00AM</p>
-                        <p class="text-1000 mb-0">Duration: 6:00AM - 5:00PM</p>
-                        Place: Cambridge Boat Club, Cambridge
-                        <div class="border-dashed-bottom my-3"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 h-100">
-                <div class="d-flex btn-reveal-trigger">
-                    <div class="calendar"><span class="calendar-month">Dec</span><span class="calendar-day">31</span></div>
-                    <div class="flex-1 position-relative ps-3">
-                        <h6 class="fs-0 mb-0"><a href="<?php echo base_url('admin/questions/view'); ?>">31st Night Celebration</a></h6>
-                        <p class="mb-1">Organized by <a href="<?php echo base_url('admin/questions/view'); ?>" class="text-700">Chamber Music Society</a></p>
-                        <p class="text-1000 mb-0">Time: 11:00PM</p>
-                        <p class="text-1000 mb-0">280 people interested</p>
-                        Place: Tavern on the Greend, New York
-                        <div class="border-dashed-bottom my-3"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 h-100">
-                <div class="d-flex btn-reveal-trigger">
-                    <div class="calendar"><span class="calendar-month">Dec</span><span class="calendar-day">16</span></div>
-                    <div class="flex-1 position-relative ps-3">
-                        <h6 class="fs-0 mb-0"><a href="<?php echo base_url('admin/questions/view'); ?>">Folk Festival</a></h6>
-                        <p class="mb-1">Organized by <a href="<?php echo base_url('admin/questions/view'); ?>" class="text-700">Harvard University</a></p>
-                        <p class="text-1000 mb-0">Time: 9:00AM</p>
-                        <p class="text-1000 mb-0">Location: Cambridge Masonic Hall Association</p>
-                        Place: Porter Square, North Cambridge
-                    </div>
-                </div>
-            </div>
+            <?php
+                foreach ($qn_list as $qn) {
+                    if ($this->mod_crypt->Dec_String($qn['Qn_Pay']) == 'pay_free' ) {
+                        $pays = '<span class="badge badge-soft-success rounded-pill">Free</span>';
+                    }else /*($this->mod_crypt->Dec_String($qn['Qn_Pay']) == 'pay_sale' ) */{
+                        $pays = '<span class="badge badge-soft-info rounded-pill">Pro</span>';
+                    }
+
+                    echo '
+                        <div class="col-md-6 h-100">
+                            <div class="border-dashed-bottom my-1"></div>
+                            <div class="d-flex btn-reveal-trigger">
+                                <div class="calendar">
+                                    <span class="calendar-month">'.date('M', $qn['Qn_Created']).'</span><span class="calendar-day">'.date('d', $qn['Qn_Created']).'
+                                    </span>
+                                </div>
+                                <div class="flex-1 position-relative ps-3">
+                                    <h6 class="fs-0 mb-0">
+                                        <a href="'.base_url('admin/questions/view').'">'.ucfirst($this->mod_crypt->Dec_String($qn["Qn_Name"])).'</a>
+                                    </h6>
+                                    Tags: '.$this->mod_crypt->Dec_String($qn["Qn_Tags"]).'
+                                    <br>
+                                    Level: '.$this->mod_crypt->Dec_String($qn["Qn_Level"]).'
+                                    <br>
+                                    Pay: '.$pays.'
+                                    <p class="text-1000 mb-0">Created: '.date('F d H:i A', $qn['Qn_Created']).'</p>
+                                </div>
+                            </div>
+                            <div class="border-dashed-bottom my-3"></div>
+                        </div>
+                    ';
+                }
+            ?>
         </div>
     </div>
 </div>

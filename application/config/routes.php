@@ -8,11 +8,12 @@ $route['admin/users'] = 'admin/users';
 $route['admin/users/view'] = 'admin/users';
 $route['admin/users/invite'] = 'admin/users_invite';
 
-$route['admin/questions'] = 'admin/questions';
-$route['admin/questions/add'] = 'admin/questions_add';
-$route['admin/questions/view'] = 'admin/questions_view';
-$route['admin/questions/edit'] = 'admin/edit';
-$route['admin/questions/delete'] = 'admin/delete';
+$route['admin/questions'] = 'questions/questions';
+$route['admin/questions/add'] = 'questions/questions_add';
+$route['admin/questions/view'] = 'questions/questions_view';
+$route['admin/questions/edit'] = 'questions/edit';
+$route['admin/questions/delete'] = 'questions/delete';
+$route['admin/questions/attach'] = 'questions/questions_add_attachment';
 
 $route['admin/messages'] = 'messages';
 $route['admin/messages/sent'] = 'messages/sent';
@@ -39,6 +40,7 @@ $route['auth/terms'] = 'auth/terms';
 $route['auth/conditions'] = 'auth/terms';
 $route['auth/privacy'] = 'auth/privacy';
 $route['auth/home'] = 'auth/home';
+$route['auth/logout'] = 'auth/logout';
 
 $route['home'] = 'pages/landing';
 $route['search'] = 'pages/search';

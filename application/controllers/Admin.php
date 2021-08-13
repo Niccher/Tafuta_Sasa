@@ -5,6 +5,11 @@ class Admin extends CI_Controller {
 
 	public function index($page = 'home'){
 
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Admin") {
+            redirect('auth/login');
+        }
+
 		$title['pg_name'] = 'home';
 
 		$this->load->view('admin/template/header');
@@ -14,6 +19,11 @@ class Admin extends CI_Controller {
 	}
 
 	public function calendar($page = 'calendar'){
+
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Admin") {
+            redirect('auth/login');
+        }
 
 		$title['pg_name'] = 'calendar';
 
@@ -25,6 +35,11 @@ class Admin extends CI_Controller {
 
 	public function chat($page = 'chats'){
 
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Admin") {
+            redirect('auth/login');
+        }
+
 		$title['pg_name'] = 'chat';
 
 		$this->load->view('admin/template/header');
@@ -34,6 +49,11 @@ class Admin extends CI_Controller {
 	}
 
 	public function mails($page = 'mailbox'){
+
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Admin") {
+            redirect('auth/login');
+        }
 
 		$title['pg_name'] = 'mails';
 
@@ -45,6 +65,11 @@ class Admin extends CI_Controller {
 
 	public function sales($page = 'sales'){
 
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Admin") {
+            redirect('auth/login');
+        }
+
 		$title['pg_name'] = 'sales';
 
 		$this->load->view('admin/template/header');
@@ -54,6 +79,11 @@ class Admin extends CI_Controller {
 	}
 
 	public function mail_read($page = 'mailread'){
+
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Admin") {
+            redirect('auth/login');
+        }
 
 		$title['pg_name'] = 'mails';
 
@@ -65,6 +95,11 @@ class Admin extends CI_Controller {
 
 	public function mail_compose($page = 'mailcompose'){
 
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Admin") {
+            redirect('auth/login');
+        }
+
 		$title['pg_name'] = 'mails';
 
 		$this->load->view('admin/template/header');
@@ -74,6 +109,11 @@ class Admin extends CI_Controller {
 	}
 
 	public function users($page = 'view'){
+
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Admin") {
+            redirect('auth/login');
+        }
 
 		$title['pg_name'] = 'users';
 
@@ -85,6 +125,11 @@ class Admin extends CI_Controller {
 
 	public function users_view($page = 'details'){
 
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Admin") {
+            redirect('auth/login');
+        }
+
 		$title['pg_name'] = 'users';
 
 		$this->load->view('admin/template/header');
@@ -95,6 +140,11 @@ class Admin extends CI_Controller {
 
 	public function users_invite($page = 'invite'){
 
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Admin") {
+            redirect('auth/login');
+        }
+
 		$title['pg_name'] = 'invite';
 
 		$this->load->view('admin/template/header');
@@ -103,33 +153,4 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/template/tail');
 	}
 
-	public function questions($page = 'listing'){
-
-		$title['pg_name'] = 'questions';
-
-		$this->load->view('admin/template/header');
-		$this->load->view('admin/template/sidebar', $title);
-		$this->load->view('admin/questions/'.$page);
-		$this->load->view('admin/template/tail');
-	}
-
-	public function questions_view($page = 'view'){
-
-		$title['pg_name'] = 'questions';
-
-		$this->load->view('admin/template/header');
-		$this->load->view('admin/template/sidebar', $title);
-		$this->load->view('admin/questions/'.$page);
-		$this->load->view('admin/template/tail');
-	}
-
-	public function questions_add($page = 'add'){
-
-		$title['pg_name'] = 'questions_add';
-
-		$this->load->view('admin/template/header');
-		$this->load->view('admin/template/sidebar', $title);
-		$this->load->view('admin/questions/'.$page);
-		$this->load->view('admin/template/tail');
-	}
 }

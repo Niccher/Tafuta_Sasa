@@ -29,12 +29,17 @@
                                             <p class="mb-0 mt-4 mt-md-5 fs--1 fw-semi-bold text-white opacity-75">Read our <a class="text-decoration-underline text-white" href="<?php echo base_url('auth/terms');?> ">terms</a> and <a class="text-decoration-underline text-white" href="<?php echo base_url('auth/conditions');?> ">conditions </a></p>
                                         </div>
                                     </div>
+
                                     <div class="col-md-7 d-flex flex-center">
                                         <div class="p-4 p-md-5 flex-grow-1">
                                             <div class="row flex-between-center">
                                                 <div class="col-auto">
                                                     <h3>Account Login</h3>
                                                 </div>
+
+                                                <?php
+                                                    echo $auth_error;
+                                                ?>
                                             </div>
                                             <?php echo validation_errors(); ?>
                                             <?php echo form_open('auth/login'); ?>
