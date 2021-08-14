@@ -12,6 +12,13 @@
             return $query->result_array();
         }
 
+        public function get_users_10(){
+            $this->db->where( 'Timestamp >',(time()-(24*3600)) );
+            $this->db->limit(10);
+            $query = $this->db->get('tbl_Users');
+            return $query->result_array();
+        }
+
         public function make_login($mail,$pwd){
             $this->db->where('Email', $mail);
             $this->db->where('Password', $pwd);
@@ -23,21 +30,6 @@
             }else{
                 return false;
             }
-        }
-
-        public function Enc_String( $value ) {
-            $cipher_algo = "AES-128-CTR"; 
-
-            $iv_length = openssl_cipher_iv_length($cipher_algo); 
-
-            $options = 0; 
-
-            $crypt_iv = '4564756651654555'; 
-
-            $crypt_key = "�s��0F&�C�!uA�o���)Q{Ԇ\~`�ݲ)���<�M";
-
-            $enc_val = openssl_encrypt($value, $cipher_algo, $crypt_key, $options, $crypt_iv); 
-            return base64_encode(($enc_val));
         }
 
         public function make_user($nw_name, $nw_eml, $nw_pwd){

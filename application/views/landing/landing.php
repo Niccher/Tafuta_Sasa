@@ -162,7 +162,7 @@
                                             </div>
                                             <!--end of col-->
                                             <div class="col">
-                                                <input class="form-control form-control-md form-control-borderless" type="search" placeholder="Search topics or keywords">
+                                                <input class="form-control form-control-md form-control-borderless" type="search" placeholder="Search topics or keywords" name="s_query">
                                             </div>
                                             <!--end of col-->
                                             <div class="col-auto">
@@ -184,7 +184,7 @@
                                 <span class="typed-text fw-bold" data-typed-text='[" answers to your questions","well explained concepts to your work","diversity to your class work","perfection and abundance to work"]'></span><br />to your ...
                             </h1>
                             <p class="lead text-white opacity-75">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod ...</p>
-                            <a class="btn btn-outline-light border-2 rounded-pill btn-lg mt-4 fs-0 py-2" href="<?php echo base_url('auth/register'); ?>)">Become a seller
+                            <a class="btn btn-outline-light border-2 rounded-pill btn-lg mt-4 fs-0 py-2" href="<?php echo base_url('auth/register'); ?>">Become a seller
                                 <span class="fas fa-play ms-2" data-fa-transform="shrink-6 down-1"></span>
                             </a>
                         </div>
@@ -207,7 +207,7 @@
                             <div class="card card-span h-100">
                                 <div class="card-span-img"><span class="fab fa-sass fs-4 text-info"></span></div>
                                 <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Bootstrap 5.x</h5>
+                                    <h5 class="mb-2">Quizlet</h5>
                                     <p>Build your webapp with the world's most popular front-end component library along with Falcon's 32 sets of carefully designed elements.</p>
                                 </div>
                             </div>
@@ -216,7 +216,7 @@
                             <div class="card card-span h-100">
                                 <div class="card-span-img"><span class="fab fa-node-js fs-5 text-success"></span></div>
                                 <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">SCSS &amp; Javascript files</h5>
+                                    <h5 class="mb-2">Question with Multiple Answers </h5>
                                     <p>With your purchased copy of Falcon, you will get all the uncompressed & documented SCSS and Javascript source code files.</p>
                                 </div>
                             </div>
@@ -225,7 +225,7 @@
                             <div class="card card-span h-100">
                                 <div class="card-span-img"><span class="fab fa-gulp fs-6 text-danger"></span></div>
                                 <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Gulp based workflow</h5>
+                                    <h5 class="mb-2">Research Questions</h5>
                                     <p>All the painful or time-consuming tasks in your development workflow such as compiling the SCSS or transpiring the JS are automated.</p>
                                 </div>
                             </div>
@@ -238,7 +238,7 @@
                             <div class="card card-span h-100">
                                 <div class="card-span-img"><span class="fab fa-sass fs-4 text-info"></span></div>
                                 <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Bootstrap 5.x</h5>
+                                    <h5 class="mb-2">Mathematical Questions</h5>
                                     <p>Build your webapp with the world's most popular front-end component library along with Falcon's 32 sets of carefully designed elements.</p>
                                 </div>
                             </div>
@@ -247,7 +247,7 @@
                             <div class="card card-span h-100">
                                 <div class="card-span-img"><span class="fab fa-node-js fs-5 text-success"></span></div>
                                 <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">SCSS &amp; Javascript files</h5>
+                                    <h5 class="mb-2">Probability and Statistics</h5>
                                     <p>With your purchased copy of Falcon, you will get all the uncompressed & documented SCSS and Javascript source code files.</p>
                                 </div>
                             </div>
@@ -256,7 +256,7 @@
                             <div class="card card-span h-100">
                                 <div class="card-span-img"><span class="fab fa-gulp fs-6 text-danger"></span></div>
                                 <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Gulp based workflow</h5>
+                                    <h5 class="mb-2">Graphical Questions</h5>
                                     <p>All the painful or time-consuming tasks in your development workflow such as compiling the SCSS or transpiring the JS are automated.</p>
                                 </div>
                             </div>

@@ -22,7 +22,7 @@
                         </ul>
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownLogin" href="landing.html#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownLogin" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-card" aria-labelledby="navbarDropdownLogin">
                                     <div class="card shadow-none navbar-card-login">
                                         <div class="card-body fs--1 p-4 fw-normal">
@@ -31,17 +31,27 @@
                                                     <h5 class="mb-0">Log in</h5>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <p class="fs--1 text-600 mb-0">or <a href="authentication/simple/register.html">Create an account</a></p>
+                                                    <p class="fs--1 text-600 mb-0">or <a href="<?php echo base_url('auth/register'); ?>">Create an account</a></p>
                                                 </div>
                                             </div>
-                                            <form>
-                                                <div class="mb-3"><input class="form-control" type="email" placeholder="Email address" /></div>
-                                                <div class="mb-3"><input class="form-control" type="password" placeholder="Password" /></div>
+                                            <?php echo validation_errors(); ?>
+                                            <?php echo form_open('auth/login'); ?>
+                                                <div class="mb-3">
+                                                    <input class="form-control" type="email" placeholder="Email address" name="lg_email" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <input class="form-control" type="password" placeholder="Password" name="lg_password" />
+                                                </div>
                                                 <div class="row flex-between-center">
                                                     <div class="col-auto">
-                                                        <div class="form-check mb-0"><input class="form-check-input" type="checkbox" id="modal-checkbox" /><label class="form-check-label" for="modal-checkbox">Remember me</label></div>
+                                                        <div class="form-check mb-0">
+                                                            <input class="form-check-input" type="checkbox" id="modal-checkbox" />
+                                                            <label class="form-check-label" for="modal-checkbox">Remember me</label>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-auto"><a class="fs--1" href="authentication/simple/forgot-password.html">Forgot Password?</a></div>
+                                                    <div class="col-auto">
+                                                        <a class="fs--1" href="<?php echo base_url('auth/forgot'); ?>">Forgot Password?</a>
+                                                    </div>
                                                 </div>
                                                 <div class="mb-3"><button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">Log in</button></div>
                                             </form>
@@ -50,14 +60,22 @@
                                                 <div class="divider-content-center">or log in with</div>
                                             </div>
                                             <div class="row g-2 mt-2">
-                                                <div class="col-sm-6"><a class="btn btn-outline-google-plus btn-sm d-block w-100" href="landing.html#"><span class="fab fa-google-plus-g me-2" data-fa-transform="grow-8"></span> google</a></div>
-                                                <div class="col-sm-6"><a class="btn btn-outline-facebook btn-sm d-block w-100" href="landing.html#"><span class="fab fa-facebook-square me-2" data-fa-transform="grow-8"></span> facebook</a></div>
+                                                <div class="col-sm-6">
+                                                    <a class="btn btn-outline-google-plus btn-sm d-block w-100" href="<?php echo base_url('auth/google'); ?>">
+                                                        <span class="fab fa-google-plus-g me-2" data-fa-transform="grow-8"></span> Google
+                                                    </a>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <a class="btn btn-outline-facebook btn-sm d-block w-100" href="<?php echo base_url('auth/facebook'); ?>">
+                                                        <span class="fab fa-facebook-square me-2" data-fa-transform="grow-8"></span> Facebook
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                            <li class="nav-item"><a class="nav-link" href="landing.html#!" data-bs-toggle="modal" data-bs-target="#exampleModal">Register</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Register</a></li>
                         </ul>
                     </div>
                 </div>
@@ -72,29 +90,31 @@
                                 </div>
                                 <div class="col-auto">
                                     <p class="fs--1 text-600 mb-0">Have an account? 
-                                        <a href="authentication/simple/login.html">Login</a>
+                                        <a href="<?php echo base_url('auth/login'); ?>">Login</a>
                                     </p>
                                 </div>
                             </div>
-                            <form>
+                            <?php 
+                            echo validation_errors();
+                            echo form_open('auth/register'); ?>
                                 <div class="mb-3">
-                                    <input class="form-control" type="text" autocomplete="on" placeholder="Name" />
+                                    <input class="form-control" type="text" autocomplete="on" placeholder="Name" name="rg_name" />
                                 </div>
                                 <div class="mb-3">
-                                    <input class="form-control" type="email" autocomplete="on" placeholder="Email address" /></div>
+                                    <input class="form-control" type="email" autocomplete="on" placeholder="Email address" name="rg_email" /></div>
                                 <div class="row gx-2">
                                     <div class="mb-3 col-sm-6">
-                                        <input class="form-control" type="password" autocomplete="on" placeholder="Password" />
+                                        <input class="form-control" type="password" autocomplete="on" placeholder="Password"  name="rg_password"/>
                                     </div>
                                     <div class="mb-3 col-sm-6">
-                                        <input class="form-control" type="password" autocomplete="on" placeholder="Confirm Password" />
+                                        <input class="form-control" type="password" autocomplete="on" placeholder="Confirm Password" name="rg_password1" />
                                     </div>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="modal-register-checkbox" />
                                     <label class="form-label" for="modal-register-checkbox">I accept the 
-                                        <a href="landing.html#!">terms </a>and 
-                                        <a href="landing.html#!">privacy policy</a>
+                                        <a href="<?php echo base_url('auth/terms'); ?>">terms </a>and 
+                                        <a href="<?php echo base_url('auth/privacy'); ?>">privacy policy</a>
                                     </label>
                                 </div>
                                 <div class="mb-3">
@@ -106,8 +126,16 @@
                                 <div class="divider-content-center">or register with</div>
                             </div>
                             <div class="row g-2 mt-2">
-                                <div class="col-sm-6"><a class="btn btn-outline-google-plus btn-sm d-block w-100" href="landing.html#"><span class="fab fa-google-plus-g me-2" data-fa-transform="grow-8"></span> google</a></div>
-                                <div class="col-sm-6"><a class="btn btn-outline-facebook btn-sm d-block w-100" href="landing.html#"><span class="fab fa-facebook-square me-2" data-fa-transform="grow-8"></span> facebook</a></div>
+                                <div class="col-sm-6">
+                                    <a class="btn btn-outline-google-plus btn-sm d-block w-100" href="<?php echo base_url('auth/google'); ?>">
+                                        <span class="fab fa-google-plus-g me-2" data-fa-transform="grow-8"></span> Google
+                                    </a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a class="btn btn-outline-facebook btn-sm d-block w-100" href="<?php echo base_url('auth/facebook'); ?>">
+                                        <span class="fab fa-facebook-square me-2" data-fa-transform="grow-8"></span> Facebook
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -131,7 +159,7 @@
                                             </div>
                                             <!--end of col-->
                                             <div class="col">
-                                                <input class="form-control form-control-md form-control-borderless" type="search" placeholder="Search topics or keywords">
+                                                <input class="form-control form-control-md form-control-borderless" type="search" placeholder="Search topics or keywords" name="s_query">
                                             </div>
                                             <!--end of col-->
                                             <div class="col-auto">

@@ -1,12 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$route['admin'] = 'admin';
 $route['admin/home'] = 'admin';
 $route['admin/dashboard'] = 'admin';
 
 $route['admin/users'] = 'admin/users';
 $route['admin/users/view'] = 'admin/users';
-$route['admin/users/invite'] = 'admin/users_invite';
+$route['admin/users/view'] = 'admin/users';
+$route['admin/users/details/(:any)'] = 'admin/users_view';
 
 $route['admin/questions'] = 'questions/questions';
 $route['admin/questions/add'] = 'questions/questions_add';
@@ -29,7 +31,6 @@ $route['admin/mail/create'] = 'admin/mail_compose';
 $route['admin/sales'] = 'admin/sales';
 $route['admin/analytics'] = 'admin/analytics';
 
-$route['admin'] = 'admin';
 
 $route['auth/login'] = 'auth/login';
 $route['auth/register'] = 'auth/register';
@@ -61,8 +62,6 @@ $route['client/invoice'] = 'client/invoice';
 $route['client/account/invoice'] = 'client/invoice';
 $route['client/questions/view'] = 'client/questions_view';
 $route['client/chats'] = 'client/chats';
-
-
 
 $route['default_controller'] = 'pages/landing';
 $route['404_override'] = '';

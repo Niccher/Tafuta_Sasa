@@ -14,324 +14,263 @@
     </div>
 </div>
 <div class="row mb-3 g-3">
-    <div class="col-lg-12 col-xxl-9">
-        <div class="card mb-3">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-lg-4 border-lg-end border-bottom border-lg-0 pb-3 pb-lg-0">
-                        <div class="d-flex flex-between-center mb-3">
-                            <div class="d-flex align-items-center">
-                                <div class="icon-item icon-item-sm bg-soft-primary shadow-none me-2 bg-soft-primary"><span class="fs--2 fas fa-phone text-primary"></span></div>
-                                <h6 class="mb-0">New Contact</h6>
-                            </div>
-                        </div>
-                        <div class="d-flex">
-                            <div class="d-flex">
-                                <p class="font-sans-serif lh-1 mb-1 fs-4 pe-2">15%</p>
-                                <div class="d-flex flex-column">
-                                    <span class="me-1 text-success fas fa-caret-up text-primary"></span>
-                                    <p class="fs--2 mb-0 text-nowrap">2500 vs 2683 </p>
+
+    <div class="col-12">
+        <div class="card bg-transparent-50 overflow-hidden">
+            <div class="card-header position-relative">
+                <div class="bg-holder d-none d-md-block bg-card z-index-1" style="background-image:url(../assets/img/illustrations/ecommerce-bg.png);background-size:230px;background-position:right bottom;z-index:-1;"></div>
+                <!--/.bg-holder-->
+                <div class="position-relative z-index-2">
+                    <div>
+                        <h3 class="text-primary mb-1">Welcome back, <?php echo $this->mod_crypt->Dec_String($this->session->userdata('log_name')); ?>!</h3>
+                        <p>Here’s what happening with your web platform today </p>
+                    </div>
+
+                    <?php
+                        foreach ($list_answers_all as $answer) {
+                            $pro = 0; $free = 0;
+                            //pay_free ,pay_sale
+                            if ($answer['Qn_Pay'] == $this->mod_crypt->Enc_String('pay_free')) {
+                                $free .= 1;
+                            }else{
+                                $pro .= 1;
+                            }
+                        }
+                    ?>
+
+                    <div class="card-body py-3">
+                        <div class="row g-0">
+                            <div class="col-6 col-md-4 border-200 border-bottom border-end pb-4">
+                                <h6 class="pb-1 text-700">All users </h6>
+                                <p class="font-sans-serif lh-1 mb-1 fs-2"><?php echo count($list_users_all ); ?> </p>
+                                <div class="d-flex align-items-center">
+                                    <h6 class="fs--1 text-500 mb-0">Admin Users not included </h6>
                                 </div>
                             </div>
-                            <div class="echart-crm-statistics w-100 ms-2" data-echart-responsive="true" data-echarts='{"series":[{"type":"line","data":[220,230,150,175,200,170,70,160],"color":"#2c7be5","areaStyle":{"color":{"colorStops":[{"offset":0,"color":"#2c7be53A"},{"offset":1,"color":"#2c7be50A"}]}}}],"grid":{"bottom":"-10px"}}'></div>
+                            <div class="col-6 col-md-4 border-200 border-md-200 border-bottom border-md-end pb-4 ps-3">
+                                <h6 class="pb-1 text-700">All Answers </h6>
+                                <p class="font-sans-serif lh-1 mb-1 fs-2"><?php echo count($list_answers_all ); ?> </p>
+                                <div class="d-flex align-items-center">
+                                    <h6 class="fs--1 text-500 mb-0">Includes Pro and Free answers </h6>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 border-200 border-bottom border-end border-md-end-0 pb-4 pt-4 pt-md-0 ps-md-3">
+                                <h6 class="pb-1 text-700">Free Answers </h6>
+                                <p class="font-sans-serif lh-1 mb-1 fs-2"><?php echo ($free ); ?></p>
+                                <div class="d-flex align-items-center">
+                                    <h6 class="fs--1 text-500 mb-0">Only Free answers </h6>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 border-200 border-md-200 border-bottom border-md-bottom-0 border-md-end pt-4 pb-md-0 ps-3 ps-md-0">
+                                <h6 class="pb-1 text-700">Pro Answers</h6>
+                                <p class="font-sans-serif lh-1 mb-1 fs-2"><?php echo ($pro ); ?> </p>
+                                <div class="d-flex align-items-center">
+                                    <h6 class="fs--1 text-500 mb-0">Answer available for sale </h6>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 border-200 border-md-bottom-0 border-end pt-4 pb-md-0 ps-md-3">
+                                <h6 class="pb-1 text-700">All Sales </h6>
+                                <p class="font-sans-serif lh-1 mb-1 fs-2">$365.53 </p>
+                                <div class="d-flex align-items-center">
+                                    <h6 class="fs--1 text-500 mb-0">13,675 </h6>
+                                    <h6 class="fs--2 ps-3 mb-0 text-success">
+                                        <span class="me-1 fas fa-caret-up"></span>21.8%
+                                    </h6>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-4 pb-0 pt-4 ps-3">
+                                <h6 class="pb-1 text-700">Profits </h6>
+                                <p class="font-sans-serif lh-1 mb-1 fs-2">861 </p>
+                                <div class="d-flex align-items-center">
+                                    <h6 class="fs--1 text-500 mb-0">13,675 </h6>
+                                    <h6 class="fs--2 ps-3 mb-0 text-info">
+                                        <span class="me-1 fas fa-caret-up"></span>21.8%
+                                    </h6>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 border-lg-end border-bottom border-lg-0 py-3 py-lg-0">
-                        <div class="d-flex flex-between-center mb-3">
-                            <div class="d-flex align-items-center">
-                                <div class="icon-item icon-item-sm bg-soft-primary shadow-none me-2 bg-soft-info"><span class="fs--2 fas fa-user text-info"></span></div>
-                                <h6 class="mb-0">New Users</h6>
-                            </div>
+
+                    <div class="d-flex py-3">
+                        <div class="pe-3">
+                            <p class="text-600 fs--1 fw-medium">Today's visit </p>
+                            <h4 class="text-800 mb-0">14,209</h4>
                         </div>
-                        <div class="d-flex">
-                            <div class="d-flex">
-                                <p class="font-sans-serif lh-1 mb-1 fs-4 pe-2">13%</p>
-                                <div class="d-flex flex-column">
-                                    <span class="me-1 text-success fas fa-caret-up text-success"></span>
-                                    <p class="fs--2 mb-0 text-nowrap">1635 vs 863 </p>
-                                </div>
-                            </div>
-                            <div class="echart-crm-statistics w-100 ms-2" data-echart-responsive="true" data-echarts='{"series":[{"type":"line","data":[90,160,150,120,230,155,220,240],"color":"#27bcfd","areaStyle":{"color":{"colorStops":[{"offset":0,"color":"#27bcfd3A"},{"offset":1,"color":"#27bcfd0A"}]}}}],"grid":{"bottom":"-10px"}}'></div>
+                        <div class="ps-3">
+                            <p class="text-600 fs--1">Today’s total sales </p>
+                            <h4 class="text-800 mb-0">$21,349.29 </h4>
                         </div>
-                    </div>
-                    <div class="col-lg-4 pt-3 pt-lg-0">
-                        <div class="d-flex flex-between-center mb-3">
-                            <div class="d-flex align-items-center">
-                                <div class="icon-item icon-item-sm bg-soft-primary shadow-none me-2 bg-soft-success"><span class="fs--2 fas fa-bolt text-success"></span></div>
-                                <h6 class="mb-0">New Leads</h6>
-                            </div>
+                        <div class="ps-3">
+                            <p class="text-600 fs--1">Today’s viewed answers </p>
+                            <h4 class="text-800 mb-0">$21,349.29 </h4>
                         </div>
-                        <div class="d-flex">
-                            <div class="d-flex">
-                                <p class="font-sans-serif lh-1 mb-1 fs-4 pe-2">16%</p>
-                                <div class="d-flex flex-column">
-                                    <span class="me-1 text-success fas fa-caret-down text-danger"></span>
-                                    <p class="fs--2 mb-0 text-nowrap">1423 vs 256 </p>
-                                </div>
-                            </div>
-                            <div class="echart-crm-statistics w-100 ms-2" data-echart-responsive="true" data-echarts='{"series":[{"type":"line","data":[200,150,175,130,150,115,130,100],"color":"#00d27a","areaStyle":{"color":{"colorStops":[{"offset":0,"color":"#00d27a3A"},{"offset":1,"color":"#00d27a0A"}]}}}],"grid":{"bottom":"-10px"}}'></div>
+                        <div class="ps-3">
+                            <p class="text-600 fs--1">Today’s searched answers </p>
+                            <h4 class="text-800 mb-0"><?php echo count($list_searches ); ?> </h4>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="card">
-            <div class="card-header d-flex flex-between-center ps-0 py-0 border-bottom">
-                <ul class="nav nav-tabs border-0 flex-nowrap tab-active-caret" id="crm-revenue-chart-tab" role="tablist" data-tab-has-echarts="data-tab-has-echarts">
-                    <li class="nav-item" role="presentation"><a class="nav-link py-3 mb-0 active" id="crm-revenue-tab" data-bs-toggle="tab" href="crm.html#crm-revenue" role="tab" aria-controls="crm-revenue" aria-selected="true">Revenue</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link py-3 mb-0" id="crm-users-tab" data-bs-toggle="tab" href="crm.html#crm-users" role="tab" aria-controls="crm-users" aria-selected="false">Users</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link py-3 mb-0" id="crm-deals-tab" data-bs-toggle="tab" href="crm.html#crm-deals" role="tab" aria-controls="crm-deals" aria-selected="false">Deals</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link py-3 mb-0" id="crm-profit-tab" data-bs-toggle="tab" href="crm.html#crm-profit" role="tab" aria-controls="crm-profit" aria-selected="false">Profit</a></li>
+            <div class="card-body p-0">
+                <ul class="mb-0 list-unstyled">
+                    <li class="alert mb-0 rounded-0 py-3 px-card alert-warning border-x-0 border-top-0">
+                        <div class="row flex-between-center">
+                            <div class="col">
+                                <div class="d-flex">
+                                    <div class="fas fa-circle mt-1 fs--2"></div>
+                                    <p class="fs--1 ps-2 mb-0"><strong>5 Answers</strong> didn’t publish to your</p>
+                                </div>
+                            </div>
+                            <div class="col-auto d-flex align-items-center">
+                                <a class="alert-link fs--1 fw-medium" href="#">
+                                    View products
+                                    <i class="fas fa-chevron-right ms-1 fs--2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="alert mb-0 rounded-0 py-3 px-card greetings-item border-top border-x-0 border-top-0">
+                        <div class="row flex-between-center">
+                            <div class="col">
+                                <div class="d-flex">
+                                    <div class="fas fa-circle mt-1 fs--2 text-primary"></div>
+                                    <p class="fs--1 ps-2 mb-0"><strong>7 orders</strong> have payments that need to be captured</p>
+                                </div>
+                            </div>
+                            <div class="col-auto d-flex align-items-center">
+                                <a class="alert-link fs--1 fw-medium" href="#">
+                                    View payments
+                                    <i class="fas fa-chevron-right ms-1 fs--2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="alert mb-0 rounded-0 py-3 px-card greetings-item border-top  border-0">
+                        <div class="row flex-between-center">
+                            <div class="col">
+                                <div class="d-flex">
+                                    <div class="fas fa-circle mt-1 fs--2 text-primary"></div>
+                                    <p class="fs--1 ps-2 mb-0"><strong>50+ orders</strong> need to be fulfilled</p>
+                                </div>
+                            </div>
+                            <div class="col-auto d-flex align-items-center">
+                                <a class="alert-link fs--1 fw-medium" href="#">
+                                    View orders
+                                    <i class="fas fa-chevron-right ms-1 fs--2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
-            </div>
-            <div class="card-body">
-                <div class="row g-1">
-                    <div class="col-xxl-3">
-                        <div class="row g-0 my-2">
-                            <div class="col-md-6 col-xxl-12">
-                                <div class="border-xxl-bottom border-xxl-200 mb-2">
-                                    <h2 class="text-primary">$37,950</h2>
-                                    <p class="fs--2 text-500 fw-semi-bold mb-0"><span class="fas fa-circle text-primary me-2"></span>Closed Amount</p>
-                                    <p class="fs--2 text-500 fw-semi-bold"><span class="fas fa-circle text-warning me-2"></span>Revenue Goal</p>
-                                </div>
-                                <div class="form-check form-check-inline me-2"><input class="form-check-input" id="crmInbound" type="radio" name="bound" value="inbound" Checked="Checked" /><label class="form-check-label" for="crmInbound">Inbound</label></div>
-                                <div class="form-check form-check-inline"><input class="form-check-input" id="outbound" type="radio" name="bound" value="outbound" /><label class="form-check-label" for="outbound">Outbound</label></div>
-                            </div>
-                            <div class="col-md-6 col-xxl-12 py-2">
-                                <div class="row mx-0">
-                                    <div class="col-6 border-end border-bottom py-3">
-                                        <h5 class="fw-normal text-600">$4.2k</h5>
-                                        <h6 class="text-500 mb-0">Email</h6>
-                                    </div>
-                                    <div class="col-6 border-bottom py-3">
-                                        <h5 class="fw-normal text-600">$5.6k</h5>
-                                        <h6 class="text-500 mb-0">Social</h6>
-                                    </div>
-                                    <div class="col-6 border-end py-3">
-                                        <h5 class="fw-normal text-600">$6.7k</h5>
-                                        <h6 class="text-500 mb-0">Call</h6>
-                                    </div>
-                                    <div class="col-6 py-3">
-                                        <h5 class="fw-normal text-600">$2.3k</h5>
-                                        <h6 class="text-500 mb-0">Other</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-9">
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="crm-revenue" role="tabpanel" aria-labelledby="crm-revenue-tab">
-                                <div class="echart-crm-revenue" data-echart-responsive="true" data-echart-tab="data-echart-tab" style="height:320px;"></div>
-                            </div>
-                            <div class="tab-pane" id="crm-users" role="tabpanel" aria-labelledby="crm-users-tab">
-                                <div class="echart-crm-users" data-echart-responsive="true" data-echart-tab="data-echart-tab" style="height:320px;"></div>
-                            </div>
-                            <div class="tab-pane" id="crm-deals" role="tabpanel" aria-labelledby="crm-deals-tab">
-                                <div class="echart-crm-deals" data-echart-responsive="true" data-echart-tab="data-echart-tab" style="height:320px;"></div>
-                            </div>
-                            <div class="tab-pane" id="crm-profit" role="tabpanel" aria-labelledby="crm-profit-tab">
-                                <div class="echart-crm-profit" data-echart-responsive="true" data-echart-tab="data-echart-tab" style="height:320px;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
+
     <div class="col-xxl-3">
         <div class="card">
             <div class="card-header d-flex flex-between-center py-2 border-bottom">
-                <h6 class="mb-0">Most Leads</h6>
+                <h6 class="mb-0">Most recent actions</h6>
             </div>
             <div class="card-body d-flex flex-column justify-content-between">
                 <div class="row align-items-center">
-                    <div class="col-md-5 col-xxl-12 mb-xxl-1">
-                        <div class="position-relative">
-                            <div class="echart-most-leads my-2" data-echart-responsive="true"></div>
-                            <div class="position-absolute top-50 start-50 translate-middle text-center">
-                                <p class="fs--1 mb-0 text-400 font-sans-serif fw-medium">Total</p>
-                                <p class="fs-3 mb-0 font-sans-serif fw-medium mt-n2">15.6k</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xxl-12 col-md-7">
-                        <hr class="mx-ncard mb-0 d-md-none d-xxl-block" />
-                        <div class="d-flex flex-between-center border-bottom py-3 pt-md-0 pt-xxl-3">
-                            <div class="d-flex">
-                                <img class="me-2" src="<?php echo base_url('assets/img/crm/email.svg');?>" width="16" height="16" alt="..." />
-                                <h6 class="text-700 mb-0">Email </h6>
-                            </div>
-                            <p class="fs--1 text-500 mb-0 fw-semi-bold">5200 vs 1052</p>
-                            <h6 class="text-700 mb-0">12%</h6>
-                        </div>
-                        <div class="d-flex flex-between-center border-bottom py-3">
-                            <div class="d-flex">
-                                <img class="me-2" src="<?php echo base_url('assets/img/crm/social.svg');?>" width="16" height="16" alt="..." />
-                                <h6 class="text-700 mb-0">Social </h6>
-                            </div>
-                            <p class="fs--1 text-500 mb-0 fw-semi-bold">5623 vs 4929</p>
-                            <h6 class="text-700 mb-0">25%</h6>
-                        </div>
-                        <div class="d-flex flex-between-center border-bottom py-3">
-                            <div class="d-flex">
-                                <img class="me-2" src="<?php echo base_url('assets/img/crm/call.svg');?>" width="16" height="16" alt="..." />
-                                <h6 class="text-700 mb-0">Call </h6>
-                            </div>
-                            <p class="fs--1 text-500 mb-0 fw-semi-bold">2535 vs 1486</p>
-                            <h6 class="text-700 mb-0">63%</h6>
-                        </div>
-                        <div class="d-flex flex-between-center border-bottom py-3 border-bottom-0 pb-0">
-                            <div class="d-flex">
-                                <img class="me-2" src="<?php echo base_url('assets/img/crm/other.svg');?>" width="16" height="16" alt="..." />
-                                <h6 class="text-700 mb-0">Other </h6>
-                            </div>
-                            <p class="fs--1 text-500 mb-0 fw-semi-bold">256 vs 189</p>
-                            <h6 class="text-700 mb-0">53%</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    <div class="col-md-12 col-xxl-12 mb-xxl-1">
+                        <ul class="nav nav-pills" id="pill-myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pill-home-tab" data-bs-toggle="tab" href="#tab_last_10_purchases" role="tab" aria-controls="tab_last_10_purchases" aria-selected="true">Last 10 answers purchased</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pill-profile-tab" data-bs-toggle="tab" href="#tab_last_10_viewed" role="tab" aria-controls="tab_last_10_viewed" aria-selected="false">Last 10 Viewed Questions</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pill-contact-tab" data-bs-toggle="tab" href="#tab_last_10_searches" role="tab" aria-controls="tab_last_10_searches" aria-selected="false">Last 10 searches</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pill-contact-tab" data-bs-toggle="tab" href="#tab_last_10_new_users" role="tab" aria-controls="tab_last_10_new_users" aria-selected="false">New Signed in Users</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content border p-3 mt-3" id="pill-myTabContent">
+                            <div class="tab-pane fade show active" id="tab_last_10_purchases" role="tabpanel" aria-labelledby="home-tab">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone.</div>
+                            <div class="tab-pane fade" id="tab_last_10_viewed" role="tabpanel" aria-labelledby="profile-tab">Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic. </div>
+                            <div class="tab-pane fade" id="tab_last_10_searches" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="table-responsive scrollbar">
+            <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
+                <thead class="bg-200 text-900">
+                    <tr>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="order">Source</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap pe-7" data-sort="date">Created</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="address" style="min-width: 12.5rem;">Question</th>
+                    </tr>
+                </thead>
+                <tbody class="list" id="table-orders-body">
+                    <?php
+                        foreach ($list_searches as $searches) {
+                            echo '
+                            <tr class="btn-reveal-trigger">
+                                <td class="order py-2 align-middle white-space-nowrap">
+                                    <strong>'.($searches["Search_Ip"]).'</strong><br />
+                                </td>
+                                <td class="date py-2 align-middle">'.date("F d Y H:i A", $searches["Search_Time"]).'</td>
+                                <td class="address py-2 align-middle white-space-nowrap">
+                                    '.$this->mod_crypt->Dec_String($searches["Search_Query"]).'
+                                </td>
+                            </tr>
+                            ';
+                        }
+                    ?>
+                </tbody>
+            </table>
         </div>
-    </div>
-    <div class="col-xxl-6">
-        <div class="card h-100">
-            <div class="card-header d-flex flex-between-center py-2">
-                <h6 class="mb-0">Deal Closed vs Goal</h6>
-            </div>
-            <div class="card-body">
-                <div class="echart-closed-vs-goal" data-echart-responsive="true"></div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row mb-3 g-3">
-    <div class="col-lg-7">
-        <div class="card" id="CrmLocationBySessionTable" data-list='{"valueNames":["country","sessions","users"],"page":3,"pagination":true}'>
-            <div class="card-header d-flex flex-between-center bg-light py-2">
-                <h6 class="mb-0">Location By Session</h6>
-            </div>
-            <div class="card-body pb-0 position-relative">
-                <div class="echart-location-by-session-map" data-echart-responsive="true" style="height:302px;"></div>
-                <div class="position-absolute top-0 border mt-3 border-200 rounded-3 bg-light">
-                    <button class="btn btn-link btn-sm bg-100 rounded-bottom-0 px-2 location-by-session-map-zoom text-700" type="button"><span class="fas fa-plus fs--1"></span></button>
-                    <hr class="bg-200 m-0" />
-                    <button class="btn btn-link btn-sm bg-100 rounded-top-0 px-2 location-by-session-map-zoomOut text-700" type="button"><span class="fas fa-minus fs--1"></span></button>
-                </div>
-                <div class="table-responsive scrollbar mx-ncard mt-3">
-                    <table class="table fs--1 mb-0">
-                        <thead class="bg-200 text-800">
-                            <tr>
-                                <th class="sort" data-sort="country">Country</th>
-                                <th class="sort" data-sort="sessions">Sessions</th>
-                                <th class="sort" data-sort="users">Users</th>
-                                <th class="sort text-end" style="width: 9.625rem;">Percentage</th>
-                            </tr>
-                        </thead>
-                        <tbody class="list" id="table-crm-location-session">
-                            <tr>
-                                <td class="align-middle py-3">
-                                    <a href="crm.html#!">
-                                        <div class="d-flex align-items-center">
-                                            <img src="<?php echo base_url('assets/img/crm/india.png');?>" alt="" />
-                                            <p class="mb-0 ps-3 country text-700">India</p>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td class="align-middle fw-semi-bold sessions">268,663</td>
-                                <td class="users align-middle">325,633</td>
-                                <td class="align-middle pe-card">
-                                    <div class="d-flex align-items-center justify-content-end">
-                                        <p class="mb-0 me-2">89%</p>
-                                        <div class="progress rounded-3 bg-200" style="height: 0.3125rem;width:3.8rem">
-                                            <div class="progress-bar bg-primary rounded-pill" role="progressbar" style="width: 89%;" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="align-middle py-3">
-                                    <a href="crm.html#!">
-                                        <div class="d-flex align-items-center">
-                                            <img src="<?php echo base_url('assets/img/crm/uae.png');?>" alt="" />
-                                            <p class="mb-0 ps-3 country text-700">UAE</p>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td class="align-middle fw-semi-bold sessions">250,663</td>
-                                <td class="users align-middle">525,633</td>
-                                <td class="align-middle pe-card">
-                                    <div class="d-flex align-items-center justify-content-end">
-                                        <p class="mb-0 me-2">62%</p>
-                                        <div class="progress rounded-3 bg-200" style="height: 0.3125rem;width:3.8rem">
-                                            <div class="progress-bar bg-primary rounded-pill" role="progressbar" style="width: 62%;" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="align-middle py-3">
-                                    <a href="crm.html#!">
-                                        <div class="d-flex align-items-center">
-                                            <img src="<?php echo base_url('assets/img/crm/nepal.png');?>" alt="" />
-                                            <p class="mb-0 ps-3 country text-700">Nepal</p>
-                                        </div>
-                                    </a>
-                                </td>
-                                <td class="align-middle fw-semi-bold sessions">268,663</td>
-                                <td class="users align-middle">325,633</td>
-                                <td class="align-middle pe-card">
-                                    <div class="d-flex align-items-center justify-content-end">
-                                        <p class="mb-0 me-2">50%</p>
-                                        <div class="progress rounded-3 bg-200" style="height: 0.3125rem;width:3.8rem">
-                                            <div class="progress-bar bg-primary rounded-pill" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="card-footer text-end p-0">
-                <div class="pagination d-none"></div>
-                <p class="mb-0 fs--1 px-card"><span class="d-none d-sm-inline-block me-2" data-list-info="data-list-info"> </span><span class="d-none d-sm-inline-block me-2">&mdash;  </span><a class="btn btn-link btn-sm py-2 px-0" href="crm.html#!">View all<span class="fas fa-angle-right ms-1"></span></a></p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-5">
-        <div class="row g-3">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h6 class="mb-0">Average Call Duration<span class="ms-1 text-400" data-bs-toggle="tooltip" data-bs-placement="top" title="Average call duration based of last 50 calls"><span class="far fa-question-circle" data-fa-transform="shrink-1"></span></span></h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="row g-3">
-                            <div class="col">
-                                <h4 class="text-primary fw-normal">10m:8s</h4>
-                                <p class="fs--2 fw-semi-bold text-500 mb-0">Based on 50 calls</p>
                             </div>
-                            <div class="col-auto pe-0 text-end">
-                                <div class="echart-call-duration" data-echart-responsive="true" data-echarts='{"series":[{"type":"line","data":[8,15,12,14,18,12,12,25,13,12,10,13,35],"color":"#f5803e","areaStyle":{"color":{"colorStops":[{"offset":0,"color":"#f5803e3A"},{"offset":1,"color":"#f5803e0A"}]}}}],"grid":{"bottom":"-10px","right":"0px"}}'></div>
+                            <div class="tab-pane fade" id="tab_last_10_new_users" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="table-responsive scrollbar">
+            <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
+                <thead class="bg-200 text-900">
+                    <tr>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="order">Name</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap pe-7" data-sort="date">Created</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="address" style="min-width: 12.5rem;">Bio</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="status">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="list" id="table-orders-body">
+                    <?php
+                        foreach ($list_users as $users) {
+                            if ($users['Status'] == "" || $users['Status'] == "00" ) {
+                                $activated = '
+                                    <span class="badge badge rounded-pill d-block badge-soft-danger">Inactive
+                                        <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
+                                    </span>';
+                            }else{
+                                $activated = '
+                                    <span class="badge badge rounded-pill d-block badge-soft-success">Active
+                                        <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
+                                    </span>';
+                            }
+                            $p_id = urlencode($this->mod_crypt->Enc_String($users['Person_ID']));
+
+                            echo '
+                            <tr class="btn-reveal-trigger">
+                                <td class="order py-2 align-middle white-space-nowrap">
+                                    <strong>'.$this->mod_crypt->Dec_String($users["Name"]).'</strong><br />
+                                    <a href="'.base_url('admin/users/details/'.$p_id).'">'.$this->mod_crypt->Dec_String($users["Email"]).'</a>
+                                </td>
+                                <td class="date py-2 align-middle">'.date("F d Y H:i A", $users["Timestamp"]).'</td>
+                                <td class="address py-2 align-middle white-space-nowrap">
+                                    '.$this->mod_crypt->Dec_String($users["Email"]).'
+                                </td>
+                                <td class="status py-2 align-middle text-center fs-0 white-space-nowrap">
+                                    '.$activated.'
+                                </td>
+                            </tr>
+                            ';
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="card h-100">
-                    <div class="card-header d-flex flex-between-center border-bottom border-200 py-2">
-                        <h6 class="mb-0">Lead Conversion</h6>
-                    </div>
-                    <div class="card-body pt-0">
-                        <div class="d-flex bg-100 py-2 mb-3 justify-content-center mx-ncard fs--1 border-bottom border-200">
-                            <p class="text-600 mb-0 border-end border-200 px-card d-flex align-items-center">Current Rete: <span class="fs-sm-1 font-sans-serif ms-2 text-700"> 4.5%</span><span class="fas fa-caret-up ms-2 ms-xxl-3 fs--1 text-success"></span></p>
-                            <p class="text-600 mb-0 px-card">Target Rete:<span class="fs-sm-1 font-sans-serif ms-2 text-700"> 6%</span></p>
-                        </div>
-                        <div class="echart-lead-conversion" data-echart-responsive="true"></div>
-                    </div>
-                    <div class="card-footer bg-light p-0"><a class="btn btn-sm btn-link d-block py-2" href="crm.html#!">View Details<span class="fas fa-chevron-right ms-1 fs--2"></span></a></div>
                 </div>
             </div>
         </div>

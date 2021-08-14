@@ -31,7 +31,6 @@
             <script src="<?php echo base_url('assets/plugins/list.js/list.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/js/theme.js4'); ?>"></script>
 
-            <script src="<?php echo base_url('assets/plugins/fullcalendar/main.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/js/emoji-button.js'); ?>"></script>
 
             <script src="<?php echo base_url('assets/plugins/summernote/summernote-lite.js'); ?>"></script>
@@ -44,9 +43,18 @@
 
             <script src="<?php echo base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
 
+            <script src="<?php echo base_url('assets/plugins/fullcalendar/main.min.js'); ?>"></script>
+
             <script type="text/javascript">
-                //Dropzone.autoDiscover = false;
-                $(document).ready(function() {
+                document.addEventListener('DOMContentLoaded', function () {
+                    var calendarEl = document.getElementById('appCalendar');
+
+                    var calendar = new FullCalendar.Calendar(calendarEl, {
+                        initialView: 'dayGridMonth',
+
+                    });
+
+                    calendar.render();
                 });
             </script>
 

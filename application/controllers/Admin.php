@@ -12,9 +12,17 @@ class Admin extends CI_Controller {
 
 		$title['pg_name'] = 'home';
 
+		$data['list_users'] = $this->mod_users->get_users_10();
+		$data['list_searches'] = $this->mod_searches->get_searches_10();
+
+		$data['list_users_all'] = $this->mod_users->get_users();
+		$data['list_searches_all'] = $this->mod_searches->get_searches();
+
+		$data['list_answers_all'] = $this->mod_questions->get_questions();
+
 		$this->load->view('admin/template/header');
 		$this->load->view('admin/template/sidebar', $title);
-		$this->load->view('admin/'.$page);
+		$this->load->view('admin/'.$page, $data);
 		$this->load->view('admin/template/tail');
 	}
 
@@ -117,9 +125,11 @@ class Admin extends CI_Controller {
 
 		$title['pg_name'] = 'users';
 
+		$data['users_list'] = $this->mod_users->get_users();
+
 		$this->load->view('admin/template/header');
 		$this->load->view('admin/template/sidebar', $title);
-		$this->load->view('admin/users/'.$page);
+		$this->load->view('admin/users/'.$page, $data);
 		$this->load->view('admin/template/tail');
 	}
 
@@ -131,10 +141,14 @@ class Admin extends CI_Controller {
         }
 
 		$title['pg_name'] = 'users';
+		$uuid = $this->uri->segment(4);
+		$uuid_clean = $this->mod_crypt->Dec_String(urldecode($uuid));
+
+		$data['user_info'] = $this->mod_users->get_vars($uuid_clean);
 
 		$this->load->view('admin/template/header');
 		$this->load->view('admin/template/sidebar', $title);
-		$this->load->view('admin/users/'.$page);
+		$this->load->view('admin/users/'.$page, $data);
 		$this->load->view('admin/template/tail');
 	}
 
