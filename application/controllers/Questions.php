@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Questions extends CI_Controller {
 
+	function __construct() {
+	    parent::__construct();
+	    $this->load->library("session");
+    }
+
 	public function questions($page = 'listing'){
 
 		$typ = $this->session->userdata('log_type');
@@ -29,9 +34,13 @@ class Questions extends CI_Controller {
 
 		$title['pg_name'] = 'questions';
 
+		$qn_id = $this->mod_crypt->Dec_String(urldecode($this->uri->segment(4)));
+
+		$data['question_info'] = $this->mod_questions->get_question_by_id($qn_id);
+
 		$this->load->view('admin/template/header');
 		$this->load->view('admin/template/sidebar', $title);
-		$this->load->view('admin/questions/'.$page);
+		$this->load->view('admin/questions/'.$page, $data);
 		$this->load->view('admin/template/tail');
 	}
 

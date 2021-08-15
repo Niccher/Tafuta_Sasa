@@ -12,7 +12,7 @@ $route['admin/users/details/(:any)'] = 'admin/users_view';
 
 $route['admin/questions'] = 'questions/questions';
 $route['admin/questions/add'] = 'questions/questions_add';
-$route['admin/questions/view'] = 'questions/questions_view';
+$route['admin/questions/view/(:any)'] = 'questions/questions_view';
 $route['admin/questions/edit'] = 'questions/edit';
 $route['admin/questions/delete'] = 'questions/delete';
 $route['admin/questions/attach'] = 'questions/questions_add_attachment';
@@ -47,7 +47,7 @@ $route['home'] = 'pages/landing';
 $route['search'] = 'pages/search';
 $route['search/question'] = 'pages/view_answer';
 $route['search/question/clean'] = 'pages/view_answer_clean';
-
+$route['search/answer/(:any)'] = 'pages/view_answer_name';
 
 $route['client/home'] = 'client';
 $route['client/dashboard'] = 'client';

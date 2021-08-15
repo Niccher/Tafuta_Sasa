@@ -186,116 +186,43 @@
 
 				<div class="card">
 					<div class="card-header">
-						<h4 class="text-center mb-0">Typed Question Here</h4>
+						<h4 class="text-center mb-0">Answers to <?php echo $this->security->xss_clean($_GET['s_query']);;?></h4>
 					</div>
 				</div>
 
 				<br>
 
-				<div class="card">
-				    <div class="card-body bg-light">
-				        <h6>
-				        	<a href="<?php echo base_url('search/question'); ?>">How does Falcon's pricing work?
-				        	</a>
-				        </h6>
-				        <p class="fs--1 mb-0">The free version of Falcon is available for teams of up to 15 people. Our Falcon Premium plans of 15 or fewer qualify for a small team discount. As your team grows to 20 users or more and gets more value out of Falcon, you'll get closer to our standard monthly price per seat. The price of a paid Falcon plan is tiered, starting in groups of 5 and 10 users, based on the number of people you have in your Team or Organization.</p>
-				        <div class="row">
-				        	<div class="col-8"></div>
-				        	<div class="col-4">
-				        		<div class="float-left">
-						        	<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="You're assigned in this card" aria-label="Answer Viewed 4 Times">
-										<span class="fas fa-eye fa-xs"></span>&nbsp;&nbsp;4
-									</span>
-									<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="Last updated"> 
-										<span class="far fa-calendar fa-xs"></span> 12 Nov 2020
-									</span>
-								</div>
-				        	</div>
-				        </div>
-				    </div>
-				</div>
-
-				<br>
-
-				<div class="card">
-				    <div class="card-body bg-light">
-				        <h6>
-				        	<a href="<?php echo base_url('search/question'); ?>">How does Falcon's pricing work?
-				        	</a>
-				        </h6>
-				        <p class="fs--1 mb-0">Protecting the data you trust to Falcon is our first priority. Falcon uses physical, procedural, and technical safeguards to preserve the integrity and security of your information. We regularly back up your data to prevent data loss and aid in recovery. Additionally, we host data in secure SSAE 16 / SOC1 certified data centers, implement firewalls and access restrictions on our servers to better protect your information, and work with third party security researchers to ensure our practices are secure.</p>
-				        <div class="row">
-				        	<div class="col-8"></div>
-				        	<div class="col-4">
-				        		<div class="float-left">
-						        	<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="You're assigned in this card" aria-label="Answer Viewed 4 Times">
-										<span class="fas fa-eye fa-xs"></span>&nbsp;&nbsp;4
-									</span>
-									<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="Last updated"> 
-										<span class="far fa-calendar fa-xs"></span> 12 Nov 2020
-									</span>
-								</div>
-				        	</div>
-				        </div>
-				    </div>
-				</div>
-
-				<br>
-
-				<div class="card">
-				    <div class="card-body bg-light">
-				        <h6>
-				        	<a href="<?php echo base_url('search/question'); ?>">How does Falcon's pricing work?
-				        	</a>
-				        </h6>
-				        <p class="fs--1 mb-0">As of May 2016, state and local sales tax will be applied to fees charged to customers with a billing address in the State of New York.</p>
-				        <div class="row">
-				        	<div class="col-8"></div>
-				        	<div class="col-4">
-				        		<div class="float-left">
-						        	<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="You're assigned in this card" aria-label="Answer Viewed 4 Times">
-										<span class="fas fa-eye fa-xs"></span>&nbsp;&nbsp;4
-									</span>
-									<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="Last updated"> 
-										<span class="far fa-calendar fa-xs"></span> 12 Nov 2020
-									</span>
-								</div>
-				        	</div>
-				        </div>
-				    </div>
-				</div>
-
-				<br>
-
-				<div class="card">
-				    <div class="card-body bg-light">
-				        <h6>
-				        	<a href="<?php echo base_url('search/question'); ?>">How does Falcon's pricing work?
-				        	</a>
-				        </h6>
-				        <p class="fs--1 mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				        <div class="row">
-				        	<div class="col-8"></div>
-				        	<div class="col-4">
-				        		<div class="float-left">
-						        	<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="You're assigned in this card" aria-label="Answer Viewed 4 Times">
-										<span class="fas fa-eye fa-xs"></span>&nbsp;&nbsp;4
-									</span>
-									<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="Last updated"> 
-										<span class="far fa-calendar fa-xs"></span> 12 Nov 2020
-									</span>
-								</div>
-				        	</div>
-				        </div>
-				    </div>
-				</div>
-
-				<br>
+				    <?php
+                        foreach ($list_answers_all as $searches) {
+                            $qn = urlencode($this->mod_crypt->Dec_String($searches["Qn_Name"]));
+                            echo '
+                            <div class="card">
+                                <div class="card-body bg-light">
+                                    <h5>
+                                        <b>
+                                        <a href="'.base_url("search/answer/id?q_name=".$qn).'">'.ucfirst($this->mod_crypt->Dec_String($searches["Qn_Name"])).'</a>
+                                        </b>
+                                    </h5>
+                                    <p class="fs--1 mb-0">'.word_limiter($this->mod_crypt->Dec_String($searches["Qn_Answer"]), 50).'</p>
+                                    <div class="row">
+                                        <div class="col-8"></div>
+                                        <div class="col-4">
+                                            <div class="float-left">
+                                                <span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="Youre assigned in this card" aria-label="Answer viewed '.($searches["Qn_Viewed"]).'">
+                                                    <span class="fas fa-eye fa-xs"></span>&nbsp;&nbsp; '.($searches["Qn_Viewed"]).'
+                                                </span>
+                                                <span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="Last updated"> 
+                                                    <span class="far fa-calendar fa-xs"></span> '.date('F, Y D', ($searches["Qn_Created"])).'
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            ';
+                        }
+                    ?>
 
 		    </div>
 

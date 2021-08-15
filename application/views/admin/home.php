@@ -27,9 +27,8 @@
                     </div>
 
                     <?php
+                    $pro = 0; $free = 0;
                         foreach ($list_answers_all as $answer) {
-                            $pro = 0; $free = 0;
-                            //pay_free ,pay_sale
                             if ($answer['Qn_Pay'] == $this->mod_crypt->Enc_String('pay_free')) {
                                 $free .= 1;
                             }else{
@@ -56,14 +55,14 @@
                             </div>
                             <div class="col-6 col-md-4 border-200 border-bottom border-end border-md-end-0 pb-4 pt-4 pt-md-0 ps-md-3">
                                 <h6 class="pb-1 text-700">Free Answers </h6>
-                                <p class="font-sans-serif lh-1 mb-1 fs-2"><?php echo ($free ); ?></p>
+                                <p class="font-sans-serif lh-1 mb-1 fs-2"><?php echo $free; ?></p>
                                 <div class="d-flex align-items-center">
                                     <h6 class="fs--1 text-500 mb-0">Only Free answers </h6>
                                 </div>
                             </div>
                             <div class="col-6 col-md-4 border-200 border-md-200 border-bottom border-md-bottom-0 border-md-end pt-4 pb-md-0 ps-3 ps-md-0">
                                 <h6 class="pb-1 text-700">Pro Answers</h6>
-                                <p class="font-sans-serif lh-1 mb-1 fs-2"><?php echo ($pro ); ?> </p>
+                                <p class="font-sans-serif lh-1 mb-1 fs-2"><?php echo $pro; ?> </p>
                                 <div class="d-flex align-items-center">
                                     <h6 class="fs--1 text-500 mb-0">Answer available for sale </h6>
                                 </div>
@@ -190,7 +189,38 @@
                         </ul>
                         <div class="tab-content border p-3 mt-3" id="pill-myTabContent">
                             <div class="tab-pane fade show active" id="tab_last_10_purchases" role="tabpanel" aria-labelledby="home-tab">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone.</div>
-                            <div class="tab-pane fade" id="tab_last_10_viewed" role="tabpanel" aria-labelledby="profile-tab">Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic. </div>
+                            <div class="tab-pane fade" id="tab_last_10_viewed" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="table-responsive scrollbar">
+            <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
+                <thead class="bg-200 text-900">
+                    <tr>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="order">Source</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap pe-7" data-sort="date">Viewed</th>
+                        <th class="sort pe-1 align-middle white-space-nowrap" data-sort="address" style="min-width: 12.5rem;">Question</th>
+                    </tr>
+                </thead>
+                <tbody class="list" id="table-orders-body">
+                    <?php
+                        foreach ($list_answers_viewed as $viewed) {
+                            $qn = $this->mod_questions->get_question_by_id($viewed["View_Question"]);
+                            $qn_nm = $this->mod_crypt->Dec_String($qn->Qn_Name);
+                            echo '
+                            <tr class="btn-reveal-trigger">
+                                <td class="order py-2 align-middle white-space-nowrap">
+                                    <strong>'.($viewed["View_Source"]).'</strong><br />
+                                </td>
+                                <td class="date py-2 align-middle">'.date("F d Y H:i A", $viewed["View_Time"]).'</td>
+                                <td class="address py-2 align-middle white-space-nowrap">
+                                    '.$qn_nm.'
+                                </td>
+                            </tr>
+                            ';
+                        }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+                            </div>
                             <div class="tab-pane fade" id="tab_last_10_searches" role="tabpanel" aria-labelledby="contact-tab">
         <div class="table-responsive scrollbar">
             <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
@@ -211,7 +241,7 @@
                                 </td>
                                 <td class="date py-2 align-middle">'.date("F d Y H:i A", $searches["Search_Time"]).'</td>
                                 <td class="address py-2 align-middle white-space-nowrap">
-                                    '.$this->mod_crypt->Dec_String($searches["Search_Query"]).'
+                                    '.$this->security->xss_clean($this->mod_crypt->Dec_String($searches["Search_Query"])).'
                                 </td>
                             </tr>
                             ';
@@ -251,12 +281,12 @@
                             echo '
                             <tr class="btn-reveal-trigger">
                                 <td class="order py-2 align-middle white-space-nowrap">
-                                    <strong>'.$this->mod_crypt->Dec_String($users["Name"]).'</strong><br />
-                                    <a href="'.base_url('admin/users/details/'.$p_id).'">'.$this->mod_crypt->Dec_String($users["Email"]).'</a>
+                                    <strong>'.$this->security->xss_clean($this->mod_crypt->Dec_String($users["Name"])).'</strong><br />
+                                    <a href="'.base_url('admin/users/details/'.$p_id).'">'.$this->security->xss_clean($this->mod_crypt->Dec_String($users["Email"])).'</a>
                                 </td>
                                 <td class="date py-2 align-middle">'.date("F d Y H:i A", $users["Timestamp"]).'</td>
                                 <td class="address py-2 align-middle white-space-nowrap">
-                                    '.$this->mod_crypt->Dec_String($users["Email"]).'
+                                    '.$this->security->xss_clean($this->mod_crypt->Dec_String($users["Email"])).'
                                 </td>
                                 <td class="status py-2 align-middle text-center fs-0 white-space-nowrap">
                                     '.$activated.'

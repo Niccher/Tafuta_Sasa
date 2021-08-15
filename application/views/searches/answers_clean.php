@@ -183,26 +183,13 @@
 		    <div class="container" style="margin-bottom: 60px;">
 
 		    	<br>
-				<div class="card mb-3">
-					<div class="card-body">
-						<div class="alert alert-success p-4 mb-0" role="alert">
-							<div class="d-flex">
-								<span class="fab fa-intentionally-kept fs-3"></span>
-								<div class="flex-1 ms-3">
-									<h4 class="alert-heading">The answer is free!</h4>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<br>
 
 				<div class="card">
 				    <div class="card-body bg-light">
-				        <h6>
-				        	<a href="pricing-default.html#!">How does Falcon's pricing work?
-				        	</a>
-				        </h6>
+				        <h3>
+				        	<b><a href="#"><?php echo ucfirst($this->mod_crypt->Dec_String($list_answers_details->Qn_Name)); ?>
+				        	</a></b>
+				        </h3>
 				        <div class="row">
 				        	<div class="col-8">
 				        		<div class="float-left">
@@ -214,34 +201,47 @@
 				        	<div class="col-4">
 				        		<div class="float-left">
 						        	<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="You're assigned in this card" aria-label="Answer Viewed 4 Times">
-										<span class="fas fa-eye fa-xs"></span>&nbsp;&nbsp;4
+										<span class="fas fa-eye fa-xs"></span>&nbsp;&nbsp;<?php echo $list_answers_details->Qn_Viewed; ?>
 									</span>
 									<span class="me-2 small" data-bs-toggle="tooltip" title="" data-bs-original-title="Last updated"> 
-										<span class="far fa-calendar fa-xs"></span> 12 Nov 2020
+										<span class="far fa-calendar fa-xs"></span> <?php echo date('F, Y D', $list_answers_details->Qn_Created); ?>
 									</span>
 								</div>
 				        	</div>
 				        </div>
 				        <p class="fs--1 mb-0">
-					        Protecting the data you trust to Falcon is our first priority. Falcon uses physical, procedural, and technical safeguards to preserve the integrity and security of your information. We regularly back up your data to prevent data loss and aid in recovery. Additionally, we host data in secure SSAE 16 / SOC1 certified data centers, implement firewalls and access restrictions on our servers to better protect your information, and work with third party security researchers to ensure our practices are secure.
+                            <h4>
+                                <?php echo $this->mod_crypt->Dec_String($list_answers_details->Qn_Answer); ?>
+                            </h4>
 					    </p>
+                        <p class="fs--1 mb-0">
 
-				        <p class="fs--1 mb-0">
-				        	Dedicated, passionate, and accomplished Full Stack Developer with 9+ years of progressive experience working as an Independent Contractor for Google and developing and growing my educational social network that helps others learn programming, web design, game development, networking.
-				        </p>
+                            <?php 
+                                $attaches = $list_answers_details->Qn_Attachment; 
+                                $files = explode("|||", $attaches);
+                                echo '
+                                    <div class="bg-light px-card py-3">
+                                        <div class="d-inline-flex flex-column">';
+                                        for ($i=0; $i < count($files) - 1; $i++) {
+                                    echo '
+                                        <div class="border px-2 rounded-3 d-flex flex-between-center bg-white dark__bg-1000 my-1 fs--1">
+                                            <span class="fs-1 far fa-file-alt"></span>
+                                            <span class="ms-2">'.$files[$i].'</span>
+                                            <a class="text-300 p-1 ms-6" href="#" data-bs-toggle="tooltip" data-bs-placement="right" title="" data-bs-original-title="Detach" aria-label="Detach">
+                                                <span class="fas fa-times"></span>
+                                            </a>
+                                        </div>
+                                    ';
+                                }
+                                            
+                                echo '  </div>
+                                    </div>
+                                    ';
+                                
+                            ?>
 
-				        <p class="fs--1 mb-0">
-				        	I’ve acquired a wide depth of knowledge and expertise in using my technical skills in programming, computer science, software development, and mobile app development to developing solutions to help organizations increase productivity, and accelerate business performance.
-				        </p>
 
-				        <p class="fs--1 mb-0">
-				        	It’s great that we live in an age where we can share so much with technology but I’m but I’m ready for the next phase of my career, with a healthy balance between the virtual world and a workplace where I help others face-to-face.
-				        </p>
-
-				        <p class="fs--1 mb-0">
-				        	There’s always something new to learn, especially in IT-related fields. People like working with me because I can explain technology to everyone, from staff to executives who need me to tie together the details and the big picture. I can also implement the technologies that successful projects need.
-				        </p>
-
+                        </p>
 				    </div>
 				</div>
 				<br>

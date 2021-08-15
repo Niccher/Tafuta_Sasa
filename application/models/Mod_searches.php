@@ -12,8 +12,15 @@
 
         public function get_searches_10(){
             $this->db->where('Search_Time >',(time()-(24*3600)) );
+            $this->db->order_by('Search_Id', 'DESC');
             $this->db->limit(10);
             $query = $this->db->get('tbl_Searches');
+            return $query->result_array();
+        }
+
+        public function get_question_10(){
+            $this->db->limit(10);
+            $query = $this->db->get('tbl_Viewed');
             return $query->result_array();
         }
 

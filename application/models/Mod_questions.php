@@ -12,6 +12,51 @@
             return $query->result_array();
         }
 
+        public function get_question_by_name($q_name){
+            $array = array('Qn_Name =' => $q_name);
+            $this->db->where($array);
+            $query = $this->db->get('tbl_Questions');
+            //return $query->row_array();
+
+            if ($query->num_rows()==1) {
+                return $query->row(0);
+            }else{
+                return false;
+            }
+        }
+
+        public function get_question_by_id($q_name){
+            $array = array('Qn_Id =' => $q_name);
+            $this->db->where($array);
+            $query = $this->db->get('tbl_Questions');
+            //return $query->row_array();
+
+            if ($query->num_rows()==1) {
+                return $query->row(0);
+            }else{
+                return false;
+            }
+        }
+
+        public function make_question_view($q_uuid, $p_id){
+            //  View_Id     View_Time   View_Viewer     View_Question 
+            $data = array(
+                'View_Time' => time(),
+                'View_Viewer' => $p_id,
+                'View_Question' => $q_uuid,
+                'View_Source' => $this->input->ip_address(),
+            );
+
+            return $this->db->insert('tbl_Viewed', $data);
+
+        }
+
+        public function update_question_view($q_uuid, $count){
+            $this->db->where('Qn_Id', $q_uuid);
+            $data = array( 'Qn_Viewed' =>  $count);
+            return $this->db->update('tbl_Questions',$data);
+        }
+
         public function make_temp_upload($p_id, $file_name){
             $data = array(
                 'Person_ID' => $p_id,
@@ -60,44 +105,6 @@
                 return false;
             }
         }
-        
-        public function obfuscate_email($email){
-            $em   = explode("@",$email);
-            $name = implode('@', array_slice($em, 0, count($em)-1));
-            $len  = floor(strlen($name)/2);
-        
-            return substr($name,0, $len) . str_repeat('*', $len) . "@" . end($em);   
-        }
-        
-        public function otp_verify($phone,$otp){
-            $this->db->where('Phone',$phone);
-            $this->db->where('Otp',$otp);
-            $this->db->where('Valid','TRUE');
-            $times = time();
-            
-            $result = $this->db->get('tbl_Users_Otp');
 
-            if ($result->num_rows()==1) {
-                return $result->row(0)->Count;
-            }else{
-                return false;
-            }
-        }
-        
-        public function create_otp($nw_phone, $nw_eml, $otp){
-            $dt = time();
-            $data = array(
-                'Phone' => $nw_phone,
-                'Email' => $nw_eml,
-                'Otp' => $otp,
-                'Timestamps' => time(),
-            );
-
-            return $this->db->insert('tbl_Users_Otp', $data);
-            
-        }
-
-
-        
 	}
 ?>

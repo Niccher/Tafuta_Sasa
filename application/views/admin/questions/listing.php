@@ -25,6 +25,8 @@
                         $pays = '<span class="badge badge-soft-info rounded-pill">Pro</span>';
                     }
 
+                    $qn_id = urlencode($this->mod_crypt->Enc_String($qn['Qn_Id']));
+
                     echo '
                         <div class="col-md-6 h-100">
                             <div class="border-dashed-bottom my-1"></div>
@@ -35,11 +37,11 @@
                                 </div>
                                 <div class="flex-1 position-relative ps-3">
                                     <h6 class="fs-0 mb-0">
-                                        <a href="'.base_url('admin/questions/view').'">'.ucfirst($this->mod_crypt->Dec_String($qn["Qn_Name"])).'</a>
+                                        <a href="'.base_url('admin/questions/view/'.$qn_id).'">'.$this->security->xss_clean(ucfirst($this->mod_crypt->Dec_String($qn["Qn_Name"]))).'</a>
                                     </h6>
-                                    Tags: '.$this->mod_crypt->Dec_String($qn["Qn_Tags"]).'
+                                    Tags: '.$this->security->xss_clean($this->mod_crypt->Dec_String($qn["Qn_Tags"])).'
                                     <br>
-                                    Level: '.$this->mod_crypt->Dec_String($qn["Qn_Level"]).'
+                                    Level: '.$this->security->xss_clean($this->mod_crypt->Dec_String($qn["Qn_Level"])).'
                                     <br>
                                     Pay: '.$pays.'
                                     <p class="text-1000 mb-0">Created: '.date('F d H:i A', $qn['Qn_Created']).'</p>

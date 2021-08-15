@@ -20,6 +20,8 @@ class Admin extends CI_Controller {
 
 		$data['list_answers_all'] = $this->mod_questions->get_questions();
 
+		$data['list_answers_viewed'] = $this->mod_searches->get_question_10();
+
 		$this->load->view('admin/template/header');
 		$this->load->view('admin/template/sidebar', $title);
 		$this->load->view('admin/'.$page, $data);

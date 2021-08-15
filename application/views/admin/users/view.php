@@ -13,9 +13,6 @@
             <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
                 <thead class="bg-200 text-900">
                     <tr>
-                        <th>
-                            <div class="form-check fs-0 mb-0 d-flex align-items-center"><input class="form-check-input" id="checkbox-bulk-customers-select" type="checkbox" data-bulk-select='{"body":"table-orders-body","actions":"orders-bulk-actions","replacedElement":"orders-actions"}' /></div>
-                        </th>
                         <th class="sort pe-1 align-middle white-space-nowrap" data-sort="order">Name</th>
                         <th class="sort pe-1 align-middle white-space-nowrap pe-7" data-sort="date">Created</th>
                         <th class="sort pe-1 align-middle white-space-nowrap" data-sort="address" style="min-width: 12.5rem;">Bio</th>
@@ -40,18 +37,13 @@
 
                             echo '
                             <tr class="btn-reveal-trigger">
-                                <td class="align-middle" style="width: 28px;">
-                                    <div class="form-check fs-0 mb-0 d-flex align-items-center">
-                                        <input class="form-check-input" type="checkbox" id="checkbox-0" data-bulk-select-row="data-bulk-select-row" />
-                                    </div>
-                                </td>
                                 <td class="order py-2 align-middle white-space-nowrap">
-                                    <strong>'.$this->mod_crypt->Dec_String($users["Name"]).'</strong><br />
-                                    <a href="'.base_url('admin/users/details/'.$p_id).'">'.$this->mod_crypt->Dec_String($users["Email"]).'</a>
+                                    <strong>'.$this->security->xss_clean($this->mod_crypt->Dec_String($users["Name"])).'</strong><br />
+                                    <a href="'.base_url('admin/users/details/'.$p_id).'">'.$this->security->xss_clean($this->mod_crypt->Dec_String($users["Email"])).'</a>
                                 </td>
                                 <td class="date py-2 align-middle">'.date("F d Y H:i A", $users["Timestamp"]).'</td>
                                 <td class="address py-2 align-middle white-space-nowrap">
-                                    '.$this->mod_crypt->Dec_String($users["Email"]).'
+                                    '.$this->security->xss_clean($this->mod_crypt->Dec_String($users["Email"])).'
                                 </td>
                                 <td class="status py-2 align-middle text-center fs-0 white-space-nowrap">
                                     '.$activated.'
