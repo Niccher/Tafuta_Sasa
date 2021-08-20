@@ -68,16 +68,25 @@
         }
 
         public function get_attachments(){
-            $this->db->where('Posted >=', time()-3600);
+            /*$this->db->where('Posted >=', time()-3600);
             $this->db->where('Posted <=', time()-2);
             $this->db->where('Person_ID', $this->session->userdata('log_id'));
             $this->db->order_by('Upload_Id','DESC');
             $query = $this->db->get('tbl_Temp_Upload');
-            return $query->result_array();
+            return $query->result_array();*/
+
+            $file_list = "";
+
+            $path = './uploads/temp_orders/*';
+            foreach(glob($path) as $file)  {
+                $file_list.=str_replace("./uploads/temp_orders/","|||",$file);
+            }
+
+            return $file_list;
 
         }
 
-        public function make_question($q_name, $q_tags, $q_answer, $q_subj, $q_level,$q_pay, $q_attached){
+        public function make_question($q_name, $q_tags, $q_answer, $q_subj, $q_level,$q_pay, $q_cost, $q_attached){
 
             $data = array(
                 'Qn_Name' => $q_name,
@@ -88,9 +97,16 @@
                 'Qn_Level' => $q_level,
                 'Qn_Attachment' => $q_attached,
                 'Qn_Pay' => $q_pay,
+                'Qn_Price' => $$q_cost,
                 'Qn_Status' => "11",
                 'Qn_Viewed' => "00",
             );
+
+            $path = './uploads/temp_orders/*';
+            foreach(glob($path) as $file)  {  
+                $dest = str_replace("uploads/temp_orders","uploads/orders",$file);
+                rename($file, $dest);
+            }
 
             return $this->db->insert('tbl_Questions', $data);
         }
@@ -104,6 +120,35 @@
             }else{
                 return false;
             }
+        }
+
+        public function get_delete_question($q_uuid){
+
+            $query = $this->db->get_where('tbl_Questions',array('Qn_Id' => $q_uuid));
+            $cap = $query->row_array();
+            print_r($cap);
+            $data = array(
+                'Qn_Name' => $cap["Qn_Name"],
+                'Qn_Original' => $cap["Qn_Id"],
+                'Qn_Tags' => $cap["Qn_Tags"],
+                'Qn_Answer' => $cap["Qn_Answer"],
+                'Qn_Created' => $cap["Qn_Created"],
+                'Qn_Subject' => $cap["Qn_Subject"],
+                'Qn_Level' => $cap["Qn_Level"],
+                'Qn_Attachment' => $cap["Qn_Attachment"],
+                'Qn_Pay' => $cap["Qn_Pay"],
+                'Qn_Status' => $cap["Qn_Status"],
+                'Qn_Viewed' => $cap["Qn_Viewed"],
+            );
+
+            if ($this->db->insert('tbl_Questions_Deleted',$data)) {
+                $this->db->where('Qn_Id',$q_uuid);
+                $this->db->delete('tbl_Questions');
+                return "Success!";
+            } else {
+                  return "failed!";
+            }
+
         }
 
 	}

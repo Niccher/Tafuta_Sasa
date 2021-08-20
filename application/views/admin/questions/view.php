@@ -20,6 +20,28 @@
                     </div>
                 </div>
 
+                <div class="col">
+                    <div class="d-flex">
+                        <div class="col-12 col-sm-auto ms-auto">
+                            <a href="<?php echo base_url('admin/questions'); ?>">
+                                <button class="btn btn-info me-1 mb-1" type="button">
+                                    <span class="fas fa-arrow-left me-1" data-fa-transform="shrink-3"></span>Go Back
+                                </button>
+                            </a>
+                            <a href="">
+                                <button class="btn btn-primary me-1 mb-1" type="button">
+                                    <span class="far fa-edit me-1" data-fa-transform="shrink-3"></span>Edit
+                                </button>
+                            </a>
+                            <a href="<?php echo base_url('questions/delete/'.urlencode($this->mod_crypt->Enc_String($question_info->Qn_Id))); ?>">
+                                <button class="btn btn-danger me-1 mb-1" type="button">
+                                    <span class="fas fa-trash-alt me-1" data-fa-transform="shrink-3"></span>Delete
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -68,9 +90,9 @@
                         <p class="mb-1">
                             <?php 
                                 $files = explode('|||', $question_info->Qn_Attachment);
-                                for ($i=0; $i < count($files) - 1; $i++) { 
+                                for ($i=0; $i < count($files) - 0; $i++) { 
                                     echo '
-                                    <a class="badge border link-secondary me-1 text-decoration-none" href="#">'.$files[$i].'</a>
+                                    <a class="badge border link-secondary me-1 text-decoration-none" href="'.base_url("questions/get_attachment/".$files[$i]).'">'.$files[$i].'</a>
                                     ';
                                 }
                             ?>   

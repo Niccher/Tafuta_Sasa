@@ -60,7 +60,7 @@
                                         <!-- parent pages-->
                                         <?php
                                             if ($pg_name == 'calendar') {
-                                                echo '<a class="nav-link active" href="'.base_url('admin/home').'" role="button">';
+                                                echo '<a class="nav-link active" href="'.base_url('admin/calendar').'" role="button">';
                                             }
                                             else{
                                                 echo '<a class="nav-link" href="'.base_url('admin/calendar').'" role="button">';

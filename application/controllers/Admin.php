@@ -37,10 +37,45 @@ class Admin extends CI_Controller {
 
 		$title['pg_name'] = 'calendar';
 
+		$data['list_questions'] = $this->mod_questions->get_questions();
+		$data['list_users'] = $this->mod_users->get_users();
+
+		$order_listing = "";
+
+		foreach ( $data['list_questions'] as $one_qn) {
+			$eachyear = date('Y', $one_qn['Qn_Created']);
+			$eachmonth = date('m', $one_qn['Qn_Created'])-1;
+			$eachday = date('d', $one_qn['Qn_Created']);
+
+			$order_listing.='
+			{
+                title: "'.character_limiter($this->mod_crypt->Dec_String($one_qn['Qn_Name']), 20).'",
+                start: new Date("'.$eachyear.'", "'.$eachmonth.'", "'.$eachday.'" ),
+                className: "event-bg-soft-success"
+            },
+			';
+		}
+
+		foreach ( $data['list_users'] as $one_user) {
+			$eachyear = date('Y', $one_user['Timestamp']);
+			$eachmonth = date('m', $one_user['Timestamp'])-1;
+			$eachday = date('d', $one_user['Timestamp']);
+
+			$order_listing.='
+			{
+                title: "'.character_limiter($this->mod_crypt->Dec_String($one_user['Name']), 20).'",
+                start: new Date("'.$eachyear.'", "'.$eachmonth.'", "'.$eachday.'" ),
+                className: "event-bg-soft-warning"
+            },
+			';
+		}
+
+		$data['cal'] = $order_listing;
+
 		$this->load->view('admin/template/header');
 		$this->load->view('admin/template/sidebar', $title);
-		$this->load->view('admin/'.$page);
-		$this->load->view('admin/template/tail');
+		$this->load->view('admin/'.$page, $data);
+		$this->load->view('admin/template/tail_calendar');
 	}
 
 	public function chat($page = 'chats'){

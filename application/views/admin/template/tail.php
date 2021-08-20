@@ -41,22 +41,14 @@
                 });
             </script>
 
-            <script src="<?php echo base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
-
-            <script src="<?php echo base_url('assets/plugins/fullcalendar/main.min.js'); ?>"></script>
-
             <script type="text/javascript">
                 document.addEventListener('DOMContentLoaded', function () {
-                    var calendarEl = document.getElementById('appCalendar');
 
-                    var calendar = new FullCalendar.Calendar(calendarEl, {
-                        initialView: 'dayGridMonth',
-
-                    });
-
-                    calendar.render();
+                    //price set toggle
                 });
             </script>
+
+            <script src="<?php echo base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
 
 
             <script src="<?php echo base_url('assets/plugins/chart/chart.min.js'); ?>"></script>

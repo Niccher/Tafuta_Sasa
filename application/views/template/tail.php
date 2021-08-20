@@ -37,7 +37,6 @@
             <script type="text/javascript">
                 var wizardInit = function wizardInit() {
                     var wizards = document.querySelectorAll('.theme-wizard');
-                    var tabPillEl = document.querySelectorAll('#pill-tab2 [data-bs-toggle="pill"]');
                     var tabProgressBar = document.querySelector('.theme-wizard .progress');
                     wizards.forEach(function(wizard) {
                         var tabToggleButtonEl = wizard.querySelectorAll('[data-wizard-step]');
@@ -45,6 +44,19 @@
                         var emailPattern = inputEmail.getAttribute('pattern');
                         var inputPassword = wizard.querySelector('[data-wizard-validate-password]');
                         var inputConfirmPassword = wizard.querySelector('[data-wizard-validate-confirm-password]');
+
+                        var inputcardnumber = wizard.querySelector('#cardNumber');
+                        var inputcardnumberpattern = inputcardnumber.getAttribute('pattern');
+
+                        var inputcardname = wizard.querySelector('#cardName');
+                        var inputcardnamepattern = inputcardname.getAttribute('pattern');
+
+                        var inputcardcvv = wizard.querySelector('#cardcvv');
+                        var inputcardcvvpattern = inputcardcvv.getAttribute('pattern');
+
+                        var inputcardexpdate = wizard.querySelector('#cardexpDate');
+                        var inputcardexpdatepattern = inputcardexpdate.getAttribute('pattern');
+
                         var form = wizard.querySelector('[novalidate]');
                         var nextButton = wizard.querySelector('.next button');
                         var prevButton = wizard.querySelector('.previous button');
@@ -59,12 +71,24 @@
                         prevButton.classList.add('d-none'); // on button click tab change
 
                         nextButton.addEventListener('click', function() {
-                            if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value)) || !inputPassword.value || !inputConfirmPassword.value) && form.className.includes('needs-validation')) {
+
+                            if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value))) && form.className.includes('needs-validation')) {
                                 form.classList.add('was-validated');
                             } else {
                                 count += 1;
                                 var tab = new window.bootstrap.Tab(tabToggleButtonEl[count]);
                                 tab.show();
+                            }
+
+                            if (count =2) {
+                                console.log("Hha");
+                                if (( !(inputcardnumber.value && validatePattern(inputcardnumberpattern, inputcardnumber.value))) && form.className.includes('needs-validation')) {
+                                    form.classList.add('was-validated');
+                                } else {
+                                    count += 1;
+                                    var tab = new window.bootstrap.Tab(tabToggleButtonEl[count]);
+                                    tab.show();
+                                }
                             }
                         });
                         prevButton.addEventListener('click', function() {
@@ -77,12 +101,18 @@
                             tabToggleButtonEl.forEach(function(item, index) {
                                 /* eslint-disable */
                                 item.addEventListener('show.bs.tab', function(e) {
-                                    if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value)) || !inputPassword.value || !inputConfirmPassword.value) && form.className.includes('needs-validation')) {
+                                    if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value))) && form.className.includes('needs-validation')) {
                                         e.preventDefault();
                                         form.classList.add('was-validated');
                                         return null;
                                         /* eslint-enable */
                                     }
+
+                                    /*if ((!(inputEmail.value && validatePattern(emailPattern, inputEmail.value)) || !inputPassword.value || !inputConfirmPassword.value) && form.className.includes('needs-validation')) {
+                                        e.preventDefault();
+                                        form.classList.add('was-validated');
+                                        return null;
+                                    }*/
 
                                     count = index; // can't go back tab
 
@@ -121,16 +151,6 @@
                             });
                         }
                     }); // control wizard progressbar
-
-                    if (tabPillEl.length) {
-                        var dividedProgressbar = 100 / tabPillEl.length;
-                        tabProgressBar.querySelector('.progress-bar').style.width = "".concat(dividedProgressbar, "%");
-                        tabPillEl.forEach(function(item, index) {
-                            item.addEventListener('show.bs.tab', function() {
-                                tabProgressBar.querySelector('.progress-bar').style.width = "".concat(dividedProgressbar * (index + 1), "%");
-                            });
-                        });
-                    }
                 };
 
                 docReady(wizardInit);

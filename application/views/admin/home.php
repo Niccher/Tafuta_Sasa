@@ -30,9 +30,9 @@
                     $pro = 0; $free = 0;
                         foreach ($list_answers_all as $answer) {
                             if ($answer['Qn_Pay'] == $this->mod_crypt->Enc_String('pay_free')) {
-                                $free .= 1;
+                                $free++;
                             }else{
-                                $pro .= 1;
+                                $pro++;
                             }
                         }
                     ?>
@@ -165,7 +165,7 @@
         </div>
     </div>
 
-    <div class="col-xxl-3">
+    <div class="col-xxl-12">
         <div class="card">
             <div class="card-header d-flex flex-between-center py-2 border-bottom">
                 <h6 class="mb-0">Most recent actions</h6>

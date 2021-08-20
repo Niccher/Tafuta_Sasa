@@ -85,7 +85,19 @@ class Auth extends CI_Controller {
             $rg_pwd1 = $this->mod_crypt->Enc_String($this->input->post('rg_password1'));
 
         	if (base64_encode($this->input->post('rg_password')) == base64_encode($this->input->post('rg_password1'))) {
-        		$this->mod_users->make_user($rg_name , $rg_eml , $rg_pwd);	             
+        		$this->mod_users->make_user($rg_name , $rg_eml , $rg_pwd);	
+
+	        	$head1 ='Hello, <b>'.$this->mod_crypt->Dec_String($rg_name).'</b> Welcome to Kazi Mingi ';
+	            
+	            $head ='<td class="header-row-td" style="font-family: Arial, sans-serif; font-weight: normal; line-height: 19px; color: #478fca; margin: 0px; font-size: 18px; padding-bottom: 10px; padding-top: 15px;" width="378" valign="top" align="left">'.$head1.'</td>';
+	            $reciva = $this->mod_crypt->Dec_String($rg_eml);
+	            $senda = 'admin@tendollarwriters.com-----';
+
+	            $more = '<div style="font-family: Arial, sans-serif; line-height: 20px; color: #444444; font-size: 13px;"> 
+	                        <b style="color: #777777;"></b>Thank you for joining this platform, we are pleased to have you and work with you.<br>You can get started by creating an order with us and you will for sure enjoy our services.
+	                    </div>';
+
+	            $this->mod_emails->mail_this($senda, $reciva, $more, $head, $head1);             
 	            redirect('auth/login');
         	}else{
         		$data['errorcode'] = 'Password Mismatched, please try again';

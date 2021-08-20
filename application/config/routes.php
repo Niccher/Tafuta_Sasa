@@ -31,6 +31,9 @@ $route['admin/mail/create'] = 'admin/mail_compose';
 $route['admin/sales'] = 'admin/sales';
 $route['admin/analytics'] = 'admin/analytics';
 
+$route['questions/get_attachment/(:any)'] = 'questions/questions_get_attachment';
+$route['questions/delete/(:any)'] = 'questions/questions_deleted/$1';
+
 
 $route['auth/login'] = 'auth/login';
 $route['auth/register'] = 'auth/register';

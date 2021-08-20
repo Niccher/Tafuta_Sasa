@@ -196,6 +196,7 @@
                         foreach ($list_answers_all as $searches) {
                             $qn = urlencode($this->mod_crypt->Dec_String($searches["Qn_Name"]));
                             echo '
+                            <div class="container">
                             <div class="card">
                                 <div class="card-body bg-light">
                                     <h5>
@@ -218,6 +219,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             </div>
                             <br>
                             ';
