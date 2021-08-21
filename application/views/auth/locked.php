@@ -1,6 +1,5 @@
-        <!-- ===============================================-->
-        <!--    Main Content-->
-        <!-- ===============================================-->
+         <br>
+        
         <main class="main" id="top">
             <div class="container-fluid">
                 <div class="row min-vh-100 flex-center g-0">
@@ -41,7 +40,7 @@
                                                             <p class="mb-0">Enter your password <br />to access the page.</p>
                                                         </div>
                                                     </div>
-                                                    <form class="mt-4 row g-0" action="<?php echo base_url('auth/home');?> " method="POST">
+                                                    <form class="mt-4 row g-0" action="<?php echo base_url('auth/locked');?> " method="POST">
                                                         <div class="col">
                                                             <input class="form-control me-2" type="password" placeholder="Password" aria-label="User's password" aria-describedby="user-password" />
                                                         </div>
@@ -60,3 +59,6 @@
                 </div>
             </div>
         </main>
+
+         <br>
+        

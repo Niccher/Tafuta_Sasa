@@ -32,6 +32,42 @@
             }
         }
 
+        public function make_search_bymail($mail){
+            $this->db->where('Email', $mail);
+
+            $result = $this->db->get('tbl_Users');
+
+            if ($result->num_rows()==1) {
+                return $result->row(0)->Person_ID;
+            }else{
+                return false;
+            }
+        }
+
+        public function make_reset($rst_owner, $rst_old){
+            //  Reset_Id    Reset_Owner     Reset_Time  Reset_Old   Reset_Access    
+            $data = array(
+                'Reset_Owner' => $rst_owner,
+                'Reset_Time' => time(),
+                'Reset_Old' => $rst_old,
+                'Reset_Access' => "0000000",
+            );
+            return $this->db->insert('tbl_Reset', $data);
+        }
+
+        public function make_reset_accessed($rst_owner, $rst_old, $rst_time){  
+            $data = array(
+                'Reset_Owner' => $rst_owner,
+                'Reset_Time' => time(),
+                'Reset_Old' => $rst_old,
+                'Reset_Access' => "0000000",
+            );
+            $this->db->where('Reset_Owner', $rst_owner);
+            $this->db->where('Reset_Time', $rst_old);
+            $data = array( 'Reset_Old' =>  $new_pwd, 'Reset_Access' =>  time());
+            return $this->db->update('tbl_Reset',$data);
+        }
+
         public function make_user($nw_name, $nw_eml, $nw_pwd){
 
             $data = array(
@@ -178,12 +214,11 @@
         }
 
         public function checkmail_exists($mail){
-            $query = $this->db->get_where('tbl_Users', array('Email'=>base64_encode($this->mod_crypt->Enc_String($mail))));
+            $query = $this->db->get_where('tbl_Users', array('Email'=>$this->mod_crypt->Enc_String($mail)));
 
             if (empty($query->row_array())) {
                 return true;
             }else{
-                $this->form_validation->set_message('es_mail', 'Email already exists!');
                 return false;
             }
         }

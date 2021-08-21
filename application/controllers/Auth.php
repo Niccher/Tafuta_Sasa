@@ -87,7 +87,7 @@ class Auth extends CI_Controller {
         	if (base64_encode($this->input->post('rg_password')) == base64_encode($this->input->post('rg_password1'))) {
         		$this->mod_users->make_user($rg_name , $rg_eml , $rg_pwd);	
 
-	        	$head1 ='Hello, <b>'.$this->mod_crypt->Dec_String($rg_name).'</b> Welcome to Kazi Mingi ';
+	        	$head1 ='Hello, '.$this->mod_crypt->Dec_String($rg_name).' Welcome to Tafuta Sasa ';
 	            
 	            $head ='<td class="header-row-td" style="font-family: Arial, sans-serif; font-weight: normal; line-height: 19px; color: #478fca; margin: 0px; font-size: 18px; padding-bottom: 10px; padding-top: 15px;" width="378" valign="top" align="left">'.$head1.'</td>';
 	            $reciva = $this->mod_crypt->Dec_String($rg_eml);
@@ -110,9 +110,78 @@ class Auth extends CI_Controller {
 	}
 
 	public function forgot($page = 'forgot'){
-		$this->load->view('template/header');
-		$this->load->view('auth/'.$page);
-		$this->load->view('template/tail');
+		
+		$this->form_validation->set_rules('forgot_mail','Email','required|trim');
+
+        $data['auth_error'] = '';
+
+        if($this->form_validation->run() === FALSE) {
+			$this->load->view('template/header');
+			$this->load->view('auth/'.$page, $data);
+			$this->load->view('template/tail');
+        }else{
+
+            $fg_eml = $this->mod_crypt->Enc_String($this->input->post('forgot_mail'));
+
+            $user_present = $this->mod_users->make_search_bymail($fg_eml);
+            
+            if ($user_present) {
+
+            	$user_id = urlencode($this->encryption->encrypt($this->mod_crypt->Enc_String($user_present.'___'.time())));
+            	$user_info = $this->mod_users->get_vars($user_present);
+            	$user_pwd = $this->encryption->encrypt($user_info->Password);
+            	$user_eml = $this->mod_crypt->Dec_String($user_info->Email);
+
+            	$this->mod_users->make_reset($user_present, $user_pwd);
+
+            	$head1 ='Password Reset';
+	            
+	            $head ='<td class="header-row-td" style="font-family: Arial, sans-serif; font-weight: normal; line-height: 19px; color: #478fca; margin: 0px; font-size: 18px; padding-bottom: 10px; padding-top: 15px;" width="378" valign="top" align="left">'.$head1.'</td>';
+	            $reciva = $this->mod_crypt->Dec_String($user_info->Email);
+	            $senda = 'admin@tendollarwriters.com-----';
+
+	            $more = '<div style="font-family: Arial, sans-serif; line-height: 20px; color: #444444; font-size: 13px;"> 
+	                        <b style="color: #777777;"></b>Hello, please open this <b><a target="_blank" href="'.base_url('auth/reset/'.$user_id).'">link</a></b> to reset your password.
+	                    </div>';
+
+	                    echo '
+	                        <b style="color: #777777;"></b>Hello, please open this <b><a target="_blank" href="'.base_url('auth/reset/'.$user_id).'">link</a></b>';
+
+	            //$this->mod_emails->mail_this($senda, $reciva, $more, $head, $head1); 
+            	
+            	$data['auth_error'] = 
+            		'
+            		<div class="card h-lg-100">
+					    <div class="bg-holder bg-card" style="background-image:url('.base_url('assets/img/icons/spot-illustrations/corner-1.png').');"></div>
+					    <div class="card-body position-relative">
+					        <h5 class="text-success">Congratulations</h5>
+					        <p class="fs--1 mb-0 text-success" ><span class="fas fa-chevron-right ms-1"></span>An email has been sent to the email '.$this->input->post('forgot_mail').'. Open the link sent to reset your password.</p>
+					        <p class="fs--1 mb-0 text-info" ><span class="fas fa-info ms-1"></span>The reset link is valid for only 24hours.</p>
+					    </div>
+					</div>
+            		';
+            		
+                $this->load->view('template/header');
+				$this->load->view('auth/'.$page, $data);
+				$this->load->view('template/tail');
+            }else if (boolval($user_present) == FALSE || $user_present == ""){
+				$data['auth_error'] = 
+            		'
+					<div class="card h-lg-100">
+					    <div class="bg-holder bg-card" style="background-image:url('.base_url('assets/img/icons/spot-illustrations/corner-1.png').');"></div>
+					    <div class="card-body position-relative">
+					        <h5 class="text-warning">Try again!</h5>
+					        <p class="fs--1 mb-0 text-warning" ><span class="fas fa-chevron-right ms-1"></span>We have not found a user by that email, please try again.</p>
+					    </div>
+					</div>
+            		';
+
+                $this->load->view('template/header');
+				$this->load->view('auth/'.$page, $data);
+				$this->load->view('template/tail');
+            }
+            
+        }
 	}
 
 	public function logout(){
@@ -132,6 +201,28 @@ class Auth extends CI_Controller {
 	}
 
 	public function reset($page = 'reset'){
+
+		$user_id = $this->mod_crypt->Dec_String($this->encryption->decrypt(urldecode($this->uri->segment(3))));
+
+		$user_array = explode("___", $user_id);
+		$details = $this->mod_users->get_vars($user_array[0]);
+
+		if ($this->uri->segment(3) != NULL || $this->uri->segment(3) == "") {
+			// code...
+		}else{
+			redirect('auth/forgot');
+		}
+
+
+		if ((time() - $user_array[1]) > (24*3600) ) {
+			redirect('auth/forgot');
+		}else{
+			if ($details->Name == NULL || $details->Name == "") {
+				redirect('auth/forgot');
+			}else{
+				$this->mod_users->make_reset_accessed($user_array[0], $details->Password, $user_array[1]);
+			}
+		}
 		$this->load->view('template/header');
 		$this->load->view('auth/'.$page);
 		$this->load->view('template/tail');
