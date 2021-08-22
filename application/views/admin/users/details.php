@@ -4,18 +4,31 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="avatar" style="width: 60px; height: 60px;">
-                        <img class="rounded-circle" src="../../assets/img/team/2.jpg" />
+                        <img class="rounded-circle" src="<?php echo base_url('uploads/profiles/'.$user_info->Avatar); ?>" />
                     </div>
                 </div>
+
                 <div class="col-lg-5">
                     <h4 class="mb-1"> <?php echo $this->mod_crypt->Dec_String($user_info->Name); ?>
-                        <span data-bs-toggle="tooltip" data-bs-placement="right" title="Verified">
-                            <small class="fa fa-check-circle text-primary" data-fa-transform="shrink-4 down-2"></small>
-                        </span>
                     </h4>
-                    <p class="text-500">Location: Unknown</p>
-                    <a href="<?php echo base_url('admin/mails'); ?>">
-                        <button class="btn btn-falcon-primary btn-sm px-3" type="button">Message</button>
+                    <?php 
+                        if($user_info->Status == '' || $user_info->Status == '00'){
+                            $staus = '
+                                <span data-bs-toggle="tooltip" data-bs-placement="right" title="Unverified">
+                                    <small class="fas fa-check-circle text-danger" data-fa-transform="shrink-4 down-2"></small>
+                                </span>
+                            ';
+                        }else{
+                            $staus = '
+                                <span data-bs-toggle="tooltip" data-bs-placement="right" title="Email Not Verified">
+                                    <small class="fa fa-check-circle text-primary" data-fa-transform="shrink-4 down-2"></small>
+                                </span>
+                            ';
+                        } 
+                    ?>
+                    <p class="text-500">Email Verified: <?php echo $staus; ?></p>
+                    <a href="#">
+                        <button class="btn btn-falcon-primary btn-sm px-3" type="button" data-bs-toggle="modal" data-bs-target="#message_pop">Message</button>
                     </a>
                     <div class="border-dashed-bottom my-4 d-lg-none"></div>
                 </div>
@@ -26,78 +39,83 @@
     <div class="row g-0">
         <div class="col-lg-8 pe-lg-2">
             <div class="card mb-3">
-                <div class="card-header bg-light">
-                    <h5 class="mb-0">Intro</h5>
-                </div>
-                <div class="card-body text-justify">
-                    <p class="mb-0 text-1000"><?php echo $this->mod_crypt->Dec_String($user_info->Bio); ?>.</p>
-                </div>
-                <div class="card-footer bg-light p-0 border-top"></div>
-            </div>
-            <div class="card mb-3">
                 <div class="card-header bg-light d-flex justify-content-between">
-                    <h5 class="mb-0">Activity log</h5>
-                    <a class="font-sans-serif" href="#">All logs</a>
+                    <h5 class="mb-0">User info</h5>
                 </div>
                 <div class="card-body fs--1 p-0">
                     <a class="border-bottom-0 notification rounded-0 border-x-0 border border-300" href="#">
                         <div class="notification-avatar">
                             <div class="avatar avatar-xl me-3">
                                 <div class="avatar-emoji rounded-circle ">
-                                	<span role="img" aria-label="Emoji">🎁</span>
+                                    <span role="img" aria-label="Name">🏷️</span>
                                 </div>
                             </div>
                         </div>
                         <div class="notification-body">
                             <p class="mb-1">
-                            	<strong>Question One</strong> viewed <strong>2 Times</strong>
+                            	<strong>Name</strong>
                             </p>
-                            <span class="notification-time">November 13, 5:00 Am</span>
+                            <span class="notification-time"><?php echo $this->mod_crypt->Dec_String($user_info->Name); ?></span>
                         </div>
                     </a>
                     <a class="border-bottom-0 notification rounded-0 border-x-0 border border-300" href="#">
                         <div class="notification-avatar">
                             <div class="avatar avatar-xl me-3">
                                 <div class="avatar-emoji rounded-circle ">
-                                	<span role="img" aria-label="Emoji">🏷️</span>
+                                	<span role="img" aria-label="Phone">🏷️</span>
                                 </div>
                             </div>
                         </div>
                         <div class="notification-body">
                             <p class="mb-1">
-                            	<strong>Question Twenty</strong> viewed <strong> 2 Times </strong>
+                            	<strong>Mobile Phone</strong>
                             </p>
-                            <span class="notification-time">November 8, 5:00 PM</span>
+                            <span class="notification-time"><?php echo ($user_info->Phone); ?></span>
                         </div>
                     </a>
                     <a class="border-bottom-0 notification rounded-0 border-x-0 border border-300" href="#">
                         <div class="notification-avatar">
                             <div class="avatar avatar-xl me-3">
                                 <div class="avatar-emoji rounded-circle ">
-                                	<span role="img" aria-label="Emoji">📋️</span>
+                                    <span role="img" aria-label="Privilege">🏷️</span>
                                 </div>
                             </div>
                         </div>
                         <div class="notification-body">
                             <p class="mb-1">
-                            	<strong>Question Nine</strong> purchased <strong>2 Times</strong> 
+                            	<strong>Privilege</strong>
                             </p>
-                            <span class="notification-time">November 01, 11:30 AM</span>
+                            <span class="notification-time"><?php echo ($user_info->Privilege); ?></span>
+                        </div>
+                    </a>
+                    <a class="border-bottom-0 notification rounded-0 border-x-0 border border-300" href="#">
+                        <div class="notification-avatar">
+                            <div class="avatar avatar-xl me-3">
+                                <div class="avatar-emoji rounded-circle ">
+                                    <span role="img" aria-label="Bio">🏷️</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="notification-body">
+                            <p class="mb-1">
+                            	<strong>Bio and Description</strong>
+                            </p>
+                            <span class="notification-time"><?php echo $this->mod_crypt->Dec_String($user_info->Bio); ?></span>
                         </div>
                     </a>
                     <a class="notification border-x-0 border-bottom-0 border-300 rounded-top-0" href="#">
                         <div class="notification-avatar">
                             <div class="avatar avatar-xl me-3">
                                 <div class="avatar-emoji rounded-circle ">
-                                	<span role="img" aria-label="Emoji">📅️</span>
+                                    <span role="img" aria-label="Joined">📅️</span>
                                 </div>
                             </div>
                         </div>
                         <div class="notification-body">
                             <p class="mb-1">
-                            	<strong>Question Four</strong> purchased <strong>2 Times</strong> to an event
+                                <strong>Joined Platform</strong>
                             </p>
-                            <span class="notification-time">October 28, 12:00 PM</span>
+                            <span class="notification-time"><?php echo date('F d H:i A', $user_info->Timestamp) ?></span>
                         </div>
                     </a>
                 </div>
@@ -110,19 +128,70 @@
                         <h5 class="mb-0">Question Viewed</h5>
                     </div>
                     <div class="card-body fs--1">
-                        <div class="d-flex btn-reveal-trigger">
-                            <div class="calendar"><span class="calendar-month">Feb</span><span class="calendar-day">21</span></div>
-                            <div class="flex-1 position-relative ps-3">
-                                <h6 class="fs-0 mb-0"><a href="../../app/events/event-detail.html">Newmarket Nights</a></h6>
-                                <p class="mb-1">Organized by <a href="profile.html#!" class="text-700">University of Oxford</a></p>
-                                <p class="text-1000 mb-0">Time: 6:00AM</p>
-                                <p class="text-1000 mb-0">Duration: 6:00AM - 5:00PM</p>
-                                Place: Cambridge Boat Club, Cambridge
-                                <div class="border-dashed-bottom my-3"></div>
+            <?php
+                foreach ($question_viewed as $question) {
+                    $q_info = $this->mod_questions->get_question_by_id($question['View_Question']);
+                    $qn_id = urlencode($this->mod_crypt->Enc_String($q_info->Qn_Id));
+
+                    if ($this->mod_crypt->Dec_String($q_info->Qn_Pay) == 'pay_free' ) {
+                        $pays = '<span class="badge badge-soft-success rounded-pill">Free</span>';
+                    }else /*($this->mod_crypt->Dec_String($qn['Qn_Pay']) == 'pay_sale' ) */{
+                        $pays = '<span class="badge badge-soft-info rounded-pill">Pro</span>';
+                    }
+
+                    echo '
+                        <div class="col-md-6 h-100">
+                            <div class="border-dashed-bottom my-1"></div>
+                            <div class="d-flex btn-reveal-trigger">
+                                <div class="calendar">
+                                    <span class="calendar-month">'.date('M', $q_info->Qn_Created).'</span><span class="calendar-day">'.date('d', $q_info->Qn_Created).'
+                                    </span>
+                                </div>
+                                <div class="flex-1 position-relative ps-3">
+                                    <h6 class="fs-0 mb-0">
+                                        <a href="'.base_url('admin/questions/view/'.$qn_id).'">'.$this->security->xss_clean(ucfirst($this->mod_crypt->Dec_String($q_info->Qn_Name))).'</a>
+                                    </h6>
+                                    Tags: '.$this->security->xss_clean($this->mod_crypt->Dec_String($q_info->Qn_Tags)).'
+                                    <br>
+                                    Level: '.$this->security->xss_clean($this->mod_crypt->Dec_String($q_info->Qn_Level)).'
+                                    <br>
+                                    Pay: '.$pays.'
+                                    <p class="text-1000 mb-0">Viewed: '.date('F d H:i A', $question['View_Time']).'</p>
+                                </div>
                             </div>
+                            <div class="border-dashed-bottom my-3"></div>
                         </div>
+                    ';
+                }
+            ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <div class="modal fade" id="message_pop" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
+            <div class="modal-content position-relative">
+                <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                    <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="p-4 pb-0">
+                    <form>
+                        <div class="mb-3">
+                            <label class="col-form-label" for="message_note">Message:</label>
+                            <textarea class="form-control" id="message_note" name="message_note" rows="6"></textarea>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" type="button" id="send_msg">Send Message </button>
+                </div>
+            </div>
+        </div>
+    </div>
+

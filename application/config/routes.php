@@ -5,16 +5,15 @@ $route['admin'] = 'admin';
 $route['admin/home'] = 'admin';
 $route['admin/dashboard'] = 'admin';
 
-$route['admin/users'] = 'admin/users';
-$route['admin/users/view'] = 'admin/users';
-$route['admin/users/view'] = 'admin/users';
-$route['admin/users/details/(:any)'] = 'admin/users_view';
+$route['admin/users'] = 'user';
+$route['admin/users/home'] = 'user';
+$route['admin/users/details/(:any)'] = 'user/users_view';
 
 $route['admin/questions'] = 'questions/questions';
 $route['admin/questions/add'] = 'questions/questions_add';
 $route['admin/questions/view/(:any)'] = 'questions/questions_view';
 $route['admin/questions/edit'] = 'questions/edit';
-$route['admin/questions/delete'] = 'questions/delete';
+$route['admin/questions/delete'] = 'questions/delete'; 
 $route['admin/questions/attach'] = 'questions/questions_add_attachment';
 
 $route['admin/messages'] = 'messages';

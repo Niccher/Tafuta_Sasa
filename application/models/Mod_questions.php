@@ -51,6 +51,13 @@
 
         }
 
+        public function get_questions_viewed_by($p_id){
+            $array = array('View_Viewer =' => $p_id);
+            $this->db->where($array);
+            $query = $this->db->get('tbl_Viewed');
+            return $query->result_array();
+        } 
+
         public function update_question_view($q_uuid, $count){
             $this->db->where('Qn_Id', $q_uuid);
             $data = array( 'Qn_Viewed' =>  $count);
