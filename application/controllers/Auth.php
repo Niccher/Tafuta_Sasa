@@ -127,7 +127,7 @@ class Auth extends CI_Controller {
             
             if ($user_present) {
 
-            	$user_id = urlencode($this->encryption->encrypt($this->mod_crypt->Enc_String($user_present.'___'.time())));
+            	$user_id = urlencode($this->mod_crypt->Enc_String($this->mod_crypt->Enc_String($user_present.'___'.time())));
             	$user_info = $this->mod_users->get_vars($user_present);
             	$user_pwd = $this->encryption->encrypt($user_info->Password);
             	$user_eml = $this->mod_crypt->Dec_String($user_info->Email);
@@ -142,12 +142,12 @@ class Auth extends CI_Controller {
 
 	            $more = '<div style="font-family: Arial, sans-serif; line-height: 20px; color: #444444; font-size: 13px;"> 
 	                        <b style="color: #777777;"></b>Hello, please open this <b><a target="_blank" href="'.base_url('auth/reset/'.$user_id).'">link</a></b> to reset your password.
-	                    </div>';
+	                    </div>'; 
 
-	                    echo '
+	                    $writess = '
 	                        <b style="color: #777777;"></b>Hello, please open this <b><a target="_blank" href="'.base_url('auth/reset/'.$user_id).'">link</a></b>';
 
-	            //$this->mod_emails->mail_this($senda, $reciva, $more, $head, $head1); 
+	            $this->mod_emails->mail_this($senda, $reciva, $more, $head, $head1); 
             	
             	$data['auth_error'] = 
             		'
@@ -202,16 +202,19 @@ class Auth extends CI_Controller {
 
 	public function reset($page = 'reset'){
 
-		$user_id = $this->mod_crypt->Dec_String($this->encryption->decrypt(urldecode($this->uri->segment(3))));
+		$user_id = $this->mod_crypt->Dec_String($this->mod_crypt->Dec_String(urldecode($this->uri->segment(3))));
 
 		$user_array = explode("___", $user_id);
 		$details = $this->mod_users->get_vars($user_array[0]);
+		$reset_data = $this->mod_users->get_reset($user_array[0], $user_array[1]);
 
-		if ($this->uri->segment(3) != NULL || $this->uri->segment(3) == "") {
-			// code...
-		}else{
+		if ($this->uri->segment(3) == NULL || $this->uri->segment(3) == "") {
 			redirect('auth/forgot');
 		}
+
+		/*if ($reset_data->Reset_Old == $details->Password) {
+			redirect('auth/forgot');
+		}else{}*/
 
 
 		if ((time() - $user_array[1]) > (24*3600) ) {
@@ -219,13 +222,37 @@ class Auth extends CI_Controller {
 		}else{
 			if ($details->Name == NULL || $details->Name == "") {
 				redirect('auth/forgot');
-			}else{
+			}
+			else{
 				$this->mod_users->make_reset_accessed($user_array[0], $details->Password, $user_array[1]);
 			}
 		}
+
 		$this->load->view('template/header');
 		$this->load->view('auth/'.$page);
 		$this->load->view('template/tail');
+
+	}
+
+	public function new_password($page = 'reset'){
+		$this->form_validation->set_rules('rs_password','Password','required|trim');
+
+        if($this->form_validation->run() === FALSE) {
+			$this->load->view('template/header');
+			$this->load->view('auth/'.$page);
+			$this->load->view('template/tail');
+        }else{
+        	$pwd_one = $this->mod_crypt->Enc_String(trim($this->input->post('rs_password')));
+
+        	$user_id = $this->mod_crypt->Dec_String($this->mod_crypt->Dec_String(urldecode($this->input->post('rs_user'))));
+
+			$user_array = explode("___", $user_id);
+
+			//print_r($user_array);
+			$this->mod_users->update_profile_password($user_array[0], $pwd_one);
+			redirect('auth/login');
+      
+        }
 	}
 
 	public function terms($page = 'conditions'){

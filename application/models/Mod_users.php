@@ -56,16 +56,24 @@
         }
 
         public function make_reset_accessed($rst_owner, $rst_old, $rst_time){  
-            $data = array(
-                'Reset_Owner' => $rst_owner,
-                'Reset_Time' => time(),
-                'Reset_Old' => $rst_old,
-                'Reset_Access' => "0000000",
-            );
             $this->db->where('Reset_Owner', $rst_owner);
-            $this->db->where('Reset_Time', $rst_old);
-            $data = array( 'Reset_Old' =>  $new_pwd, 'Reset_Access' =>  time());
+            $this->db->where('Reset_Time', $rst_time);
+            $data = array( 'Reset_Old' =>  $rst_old, 'Reset_Access' =>  time());
             return $this->db->update('tbl_Reset',$data);
+        }
+
+        public function get_reset($rst_owner, $rst_time){
+            $this->db->order_by('Reset_Id', 'DESC');
+            $this->db->where('Reset_Owner', $rst_owner);
+            $this->db->where('Reset_Time', $rst_time);
+
+            $result = $this->db->get('tbl_Reset');
+
+            if ($result->num_rows()==1) {
+                return $result->row();
+            }else{
+                return false;
+            }
         }
 
         public function make_user($nw_name, $nw_eml, $nw_pwd){
@@ -136,6 +144,12 @@
             return $this->db->insert('tbl_Users_Otp', $data);
             
         }
+
+        public function update_profile_password($uuid, $passwd){
+            $this->db->where('Person_ID', $uuid);
+            $data = array( 'Password' =>  $passwd);
+            return $this->db->update('tbl_Users',$data);
+        }
         
         public function update_otp($count){
             $this->db->where('Count', $count);
@@ -168,7 +182,7 @@
             return $this->db->update('tbl_Users',$data);
         }
 
-        public function make_delete(){
+        public function make_delete(){ 
             $dt = time();
             $data = array(
                 'Name' => $nw_name,

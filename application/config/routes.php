@@ -34,10 +34,12 @@ $route['questions/get_attachment/(:any)'] = 'questions/questions_get_attachment'
 $route['questions/delete/(:any)'] = 'questions/questions_deleted/$1';
 
 
+$route['auth'] = 'auth/login';
 $route['auth/login'] = 'auth/login';
 $route['auth/register'] = 'auth/register';
 $route['auth/forgot'] = 'auth/forgot';
-$route['auth/reset/(:any)'] = 'auth/reset';
+$route['auth/reset/(:any)'] = 'auth/reset'; 
+$route['auth/new_password'] = 'auth/new_password';
 $route['auth/activate'] = 'auth/activate';
 $route['auth/terms'] = 'auth/terms';
 $route['auth/conditions'] = 'auth/terms';
