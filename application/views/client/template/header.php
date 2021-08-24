@@ -15,11 +15,9 @@
             
             <script src="<?php echo base_url('assets/plugins/overlayscrollbars/OverlayScrollbars.min.js'); ?>"></script>
             
-            <link href="<?php echo  base_url('assets/plugins/fullcalendar/main.min.css'); ?>" rel="stylesheet">
-            <link href="<?php echo  base_url('assets/plugins/leaflet/leaflet.css'); ?>" rel="stylesheet">
-            <link href="<?php echo  base_url('assets/plugins/leaflet.markercluster/MarkerCluster.css'); ?>" rel="stylesheet">
-            <link href="<?php echo  base_url('assets/plugins/leaflet.markercluster/MarkerCluster.Default.css'); ?>" rel="stylesheet">
-            <link href="<?php echo  base_url('assets/plugins/flatpickr/flatpickr.min.css'); ?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/plugins/summernote/summernote-lite.css'); ?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/plugins/dropzone/dropzone.min.css'); ?>" rel="stylesheet">
+            
             <link rel="preconnect" href="https://fonts.gstatic.com">
             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
             <link href="<?php echo  base_url('assets/plugins/prism/prism-okaidia.css'); ?>" rel="stylesheet">

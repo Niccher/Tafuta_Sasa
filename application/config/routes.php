@@ -67,6 +67,10 @@ $route['client/account/invoice'] = 'client/invoice';
 $route['client/questions/view'] = 'client/questions_view';
 $route['client/chats'] = 'client/chats';
 
+$route['client/profile/add'] = 'client/profileadd';
+
+
+
 $route['default_controller'] = 'pages/landing';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

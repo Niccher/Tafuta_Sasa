@@ -151,27 +151,32 @@
             return $this->db->update('tbl_Users',$data);
         }
         
-        public function update_otp($count){
-            $this->db->where('Count', $count);
-            //$this->db->where('Timestamps + 7200 < ' , () );
-            $data = array( 'Valid' => 'FALSE' , 'Tested_at' => time() );
-            return $this->db->update('tbl_Users_Otp',$data);
-        }
-        
         public function update_profile($uuid, $image){
-            $this->db->where('Phone', $uuid);
+            $this->db->where('Person_ID', $uuid);
             $data = array( 'Avatar' =>  base64_encode($image));
             return $this->db->update('tbl_Users',$data);
         }
         
         public function update_profile_name($uuid, $name){
-            $this->db->where('Phone', $uuid);
+            $this->db->where('Person_ID', $uuid);
             $data = array( 'Name' =>  $name);
+            return $this->db->update('tbl_Users',$data);
+        }
+
+        public function update_profile_mail($uuid, $mail){
+            $this->db->where('Person_ID', $uuid);
+            $data = array( 'Email' =>  $mail);
+            return $this->db->update('tbl_Users',$data);
+        }
+
+        public function update_profile_phone($uuid, $phone){
+            $this->db->where('Person_ID', $uuid);
+            $data = array( 'Phone' =>  $phone);
             return $this->db->update('tbl_Users',$data);
         }
         
         public function update_profile_bio($uuid, $bio){
-            $this->db->where('Phone', $uuid);
+            $this->db->where('Person_ID', $uuid);
             $data = array( 'Bio' =>  $bio);
             return $this->db->update('tbl_Users',$data);
         }
