@@ -39,10 +39,6 @@
                     </div>
                 </div>
             </div>
-            <form class="contacts-search-wrapper">
-                <div class="form-group mb-0 position-relative d-md-none d-lg-block w-100 h-100"><input class="form-control form-control-sm chat-contacts-search border-0 h-100" type="text" placeholder="Search contacts ..." /><span class="fas fa-search contacts-search-icon"></span></div>
-                <button class="btn btn-sm btn-transparent d-none d-md-inline-block d-lg-none"><span class="fas fa-search fs--1"></span></button>
-            </form>
         </div>
         <div class="tab-content card-chat-content">
             <div class="tab-pane card-chat-pane" id="chat-6" role="tabpanel" aria-labelledby="chat-link-6">
@@ -237,15 +233,20 @@
                 </div>
             </div>
             <form class="chat-editor-area">
-                <input class="d-none" type="file" id="chat-file-upload" />
-                <label class="mb-0 p-1 chat-file-upload cursor-pointer" for="chat-file-upload">
-                    <span class="fas fa-paperclip"></span>
-                </label>
-                <div class="btn btn-link p-0 emoji-icon" data-emoji-button="data-emoji-button">
-                    <span class="far fa-laugh-beam"></span>
+                <div class="mb-3">
+                    <div class="container">
+                        <br>
+                        <div class="col-12">
+                            <textarea name="info_msg" id="info_msg" rows="6"></textarea>
+                        </div>
+                        <br>
+                        <div class="col-12">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-sm btn-outline-primary" type="button" id="client_send_msg">Send</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="emojiarea-editor outline-none scrollbar" contenteditable="true"></div>
-                <button class="btn btn-sm btn-send" type="submit">Send</button>
             </form>
         </div>
     </div>

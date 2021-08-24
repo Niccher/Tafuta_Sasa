@@ -6,46 +6,6 @@
                 <div class="col-lg-8">
                     <h3>Get started by joining a subscription</h3>
                     <p class="mt-2">Free for 30 days, cancel at any time. <br />$6.25 / For as many questions in a month</p>
-                    <div class="dropdown">
-                        <button class="btn btn-link dropdown-toggle ps-0 btn-sm" id="change-plan" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Change plan</button>
-                        <div class="dropdown-menu py-3" aria-labelledby="change-plan" style="min-width: 15rem;">
-                            <div class="dropdown-item px-3 py-2">
-                                <span class="d-flex justify-content-between fs--1 text-black">
-                                	<span class="fw-semi-bold">Standard License</span>
-                                	<span>$59.00</span>
-                                </span>
-                                <ul class="list-unstyled ps-1 my-2 fs--1">
-                                    <li> 
-                                    	<span class="fas fa-circle" data-fa-transform="shrink-11"></span>
-                                    	<span class="ms-1">Use for a single product</span>
-                                    </li>
-                                    <li>
-                                    	<span class="fas fa-circle" data-fa-transform="shrink-11"></span>
-                                    	<span class="ms-1">Non-paying users only</span>
-                                    </li>
-                                </ul>
-                                <p class="fs--2 mb-0">Read the full <a href="billing.html#!">Standard License </a></p>
-                            </div>
-                            <div class="dropdown-divider my-0"></div>
-                            <div class="dropdown-item px-3 py-2">
-                                <span class="d-flex justify-content-between fs--1 text-black">
-                                	<span class="fw-semi-bold">Extended License</span>
-                                	<span>$99.00</span>
-                                </span>
-                                <ul class="list-unstyled ps-1 my-2 fs--1">
-                                    <li> 
-                                    	<span class="fas fa-circle" data-fa-transform="shrink-11"></span>
-                                    	<span class="ms-1">Unlimited websites</span>
-                                    </li>
-                                    <li> 
-                                    	<span class="fas fa-circle" data-fa-transform="shrink-11"></span>
-                                    	<span class="ms-1">Paying users allowed</span>
-                                    </li>
-                                </ul>
-                                <p class="fs--2 mb-0">Read the full <a href="billing.html#!">Extended License</a></p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -349,10 +309,6 @@
                     <h5 class="mb-0">Billing</h5>
                 </div>
                 <div class="card-body bg-light">
-                    <select class="form-select mb-3" aria-label="Default select example">
-                        <option selected="">Monthly Plan</option>
-                        <option value="1">Annual Plan</option>
-                    </select>
                     <div class="d-flex justify-content-between fs--1 mb-1">
                         <p class="mb-0">Due in 30 days</p>
                         <span>$375.00</span>
@@ -371,7 +327,7 @@
                     	<span class="fa fa-lock me-2"></span>Start free trial
                     </button>
                     <div class="text-center mt-2">
-                    	<small class="d-inline-block">By continuing, you are agreeing to our subscriber <a href="billing.html#!">terms</a> and will be charged at the end of the trial. </small>
+                    	<small class="d-inline-block">By continuing, you are agreeing to our subscriber <a href="<?php echo base_url('auth/terms');?>">terms</a></small>
                     </div>
                 </div>
             </div>

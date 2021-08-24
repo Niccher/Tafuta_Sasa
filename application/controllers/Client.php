@@ -11,10 +11,12 @@ class Client extends CI_Controller {
         }
 
 		$title['pg_name'] = 'home';
+		$uuid = $this->session->userdata('log_id');
+		$data['question_viewed'] = $this->mod_questions->get_questions_viewed_by($uuid);
 
 		$this->load->view('client/template/header');
 		$this->load->view('client/template/sidebar', $title);
-		$this->load->view('client/'.$page);
+		$this->load->view('client/'.$page, $data);
 		$this->load->view('client/template/tail');
 	}
 
@@ -31,7 +33,7 @@ class Client extends CI_Controller {
 		$this->load->view('client/template/header');
 		$this->load->view('client/template/sidebar', $title);
 		$this->load->view('client/msgs/'.$page);
-		$this->load->view('client/template/tail');
+		$this->load->view('client/template/tail_chat');
 	}
 
 	public function subscribe($page = 'subscribe'){
