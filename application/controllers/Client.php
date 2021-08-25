@@ -20,22 +20,6 @@ class Client extends CI_Controller {
 		$this->load->view('client/template/tail');
 	}
 
-
-	public function chat($page = 'chats'){
-
-		$typ = $this->session->userdata('log_type');
-        if (! $this->session->userdata('log_id') || $typ != "Client") {
-            redirect('auth/login');
-        }
-
-		$title['pg_name'] = 'chat';
-
-		$this->load->view('client/template/header');
-		$this->load->view('client/template/sidebar', $title);
-		$this->load->view('client/msgs/'.$page);
-		$this->load->view('client/template/tail_chat');
-	}
-
 	public function subscribe($page = 'subscribe'){
 
 		$typ = $this->session->userdata('log_type');

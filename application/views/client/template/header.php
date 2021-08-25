@@ -15,7 +15,7 @@
             
             <script src="<?php echo base_url('assets/plugins/overlayscrollbars/OverlayScrollbars.min.js'); ?>"></script>
             
-            <link href="<?php echo base_url('assets/plugins/summernote/summernote-lite.css'); ?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/plugins/summernote/summernote-bs4.css'); ?>" rel="stylesheet">
             <link href="<?php echo base_url('assets/plugins/dropzone/dropzone.min.css'); ?>" rel="stylesheet">
             
             <link rel="preconnect" href="https://fonts.gstatic.com">

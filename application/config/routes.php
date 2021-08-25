@@ -65,9 +65,12 @@ $route['client/account'] = 'client/account';
 $route['client/invoice'] = 'client/invoice';
 $route['client/account/invoice'] = 'client/invoice';
 $route['client/questions/view'] = 'client/questions_view';
-$route['client/chats'] = 'client/chats';
+$route['client/chats'] = 'chat/client_init';
+$route['client/chat'] = 'chat/client_init';
 
 $route['client/profile/add'] = 'client/profileadd';
+$route['client/massage/send'] = 'chat/client_send';
+$route['client/convos/(:any)'] = 'chat/client_convo_with/$1';
 
 
 

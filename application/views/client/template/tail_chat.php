@@ -92,20 +92,33 @@
             <script src="<?php echo base_url('assets/plugins/bootstrap/bootstrap.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/fontawesome/all.min.js'); ?>"></script>
 
-            <script src="<?php echo base_url('assets/plugins/summernote/summernote-lite.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
+            <script src="<?php echo base_url('assets/plugins/summernote/summernote-bs4.js'); ?>"></script>
 
             <script type="text/javascript">
                 $(document).ready(function() {
                     $('#profile_bio').summernote();
-                    $('#info_msg').summernote();
+                    $("#info_msg").summernote({
+                        height: 100,
+                        toolbar: [
+                            [ 'style', [ 'style' ] ],
+                            [ 'font', [ 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear'] ],
+                            [ 'fontname', [ 'fontname' ] ],
+                            [ 'fontsize', [ 'fontsize' ] ],
+                            [ 'color', [ 'color' ] ],
+                            [ 'para', [ 'ol', 'ul', 'paragraph', 'height' ] ],
+                            [ 'table', [ 'table' ] ],
+                            [ 'insert', [ 'link'] ],
+                            [ 'view', [ 'undo', 'redo', 'codeview', 'help' ] ]
+                        ]
+                    });
 
                     $('#send_msg').click(function(){
 		                var msg = $('#message_note').val();
 		                console.log(msg);
 
 		                $.ajax({
-		                    url: "<?php echo base_url('mail/send/'.($this->uri->segment(4))); ?>",
+		                    url: "<?php echo base_url('client/massage/send'); ?>",
 		                    type: 'POST',
 		                    data: { convo_body:msg },
 		                    success: function(response){
@@ -120,10 +133,40 @@
 		            });
 
                     $('#client_send_msg').click(function(){
-                        var msg = $('#info_msg').val();
+                        var msg = $('#info_msg').summernote('code');
                         console.log(msg);
+
+                        $.ajax({
+                            url: "<?php echo base_url('client/massage/send'); ?>",
+                            type: 'POST',
+                            data: { convo_body:msg },
+                            success: function(response){
+                                $.ajax({
+                                    url: "<?php echo base_url('client/convos/'.urlencode($this->mod_crypt->Enc_String($this->session->userdata('log_id')))); ?>",
+                                    type: 'POST',
+                                    success: function(response){
+                                        $('.posted_msgs').html(response); 
+                                    }
+                                });
+                            }
+                        });
                         
                     });
+
+                    function sendRequest(){
+                        $.ajax({
+                            url: "<?php echo base_url('client/convos/'.urlencode($this->mod_crypt->Enc_String($this->session->userdata('log_id')))); ?>",
+                            type: 'POST',
+                            success: function(response){
+                                $('.posted_msgs').html(response); 
+                                setTimeout(function(){
+                                    sendRequest();
+                                }, 5000);
+                            }
+                        }); 
+                    }
+
+                    sendRequest();
                 });
             </script>
 
