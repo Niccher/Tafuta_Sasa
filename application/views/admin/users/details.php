@@ -36,8 +36,68 @@
         </div>
     </div>
 
-    <div class="row g-0">
-        <div class="col-lg-8 pe-lg-2">
+    <div class="row g-3 mb-3">
+        <div class="col-lg-8"> 
+            <div class="card mb-3">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Question Viewed</h5>
+                </div>
+                <div class="card-body fs--1">
+                    <div class="row">
+                        <?php
+                            $qn_array = array(); $qn_seen = array(); 
+                            $qn_all = array_reverse($question_viewed);
+                            foreach ($qn_all as $question) {
+                                $q_info = $this->mod_questions->get_question_by_id($question['View_Question']);
+                                if (!empty($q_info)) {
+                                    array_push($qn_seen,$question['View_Question']);
+                                }
+                            }
+                            $qn_array = array_unique($qn_seen);
+                            foreach ($qn_array as $this_qn) {
+                                $q_info = $this->mod_questions->get_question_by_id($this_qn);
+
+                                if (!empty($q_info)) {
+                                    $qn_id = urlencode($this->mod_crypt->Enc_String($this_qn));
+
+                                    if ($this->mod_crypt->Dec_String($q_info->Qn_Pay) == 'pay_free' ) {
+                                        $pays = '<span class="badge badge-soft-success rounded-pill">Free</span>';
+                                    }else {
+                                        $pays = '<span class="badge badge-soft-info rounded-pill">Pro</span>';
+                                    }
+
+                                    $posted = '
+                                        <div class="col-md-12 h-100">
+                                            <div class="border-dashed-bottom my-1"></div>
+                                            <div class="d-flex btn-reveal-trigger">
+                                                <div class="calendar">
+                                                    <span class="calendar-month">'.date('M', $q_info->Qn_Created).'</span><span class="calendar-day">'.date('d', $q_info->Qn_Created).'
+                                                    </span>
+                                                </div>
+                                                <div class="flex-1 position-relative ps-3">
+                                                    <h6 class="fs-0 mb-0">
+                                                        <a href="'.base_url('admin/questions/view/'.$qn_id).'">'.$this->security->xss_clean(ucfirst($this->mod_crypt->Dec_String($q_info->Qn_Name))).'</a>
+                                                    </h6>
+                                                    Tags: '.$this->security->xss_clean($this->mod_crypt->Dec_String($q_info->Qn_Tags)).'
+                                                    <br>
+                                                    Level: '.$this->security->xss_clean($this->mod_crypt->Dec_String($q_info->Qn_Level)).'
+                                                    <br>
+                                                    Pay: '.$pays.'
+                                                </div>
+                                            </div>
+                                            <div class="border-dashed-bottom my-3"></div>
+                                        </div>
+                                    ';
+                                    echo $posted;
+                                }
+
+                            }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
             <div class="card mb-3">
                 <div class="card-header bg-light d-flex justify-content-between">
                     <h5 class="mb-0">User info</h5>
@@ -46,8 +106,8 @@
                     <a class="border-bottom-0 notification rounded-0 border-x-0 border border-300" href="#">
                         <div class="notification-avatar">
                             <div class="avatar avatar-xl me-3">
-                                <div class="avatar-emoji rounded-circle ">
-                                    <span role="img" aria-label="Name">🏷️</span>
+                                <div class="icon-item icon-item-sm rounded-circle bg-200 shadow-none">
+                                    <span class="text-primary fas fa-tag"></span>
                                 </div>
                             </div>
                         </div>
@@ -61,8 +121,8 @@
                     <a class="border-bottom-0 notification rounded-0 border-x-0 border border-300" href="#">
                         <div class="notification-avatar">
                             <div class="avatar avatar-xl me-3">
-                                <div class="avatar-emoji rounded-circle ">
-                                	<span role="img" aria-label="Phone">🏷️</span>
+                                <div class="icon-item icon-item-sm rounded-circle bg-200 shadow-none">
+                                    <span class="text-primary fas fa-phone-alt"></span>
                                 </div>
                             </div>
                         </div>
@@ -70,14 +130,14 @@
                             <p class="mb-1">
                             	<strong>Mobile Phone</strong>
                             </p>
-                            <span class="notification-time"><?php echo ($user_info->Phone); ?></span>
+                            <span class="notification-time"><?php echo $this->mod_crypt->Dec_String($user_info->Phone); ?></span>
                         </div>
                     </a>
                     <a class="border-bottom-0 notification rounded-0 border-x-0 border border-300" href="#">
                         <div class="notification-avatar">
                             <div class="avatar avatar-xl me-3">
-                                <div class="avatar-emoji rounded-circle ">
-                                    <span role="img" aria-label="Privilege">🏷️</span>
+                                <div class="icon-item icon-item-sm rounded-circle bg-200 shadow-none">
+                                    <span class="text-primary fas fa-tag"></span>
                                 </div>
                             </div>
                         </div>
@@ -91,8 +151,8 @@
                     <a class="border-bottom-0 notification rounded-0 border-x-0 border border-300" href="#">
                         <div class="notification-avatar">
                             <div class="avatar avatar-xl me-3">
-                                <div class="avatar-emoji rounded-circle ">
-                                    <span role="img" aria-label="Bio">🏷️</span>
+                                <div class="icon-item icon-item-sm rounded-circle bg-200 shadow-none">
+                                    <span class="text-primary fas fa-info"></span>
                                 </div>
                             </div>
                         </div>
@@ -106,8 +166,8 @@
                     <a class="notification border-x-0 border-bottom-0 border-300 rounded-top-0" href="#">
                         <div class="notification-avatar">
                             <div class="avatar avatar-xl me-3">
-                                <div class="avatar-emoji rounded-circle ">
-                                    <span role="img" aria-label="Joined">📅️</span>
+                                <div class="icon-item icon-item-sm rounded-circle bg-200 shadow-none">
+                                    <span class="text-primary far fa-calendar-check"></span>
                                 </div>
                             </div>
                         </div>
@@ -118,53 +178,6 @@
                             <span class="notification-time"><?php echo date('F d H:i A', $user_info->Timestamp) ?></span>
                         </div>
                     </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 ps-lg-2">
-            <div class="sticky-sidebar">
-                <div class="card mb-3 mb-lg-0">
-                    <div class="card-header bg-light">
-                        <h5 class="mb-0">Question Viewed</h5>
-                    </div>
-                    <div class="card-body fs--1">
-            <?php
-                foreach ($question_viewed as $question) {
-                    $q_info = $this->mod_questions->get_question_by_id($question['View_Question']);
-                    $qn_id = urlencode($this->mod_crypt->Enc_String($q_info->Qn_Id));
-
-                    if ($this->mod_crypt->Dec_String($q_info->Qn_Pay) == 'pay_free' ) {
-                        $pays = '<span class="badge badge-soft-success rounded-pill">Free</span>';
-                    }else /*($this->mod_crypt->Dec_String($qn['Qn_Pay']) == 'pay_sale' ) */{
-                        $pays = '<span class="badge badge-soft-info rounded-pill">Pro</span>';
-                    }
-
-                    echo '
-                        <div class="col-md-6 h-100">
-                            <div class="border-dashed-bottom my-1"></div>
-                            <div class="d-flex btn-reveal-trigger">
-                                <div class="calendar">
-                                    <span class="calendar-month">'.date('M', $q_info->Qn_Created).'</span><span class="calendar-day">'.date('d', $q_info->Qn_Created).'
-                                    </span>
-                                </div>
-                                <div class="flex-1 position-relative ps-3">
-                                    <h6 class="fs-0 mb-0">
-                                        <a href="'.base_url('admin/questions/view/'.$qn_id).'">'.$this->security->xss_clean(ucfirst($this->mod_crypt->Dec_String($q_info->Qn_Name))).'</a>
-                                    </h6>
-                                    Tags: '.$this->security->xss_clean($this->mod_crypt->Dec_String($q_info->Qn_Tags)).'
-                                    <br>
-                                    Level: '.$this->security->xss_clean($this->mod_crypt->Dec_String($q_info->Qn_Level)).'
-                                    <br>
-                                    Pay: '.$pays.'
-                                    <p class="text-1000 mb-0">Viewed: '.date('F d H:i A', $question['View_Time']).'</p>
-                                </div>
-                            </div>
-                            <div class="border-dashed-bottom my-3"></div>
-                        </div>
-                    ';
-                }
-            ?>
-                    </div>
                 </div>
             </div>
         </div>

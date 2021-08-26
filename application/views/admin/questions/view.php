@@ -8,14 +8,7 @@
                         <div class="flex-1 fs--1">
                             <h5 class="fs-0"><?php echo ucfirst($this->security->xss_clean($this->mod_crypt->Dec_String($question_info->Qn_Name))); ?></h5>
                             <p class="mb-0">by <a href="#">Admin</a></p>
-                                <?php
-                                    if ($question_info->Qn_Pay == 'N1FtNHV1Zz') {
-                                        $sale = 'Free for All';
-                                    }else{
-                                        $sale = 'For Sale';
-                                    }
-                                ?>
-                            <span class="fs-0 text-warning fw-semi-bold">Price: <?php $sale; ?></span>
+                            <span class="fs-0 text-warning fw-semi-bold">Price: <?php echo number_format($this->mod_crypt->Dec_String($question_info->Qn_Price), 2); ?></span>
                         </div>
                     </div>
                 </div>
@@ -42,7 +35,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div> 
         </div>
     </div>
 

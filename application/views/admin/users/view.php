@@ -17,6 +17,7 @@
                         <th class="sort pe-1 align-middle white-space-nowrap pe-7" data-sort="date">Created</th>
                         <th class="sort pe-1 align-middle white-space-nowrap" data-sort="address" style="min-width: 12.5rem;">Bio</th>
                         <th class="sort pe-1 align-middle white-space-nowrap text-center" data-sort="status">Status</th>
+                        <th class="text-end" scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="list" id="table-orders-body">
@@ -30,7 +31,7 @@
                             }else{
                                 $activated = '
                                     <span class="badge badge rounded-pill d-block badge-soft-success">Active
-                                        <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
+                                        <span class="ms-1 fas fa-check"  data-fa-transform="shrink-2"></span>
                                     </span>';
                             }
                             $p_id = urlencode($this->mod_crypt->Enc_String($users['Person_ID']));
@@ -48,6 +49,16 @@
                                 <td class="status py-2 align-middle text-center fs-0 white-space-nowrap">
                                     '.$activated.'
                                 </td>
+                                <td class="status py-2 align-middle text-end fs-0 white-space-nowrap">
+                                    <div>
+                                        <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="View User Info">
+                                            <span class="text-500 fas far fa-eye"></span>
+                                        </button>
+                                        <button class="btn p-0 ms-2" type="button" data-bs-placement="top" title="Send Message" data-bs-toggle="modal" data-bs-target="#pop_msg">
+                                            <span class="text-500 far fa-envelope"></span>
+                                        </button>
+                                    </div>
+                                </td>
                             </tr>
                             ';
                         }
@@ -56,6 +67,34 @@
             </table>
         </div>
     </div>
+<div class="modal fade" id="pop_msg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
+        <div class="modal-content position-relative">
+            <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
+                    <h4 class="mb-1" id="modalExampleDemoLabel">Send message </h4>
+                </div>
+                <div class="p-4 pb-0">
+                    <form>
+                        <div class="mb-3">
+                            <label class="col-form-label" for="message-text">Message:</label>
+                            <textarea class="form-control" id="pop_message_box"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-primary" type="button">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
     <div class="card-footer">
         <div class="d-flex align-items-center justify-content-center">
             <button class="btn btn-sm btn-falcon-default me-1" type="button" title="Previous" data-list-pagination="prev">
