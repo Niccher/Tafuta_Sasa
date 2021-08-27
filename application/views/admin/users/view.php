@@ -54,7 +54,7 @@
                                         <button class="btn p-0" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="View User Info">
                                             <span class="text-500 fas far fa-eye"></span>
                                         </button>
-                                        <button class="btn p-0 ms-2" type="button" data-bs-placement="top" title="Send Message" data-bs-toggle="modal" data-bs-target="#pop_msg">
+                                        <button class="btn p-0 ms-2 show_msgbox" type="button" data-bs-placement="top" title="Send Message" name="'.$p_id.'" id="'.$p_id.'">
                                             <span class="text-500 far fa-envelope"></span>
                                         </button>
                                     </div>
@@ -88,7 +88,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-primary" type="button">Send</button>
+                <button class="btn btn-primary admin_send_msg" id="admin_send_msg" type="button">Send</button>
             </div>
         </div>
     </div>

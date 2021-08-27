@@ -72,6 +72,18 @@ class Chat extends CI_Controller {
 
 	}
 
+    public function admin_send(){
+
+        $uuid =  $this->mod_crypt->Dec_String(urldecode($this->uri->segment(4)));
+        $msg =  $this->mod_crypt->Enc_String($_POST['convo_body']);
+        $uuid1 =  $this->mod_crypt->Dec_String(urldecode($_POST['convo_person']));
+
+        if ($uuid1 == $uuid) {
+            $this->mod_chats->client_send($msg, $uuid1, "Admin" );
+        }
+
+    }
+
 	public function client_convo_with($person_id){
 		//$uuid = $this->mod_crypt->Dec_String(urldecode($this->uri->segment(3)));
 		$uuid = $this->mod_crypt->Dec_String(urldecode($person_id));

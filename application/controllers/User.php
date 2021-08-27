@@ -17,7 +17,7 @@ class User extends CI_Controller {
 		$this->load->view('admin/template/header');
 		$this->load->view('admin/template/sidebar', $title);
 		$this->load->view('admin/users/'.$page, $data);
-		$this->load->view('admin/template/tail');
+		$this->load->view('admin/template/tail_chat');
 	}
 
 	public function users_view($page = 'details'){

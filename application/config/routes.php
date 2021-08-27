@@ -26,6 +26,7 @@ $route['admin/chats'] = 'admin/chats';
 $route['admin/mail/view'] = 'admin/mail_read';
 $route['admin/mail/read'] = 'admin/mail_read';
 $route['admin/mail/create'] = 'admin/mail_compose';
+$route['admin/mail/send/(:any)'] = 'chat/admin_send/';
 
 $route['admin/sales'] = 'admin/sales';
 $route['admin/analytics'] = 'admin/analytics';

@@ -99,6 +99,7 @@
                 $(document).ready(function() {
                     $('#message_note').summernote();
 
+
                     $('#send_msg').click(function(){
 		                var msg = $('#message_note').val();
 		                console.log(msg);
@@ -117,6 +118,30 @@
 		                });
 		                
 		            });
+
+                    $('#pop_message_box').summernote();
+
+                    $('.show_msgbox').click(function(){
+                        $("#pop_msg").modal('show');
+                        var uid = $(this).attr("id");
+
+                        $('#admin_send_msg').click(function(){
+                            var msg = $('#pop_message_box').summernote('code');  
+
+                            $.ajax({
+                                url: "<?php echo base_url('admin/mail/send/'); ?>"+uid,
+                                type: 'POST',
+                                data: { convo_body:msg, convo_person:uid },
+                                success: function(response){
+                                    $("#pop_msg").modal('hide');
+                                }
+                            });
+                            
+                        });
+                        
+                    });
+
+                    
                 });
             </script>
 
