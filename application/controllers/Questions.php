@@ -113,7 +113,7 @@ class Questions extends CI_Controller {
             move_uploaded_file($tempFile, "uploads/temp_orders/" . $newfilename);
         }
 
-        echo $this->mod_questions->get_attachments();
+        //echo $this->mod_questions->get_attachments();
 
 	}
 

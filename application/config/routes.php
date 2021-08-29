@@ -21,11 +21,9 @@ $route['admin/messages/sent'] = 'messages/sent';
 $route['admin/messages/inbox'] = 'messages/inbox';
 $route['admin/messages/view'] = 'messages/view';
 
-$route['admin/mails'] = 'admin/mails';
-$route['admin/chats'] = 'admin/chats';
-$route['admin/mail/view'] = 'admin/mail_read';
-$route['admin/mail/read'] = 'admin/mail_read';
-$route['admin/mail/create'] = 'admin/mail_compose';
+$route['admin/mails'] = 'chat/admin_init';
+$route['admin/chats'] = 'chat/admin_init';
+$route['admin/chat'] = 'chat/admin_init';
 $route['admin/mail/send/(:any)'] = 'chat/admin_send/';
 
 $route['admin/sales'] = 'admin/sales';

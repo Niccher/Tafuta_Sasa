@@ -184,27 +184,29 @@
 
 		    	<br>
 
-				<div class="card">
-					<div class="card-header">
-						<h4 class="text-center mb-0">Answers to <?php echo $this->security->xss_clean($_GET['s_query']);;?></h4>
-					</div>
-				</div>
-
-				<br>
-
-				    <?php
-                        foreach ($list_answers_all as $searches) {
-                            $qn = urlencode($this->mod_crypt->Dec_String($searches["Qn_Name"]));
-                            echo '
-                            <div class="container">
+                <table class="" id="answer_listing" name="answer_listing">
+                    <th>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="text-center mb-0">Answers to <?php echo $this->security->xss_clean($_GET['s_query']);;?></h4>
+                            </div>
+                        </div>
+                    </th>
+        <?php
+            foreach ($list_answers_all as $searches) {
+                $qn = urlencode($this->mod_crypt->Dec_String($searches["Qn_Name"]));
+                echo '
+                <tr>
+                    <td>
+                        <div class="container">
                             <div class="card">
                                 <div class="card-body bg-light">
                                     <h5>
                                         <b>
-                                        <a href="'.base_url("search/answer/id?q_name=".$qn).'">'.ucfirst($this->mod_crypt->Dec_String($searches["Qn_Name"])).'</a>
+                                        <a href="'.base_url("search/answer/id?q_name=".$qn).'">'.ucfirst(strip_tags($this->mod_crypt->Dec_String($searches["Qn_Name"]))).'</a>
                                         </b>
                                     </h5>
-                                    <p class="fs--1 mb-0">'.word_limiter($this->mod_crypt->Dec_String($searches["Qn_Answer"]), 50).'</p>
+                                    <p class="fs--1 mb-0">'.word_limiter(strip_tags($this->mod_crypt->Dec_String($searches["Qn_Answer"]), 50)).'</p>
                                     <div class="row">
                                         <div class="col-8"></div>
                                         <div class="col-4">
@@ -220,11 +222,14 @@
                                     </div>
                                 </div>
                             </div>
-                            </div>
-                            <br>
-                            ';
-                        }
-                    ?>
+                        </div>
+                    </td>
+                </tr>';
+            }
+        ?>
+
+                </table>
+
 
 		    </div>
 

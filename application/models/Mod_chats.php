@@ -25,6 +25,23 @@
             return $query->result_array();
         }
 
+        public function last_msg_by($user_id) {   
+            $this->db->limit(1);
+            $this->db->order_by('Chat_Id', 'DESC');
+            $this->db->group_start();
+            $this->db->or_where('Chat_Sender',$user_id);
+            $this->db->or_where('Chat_Receiver',$user_id);
+            $this->db->group_end();
+
+            $result = $this->db->get('tbl_Chats');
+
+            if ($result->num_rows()==1) {
+                return $result->row();
+            }else{
+                return false;
+            }
+        }
+
         public function admin_send( $value ) {
             $cipher_algo = "AES-128-CTR"; 
 

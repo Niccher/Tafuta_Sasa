@@ -130,21 +130,6 @@
                                         ?>
                                             <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="far fa-comments"></span></span><span class="nav-link-text ps-1">Instant Chat</span></div>
                                         </a>
-                                        <!-- parent pages-->
-                                        <?php
-                                            if ($pg_name == 'mails') {
-                                                echo '<a class="nav-link active" href="'.base_url('admin/mails').'" role="button">';
-                                            }
-                                            else{
-                                                echo '<a class="nav-link" href="'.base_url('admin/mails').'" role="button">';
-                                            }
-                                        ?>
-                                            <div class="d-flex align-items-center">
-                                                <span class="nav-link-icon"><span class="far fa-envelope"></span></span>
-                                                <span class="nav-link-text ps-1">Messages</span>
-                                            </div>
-                                        </a>
-                                        <!-- parent pages-->
                                     </li>
                                     <li class="nav-item">
                                         <!-- label-->

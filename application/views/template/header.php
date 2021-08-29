@@ -14,6 +14,7 @@
         <meta name="theme-color" content="#ffffff">
         
         <script src="<?php echo base_url('assets/plugins/overlayscrollbars/OverlayScrollbars.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/plugins/datatables/datatables.min.css'); ?>"></script>
         <link href="<?php echo  base_url('assets/plugins/prism/prism-okaidia.css'); ?>" rel="stylesheet">
         <link href="<?php echo  base_url('assets/plugins/flatpickr/flatpickr.min.css'); ?>" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">

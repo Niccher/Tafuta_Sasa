@@ -89,9 +89,13 @@
             <script src="<?php echo base_url('assets/plugins/popper/popper.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/bootstrap/bootstrap.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/fontawesome/all.min.js'); ?>"></script>
+            <script src="<?php echo base_url('assets/plugins/datatables/datatables.min.js'); ?>"></script>
 
             <script type="text/javascript">
                 $(document).ready(function() {
+
+                    $('#answer_listing').dataTable();
+
                     $("#purchase_email").keyup(function(){
                         var email = $('#purchase_email').val();
                         var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -107,8 +111,9 @@
                                 console.log(msg);
 
                                 <?php 
-                                    $question_name = $this->mod_crypt->Enc_String(urldecode($_GET['q_name']));
+                                    $question_name = $this->mod_crypt->Enc_String(urldecode($_GET['s_query']));
                                     $qu_info = $this->mod_questions->get_question_by_name($question_name);
+                                    $qu_url = '';
                                     if (!empty($qu_info)) {
                                         $qu_url = urlencode($this->mod_crypt->Enc_String($qu_info->Qn_Id));
                                     }

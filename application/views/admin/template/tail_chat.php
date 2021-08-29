@@ -88,9 +88,9 @@
             <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
             <script src="<?php echo base_url('assets/plugins/popper/popper.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/bootstrap/bootstrap.min.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/plugins/fontawesome/all.min.js'); ?>">
+            <script src="<?php echo base_url('assets/plugins/fontawesome/all.min.js'); ?>"></script>
 
-            <script src="<?php echo base_url('assets/js/emoji-button.js'); ?>"></script>
+            <script src="<?php echo base_url('assets/js/emoji-button.js1'); ?>"></script>
 
             <script src="<?php echo base_url('assets/plugins/summernote/summernote-lite.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
@@ -141,6 +141,13 @@
                         
                     });
 
+                    $('#info_msg').summernote();
+
+                    $('.pull_user_chats').click(function(){
+                        var uid = $(this).attr("id");
+                        console.log(uid);
+                        
+                    });
                     
                 });
             </script>
