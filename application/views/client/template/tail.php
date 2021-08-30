@@ -97,9 +97,8 @@
             <script src="<?php echo base_url('assets/js/theme.js'); ?>"></script>
 
             <script src="<?php echo base_url('assets/plugins/fullcalendar/main.min.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/plugins/glightbox/glightbox.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/js/emoji-button.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/plugins/tinymce/tinymce.min.js'); ?>"></script>
+            <script src="<?php echo base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
 
 
             <script src="<?php echo base_url('assets/plugins/chart/chart.min.js'); ?>"></script>

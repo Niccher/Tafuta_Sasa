@@ -126,6 +126,37 @@ class Client extends CI_Controller {
 		$this->load->view('client/template/tail_chat');
 	}
 
+	public function profile_add_image(){
+
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Client") {
+            redirect('auth/login');
+        }
+
+        $data['user_info'] = $this->mod_users->get_vars($this->session->userdata('log_id'));
+		$person_id = $data['user_info']->Person_ID;
+
+		if (!empty($_FILES) ) {
+
+        	$allowed = array("png","jpeg", "jpg",'gif','bmp','tiff','webp');
+             
+            $tempFile = $_FILES['file']['tmp_name'];
+            $realFile = $_FILES['file']['name'];
+
+            $ext = strtolower(pathinfo($realFile, PATHINFO_EXTENSION));
+            
+            if (in_array($ext, $allowed)) {
+                $newer_name = random_string('alnum', 8).'_'.random_string('alnum', 8).'.'.$ext; 
+                $code = substr(time(), -7);
+                $newfilename = $code."_".$newer_name;                
+                $this->mod_users->update_profile_avatar($person_id, $newfilename);
+                move_uploaded_file($tempFile, "uploads/profile/" . $newfilename);
+            }
+        }
+
+	}
+
+
 	public function users_invite($page = 'invite'){
 
 		$typ = $this->session->userdata('log_type');

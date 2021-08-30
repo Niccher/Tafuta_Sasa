@@ -243,10 +243,15 @@
                                         </div>
                                     </div>
                                 </li>
+                                <?php 
+                                    $me= $this->session->userdata('log_id');
+                                    $info = $this->mod_users->get_vars($me);
+                                    $img = $info->Avatar;
+                                ?>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link pe-0" id="navbarDropdownUser" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <div class="avatar avatar-xl">
-                                            <img class="rounded-circle" src="#" alt="" />
+                                            <img class="rounded-circle" src="<?php echo base_url('uploads/profile/'.$img); ?>" alt="" />
                                         </div>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end py-0" aria-labelledby="navbarDropdownUser">

@@ -38,6 +38,44 @@
             }
         }
 
+        public function get_questions_answer($keyword){
+            $this->db->where("MATCH (Qn_Name,Qn_Tags,Qn_Answer) AGAINST ('%".$keyword."%')", NULL);
+            $query = $this->db->get('tbl_Questions');
+            return $query->result_array();
+        }
+
+        public function get_extract_vars($keyword){
+            $original = explode(' ', strtolower(trim($keyword)));
+
+            $clean = array_values(array_unique($original));
+
+            $remove = array('the','this','then','there','from','for','to','as','and','or','is','was','be','can','isnt','wasnt','give','has','have','are','some','it','in','if','so','of','on','at','an','who','what','when','where','why','we','been');
+
+            $cleaned = array_diff($clean, $remove);
+
+            return implode(" ", $cleaned);
+        }
+
+        public function get_levenshtein($keyword, $array_words){
+            $shortest = -1;
+            foreach ($array_words as $word) {
+                $lev = levenshtein($keyword, $word);
+                if ($lev == 0) {
+                    $closest = $word;
+                    $shortest = 0;
+                    break;
+                }
+
+                // if this distance is less than the next found shortest distance, OR if a next shortest word has not yet been found
+                if ($lev <= $shortest || $shortest < 0) {
+                    // set the closest match, and shortest distance
+                    $closest  = $word;
+                    $shortest = $lev;
+                }
+            }
+            return $shortest."|--|".$closest;
+        }
+
         public function make_question_view($q_uuid, $p_id){
             //  View_Id     View_Time   View_Viewer     View_Question 
             $data = array(

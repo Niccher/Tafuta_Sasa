@@ -2,19 +2,6 @@
     <div class="card-body d-flex p-0 h-100">
         <div class="card-chat-content">
             <div class="card-chat-pane">
-                <div class="chat-content-header">
-                    <div class="row flex-between-center">
-                        <div class="col-6 col-sm-8 d-flex align-items-center">
-                            <a class="pe-3 text-700 d-md-none contacts-list-show" href="#">
-                                <div class="fas fa-chevron-left"></div>
-                            </a>
-                            <div class="min-w-0">
-                                <h5 class="mb-0 text-truncate fs-0"> Account Support</h5>
-                                <div class="fs--2 text-400">Last Seen</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="chat-content-body" style="display: inherit;">
                     <div class="chat-content-scroll-area scrollbar">
                         <div class="d-flex position-relative p-3 border-bottom mb-3 align-items-center">
@@ -28,8 +15,8 @@
                                 <p class="mb-0">You friends with Account Support.</p>
                             </div>
                         </div>
-                        <div class="text-center fs--2 text-500"><span>May 5, 2019, 11:54 am</span></div>
-                        <div class="posted_msgs">
+
+                        <div class="posted_msgs" id="posted_msgs" name="posted_msgs"> 
                             <?php echo $sent_msg;?>
                         </div>
                     </div>

@@ -88,7 +88,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-primary admin_send_msg" id="admin_send_msg" type="button">Send</button>
+                <button class="btn btn-primary admin_send_txt" id="admin_send_txt" name="admin_send_txt" type="button">Send</button>
             </div>
         </div>
     </div>

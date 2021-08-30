@@ -21,8 +21,40 @@ class Pages extends CI_Controller {
         }
 
         $this->mod_searches->make_search($s_user, $s_query, $s_user_ip);
+        $keywords =explode(" ", trim($_GET['s_query']));
 
         $data['list_answers_all'] = $this->mod_questions->get_questions();
+
+        $good_answers = array(); $good_answers2 = array();
+
+        foreach ($keywords as $keyword) {
+        	foreach ($data['list_answers_all'] as $question) {
+	        	$database_tags = $this->mod_questions->get_extract_vars(strip_tags($this->mod_crypt->Dec_String($question['Qn_Tags'])));
+	        	$database_answer = $this->mod_questions->get_extract_vars(strip_tags($this->mod_crypt->Dec_String($question['Qn_Answer'])));
+	        	$keyterm = $this->mod_questions->get_extract_vars(trim($_GET['s_query']));
+
+	        	$tags_tags = explode('|--|',$this->mod_questions->get_levenshtein($keyword, explode(" ", $database_tags)));
+	        	$tags_ans = explode('|--|',$this->mod_questions->get_levenshtein($keyword, explode(" ", $database_answer)));
+
+	        	if ($tags_tags[0] == 0 || $tags_tags[0] == 1 || $tags_tags[0] == 2) {
+	        		array_push($good_answers, $question['Qn_Id']);
+	        	}
+
+	        	if ($tags_ans[0] == 0 || $tags_ans[0] == 1 || $tags_ans[0] == 2) {
+	        		array_push($good_answers, $question['Qn_Id']);
+	        	}
+	        }
+        }
+
+        for ($i=0; $i < count($data['list_answers_all']) ; $i++) { 
+        	foreach (($good_answers) as $good_answer) {
+        		if ($i != $good_answer) {
+        			unset($data['list_answers_all'][$i]);
+        		}
+	        }
+        }
+
+        $data['list_answers_all'] = array_values($data['list_answers_all']);
 
 		$this->load->view('template/header');
 		$this->load->view('searches/'.$page, $data);

@@ -98,6 +98,12 @@
             return $this->db->insert('tbl_Users', $data);
         }
 
+        public function update_profile_avatar($p_id, $new_img){
+            $this->db->where('Person_ID', $p_id);
+            $data = array( 'Avatar' =>  $new_img);
+            return $this->db->update('tbl_Users',$data);
+        }
+
         public function get_vars($user_id){
             $this->db->where('Person_ID',$user_id);
             $result = $this->db->get('tbl_Users');

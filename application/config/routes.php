@@ -25,6 +25,7 @@ $route['admin/mails'] = 'chat/admin_init';
 $route['admin/chats'] = 'chat/admin_init';
 $route['admin/chat'] = 'chat/admin_init';
 $route['admin/mail/send/(:any)'] = 'chat/admin_send/';
+$route['admin/mail/with/(:any)'] = 'chat/admin_convo_with/$1';
 
 $route['admin/sales'] = 'admin/sales';
 $route['admin/analytics'] = 'admin/analytics';
@@ -68,6 +69,7 @@ $route['client/chats'] = 'chat/client_init';
 $route['client/chat'] = 'chat/client_init';
 
 $route['client/profile/add'] = 'client/profileadd';
+$route['client/profile/attach_img'] = 'client/profile_add_image';
 $route['client/massage/send'] = 'chat/client_send';
 $route['client/convos/(:any)'] = 'chat/client_convo_with/$1';
 

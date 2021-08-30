@@ -113,28 +113,10 @@
                         ]
                     });
 
-                    $('#send_msg').click(function(){
-		                var msg = $('#message_note').val();
-		                console.log(msg);
-
-		                $.ajax({
-		                    url: "<?php echo base_url('client/massage/send'); ?>",
-		                    type: 'POST',
-		                    data: { convo_body:msg },
-		                    success: function(response){
-		                        if(response == 1){ 
-		                            //$('textarea').val('')  
-		                        }else{
-		                            //alert('Invalid ID.');
-		                        }
-		                    }
-		                });
-		                
-		            });
+                    $('#posted_msgs').scrollTop($('#posted_msgs').height())
 
                     $('#client_send_msg').click(function(){
                         var msg = $('#info_msg').summernote('code');
-                        console.log(msg);
 
                         $.ajax({
                             url: "<?php echo base_url('client/massage/send'); ?>",
@@ -149,8 +131,10 @@
                                     }
                                 });
                             }
-                        });
-                        
+                        });  
+                        $('.posted_msgs').scrollTop($('.posted_msgs')[0].scrollHeight);
+                        $("#info_msg").val('');
+                        $(".info_msg").val('');                 
                     });
 
                     function sendRequest(){
@@ -158,7 +142,10 @@
                             url: "<?php echo base_url('client/convos/'.urlencode($this->mod_crypt->Enc_String($this->session->userdata('log_id')))); ?>",
                             type: 'POST',
                             success: function(response){
-                                $('.posted_msgs').html(response); 
+                                $('.posted_msgs').html(response);
+                                $('.posted_msgs').scrollTop($('.posted_msgs').height());
+                                $('#posted_msgs').scrollTop($('#posted_msgs').height());
+                                $('#posted_msgs').scrollTop($('#posted_msgs')[0].scrollHeight - $('#posted_msgs')[0].clientHeight);
                                 setTimeout(function(){
                                     sendRequest();
                                 }, 5000);
@@ -168,6 +155,15 @@
 
                     sendRequest();
                 });
+            </script>
+
+            <script type="text/javascript">
+                //Dropzone.autoDiscover = false;
+                Dropzone.options.imageUpload = {
+                    maxFilesize:10,
+                    maxFiles: 1,
+                    acceptedFiles: ".jpeg,.jpg,.png,.gif"
+                };
             </script>
 
         </body>

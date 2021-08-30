@@ -79,6 +79,12 @@ class Questions extends CI_Controller {
         	$q_pay = $this->mod_crypt->Enc_String($this->input->post('ans_pay'));
         	$q_cost = $this->mod_crypt->Enc_String($this->input->post('ans_price'));
 
+        	$original = explode(' ', strtolower(trim($this->input->post('ans_tags'))));
+	        $clean = array_values(array_unique($original));
+	        $remove = array('the','this','then','there','from','for','to','as','and','or','is','was','be','can','could','would','isnt','wasnt', 'until','should','give','has','have','are','some','it','in','if','so','of','on','at','an','who','what','when','where','why','we','been','maybe','further');
+
+	        $q_tags = array_diff($clean, $remove);
+
         	$this->mod_questions->make_question($q_name, $q_tags, $q_answer, $q_subj, $q_level,$q_pay, $q_cost, $q_attached);
 
         	redirect('admin/questions');

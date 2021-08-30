@@ -7,13 +7,39 @@
                 </div>
             </div>
         </div>
-        <div class="tab-content card-chat-content">
-            <?php echo $sent_chats; ?>
+        <div class="card-chat-content">
+            <div class="card-chat-pane">
+                <div class="chat-content-body" style="display: inherit;">
+                    <div class="chat-content-scroll-area scrollbar">
+                        <div class="posted_msgs" id="posted_msgs" name="posted_msgs"> 
+                            <div class="d-flex position-relative p-3 border-bottom mb-3 align-items-center">
+                                <div class="avatar avatar-2xl status-online me-3"></div>
+                                <div class="flex-1">
+                                    <h6 class="mb-0">
+                                        <a class="text-decoration-none stretched-link text-700" href="#">No User</a>
+                                    </h6>
+                                    <p class="mb-0">Select a user to start a conversation with.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <form class="chat-editor-area">
-                <input class="d-none" type="file" id="chat-file-upload" /><label class="mb-0 p-1 chat-file-upload cursor-pointer" for="chat-file-upload"><span class="fas fa-paperclip"></span></label>
-                <div class="btn btn-link p-0 emoji-icon" data-emoji-button="data-emoji-button"><span class="far fa-laugh-beam"></span></div>
-                <div class="emojiarea-editor outline-none scrollbar" contenteditable="true"></div>
-                <button class="btn btn-sm btn-send" type="submit">Send</button>
+                <div class="mb-3">
+                    <div class="container">
+                        <br>
+                        <div class="col-12">
+                            <textarea name="info_msg" id="info_msg" rows="6"></textarea>
+                        </div>
+                        <br>
+                        <div class="col-12">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-sm btn-outline-primary" type="button" id="admin_send_msg">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
