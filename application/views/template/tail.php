@@ -108,10 +108,8 @@
 
                             $('.init_payment').click(function(){
                                 var msg = $('#purchase_email').val();
-                                console.log(msg);
-
                                 <?php 
-                                    $question_name = $this->mod_crypt->Enc_String(urldecode($_GET['s_query']));
+                                    $question_name = $this->mod_crypt->Enc_String(urldecode($_GET['q_name']));
                                     $qu_info = $this->mod_questions->get_question_by_name($question_name);
                                     $qu_url = '';
                                     if (!empty($qu_info)) {

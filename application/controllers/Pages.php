@@ -91,10 +91,9 @@ class Pages extends CI_Controller {
         $head ='<td class="header-row-td" style="font-family: Arial, sans-serif; font-weight: normal; line-height: 19px; color: #478fca; margin: 0px; font-size: 18px; padding-bottom: 10px; padding-top: 15px;" width="378" valign="top" align="left">'.$head1.'</td>';
         $reciva = $_POST['mail'];
         $senda = 'admin@tendollarwriters.com-----';
+        $pass_word = random_string('alnum', 8);
 
 		if ($is_there) {
-			$pass_word = random_string('alnum', 8);
-
 			$more = '<div style="font-family: Arial, sans-serif; line-height: 20px; color: #444444; font-size: 13px;"> 
                     <b style="color: #777777;"></b>Thank you for joining this platform, we are pleased to have you and work with you.<br>You can get started by creating an order with us and you will for sure enjoy our services.
                     Please use <b>'.$_POST['mail'].'</b> as your username<br> and <b>'.$pass_word.'</b> as your password.;

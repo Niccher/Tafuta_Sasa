@@ -265,7 +265,7 @@
                                         <span class="bg-200 dark__bg-1100 pe-3">Answer</span>
                                         <span class="border position-absolute top-50 translate-middle-y w-100 start-0 z-index--1"></span>
                                     </h5>
-                                    <p class="mb-0">Unhide the redacted part of the answer.</p>
+                                    <p class="mb-0">Get my custom answer.</p>
                                 </div>
                             </div>
                         </div>
@@ -277,7 +277,7 @@
                                             <div class="row">
                                                 <div class="col-3"></div>
                                                 <div class="col-6">
-                                                    <p class="fs--1 text-600">Once you start your trial, you will have 30 days to use Falcon Premium for free. After 30 days you’ll be charged based on your selected plan.</p>
+                                                    <p class="fs--1 text-600">You may beed such answer? order one from us now. it will be worked on according to your specification and above all be of high quality..</p>
                                                     <div class="mb-3">
                                                         <label class="form-label">Email*</label>
                                                         <input class="form-control" type="email" name="purchase_email" id="purchase_email" placeholder="Email address" required="required" />

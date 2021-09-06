@@ -68,6 +68,9 @@ $route['client/questions/view'] = 'client/questions_view';
 $route['client/chats'] = 'chat/client_init';
 $route['client/chat'] = 'chat/client_init';
 
+$route['client/orders'] = 'clientorders';
+$route['client/orders/add'] = 'clientorders/orders_make';
+
 $route['client/profile/add'] = 'client/profileadd';
 $route['client/profile/attach_img'] = 'client/profile_add_image';
 $route['client/massage/send'] = 'chat/client_send';
