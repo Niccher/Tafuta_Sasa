@@ -131,6 +131,10 @@ class Pages extends CI_Controller {
 		$qu_id = $this->mod_crypt->Dec_String(urldecode($this->uri->segment(3)));
 		$qu_info = $this->mod_questions->get_question_by_id($qu_id);
 
+		echo '11';
+
+		//redirect('client/orders/add');
+
 		$payment_box = '
 		<form class="form-validation">
 		    <div class="row">

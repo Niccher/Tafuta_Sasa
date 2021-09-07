@@ -70,6 +70,11 @@ $route['client/chat'] = 'chat/client_init';
 
 $route['client/orders'] = 'clientorders';
 $route['client/orders/add'] = 'clientorders/orders_make';
+$route['client/orders/attach'] = 'clientorders/orders_add_attachment';
+$route['client/order/make'] = 'clientorders/orders_add';
+$route['client/get/order_attachments'] = 'clientorders/orders_make_attachment_ui';
+$route['client/get/attachment_delete/(:any)'] = 'clientorders/orders_attachment_delete/$1';
+		//client/get/attachment_delete/delete_attach_file_25___0952879_DataTables.zip
 
 $route['client/profile/add'] = 'client/profileadd';
 $route['client/profile/attach_img'] = 'client/profile_add_image';

@@ -123,6 +123,26 @@
 		            });
 
 
+                    $('.create_order').click(function(){
+                        var ord_name = $('#ord_name').val();
+                        var ord_body = $('#ord_body').summernote('code');
+                        var ord_date = $('#datetimepicker').val();
+                        var ord_pgs = $('#ord_pgs').val();
+                        var ord_citing = $('#ord_citing').val();
+                        var ord_level = $('#ord_level').val();
+
+                        $.ajax({
+                            url: "<?php echo base_url('client/order/make'); ?>",
+                            type: 'POST',
+                            data: { ord_name:ord_name, ord_body:ord_body, ord_date:ord_date, ord_pgs:ord_pgs, ord_citing:ord_citing, ord_level:ord_level },
+                            success: function(response){
+                                window.location.replace("<?php echo base_url('client/orders'); ?>");
+                            }
+                        });
+                        
+                    });
+
+
 		             $('select').change(function () {
 					    var optionSelected = $(this).find("option:selected");
 					    var valueSelected  = optionSelected.val();
@@ -131,6 +151,33 @@
 					    $('#ord_word').val(words+ ' Words');
 					    console.log(textSelected);
 					});
+
+                    function sendRequest(){
+                        $.ajax({ 
+                            url: '<?php echo base_url("client/get/order_attachments"); ?>',
+                            type: 'POST',
+                            success: function(response){
+                                $(".temp_files").html(response).fadeIn();
+                                setTimeout(function(){
+                                    sendRequest();
+                                }, 5000);
+
+                            } 
+                        }); 
+                    }
+
+                    sendRequest();
+
+                    $(document).on("click", '.delete_attach_file_', function(event) {
+                    var fileid = this.id;
+                    $.ajax({
+                        url: '<?php echo base_url("client/get/attachment_delete/"); ?>'+fileid,
+                        type: 'POST',
+                        success: function(response){
+                            console.log(response);
+                        }
+                    });  
+                }); 
 	                
 	            });
 	        </script>

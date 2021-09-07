@@ -215,7 +215,7 @@
                             <p class="fs--1 mb-0">
                                 <br>
                                 <h5>
-                                    '.word_limiter($this->mod_crypt->Dec_String($list_answers_details->Qn_Answer), 10).'
+                                    '.$this->mod_crypt->Dec_String($list_answers_details->Qn_Answer).'
                                 </h5>
                                 <br>
                             </p>
@@ -245,7 +245,7 @@
                             <p class="fs--1 mb-0">
                                 <br>
                                 <h5>
-                                    '.word_limiter($this->mod_crypt->Dec_String($list_answers_details->Qn_Answer), 10).' 
+                                    '.($this->mod_crypt->Dec_String($list_answers_details->Qn_Answer)).' 
                                 </h5>
                                 <br>
                             </p>';
@@ -288,11 +288,6 @@
                                                     </button>
                                                 </div>
                                                 <div class="col-3"></div>
-                                            </div>
-                                            
-                                            <div class="text-center mt-2">
-                                                <small class="d-inline-block">By continuing, you are agreeing to our subscriber <a href="<?php echo base_url('auth/terms'); ?>">terms</a>.
-                                                </small>
                                             </div>
                                         </div>
                                         <div class="form-check">

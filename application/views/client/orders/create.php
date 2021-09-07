@@ -21,7 +21,7 @@
                         <div class="row gx-2">
                             <div class="col-12 mb-3">
                                 <label class="form-label" for="event-name">Order name</label>
-                                <input class="form-control" type="text" name="ord_name" placeholder="My order name" />
+                                <input class="form-control" type="text" name="ord_name" id="ord_name" placeholder="My order name" />
                             </div>
                             <div class="col-12">
                                 <label class="form-label" for="event-description">Order description</label>
@@ -45,12 +45,11 @@
 	                            <div class="row">
 	                            	<div class="col-md-6">
 		                            	<label class="form-label" for="datetimepicker">Pages</label>
-		                            	<select class="form-select" name="ord_pgs">
-			                                <option value="ord_pg_count" selected="selected" name="count_1">1</option>
-			                                <option value="ord_pg_count" name="count_2">2</option>
+		                            	<select class="form-select" name="ord_pgs" id="ord_pgs">
+			                                <option value="ord_pg_count_1" selected="selected" name="count_1" id="count_1">1</option>
 			                                <?php
-			                                for ($i=3; $i < 50; $i++) { 
-			                                	echo '<option value="ord_pg_count" name="count_'.$i.'">'.$i.'</option>';
+			                                for ($i=2; $i < 50; $i++) { 
+			                                	echo '<option value="ord_pg_count_'.$i.'" name="count_'.$i.'" unt_'.$i.'" id="count_'.$i.'">'.$i.'</option>';
 			                                }
 			                                ?>
 			                            </select>
@@ -64,7 +63,7 @@
 	                        </div>
 	                        <div class="col-md-6">
 	                            <label class="form-label">Citation:</label>
-	                            <select class="form-select" name="ord_citing">
+	                            <select class="form-select" name="ord_citing" id="ord_citing">
 	                                <option value="cite_apa" selected="selected">APA</option>
 	                                <option value="cite_harvard">Harvard</option>
 	                                <option value="cite_chicago">Chicago</option>
@@ -72,9 +71,9 @@
 	                            </select>
 
 	                            <label class="form-label">Level</label>
-                            	<select class="form-select" name="ord_level">
+                            	<select class="form-select" name="ord_level" id="ord_level">
 	                                <option value="level_undergraduate" selected="selected">Undergraduate</option>
-	                                <option value="level_hschool">High School</option>
+	                                <option value="level_high_school">High School</option>
 	                                <option value="level_college">College</option>
 	                                <option value="level_postgraduate">Post Graduate</option>
 	                                <option value="level_masters">Masters</option>
@@ -101,6 +100,8 @@
                                     <button class="btn btn-outline-primary me-1 mb-1" type="button" data-bs-toggle="modal" data-bs-target="#modal_upload">Click to upload</button>
                                 </div>
 
+                                <div class="d-grid gap-2 temp_files"></div>
+
 
                             </div>
                             <div class="col-lg-2"></div>
@@ -116,7 +117,7 @@
                         <h5 class="mb-2 mb-md-0">Nice Job! You're almost done</h5>
                     </div>
                     <div class="col-auto">
-                        <button class="btn btn-falcon-primary btn-sm me-2" type="submit">Save</button>
+                        <button class="btn btn-falcon-primary btn-sm me-2 create_order" type="button">Save</button>
                     </div>
                 </div>
             </div>
@@ -146,7 +147,7 @@
                     <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
                         <h4 class="mb-1">Upload auxilliary data. </h4>
                     </div>
-                    <form action="<?php echo base_url('admin/questions/attach');?>" class="dropzone" method="post" enctype="multipart/form-data" id="my-awesome-dropzone" data-dropzone="data-dropzone">
+                    <form action="<?php echo base_url('client/orders/attach');?>" class="dropzone" method="post" enctype="multipart/form-data" id="my-awesome-dropzone" data-dropzone="data-dropzone">
                         <div class="fallback">
                             <input name="file" type="file" multiple />
                         </div>
