@@ -10,11 +10,19 @@
             return $query->result_array();
         }
 
-        public function get_orders_by($p_id){
-            $array = array('Order_Owner =' => $p_id);
+        public function orders_by_owner($p_id){
+            $array = array('Ord_Owner =' => $p_id);
             $this->db->where($array);
             $query = $this->db->get('tbl_Orders');
             return $query->result_array();
+
+        }
+
+        public function orders_by_id($p_id){
+            $array = array('Ord_Id =' => $p_id);
+            $this->db->where($array);
+            $query = $this->db->get('tbl_Orders');
+            return $query->row_array();
 
         }
 
@@ -80,11 +88,15 @@
             return $this->db->insert('tbl_Orders', $data);
         }
 
-        public function get_assigned_vars($order_id){
-            $array = array('Assign_Order =' => $order_id);
-            $this->db->where($array);
-            $query = $this->db->get('tbl_Assignments');
-            return $query->row_array();
+        public function delete_order_by_id($q_uuid){
+
+            $query = $this->db->get_where('tbl_Orders',array('Ord_Id' => $q_uuid));
+            foreach ($query->result() as $row) {
+                  $this->db->insert('tbl_Orders_Deleted',$row);
+            }
+
+            $this->db->where('Ord_Id',$q_uuid);
+            $this->db->delete('tbl_Orders');
 
         }
 

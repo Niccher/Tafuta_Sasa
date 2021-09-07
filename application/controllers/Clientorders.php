@@ -13,9 +13,11 @@ class Clientorders extends CI_Controller {
 		$title['pg_name'] = 'order';
 		$uuid = $this->session->userdata('log_id');
 
+		$data['client_orders'] = $this->mod_orders->orders_by_owner($this->session->userdata('log_id'));
+
 		$this->load->view('client/template/header');
 		$this->load->view('client/template/sidebar', $title);
-		$this->load->view('client/orders/'.$page);
+		$this->load->view('client/orders/'.$page, $data);
 		$this->load->view('client/template/tail_create');
 	}
 
@@ -151,6 +153,93 @@ class Clientorders extends CI_Controller {
 		echo $filename = urldecode($this->uri->segment(3));
 		$filepath = 'uploads/client_orders/'.$filename;
 		force_download($filepath, NULL);
+	}
+	
+	public function orders_view($order_id) {
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Client") {
+            redirect('auth/login');
+        }
+
+		$title['pg_name'] = 'order';
+
+		$uuid = $this->mod_crypt->Dec_String(urldecode($order_id));
+
+		$data['orders_info'] = $this->mod_orders->orders_by_id($uuid);
+
+		if (empty($data['orders_info'])) {
+			redirect('client/orders');
+		}
+
+		$this->load->view('client/template/header');
+		$this->load->view('client/template/sidebar', $title);
+		$this->load->view('client/orders/view', $data);
+		$this->load->view('client/template/tail');
+	}
+
+	public function orders_edit($order_id) {
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Client") {
+            redirect('auth/login');
+        }
+
+		$title['pg_name'] = 'order';
+
+		$uuid = $this->mod_crypt->Dec_String(urldecode($order_id));
+
+		$data['orders_info'] = $this->mod_orders->orders_by_id($uuid);
+
+		if (empty($data['orders_info'])) {
+			redirect('client/orders');
+		}
+
+		$this->load->view('client/template/header');
+		$this->load->view('client/template/sidebar', $title);
+		$this->load->view('client/orders/edit', $data);
+		$this->load->view('client/template/tail_create');
+	}
+
+	public function orders_delete($order_id) {
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Client") {
+            redirect('auth/login');
+        }
+
+		$title['pg_name'] = 'order';
+
+		$uuid = $this->mod_crypt->Dec_String(urldecode($order_id));
+
+		$data['orders_info'] = $this->mod_orders->orders_by_id($uuid);
+
+		if (empty($data['orders_info'])) {
+			redirect('client/orders');
+		}
+
+		$this->mod_orders->delete_order_by_id($uuid);
+
+		redirect('client/orders');
+	}
+
+	public function orders_pay($order_id) {
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Client") {
+            redirect('auth/login');
+        }
+
+		$title['pg_name'] = 'order';
+
+		$uuid = $this->mod_crypt->Dec_String(urldecode($order_id));
+
+		$data['orders_info'] = $this->mod_orders->orders_by_id($uuid);
+
+		if (empty($data['orders_info'])) {
+			redirect('client/orders');
+		}
+
+		$this->load->view('client/template/header');
+		$this->load->view('client/template/sidebar', $title);
+		$this->load->view('client/orders/pay', $data);
+		$this->load->view('client/template/tail');
 	}
 
 }

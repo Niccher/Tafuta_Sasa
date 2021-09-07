@@ -74,7 +74,10 @@ $route['client/orders/attach'] = 'clientorders/orders_add_attachment';
 $route['client/order/make'] = 'clientorders/orders_add';
 $route['client/get/order_attachments'] = 'clientorders/orders_make_attachment_ui';
 $route['client/get/attachment_delete/(:any)'] = 'clientorders/orders_attachment_delete/$1';
-		//client/get/attachment_delete/delete_attach_file_25___0952879_DataTables.zip
+$route['client/orders/edit/(:any)'] = 'clientorders/orders_edit/$1';
+$route['client/orders/view/(:any)'] = 'clientorders/orders_view/$1';
+$route['client/orders/delete/(:any)'] = 'clientorders/orders_delete/$1';
+$route['client/orders/pay/(:any)'] = 'clientorders/orders_pay/$1';
 
 $route['client/profile/add'] = 'client/profileadd';
 $route['client/profile/attach_img'] = 'client/profile_add_image';
