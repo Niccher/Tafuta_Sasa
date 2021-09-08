@@ -76,6 +76,27 @@
                     <li class="nav-item">
                         <!-- label-->
                         <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
+                            <div class="col-auto navbar-vertical-label">Orders</div>
+                            <div class="col ps-0">
+                                <hr class="mb-0 navbar-vertical-divider" />
+                            </div>
+                        </div>
+                        <!-- parent pages-->
+                        <?php
+                            if ($pg_name == 'order') {
+                                echo '<a class="nav-link active" href="'.base_url('admin/orders').'" role="button">';
+                            }
+                            else{
+                                echo '<a class="nav-link" href="'.base_url('admin/orders').'" role="button">';
+                            }
+                        ?>
+                            <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-folder"></span></span><span class="nav-link-text ps-1">Orders</span></div>
+                        </a>
+                        <!-- parent pages-->
+                    </li>
+                    <li class="nav-item">
+                        <!-- label-->
+                        <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
                             <div class="col-auto navbar-vertical-label">Questions</div>
                             <div class="col ps-0">
                                 <hr class="mb-0 navbar-vertical-divider" />

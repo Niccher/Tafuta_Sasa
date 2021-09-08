@@ -33,6 +33,13 @@ $route['admin/analytics'] = 'admin/analytics';
 $route['questions/get_attachment/(:any)'] = 'questions/questions_get_attachment';
 $route['questions/delete/(:any)'] = 'questions/questions_deleted/$1';
 
+$route['admin/get/order_attachments'] = 'adminorders/orders_make_attachment_ui';
+$route['admin/get/attachment_delete/(:any)'] = 'adminorders/orders_attachment_delete/$1';
+$route['admin/orders/edit/(:any)'] = 'adminorders/orders_edit/$1';
+$route['admin/orders/view/(:any)'] = 'adminorders/orders_view/$1';
+$route['admin/orders/delete/(:any)'] = 'adminorders/orders_delete/$1';
+$route['admin/orders'] = 'adminorders';
+
 
 $route['auth'] = 'auth/login';
 $route['auth/login'] = 'auth/login';
