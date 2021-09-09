@@ -8,10 +8,10 @@
                     if (!empty($qu_info)) {
                         if ($qu_info->Qn_Pay == $this->mod_crypt->Enc_String('pay_sale')) {
                             $qn_pay++;
-                            $qn_paid += $qu_info->Qn_Price;
+                            $qn_paid += $this->mod_crypt->Dec_String($qu_info->Qn_Price);
 
                             if ($question['View_Time'] < time() && $question['View_Time'] > (time() - (24*30*3600)) ) {
-                                $qn_paid_month += $qu_info->Qn_Price;
+                                $qn_paid_month += $this->mod_crypt->Dec_String($qu_info->Qn_Price);
                             }
                         }
 

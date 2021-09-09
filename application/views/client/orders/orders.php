@@ -36,7 +36,7 @@
             </div>
             <div class="card-body py-4">
                 <div class="tab-content">
-                    <div class="tab-pane active px-sm-3 px-md-5" role="tabpanel" aria-labelledby="tab_orders_all" id="tab_orders_all">
+                    <div class="tab-pane active " role="tabpanel" aria-labelledby="tab_orders_all" id="tab_orders_all">
                         <form novalidate="novalidate">
                             <div class="table-responsive scrollbar">
                                 <table class="table table-hover table-striped overflow-hidden">
@@ -97,7 +97,7 @@
                                                                 <div class="ms-2">'.$name.'</div>
                                                             </div>
                                                         </td>
-                                                        <td class="text-nowrap">'.word_limiter($name, 10).'</td>
+                                                        <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                         <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
                                                         <td>'.$paid.'</td>
                                                         <td>'.$status.'</td>
@@ -119,7 +119,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="tab-pane px-sm-3 px-md-5" role="tabpanel" aria-labelledby="tab_orders_paid" id="tab_orders_paid">
+                    <div class="tab-pane " role="tabpanel" aria-labelledby="tab_orders_paid" id="tab_orders_paid">
                         <form>
                             <div class="table-responsive scrollbar">
                                 <table class="table table-hover table-striped overflow-hidden">
@@ -166,7 +166,7 @@
                                                                     <div class="ms-2">'.$name.'</div>
                                                                 </div>
                                                             </td>
-                                                            <td class="text-nowrap">'.word_limiter($name, 10).'</td>
+                                                            <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                             <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
                                                             <td>'.$status.'</td>
                                                             <td class="text-end">
@@ -188,7 +188,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="tab-pane px-sm-3 px-md-5" role="tabpanel" aria-labelledby="tab_orders_unpaid" id="tab_orders_unpaid">
+                    <div class="tab-pane " role="tabpanel" aria-labelledby="tab_orders_unpaid" id="tab_orders_unpaid">
                         <form>
                             <div class="table-responsive scrollbar">
                                 <table class="table table-hover table-striped overflow-hidden">
@@ -235,7 +235,7 @@
                                                                     <div class="ms-2">'.$name.'</div>
                                                                 </div>
                                                             </td>
-                                                            <td class="text-nowrap">'.word_limiter($name, 10).'</td>
+                                                            <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                             <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
                                                             <td>'.$status.'</td>
                                                             <td class="text-end">
@@ -257,7 +257,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="tab-pane px-sm-3 px-md-5" role="tabpanel" aria-labelledby="tab_orders_pending" id="tab_orders_pending">
+                    <div class="tab-pane " role="tabpanel" aria-labelledby="tab_orders_pending" id="tab_orders_pending">
                         <form class="form-validation">
                             <div class="table-responsive scrollbar">
                                 <table class="table table-hover table-striped overflow-hidden">
@@ -302,7 +302,7 @@
                                                                     <div class="ms-2">'.$name.'</div>
                                                                 </div>
                                                             </td>
-                                                            <td class="text-nowrap">'.word_limiter($name, 10).'</td>
+                                                            <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                             <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
                                                             <td>'.$paid.'</td>
                                                             <td class="text-end">
@@ -326,7 +326,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="tab-pane text-center px-sm-3 px-md-5" role="tabpanel" aria-labelledby="tab_orders_completed" id="tab_orders_completed">
+                    <div class="tab-pane text-center " role="tabpanel" aria-labelledby="tab_orders_completed" id="tab_orders_completed">
                         <form class="form-validation">
                             <div class="table-responsive scrollbar">
                                 <table class="table table-hover table-striped overflow-hidden">
@@ -372,7 +372,7 @@
                                                                     <div class="ms-2">'.$name.'</div>
                                                                 </div>
                                                             </td>
-                                                            <td class="text-nowrap">'.word_limiter($name, 10).'</td>
+                                                            <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                             <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
                                                             <td>'.$paid.'</td>
                                                             <td class="text-end">

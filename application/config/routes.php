@@ -41,6 +41,9 @@ $route['admin/orders/delete/(:any)'] = 'adminorders/orders_delete/$1';
 $route['admin/orders'] = 'adminorders';
 
 
+$route['orders/uploads/attachment/(:any)'] = 'clientorders/orders_get_attachment';
+
+
 $route['auth'] = 'auth/login';
 $route['auth/login'] = 'auth/login';
 $route['auth/register'] = 'auth/register';

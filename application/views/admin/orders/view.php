@@ -79,6 +79,63 @@
                             </div>
                         </div>
                     </div>
+
+                    <?php
+                    if ($orders_info['Ord_Attachment'] != "") {
+                        $files = explode("|__|", $orders_info['Ord_Attachment']);
+                        array_shift($files);
+                        if (!empty($files)) {
+                            echo '
+                            <div class="col-lg-12 pe-lg-2 mb-3">
+                                <div class="card h-lg-100 overflow-hidden">
+                                    <div class="card-header bg-light">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <h6 class="mb-0">Attachments</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                            ';
+
+                            foreach ($files as $file) {
+                                $human_size = $this->mod_orders->get_attachment_size(filesize('uploads/client_orders/'.urldecode($file)));
+                                echo '
+                                <div class="card-body p-0">
+                                    <div class="row g-0 align-items-center py-2 position-relative border-bottom border-200">
+                                        <div class="col ps-card py-1 position-static">
+                                            <div class="d-flex align-items-center">
+                                                <div class="avatar avatar-xl me-3">
+                                                    <div class="avatar-name rounded-circle bg-soft-primary text-dark">
+                                                        <span class="fs-0 text-primary"> .'.pathinfo($file, PATHINFO_EXTENSION).'</span>
+                                                    </div>
+                                                </div>
+                                                <div class="flex-1">
+                                                    <h6 class="mb-0 d-flex align-items-center">
+                                                        <a class="text-800 stretched-link" href="'.base_url("orders/uploads/attachment/".urldecode($file)).'">'.$file.'</a>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col py-1">
+                                            <div class="row flex-end-center g-0">
+                                                <div class="col-auto pe-2">
+                                                    <div class="fs--1 fw-semi-bold">
+                                                        '.$human_size.'
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                ';
+                            }
+                            echo '
+                                </div>
+                            </div>';
+                        }
+                    }
+                    ?>
+                    
                     <?php
 	                    if ($orders_info['Ord_Pay'] == "00") {
 	                    	echo '

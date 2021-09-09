@@ -117,7 +117,7 @@
                         <h5 class="mb-2 mb-md-0">Nice Job! You're almost done</h5>
                     </div>
                     <div class="col-auto">
-                        <button class="btn btn-falcon-primary btn-sm me-2 create_order" type="button">Save</button>
+                        <button class="btn btn-falcon-primary btn-sm me-2 create_order" type="button">Order Now</button>
                     </div>
                 </div>
             </div>

@@ -150,7 +150,7 @@ class Clientorders extends CI_Controller {
 	}
 
 	public function orders_get_attachment() {
-		echo $filename = urldecode($this->uri->segment(3));
+		echo $filename = urldecode($this->uri->segment(4));
 		$filepath = 'uploads/client_orders/'.$filename;
 		force_download($filepath, NULL);
 	}
