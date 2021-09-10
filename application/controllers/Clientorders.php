@@ -77,8 +77,11 @@ class Clientorders extends CI_Controller {
         	$q_cite = $this->mod_crypt->Enc_String($this->input->post('ord_citing'));
         	$q_pgs = $this->mod_crypt->Enc_String($this->input->post('ord_pgs'));
         	$q_date = $this->mod_crypt->Enc_String($this->input->post('ord_date'));
+        	$q_price = $this->mod_crypt->Enc_String($this->input->post('ord_price'));
 
-        	$this->mod_orders->make_order($q_name, $q_desc, $q_files, $q_level,$q_cite, $q_pgs, $q_date);
+        	print_r($_POST);
+
+        	$this->mod_orders->make_order($q_name, $q_desc, $q_files, $q_level,$q_cite, $q_pgs, $q_date, $q_price);
         }
 	}
 

@@ -130,11 +130,12 @@
                         var ord_pgs = $('#ord_pgs').val();
                         var ord_citing = $('#ord_citing').val();
                         var ord_level = $('#ord_level').val();
+                        var ord_price = $('#ord_price').val();
 
                         $.ajax({
                             url: "<?php echo base_url('client/order/make'); ?>",
                             type: 'POST',
-                            data: { ord_name:ord_name, ord_body:ord_body, ord_date:ord_date, ord_pgs:ord_pgs, ord_citing:ord_citing, ord_level:ord_level },
+                            data: { ord_name:ord_name, ord_body:ord_body, ord_date:ord_date, ord_pgs:ord_pgs, ord_citing:ord_citing, ord_level:ord_level, ord_price:ord_price },
                             success: function(response){
                                 window.location.replace("<?php echo base_url('client/orders'); ?>");
                             }

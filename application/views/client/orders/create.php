@@ -59,6 +59,8 @@
 		                            	<input class="form-control" type="text" name="ord_word" id="ord_word" disabled="" placeholder="Word count" value="300 Words" />
 		                            </div>
 	                            </div>
+                                <label class="form-label">Expected Price</label>
+                                <input class="form-control" type="number" placeholder="Estimated Price (USD)" name="ord_price" id="ord_price" />
 	                            
 	                        </div>
 	                        <div class="col-md-6">

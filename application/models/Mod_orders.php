@@ -60,7 +60,7 @@
 
         }
 
-        public function make_order($q_name, $q_desc, $q_files, $q_level,$q_cite, $q_pgs, $q_date){
+        public function make_order($q_name, $q_desc, $q_files, $q_level,$q_cite, $q_pgs, $q_date, $q_price){
             $p_id = $this->session->userdata('log_id')."__";
             $data = array(
                 'Ord_Name' => $q_name,
@@ -74,11 +74,12 @@
                 'Ord_Pay' => "00",
                 'Ord_Status' => "00", 
                 'Ord_Viewed' => "00",
+                'Ord_Price' => $q_price,
                 'Ord_Owner' => $this->session->userdata('log_id'),
             );
 
             $uploaded = $this->mod_orders->order_get_attachments();
-            echo $uploaded;
+            //echo $uploaded;
             $files = explode("|__|", $uploaded);
             echo count($files);
             foreach ($files as $file) {

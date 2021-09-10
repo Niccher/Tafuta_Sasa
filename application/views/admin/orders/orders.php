@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-6 col-xl-12 col-xxl-6 h-100">
+    <div class="col-lg-12 col-xl-12 col-xxl-6 h-100">
         <div class="card theme-wizard mb-5">
             <div class="card-header bg-light pt-3 pb-2">
                 <ul class="nav nav-pills mb-3" role="tablist" id="pill-tab1">
@@ -93,9 +93,11 @@
                                                 echo '
                                                     <tr class="align-middle">
                                                         <td class="text-nowrap">
-                                                            <div class="d-flex">
-                                                                <div class="ms-2">'.$name.'</div>
-                                                            </div>
+                                                            <a href="'.base_url("admin/orders/view/".$order_id).'">
+                                                                <div class="d-flex">
+                                                                    <div class="ms-2">'.word_limiter($name, 10).'</div>
+                                                                </div>
+                                                            </a>
                                                         </td>
                                                         <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                         <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
@@ -160,9 +162,11 @@
                                                     echo '
                                                         <tr class="align-middle">
                                                             <td class="text-nowrap">
-                                                                <div class="d-flex">
-                                                                    <div class="ms-2">'.$name.'</div>
-                                                                </div>
+                                                                <a href="'.base_url("admin/orders/view/".$order_id).'">
+                                                                    <div class="d-flex">
+                                                                        <div class="ms-2">'.word_limiter($name, 10).'</div>
+                                                                    </div>
+                                                                </a>
                                                             </td>
                                                             <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                             <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
@@ -227,9 +231,11 @@
                                                     echo '
                                                         <tr class="align-middle">
                                                             <td class="text-nowrap">
-                                                                <div class="d-flex">
-                                                                    <div class="ms-2">'.$name.'</div>
-                                                                </div>
+                                                                <a href="'.base_url("admin/orders/view/".$order_id).'">
+                                                                    <div class="d-flex">
+                                                                        <div class="ms-2">'.word_limiter($name, 10).'</div>
+                                                                    </div>
+                                                                </a>
                                                             </td>
                                                             <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                             <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
@@ -292,9 +298,11 @@
                                                      echo '
                                                         <tr class="align-middle">
                                                             <td class="text-nowrap">
-                                                                <div class="d-flex">
-                                                                    <div class="ms-2">'.$name.'</div>
-                                                                </div>
+                                                                <a href="'.base_url("admin/orders/view/".$order_id).'">
+                                                                    <div class="d-flex">
+                                                                        <div class="ms-2">'.word_limiter($name, 10).'</div>
+                                                                    </div>
+                                                                </a>
                                                             </td>
                                                             <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                             <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
@@ -360,9 +368,11 @@
                                                      echo '
                                                         <tr class="align-middle">
                                                             <td class="text-nowrap">
-                                                                <div class="d-flex">
-                                                                    <div class="ms-2">'.$name.'</div>
-                                                                </div>
+                                                                <a href="'.base_url("admin/orders/view/".$order_id).'">
+                                                                    <div class="d-flex">
+                                                                        <div class="ms-2">'.word_limiter($name, 10).'</div>
+                                                                    </div>
+                                                                </a>
                                                             </td>
                                                             <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                             <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
