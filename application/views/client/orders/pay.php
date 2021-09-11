@@ -59,25 +59,91 @@
                     <div class="ps-3">
                         <p class="text-600 fs--1">Due </p>
                         <h4 class="text-800 mb-0">
-                        	<?php 
-                        	$days = strtotime($this->mod_crypt->Dec_String($orders_info['Ord_Deadline']));
-                        	echo date('M d H:i A', $days);  ?>
+                            <?php 
+                            $days = strtotime($this->mod_crypt->Dec_String($orders_info['Ord_Deadline']));
+                            echo date('M d H:i A', $days);  ?>
                         </h4>
                     </div>
 
                     <div class="ps-3">
                         <p class="text-600 fs--1">Remaining </p>
                         <h4 class="text-800 mb-0">
-                        	<?php 
-                        	echo timespan(time(), $days, 2);  ?>
+                            <?php 
+                            echo timespan(time(), $days, 2);  ?>
                         </h4>
                     </div>
+
+                    <div class="ps-3">
+                        <p class="text-600 fs--1">Price </p>
+                        <h4 class="text-800 mb-0">
+                            <?php 
+                            echo number_format($this->mod_crypt->Dec_String($orders_info['Ord_Price']), 2);  ?>
+                        </h4>
+                    </div>
+
                 </div>
                 
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>    
+                            
+<script type="text/javascript">
+    Stripe.setPublishableKey('pk_test_51JAW36LbL1tUcWWUqOumhoq39YMVXytWgq4iXQVCCGuZXXvTCzs32ZH3SdFFboDsBLZs0BhoqJvF80DegHAj63oM00LnDKtNxp');
+    
+    //callback to handle the response from stripe
+    function stripeResponseHandler(status, response) {
+        if (response.error) {
+            //enable the submit button
+            $('#payBtn').removeAttr("disabled");
+            //display the errors on the form
+            // $('#payment-errors').attr('hidden', 'false');
+            $('#payment-errors').addClass('alert alert-danger');
+            $("#payment-errors").html(response.error.message);
+        } else {
+            var form$ = $("#paymentFrm");
+            //get token id
+            var token = response['id'];
+            //insert the token into the form
+            form$.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
+            //submit form to the server
+            form$.get(0).submit();
+        }
+    }
+    $(document).ready(function() {
+        //on form submit
+        $("#paymentFrm").submit(function(event) {
+            //disable the submit button to prevent repeated clicks
+            $('#payBtn').attr("disabled", "disabled");
+            
+            //create single-use token to charge the user
+            Stripe.createToken({
+                number: $('#card_num').val(),
+                cvc: $('#card-cvc').val(),
+                exp_month: $('#card-expiry-month').val(),
+                exp_year: $('#card-expiry-year').val()
+            }, stripeResponseHandler);
+            
+            //submit from callback
+            return false;
+        });
+    });
+</script>
+
+<?php 
+    $stripeDetails = array(
+        "secretKey" => "sk_test_51JAW36LbL1tUcWWUdDb7iU1Y1BmimlhcMGEfvvvW5rBkhWfTXELXLAqU8u5uU7B2STPBhyCXpZz1OAlgpLMFrbBz00yjr5sREd",
+        "publishableKey" => "pk_test_51JAW36LbL1tUcWWUqOumhoq39YMVXytWgq4iXQVCCGuZXXvTCzs32ZH3SdFFboDsBLZs0BhoqJvF80DegHAj63oM00LnDKtNxp"
+    );  
+
+    $order_name = $this->mod_crypt->Dec_String($orders_info['Ord_Name']);
+    $order_cost = $this->mod_crypt->Dec_String($orders_info['Ord_Price']);
+    $order_deadline = date('M d H:i A', strtotime($this->mod_crypt->Dec_String($orders_info['Ord_Deadline'])));   
+?>
+
+
 <div class="row g-0">
     <div class="col-lg-8 pe-lg-2 mb-3">
         <div class="card h-100">
@@ -96,6 +162,7 @@
                     	<button class="btn btn-outline-primary">Proceed with PayPal</button>
                     </div>
                 </div>
+                <hr /><br><hr />
                 <div class="form-check mb-0">
                 	<input class="form-check-input" type="radio" value="" id="credit-card" checked="checked" name="billing" />
                 	<label class="form-check-label d-flex align-items-center mb-0" for="credit-card"><span class="fs-1 text-nowrap">Credit Card</span>
@@ -103,9 +170,25 @@
                 	</label>
                 </div>
                 <p class="fs--1 mb-4">Safe money transfer using your bank accounts. Visa, maestro, discover, american express.</p>
+
                 <div class="row gx-3 mb-3">
                     <div class="col-md-6 offset-md-3">
-                    	<button class="btn btn-outline-info">Proceed to pay with a Card</button>
+                        <?php
+                            echo '
+                                <div class="col-4 text-center">
+                                    <form action="'.base_url("client/pay/".urlencode($this->mod_crypt->Enc_String($orders_info['Ord_Id'])).'" method="POST">
+                                        <script
+                                            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                                            data-key="'.$stripeDetails['publishableKey'].'"
+                                            data-amount="'.$order_cost.'"
+                                            data-name="'.$order_name).'"
+                                            data-description="Pay Before '.$order_deadline.'"
+                                            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                            data-locale="auto">
+                                        </script>
+                                    </form>
+                                </div>';
+                        ?>
                     </div>
                 </div>
             </div>
@@ -117,18 +200,18 @@
                 <h5 class="mb-0">Billing</h5>
             </div>
             <div class="card-body bg-light">
-                <div class="d-flex justify-content-between fs--1 mb-1">
+                <div class="d-flex justify-content-between fs--1 mb-1 text-info">
                     <p class="mb-0">Price</p>
-                    <span>$375.00</span>
+                    <span>KES <?php echo number_format($order_cost,2); ?></span>
                 </div>
-                <div class="d-flex justify-content-between fs--1 mb-1 text-success">
+                <div class="d-flex justify-content-between fs--1 mb-1 text-primary">
                     <p class="mb-0">Additional Payments</p>
                     <span>$00.00</span>
                 </div>
                 <hr />
                 <div class="d-flex justify-content-between fs--1 mb-1 text-success">
                     <p class="mb-0">Total</p>
-                    <span>$00.00</span>
+                    <span>KES <?php echo number_format($order_cost,2); ?></span>
                 </div>
                 <hr />
             </div>

@@ -41,7 +41,7 @@
                     	<div class="row">
 	                        <div class="col-md-6">
 	                            <label class="form-label" for="datetimepicker">Submit Before</label>
-	                            <input class="form-control datetimepicker" id="datetimepicker" type="text" placeholder="d/m/y H:i" name="ord_date" data-options='{"enableTime":true,"dateFormat":"d/m/y H:i","disableMobile":true}' />
+	                            <input class="form-control datetimepicker" id="datetimepicker" type="text" placeholder="d M YYYY h:m" name="ord_date" data-options='{"enableTime":true,"dateFormat":"d M Y h:m","disableMobile":true}' />
 	                            <div class="row">
 	                            	<div class="col-md-6">
 		                            	<label class="form-label" for="datetimepicker">Pages</label>

@@ -174,7 +174,24 @@
 		                        </ul>
 		                    </div>
 	                    	';
-	                    }
+	                    }else{
+                            echo '
+                            <div class="card-body p-0">
+                                <ul class="mb-0 list-unstyled">
+                                    <li class="alert mb-0 rounded-0 py-3 px-card alert-success border-x-0 border-top-0">
+                                        <div class="row flex-between-center">
+                                            <div class="col">
+                                                <div class="d-flex">
+                                                    <div class="fas fa-circle mt-1 fs--2"></div>
+                                                    <p class="fs--1 ps-2 mb-0">Order <strong>#'.$orders_info['Ord_Id'].'</strong> Has already been paid for.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            ';
+                        }
                     ?>
 
                 </div>

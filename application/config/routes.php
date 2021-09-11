@@ -95,6 +95,8 @@ $route['client/massage/send'] = 'chat/client_send';
 $route['client/convos/(:any)'] = 'chat/client_convo_with/$1';
 
 $route['buyer/pay/(:any)'] = 'pages/view_payform/$1'; 
+$route['client/pay/(:any)'] = 'transaction/transaction_stripe_pay/$1'; 
+
 
 $route['default_controller'] = 'pages/landing';
 $route['404_override'] = '';
