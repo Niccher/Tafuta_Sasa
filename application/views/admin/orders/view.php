@@ -15,8 +15,19 @@
         </div>
     </div>
 </div>
+
+<?php 
+    $opts ="";
+    //.$opts='<option value="" selected >Select as Writer</option>';
+    //$opts .='<option value data-choices-placeholder>Please Choose a writer…</option>';
+    foreach ($writers as $writer) {
+        $name = ($writer['Name']);
+        $val = urlencode($this->mod_crypt->Enc_String($writer['Id']));
+        $opts.='<option value="'.$val.'">'.$name.'</option>';
+    }
+?>
 <div class="row g-3 mb-3">
-    <div class="col-xxl-6 col-xl-12">
+    <div class="col-xxl-12 col-xl-12">
         <div class="row g-3">
             <div class="col-12">
                 <div class="card bg-transparent-50 overflow-hidden">
@@ -84,7 +95,27 @@
                                     </h4>
                                 </div>
 
-                            </div>
+                            </div> 
+                            
+
+                            <?php
+
+                                $assigned = $this->mod_orders->orders_assignment_id($orders_info['Ord_Id']);
+                                if (empty($assigned) || $assigned['Assign_Order'] == "00" ) {
+                                    if ( ($orders_info['Ord_Pay'] == "11")) {
+                                        echo '
+                                            <div class="row">
+                                                <div class="col-md-6 offset-md-3">
+                                                    <button class="btn btn-outline-info btn-block" type="button" data-bs-toggle="modal" data-bs-target="#modal_assign">Assign Order to Writer</button>
+                                                </div>
+                                            </div>
+                                        ';
+                                    }
+                                    
+                                }
+
+                            ?>
+
                         </div>
                     </div>
 
@@ -183,12 +214,43 @@
                                     </li>
                                 </ul>
                             </div>
-                            ';
+                                ';
                         }
                     ?>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="modal_assign" data-keyboard="false" tabindex="-1" aria-labelledby="scrollinglongcontentLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
+        <div class="modal-content position-relative">
+            <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
+                <h4 class="mb-1" id="modalExampleDemoLabel">Select writers </h4>
+                </div>
+                <div class="p-4 pb-0">
+                    <form>
+                        <select class="form-select writer_list" multiple name="writer_list" id="writer_list" data-placeholder="Writers to assign this order to.">
+                            <?php echo $opts;?>
+                        </select>
+                        <br>
+                        <div class="text-secondary">
+                            An order can be assigned to several Writers as you may deem neccesary.
+                        </div>
+                        <br><br>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-primary assigned" id="assigned" type="button">Assign Order to Writers</button>
+            </div>
+        </div>
+    </div>
+</div>
+

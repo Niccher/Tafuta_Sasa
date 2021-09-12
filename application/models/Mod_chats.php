@@ -1,6 +1,10 @@
 <?php
 	class Mod_chats extends CI_Model{
 
+        public function __construct(){
+            $this->load->database();
+        }
+
         public function client_send( $msg, $msg_receiver, $msg_sender ) {		
             $data = array(
                 'Chat_Sender' => $msg_sender,

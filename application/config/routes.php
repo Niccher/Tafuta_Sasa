@@ -40,6 +40,8 @@ $route['admin/orders/view/(:any)'] = 'adminorders/orders_view/$1';
 $route['admin/orders/delete/(:any)'] = 'adminorders/orders_delete/$1';
 $route['admin/orders'] = 'adminorders';
 
+$route['admin/order/assign/(:any)'] = 'adminorders/order_assign/$1';
+
 
 $route['orders/uploads/attachment/(:any)'] = 'clientorders/orders_get_attachment';
 

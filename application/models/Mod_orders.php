@@ -26,6 +26,14 @@
 
         }
 
+        public function orders_assignment_id($p_id){
+            $array = array('Assign_Order =' => $p_id);
+            $this->db->where($array);
+            $query = $this->db->get('tbl_Assignments');
+            return $query->row_array();
+
+        }
+
         public function get_attachment_size($attachment_size){
             $units = array( 'B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
             $power = $attachment_size > 0 ? floor(log($attachment_size, 1024)) : 0;
@@ -113,6 +121,18 @@
             );
 
             return $this->db->insert('tbl_Chat_Orders', $data);
+        }
+
+        public function make_assignment($order_id, $order_writer){ 
+            $data = array(
+                'Assign_Order' => $order_id,
+                'Assign_Writer' => $order_writer,
+                'Assign_Time' => time(),
+                'Assign_Reply' => "00",
+                'Assign_Reply_Time' => "00",
+            );
+
+            return $this->db->insert('tbl_Assignments', $data);
         }
               
 	}

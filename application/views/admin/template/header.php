@@ -19,9 +19,10 @@
             <link href="<?php echo base_url('assets/plugins/summernote/summernote-lite.css'); ?>" rel="stylesheet">
             <link href="<?php echo base_url('assets/plugins/dropzone/dropzone.min.css'); ?>" rel="stylesheet">
             <link href="<?php echo  base_url('assets/plugins/fullcalendar/main.min.css'); ?>" rel="stylesheet">
-             <link href="<?php echo  base_url('assets/plugins/leaflet/leaflet.css'); ?>" rel="stylesheet">
-            <link href="<?php echo  base_url('assets/plugins/leaflet.markercluster/MarkerCluster.css'); ?>" rel="stylesheet">
-            <link href="<?php echo  base_url('assets/plugins/leaflet.markercluster/MarkerCluster.Default.css'); ?>" rel="stylesheet">
+
+            <link href="<?php echo  base_url('assets/plugins/choosen/docsupport/style.css1'); ?>" rel="stylesheet">
+            <link href="<?php echo  base_url('assets/plugins/choosen/docsupport/prism.css1'); ?>" rel="stylesheet">
+            <link href="<?php echo  base_url('assets/plugins/choosen/chosen.min.css'); ?>" rel="stylesheet">
 
             <script>
                 var linkRTL = document.getElementById('style-rtl');
