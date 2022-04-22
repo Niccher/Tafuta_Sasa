@@ -2,7 +2,7 @@
 <main class="main" id="top">
     <nav class="navbar navbar-standard navbar-expand-lg fixed-top navbar-dark" data-navbar-darken-on-scroll="data-navbar-darken-on-scroll">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">
+            <a class="navbar-brand" href="#">
             	<span class="text-white dark__text-white">Tafuta Sasa</span>
             </a>
             <div class="collapse navbar-collapse scrollbar" id="navbarStandard">

@@ -66,26 +66,25 @@ class Questions extends CI_Controller {
 
         	$q_attached = $this->mod_questions->get_attachments();
 
-		    /*$q_attached ="";
-		    foreach ($attachments as $files) {
-		    	$q_attached.= $files['Filename'].'|||';
-		    }*/
-
         	$q_name = $this->mod_crypt->Enc_String($this->input->post('ans_name'));
         	$q_tags = $this->mod_crypt->Enc_String($this->input->post('ans_tags'));
         	$q_answer = $this->mod_crypt->Enc_String($this->input->post('ans_body'));
         	$q_subj = $this->mod_crypt->Enc_String($this->input->post('ans_subject'));
         	$q_level = $this->mod_crypt->Enc_String($this->input->post('ans_level'));
         	$q_pay = $this->mod_crypt->Enc_String($this->input->post('ans_pay'));
-        	$q_cost = $this->mod_crypt->Enc_String($this->input->post('ans_price'));
+        	$q_cost = $this->mod_crypt->Enc_String(1000/*$this->input->post('ans_price')*/);
 
-        	$original = explode(' ', strtolower(trim($this->input->post('ans_tags'))));
+			$q_all_tags = $this->security->xss_clean(strip_tags($this->input->post('ans_tags') . $this->input->post('ans_body')));
+
+
+        	$original = explode(' ', strtolower(trim( $q_all_tags )));
 	        $clean = array_values(array_unique($original));
-	        $remove = array('the','this','then','there','from','for','to','as','and','or','is','was','be','can','could','would','isnt','wasnt', 'until','should','give','has','have','are','some','it','in','if','so','of','on','at','an','who','what','when','where','why','we','been','maybe','further');
+	        $remove = array('the','this','then','there','from','for','to','as','and','or','is','was','be','can','could','would','isnt','wasnt', 'until','should','give','has','have','are','some','it','in','if','so','of','on','at','an','who','what','when','where','why','we','been','maybe','further','a');
 
 	        $q_tags = array_diff($clean, $remove);
+	        $q_tag = $this->mod_crypt->Enc_String(implode(" ", $q_tags));
 
-        	$this->mod_questions->make_question($q_name, $q_tags, $q_answer, $q_subj, $q_level,$q_pay, $q_cost, $q_attached);
+        	$this->mod_questions->make_question($q_name, $q_tag, $q_answer, $q_subj, $q_level,$q_pay, $q_cost, $q_attached);
 
         	redirect('admin/questions');
 

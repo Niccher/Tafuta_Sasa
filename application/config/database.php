@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
 	'username' => 'tendolla_tafuta',
-	'password' => 'Q,D?u.j7BOUc',
+	'password' => 'Iv+v#N3yvzD+';//Q,D?u.j7BOUc',
 	'database' => 'tendolla_tafuta',
 */
 	
@@ -15,7 +15,7 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
-	'database' => 'Tafuta',
+	'database' => 'tendolla_tafuta',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

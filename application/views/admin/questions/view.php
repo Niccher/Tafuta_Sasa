@@ -8,7 +8,7 @@
                         <div class="flex-1 fs--1">
                             <h5 class="fs-0"><?php echo ucfirst($this->security->xss_clean($this->mod_crypt->Dec_String($question_info->Qn_Name))); ?></h5>
                             <p class="mb-0">by <a href="#">Admin</a></p>
-                            <span class="fs-0 text-warning fw-semi-bold">Price: <?php echo number_format($this->mod_crypt->Dec_String($question_info->Qn_Price), 2); ?></span>
+                            <span class="fs-0 text-warning fw-semi-bold">Price: <?php echo /*number_format(*/$this->mod_crypt->Dec_String($question_info->Qn_Price)/*, 2)*/; ?></span>
                         </div>
                     </div>
                 </div>
@@ -43,19 +43,21 @@
         <div class="col-lg-8 pe-lg-2">
             <div class="card mb-3 mb-lg-0">
                 <div class="card-body">
-                    <p>
-                        <?php echo $this->security->xss_clean($this->mod_crypt->Dec_String($question_info->Qn_Answer)); ?>
-                    </p>
-
-                    <h5 class="fs-0 mt-5 mb-2">Tags</h5>
-                    <?php 
-                        $files = explode(' ', $this->security->xss_clean($this->mod_crypt->Dec_String($question_info->Qn_Tags)));
-                        for ($i=0; $i < count($files) - 1; $i++) { 
-                            echo '
-                            <a class="badge border link-secondary me-1 text-decoration-none" href="#">'.$files[$i].'</a>
-                            ';
-                        }
-                    ?>   
+                    <h5 class="">Answer</h5>
+                    <div style="word-wrap:break-word;">
+                        <?php 
+                            $answ = $this->security->xss_clean($this->mod_crypt->Dec_String($question_info->Qn_Answer));
+                            echo word_wrap($answ,180);
+                        ?>   
+                    </div>
+                    
+                    <h5 class="">Tags</h5>
+                    <div style="word-wrap:break-word;">
+                        <?php 
+                            echo $this->mod_crypt->Dec_String($question_info->Qn_Tags);
+                        ?>  
+                    </div>
+                    
                 </div>
             </div>
         </div>

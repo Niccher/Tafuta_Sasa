@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-lg-12 col-xl-12 col-xxl-6 h-100">
+    <div class="col-lg-12 col-xl-12 h-100">
         <div class="card theme-wizard mb-5">
             <div class="card-header bg-light pt-3 pb-2">
                 <ul class="nav nav-pills mb-3" role="tablist" id="pill-tab1">

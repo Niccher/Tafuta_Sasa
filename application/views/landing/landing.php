@@ -177,7 +177,7 @@
                         </div>
 
                         <div class="col-md-12 text-center" style="margin-top: 20px; margin-bottom: 35px;">
-                            <a class="btn btn-outline-danger mb-4 fs--1 border-2 rounded-pill hidden" href="landing.html#!">
+                            <a class="btn btn-outline-danger mb-4 fs--1 border-2 rounded-pill hidden" href="#">
                                 <span class="me-2" role="img" aria-label="Gift">🎁</span>Become a pro
                             </a>
                             <h1 class="text-white fw-light">Bring 

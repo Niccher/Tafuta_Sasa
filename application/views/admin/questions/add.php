@@ -1,32 +1,26 @@
 
 
-    <div class="card mb-3">
-        <div class="card-body">
-            <div class="row flex-between-center">
-                <div class="col-md">
-                    <h5 class="mb-2 mb-md-0">Create a Question and an Answer</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <form action="<?php echo base_url('admin/questions/add');?>" method="post">
         <div class="row g-0">
             <div class="col-lg-12 pe-lg-2">
                 <div class="card mb-3">
                     <div class="card-header">
-                        <h5 class="mb-0">Event Details</h5>
+                        <h5 class="mb-0">Question Details</h5>
                     </div>
                     <div class="card-body bg-light">
                         <div class="row gx-2">
                             <div class="col-12 mb-3">
-                                <label class="form-label" for="event-name">Question Title/Name</label>
-                                <input class="form-control" type="text" name="ans_name" placeholder="Question Title/Name" />
+                                <label class="form-label" for="event-name">Title</label>
+                                <input class="form-control" type="text" name="ans_tags" placeholder="Question Title" />
                             </div>
                             <div class="col-12 mb-3">
+                                <label class="form-label" for="event-name">Question</label>
+                                <input class="form-control" type="text" name="ans_name" placeholder="Question Title/Name" />
+                            </div>
+                            <!--<div class="col-12 mb-3">
                                 <label class="form-label" for="event-name">Question Tags</label>
                                 <input class="form-control" type="text" name="ans_tags" placeholder="eg, History, Africa, Colonialism, Slave Trade etc" />
-                            </div>
+                            </div>-->
                             <div class="col-12">
                                 <label class="form-label" for="event-description">Answer Here</label>
                                 <textarea class="form-control" id="answer_note" name="ans_body" rows="6"></textarea>
@@ -37,9 +31,9 @@
             </div>
 
             <div class="col-lg-8 pe-lg-2">
-                <div class="card mb-3">
+                <div class="card mb-3 hidden">
                     <div class="card-header">
-                        <h5 class="mb-0">Price Settings</h5>
+                        <h5 class="mb-0">Question Info</h5>
                     </div>
                     <div class="card-body bg-light">
                         <div class="mb-3 form-check">
@@ -57,11 +51,9 @@
                             <div class="form-text mt-0">This answer shall only be available to the users with a subscription only. </div>
                         </div>
                     </div>
-                </div>
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <h5 class="mb-0">Uploads</h5>
-                    </div>
+
+                    <hr>
+
                     <div class="card-body bg-light">
                         <div class="row">
                             <div class="col-lg-2"></div>
@@ -129,18 +121,26 @@
                 </div>
             </div>
         </div>
+
         <div class="card mt-3">
             <div class="card-body">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-md">
-                        <h5 class="mb-2 mb-md-0">Nice Job! You're almost done</h5>
-                    </div>
-                    <div class="col-auto">
-                        <button class="btn btn-falcon-primary btn-sm me-2" type="submit">Save</button>
+                <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary btn-block me-1 mb-1" type="submit">Save Question</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <div class="row"></div>
+            </div>
+        </div>
+
     </form>
 
 
