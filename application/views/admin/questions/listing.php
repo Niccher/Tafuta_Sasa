@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="flex-1 position-relative ps-3">
                                     <h6 class="fs-0 mb-0">
-                                        <a href="'.base_url('admin/questions/view/'.$qn_id).'">'.$this->security->xss_clean(ucfirst($this->mod_crypt->Dec_String($qn["Qn_Name"]))).'</a>
+                                        <a href="'.base_url('admin/questions/view/'.$qn_id).'">'.$this->security->xss_clean(ucfirst(strip_tags($this->mod_crypt->Dec_String($qn["Qn_Name"])))).'</a>
                                     </h6>
                                     Tags: '.$this->security->xss_clean($this->mod_crypt->Dec_String($qn["Qn_Tags"])).'
                                     <br>

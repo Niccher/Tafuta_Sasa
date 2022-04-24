@@ -28,7 +28,7 @@
             <a class="navbar-brand" href="#">
                 <div class="d-flex align-items-center py-3">
                     <img class="me-2" src="<?php echo base_url('assets/img/icons/spot-illustrations/logo.png'); ?>" alt="" width="40" />
-                    <span class="font-sans-serif">Tafuta Sasa</span>
+                    <span class="font-sans-serif">10$Writers</span>
                 </div>
             </a>
         </div>

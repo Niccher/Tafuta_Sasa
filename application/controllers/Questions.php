@@ -74,7 +74,8 @@ class Questions extends CI_Controller {
         	$q_pay = $this->mod_crypt->Enc_String($this->input->post('ans_pay'));
         	$q_cost = $this->mod_crypt->Enc_String(1000/*$this->input->post('ans_price')*/);
 
-			$q_all_tags = $this->security->xss_clean(strip_tags($this->input->post('ans_tags') . $this->input->post('ans_body')));
+			$q_all_tags = $this->security->xss_clean(strip_tags($this->input->post('ans_tags')));
+			//$q_all_tags = $this->security->xss_clean(strip_tags($this->input->post('ans_tags') . $this->input->post('ans_body')));
 
 
         	$original = explode(' ', strtolower(trim( $q_all_tags )));

@@ -107,7 +107,10 @@
                                                             <span class="badge badge rounded-pill d-block p-2 badge-soft-info">
                                                                 <a href="'.base_url("client/orders/view/".$order_id).'"><span class="ms-1 far far fa-eye badge-soft-info" data-fa-transform="shrink-2"></span>
                                                                 </a>
-                                                                <a href="'.base_url("client/orders/edit/".$order_id).'"><span class="ms-1 far fas fa-edit badge-soft-primary" data-fa-transform="shrink-2"></span>
+                                                                
+                                                            </span>
+                                                            <span class="badge badge rounded-pill d-block p-2 badge-soft-success">
+                                                                <a href="'.base_url("client/orders/edit/".$order_id).'"><span class="ms-1 far fas fa-edit badge-soft-warning" data-fa-transform="shrink-2"></span>
                                                                 </a>
                                                             </span>
                                                         </td>

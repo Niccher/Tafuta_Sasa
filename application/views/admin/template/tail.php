@@ -104,6 +104,7 @@
         <script type="text/javascript">
             $(document).ready(function() {
                 $('#answer_note').summernote();
+                $('#question_note').summernote();
             });
         </script>
 

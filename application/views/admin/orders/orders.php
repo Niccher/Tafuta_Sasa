@@ -95,11 +95,11 @@
                                                         <td class="text-nowrap">
                                                             <a href="'.base_url("admin/orders/view/".$order_id).'">
                                                                 <div class="d-flex">
-                                                                    <div class="ms-2">'.word_limiter($name, 10).'</div>
+                                                                    <div class="ms-2">'.$this->security->xss_clean(ucfirst(word_limiter(strip_tags($name), 10))).'</div>
                                                                 </div>
                                                             </a>
                                                         </td>
-                                                        <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
+                                                        <td class="text-nowrap">'.$this->security->xss_clean(ucfirst(word_limiter(strip_tags($desc), 10))).'</td>
                                                         <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
                                                         <td>'.$paid.'</td>
                                                         <td>'.$status.'</td>

@@ -1,15 +1,5 @@
-    <div class="card mb-3">
-        <div class="bg-holder d-none d-lg-block bg-card" style="background-image:url(../../assets/img/icons/spot-illustrations/corner-4.png);"></div>
-        <!--/.bg-holder-->
-        <div class="card-body position-relative">
-            <div class="row">
-                <div class="col-lg-8">
-                    <h3>Get started by joining a subscription</h3>
-                    <p class="mt-2">Free for 30 days, cancel at any time. <br />$6.25 / For as many questions in a month</p>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
     <div class="row g-0">
         <div class="col-lg-8 pe-lg-2 mb-3">
             <div class="card h-100">

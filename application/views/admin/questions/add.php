@@ -15,12 +15,8 @@
                             </div>
                             <div class="col-12 mb-3">
                                 <label class="form-label" for="event-name">Question</label>
-                                <input class="form-control" type="text" name="ans_name" placeholder="Question Title/Name" />
+                                <textarea class="form-control" id="question_note" name="ans_name" rows="6"></textarea>
                             </div>
-                            <!--<div class="col-12 mb-3">
-                                <label class="form-label" for="event-name">Question Tags</label>
-                                <input class="form-control" type="text" name="ans_tags" placeholder="eg, History, Africa, Colonialism, Slave Trade etc" />
-                            </div>-->
                             <div class="col-12">
                                 <label class="form-label" for="event-description">Answer Here</label>
                                 <textarea class="form-control" id="answer_note" name="ans_body" rows="6"></textarea>
