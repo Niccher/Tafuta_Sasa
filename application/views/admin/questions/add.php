@@ -81,7 +81,7 @@
                             <div class="mb-3">
                                 <label class="form-label" for="event-topic">Sale Price:</label>
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text">KES</span>
+                                    <span class="input-group-text">USD</span>
                                     <span class="input-group-text">0.00</span>
                                     <input class="form-control" type="text" placeholder="Cost" name="ans_price" />
                                 </div>

@@ -177,16 +177,10 @@
                         </div>
 
                         <div class="col-md-12 text-center" style="margin-top: 20px; margin-bottom: 35px;">
-                            <a class="btn btn-outline-danger mb-4 fs--1 border-2 rounded-pill hidden" href="#">
-                                <span class="me-2" role="img" aria-label="Gift">🎁</span>Become a pro
-                            </a>
                             <h1 class="text-white fw-light">Bring 
                                 <span class="typed-text fw-bold" data-typed-text='[" answers to your questions","well explained concepts to your work","diversity to your class work","perfection and abundance to work"]'></span><br />to your ...
                             </h1>
-                            <p class="lead text-white opacity-75">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod ...</p>
-                            <a class="btn btn-outline-light border-2 rounded-pill btn-lg mt-4 fs-0 py-2" href="<?php echo base_url('auth/register'); ?>">Become a seller
-                                <span class="fas fa-play ms-2" data-fa-transform="shrink-6 down-1"></span>
-                            </a>
+                            <p class="lead text-white opacity-75">For any queries please contact the admin here</p>
                         </div>
 
                     </div>
@@ -194,125 +188,129 @@
                 <!-- end of .container-->
             </section>
             <!-- <section> close ============================-->
-            <section class="bg-light text-center">
-                <div class="container">
+            <div class="bg-grey text-center">
+                <div class="container" style="margin-top: 50px;">
                     <div class="row">
-                        <div class="col">
-                            <h1 class="fs-2 fs-sm-4 fs-md-5">Here's what's in it for you</h1>
-                            <p class="lead">Things you will get right out of the box with Falcon.</p>
-                        </div>
-                    </div>
-                    <div class="row mt-6">
-                        <div class="col-lg-4">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img">
-                                    <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="<?php echo base_url('assets/img/icons/choose.png'); ?>" alt="" width="100">
-                                </div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Quizlet</h5>
-                                    <p>Build your webapp with the world's most popular front-end component library along with Falcon's 32 sets of carefully designed elements.</p>
+                        <div class="col-6">
+                            <div class="row">
+                                <div>
+                                    <p class="lead">We handle the following challenges and in return give yo back a high quality work.</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 mt-6 mt-lg-0">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img">
-                                    <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="<?php echo base_url('assets/img/icons/test.png'); ?>" alt="" width="100">
+                            <div class="row mt-6">
+                                <div class="col-lg-4">
+                                    <div class="card card-span h-100">
+                                        <div class="card-span-img">
+                                            <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="<?php echo base_url('assets/img/icons/choose.png'); ?>" alt="" width="100">
+                                        </div>
+                                        <div class="card-body pt-6 pb-4">
+                                            <h5 class="mb-2">Quizlet</h5>
+                                            <p>These are the simple questions with multiple answers mostly in form of flashcards.</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Question with Multiple Answers </h5>
-                                    <p>With your purchased copy of Falcon, you will get all the uncompressed & documented SCSS and Javascript source code files.</p>
+                                <div class="col-lg-4 mt-6 mt-lg-0">
+                                    <div class="card card-span h-100">
+                                        <div class="card-span-img">
+                                            <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="<?php echo base_url('assets/img/icons/test.png'); ?>" alt="" width="100">
+                                        </div>
+                                        <div class="card-body pt-6 pb-4">
+                                            <h5 class="mb-2">Question with Multiple Answers </h5>
+                                            <p>Exams and other assignments, that require the person to select an answer/s.</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mt-6 mt-lg-0">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img">
-                                    <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="<?php echo base_url('assets/img/icons/analysis.png'); ?>" alt="" width="100">
+                                <div class="col-lg-4 mt-6 mt-lg-0">
+                                    <div class="card card-span h-100">
+                                        <div class="card-span-img">
+                                            <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="<?php echo base_url('assets/img/icons/analysis.png'); ?>" alt="" width="100">
+                                        </div>
+                                        <div class="card-body pt-6 pb-4">
+                                            <h5 class="mb-2">Essays</h5>
+                                            <p>Assignments and other work that require the owner to have extreme knowledge regarding a topic</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Research Questions</h5>
-                                    <p>All the painful or time-consuming tasks in your development workflow such as compiling the SCSS or transpiring the JS are automated.</p>
-                                </div>
-                            </div>
-                        </div>
 
-                    </div>
+                            </div>
 
-                    <div class="row mt-6">
-                        <div class="col-lg-4">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img">
-                                    <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="<?php echo base_url('assets/img/icons/keys.png'); ?>" alt="" width="100">
+                            <div class="row mt-6">
+                                <div class="col-lg-4">
+                                    <div class="card card-span h-100">
+                                        <div class="card-span-img">
+                                            <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="<?php echo base_url('assets/img/icons/keys.png'); ?>" alt="" width="100">
+                                        </div>
+                                        <div class="card-body pt-6 pb-4">
+                                            <h5 class="mb-2">Mathematical Questions</h5>
+                                            <p>Mathematical assignments are handled and the clients needs it done</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Mathematical Questions</h5>
-                                    <p>Build your webapp with the world's most popular front-end component library along with Falcon's 32 sets of carefully designed elements.</p>
+                                <div class="col-lg-4 mt-6 mt-lg-0">
+                                    <div class="card card-span h-100">
+                                        <div class="card-span-img">
+                                            <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="<?php echo base_url('assets/img/icons/analysis.png'); ?>" alt="" width="100">
+                                        </div>
+                                        <div class="card-body pt-6 pb-4">
+                                            <h5 class="mb-2">Graphical Questions</h5>
+                                            <p>Quizzes that need graphical answers such topography maps among others the JS are automated.</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mt-6 mt-lg-0">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img">
-                                    <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="<?php echo base_url('assets/img/icons/curve.png'); ?>" alt="" width="100">
-                                </div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Probability and Statistics</h5>
-                                    <p>With your purchased copy of Falcon, you will get all the uncompressed & documented SCSS and Javascript source code files.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mt-6 mt-lg-0">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img">
-                                    <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="<?php echo base_url('assets/img/icons/analysis.png'); ?>" alt="" width="100">
-                                </div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Graphical Questions</h5>
-                                    <p>All the painful or time-consuming tasks in your development workflow such as compiling the SCSS or transpiring the JS are automated.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-
-                    <div class="row mt-6">
-                        <div class="col-lg-4">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img">
-                                    <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="<?php echo base_url('assets/img/icons/keys.png'); ?>" alt="" width="100">
-                                </div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Computing</h5>
-                                    <p>Build your webapp with the world's most popular front-end component library along with Falcon's 32 sets of carefully designed elements.</p>
+                                <div class="col-lg-4 mt-6 mt-lg-0">
+                                    <div class="card card-span h-100">
+                                        <div class="card-span-img">
+                                            <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="<?php echo base_url('assets/img/icons/worker.png'); ?>" alt="" width="100">
+                                        </div>
+                                        <div class="card-body pt-6 pb-4">
+                                            <h5 class="mb-2">Engineering and Others</h5>
+                                            <p>Complex assignments and other unique tasks.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 mt-6 mt-lg-0">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img">
-                                    <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="<?php echo base_url('assets/img/icons/research.png'); ?>" alt="" width="100">
+                        <div class="col-6">
+                            <div class="row flex-center mt-4">
+                                <div class="col-md col-lg-5 col-xl-4 ps-lg-6">
+                                    <img class="img-fluid px-6 px-md-0" src="<?php echo base_url('assets/img/generic/number-one.png'); ?>" />
                                 </div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Research and Analysis</h5>
-                                    <p>With your purchased copy of Falcon, you will get all the uncompressed & documented SCSS and Javascript source code files.</p>
+                                <div class="col-md col-lg-5 col-xl-4 mt-4 mt-md-0">
+                                    <h5 class="text-danger"><span class="far fa-lightbulb me-2"></span>How to get started</h5>
+                                    <h3>Search for a question </h3>
+                                    <p>Start with looking for an answer to a question you have</p>
+                                </div>
+                            </div>
+                            <div class="row flex-center mt-7">
+                                <div class="col-md col-lg-5 col-xl-4 ps-lg-6">
+                                    <img class="img-fluid px-6 px-md-0" src="<?php echo base_url('assets/img/generic/number-two.png'); ?>" />
+                                </div>
+                                <div class="col-md col-lg-5 col-xl-4 mt-4 mt-md-0">
+                                    <h3>Proceed to make an order</h3>
+                                    <p>Specify the kind of an order you want, includes its content</p>
+                                </div>
+                            </div>
+                            <div class="row flex-center mt-7">
+                                <div class="col-md col-lg-5 col-xl-4 ps-lg-6">
+                                    <img class="img-fluid px-6 px-md-0" src="<?php echo base_url('assets/img/generic/number-three.png'); ?>" />
+                                </div>
+                                <div class="col-md col-lg-5 col-xl-4 mt-4 mt-md-0">
+                                    <h3>Receive an order confirmation</h3>
+                                    <p>A message showing the order was receieved an is payments criteria.</p>
+                                </div>
+                            </div>
+                            <div class="row flex-center mt-7">
+                                <div class="col-md col-lg-5 col-xl-4 ps-lg-6">
+                                    <img class="img-fluid px-6 px-md-0" src="<?php echo base_url('assets/img/generic/number-four.png'); ?>" />
+                                </div>
+                                <div class="col-md col-lg-5 col-xl-4 mt-4 mt-md-0">
+                                    <h3>Receive the quality work</h3>
+                                    <p>Receive the work that have been done as you had specified.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 mt-6 mt-lg-0">
-                            <div class="card card-span h-100">
-                                <div class="card-span-img">
-                                    <img class="img-thumbnail img-fluid rounded-circle mb-3 shadow-sm" src="<?php echo base_url('assets/img/icons/worker.png'); ?>" alt="" width="100">
-                                </div>
-                                <div class="card-body pt-6 pb-4">
-                                    <h5 class="mb-2">Engineering</h5>
-                                    <p>All the painful or time-consuming tasks in your development workflow such as compiling the SCSS or transpiring the JS are automated.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
                     </div>
 
                 </div>
-            </section>
+            </div>
         </main>

@@ -130,10 +130,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-12 col-xxl-12 mb-xxl-1">
                         <ul class="nav nav-pills" id="pill-myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="pill-home-tab" data-bs-toggle="tab" href="#tab_last_10_purchases" role="tab" aria-controls="tab_last_10_purchases" aria-selected="true">Last 10 answers purchased</a>
-                            </li>
-                            <li class="nav-item">
+                            <li class="nav-item active">
                                 <a class="nav-link" id="pill-profile-tab" data-bs-toggle="tab" href="#tab_last_10_viewed" role="tab" aria-controls="tab_last_10_viewed" aria-selected="false">Last 10 Viewed Questions</a>
                             </li>
                             <li class="nav-item">

@@ -141,7 +141,7 @@
                 'Qn_Subject' => $q_subj,
                 'Qn_Level' => $q_level,
                 'Qn_Attachment' => $q_attached,
-                'Qn_Pay' => $q_pay,
+                'Qn_Pay' => $q_pay * 100,
                 'Qn_Price' => $q_cost,
                 'Qn_Status' => "11", 
                 'Qn_Viewed' => "00",
