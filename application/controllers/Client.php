@@ -7,7 +7,7 @@ class Client extends CI_Controller {
 
 		$typ = $this->session->userdata('log_type');
         if (! $this->session->userdata('log_id') || $typ != "Client") {
-            redirect('auth/login');
+            //redirect('auth/login');
         }
 
 		$title['pg_name'] = 'home';

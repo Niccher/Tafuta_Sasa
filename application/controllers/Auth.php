@@ -19,7 +19,7 @@ class Auth extends CI_Controller {
             $lg_eml = $this->mod_crypt->Enc_String($this->input->post('lg_email'));
             $lg_pwd = $this->mod_crypt->Enc_String($this->input->post('lg_password'));
 
-            echo $user_id = $this->mod_users->make_login($lg_eml,$lg_pwd);
+            $user_id = $this->mod_users->make_login($lg_eml,$lg_pwd);
             $lg_vars = $this->mod_users->get_vars($user_id);
             
             if ($user_id) {

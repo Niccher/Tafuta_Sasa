@@ -11,10 +11,10 @@
 			    $config = array(
     			    'protocol'  => 'smtp',
                     'smtp_crypto' => 'ssl',
-                    'smtp_host' => 'tendollarwriters.com',
+                    'smtp_host' => 'lon106.truehost.cloud',
                     'smtp_port' => 465,
-                    'smtp_user' => 'escrow@tendollarwriters.com',
-                    'smtp_pass' => '*3@ub90;;ECL',//#*c%q^mGhaMZ',
+                    'smtp_user' => 'academic@chegecache.co.ke',
+                    'smtp_pass' => 'jT6QWp)b^uro',
                     'mailtype'  => 'html',
                     'useragent' => 'Tafuta Sasa',
                     'charset'   => 'utf-8'

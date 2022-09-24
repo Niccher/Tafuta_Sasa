@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Tafuta Sasa" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="Tafuta Sasa">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/public_html/tafuta" local="$PROJECT_DIR$" web="http://tafuta.chegecache.co.ke/tafuta" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

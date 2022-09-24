@@ -52,22 +52,46 @@
 
                     <div class="card-body bg-light">
                         <div class="row">
-                            <div class="col-lg-2"></div>
-                            <div class="col-lg-8">
+                            <div class="col-lg-6">
                                 <small class="text-center text-primary">
                                     <i class="fas fa-info"></i>
-                                    Any neccesary files to support this answer are need, please upload them
+                                    Any files to support this answer,
                                 </small>
                                 <hr>
                                 <div class="d-grid gap-2">
                                     <button class="btn btn-outline-primary me-1 mb-1" type="button" data-bs-toggle="modal" data-bs-target="#modal_upload">Click to upload</button>
                                 </div>
-
-
                             </div>
-                            <div class="col-lg-2"></div>
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header d-flex flex-between-center bg-light py-2">
+                                        <h6 class="mb-0">Uploaded Files</h6>
+                                    </div>
+                                    <div class="card-body pb-0">
+                                        <div class="d-flex mb-3 hover-actions-trigger align-items-center">
+                                            <div class="file-thumbnail"><img class="border h-100 w-100 fit-cover rounded-2" src="assets/img/products/5-thumb.png" alt=""></div>
+                                            <div class="ms-3 flex-shrink-1 flex-grow-1">
+                                                <h6 class="mb-1"><a class="stretched-link text-900 fw-semi-bold" href="index.html#!">apple-smart-watch.png</a></h6>
+                                                <div class="fs--1"><span class="fw-semi-bold">Owner</span><span class="fw-medium text-600 ms-2">Just Now</span></div>
+                                                <div class="hover-actions end-0 top-50 translate-middle-y"><a class="btn btn-light border-300 btn-sm me-1 text-600" data-bs-toggle="tooltip" data-bs-placement="top" title="" href="assets/img/icons/cloud-download.svg" download="download" data-bs-original-title="Download" aria-label="Download"><img src="assets/img/icons/cloud-download.svg" alt="" width="15"></a><button class="btn btn-light border-300 btn-sm me-1 text-600 shadow-none" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Edit" aria-label="Edit"><img src="assets/img/icons/edit-alt.svg" alt="" width="15"></button></div>
+                                            </div>
+                                        </div>
+                                        <hr class="bg-200">
+                                        <div class="d-flex mb-3 hover-actions-trigger align-items-center">
+                                            <div class="file-thumbnail"><img class="border h-100 w-100 fit-cover rounded-2" src="assets/img/products/3-thumb.png" alt=""></div>
+                                            <div class="ms-3 flex-shrink-1 flex-grow-1">
+                                                <h6 class="mb-1"><a class="stretched-link text-900 fw-semi-bold" href="index.html#!">iphone.jpg</a></h6>
+                                                <div class="fs--1"><span class="fw-semi-bold">Owner</span><span class="fw-medium text-600 ms-2">Yesterday at 1:30 PM</span></div>
+                                                <div class="hover-actions end-0 top-50 translate-middle-y"><a class="btn btn-light border-300 btn-sm me-1 text-600" data-bs-toggle="tooltip" data-bs-placement="top" title="" href="assets/img/icons/cloud-download.svg" download="download" data-bs-original-title="Download" aria-label="Download"><img src="assets/img/icons/cloud-download.svg" alt="" width="15"></a><button class="btn btn-light border-300 btn-sm me-1 text-600 shadow-none" type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Edit" aria-label="Edit"><img src="assets/img/icons/edit-alt.svg" alt="" width="15"></button></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <hr>
                 </div>
             </div>
 
@@ -160,7 +184,7 @@
                 </div>
                 <div class="modal-body p-0">
                     <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
-                        <h4 class="mb-1">Upload auxilliary data. </h4>
+                        <h4 class="mb-1">Drag files to upload them </h4>
                     </div>
                     <form action="<?php echo base_url('admin/questions/attach');?>" class="dropzone" method="post" enctype="multipart/form-data" id="my-awesome-dropzone" data-dropzone="data-dropzone">
                         <div class="fallback">
