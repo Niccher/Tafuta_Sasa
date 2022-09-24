@@ -42,7 +42,6 @@ $route['admin/orders'] = 'adminorders';
 
 $route['admin/order/assign/(:any)'] = 'adminorders/order_assign/$1';
 
-
 $route['orders/uploads/attachment/(:any)'] = 'clientorders/orders_get_attachment';
 
 
@@ -60,6 +59,7 @@ $route['auth/home'] = 'auth/home';
 $route['auth/logout'] = 'auth/logout';
 
 $route['home'] = 'pages/landing';
+$route['home/v2'] = 'pages/land';
 $route['search'] = 'pages/search';
 $route['search/question'] = 'pages/view_answer';
 $route['search/question/clean'] = 'pages/view_answer_clean';
@@ -96,9 +96,9 @@ $route['client/profile/attach_img'] = 'client/profile_add_image';
 $route['client/massage/send'] = 'chat/client_send';
 $route['client/convos/(:any)'] = 'chat/client_convo_with/$1';
 
+$route['user/new/create'] = 'pages/view_new_user';
 $route['buyer/pay/(:any)'] = 'pages/view_payform/$1'; 
 $route['client/pay/(:any)'] = 'transaction/transaction_stripe_pay/$1'; 
-
 
 $route['default_controller'] = 'pages/landing';
 $route['404_override'] = '';

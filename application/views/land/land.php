@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Epic Writers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Epic Writers description here." />
+    <meta content="Work Assignments" name="author" />
+
+    <link rel="shortcut icon" href="<?php echo base_url('assets/images/favicon.ico'); ?>">
+
+    <link href="<?php echo base_url('assets/land/css/icons.min.css'); ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url('assets/land/css/app.min.css'); ?>" rel="stylesheet" type="text/css" id="light-style" />
+
+</head>
+
+<body class="loading" data-layout-config='{"darkMode":false}'>
+
+<!-- NAVBAR START -->
+<nav class="navbar navbar-expand-md py-md-3 navbar-dark fixed-top bg-secondary" id="nav_area">
+    <div class="container">
+        <!-- logo -->
+        <a href="" class="navbar-brand me-lg-5">
+            <img src="assets/land/images/loo.png" alt="Logo" class="logo-dark" height="18" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="mdi mdi-menu"></i>
+        </button>
+
+        <!-- menus -->
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+            <!-- left menu -->
+            <ul class="navbar-nav me-auto align-items-center">
+                <li class="nav-item mx-lg-1">
+                    <a class="nav-link active" href="">Home</a>
+                </li>
+                <li class="nav-item mx-lg-1">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item mx-lg-1">
+                    <a class="nav-link" href="#features">Create An Order</a>
+                </li>
+                <li class="nav-item mx-lg-1">
+                    <a class="nav-link" href="#faqs">FAQS</a>
+                </li>
+                <li class="nav-item mx-lg-1">
+                    <a class="nav-link" href="#contact">Contact Us</a>
+                </li>
+            </ul>
+
+            <!-- right menu -->
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item me-0">
+                    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#login_modal">
+                        <i class="uil-user-check me-2"></i> Login Now
+                    </button>
+
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#signup_modal">
+                        <i class="uil-user-plus me-2"></i> Sign Up Now
+                    </button>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<!-- NAVBAR END -->
+
+<section class="bg-secondary-lighten" style="height: 10px;"></section>
+<!-- START HERO -->
+<section class="bg-secondary-lighten" style="height: 450px; margin-top: 20px;">
+    <div class="">
+        <div class="row align-items-center">
+            <div class="col-md-10 offset-md-1">
+                <div class="">
+                    <div class="row">
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="<?php echo base_url('assets/land/slider/essay_help.png'); ?>" class="d-block w-100" alt="..." style="height: 450px;">
+                                    <div class="carousel-caption">
+                                        <div class="container">
+                                            <div class="mt-md-4">
+                                                <h1 class="text-primary fw-bold fw-normal mb-4 mt-3 hero-title">
+                                                    Epic Writers
+                                                </h1>
+
+                                                <p class="mb-4 font-16 text-danger-50">
+                                                    Welcome to Epic Writers, here we help people get their work done, we are a team of highly motivated writers who will give you back high quality work.
+                                                </p>
+
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#create_modal" class="btn btn-success">Create an Order <i class="mdi mdi-arrow-right ms-1"></i>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo base_url('assets/land/slider/essay_service.jpg'); ?>" class="d-block w-100" alt="..." style="height: 450px;">
+                                    <div class="carousel-caption">
+                                        <div class="container">
+                                            <div class="mt-md-4">
+                                                <h1 class="text-primary fw-bold fw-normal mb-4 mt-3 hero-title">
+                                                    Epic Writers
+                                                </h1>
+
+                                                <p class="mb-4 font-16 text-danger-50">
+                                                    Welcome to Epic Writers, here we help people get their work done, we are a team of highly motivated writers who will give you back high quality work.
+                                                </p>
+
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#create_modal" class="btn btn-success">Create an Order <i class="mdi mdi-arrow-right ms-1"></i>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="<?php echo base_url('assets/land/slider/essay_writing.jpg'); ?>" class="d-block w-100" alt="..." style="height: 450px;">
+                                    <div class="carousel-caption">
+                                        <div class="container">
+                                            <div class="mt-md-4">
+                                                <h1 class="text-primary fw-bold fw-normal mb-4 mt-3 hero-title">
+                                                    Epic Writers
+                                                </h1>
+
+                                                <p class="mb-4 font-16 text-danger-50">
+                                                    Welcome to Epic Writers, here we help people get their work done, we are a team of highly motivated writers who will give you back high quality work.
+                                                </p>
+
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#create_modal" class="btn btn-success">Create an Order <i class="mdi mdi-arrow-right ms-1"></i>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END HERO -->
+
+<!-- ======= Features Section ======= -->
+<section class="bg-light-lighten" id="features" class="features">
+    <div class="container">
+        <div class="row py-4">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <h1 class="mt-0"><i class="mdi mdi-alpha-i-box text-danger"></i></h1>
+                    <h3>Epic Writers <span class="text-primary">How to get started</span></h3>
+                    <p class="text-dark-50 mt-2">
+                        Epic Writers has a model that is implemented into the logic and therefore everybody has to abide by this, these steps are as listed below.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mt-2 mb-tg-0 order-2 order-lg-1">
+                <ul class="nav nav-tabs flex-column">
+                    <li class="nav-item" data-aos="fade-up">
+                        <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">
+                            <h4>Step One:</h4>
+                            <p>Create an order and fill all the neccessary data within the input fields. ubmit the order request</p>
+                        </a>
+                    </li>
+                    <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="100">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
+                            <h4>Step Two:</h4>
+                            <p>The administrator checks the order and makes sure it is feasible.</p>
+                        </a>
+                    </li>
+                    <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="200">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-3">
+                            <h4>Step Three:</h4>
+                            <p>The client pays for the order, after it has been verrified by the admin.</p>
+                        </a>
+                    </li>
+                    <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="300">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-4">
+                            <h4>Step Four:</h4>
+                            <p>Once payment has been made, the work is worked upon and high quality work submitted.</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in">
+                <div class="tab-content">
+                    <div class="tab-pane active show" id="tab-1">
+                        <figure>
+                            <img src="<?php echo base_url('assets/land/land/img/features-1.png'); ?>" alt="" class="img-fluid">
+                        </figure>
+                    </div>
+                    <div class="tab-pane" id="tab-2">
+                        <figure>
+                            <img src="<?php echo base_url('assets/land/land/img/features-2.png'); ?>" alt="" class="img-fluid">
+                        </figure>
+                    </div>
+                    <div class="tab-pane" id="tab-3">
+                        <figure>
+                            <img src="<?php echo base_url('assets/land/land/img/features-3.png'); ?>" alt="" class="img-fluid">
+                        </figure>
+                    </div>
+                    <div class="tab-pane" id="tab-4">
+                        <figure>
+                            <img src="<?php echo base_url('assets/land/land/img/features-4.png'); ?>" alt="" class="img-fluid">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Features Section -->
+
+<!-- START SERVICES -->
+<section class="py-5 bg-secondary-lighten" id="services">
+    <div class="container">
+        <div class="row py-4">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <h1 class="mt-0"><i class="mdi mdi-infinity"></i></h1>
+                    <h3>Epic Writers <span class="text-primary">services we offer</span></h3>
+                    <p class="text-muted mt-2">
+                        Epic Writers has a broad services that we render to our clients and customers.<br>
+                        We have writers who are competentent in eassys and writing reports. Also we have a team that can work in mathematical calculations such as statistics, calculus, engineering and many more others.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="text-center p-3">
+                    <div class="avatar-sm m-auto">
+                                <span class="avatar-title bg-primary-lighten rounded-circle">
+                                    <i class="uil uil-desktop text-primary font-24"></i>
+                                </span>
+                    </div>
+                    <h4 class="mt-3">Exams</h4>
+                    <p class="text-muted mt-2 mb-0">We are commited to making sure that the your eams are handled as you want. for this to work, it has to be sent earlier in advance so that the team is well versed with the classwork.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="text-center p-3">
+                    <div class="avatar-sm m-auto">
+                                <span class="avatar-title bg-primary-lighten rounded-circle">
+                                    <i class="uil uil-vector-square text-primary font-24"></i>
+                                </span>
+                    </div>
+                    <h4 class="mt-3">Multiple Questions</h4>
+                    <p class="text-muted mt-2 mb-0">This includes questions that have answers wchich the student has to select the right ones from the wrong ones. Our team has vast skills in wide range of subjects, but this has to be made early in advance.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="text-center p-3">
+                    <div class="avatar-sm m-auto">
+                                <span class="avatar-title bg-primary-lighten rounded-circle">
+                                    <i class="uil uil-presentation text-primary font-24"></i>
+                                </span>
+                    </div>
+                    <h4 class="mt-3">Quizlets Questions</h4>
+                    <p class="text-muted mt-2 mb-0">Quizzes, flashcards and quizzlets are welcome. our team has many hours worth of experince in this category.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="text-center p-3">
+                    <div class="avatar-sm m-auto">
+                                <span class="avatar-title bg-primary-lighten rounded-circle">
+                                    <i class="uil uil-apps text-primary font-24"></i>
+                                </span>
+                    </div>
+                    <h4 class="mt-3">Essay Applications</h4>
+                    <p class="text-muted mt-2 mb-0">This is the most common form of work that this platform receives. we handle essays based on research, summarizing, disertation paper among others.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="text-center p-3">
+                    <div class="avatar-sm m-auto">
+                                <span class="avatar-title bg-primary-lighten rounded-circle">
+                                    <i class="uil uil-shopping-cart-alt text-primary font-24"></i>
+                                </span>
+                    </div>
+                    <h4 class="mt-3">Research Work</h4>
+                    <p class="text-muted mt-2 mb-0">Any research work that you have we will work on it. We also do data analysis on the data we used on the research
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="text-center p-3">
+                    <div class="avatar-sm m-auto">
+                                <span class="avatar-title bg-primary-lighten rounded-circle">
+                                    <i class="uil uil-grids text-primary font-24"></i>
+                                </span>
+                    </div>
+                    <h4 class="mt-3">Mathematicals Problems</h4>
+                    <p class="text-muted mt-2 mb-0">The complex assignemnts that require manipulations of numbers such as statistics, calculus, engineering and others are welcome.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- END SERVICES -->
+
+<!-- START FEATURES 2 -->
+<section class="py-5 bg-light-lighten" id="features">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <h1 class="mt-0"><i class="mdi mdi-heart-multiple-outline"></i></h1>
+                    <h3>Features you'll <span class="text-danger">love about Epic Writers</span></h3>
+                    <p class="text-dark-50 mt-2">
+                        Here at Epic Writers we have a high stardard for our writers and therefore we have a guarantee that your work will be of high quality. the skills that we have acquired over the years have made us very straight to the point and therefore your work will have the major points outlined.
+                        Because of our services are paid, therefore if a client feels that the work was not done as he/she wanted, a free revision is initialized.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2 py-5 align-items-center">
+            <div class="col-lg-6">
+                <h3 class="fw-normal">Payment Model</h3>
+                <p class="text-dark-50 mt-3">
+                    The website has several ways that makes it easy for the clients and customers to make payments.
+                </p>
+                <div class="mt-4">
+                    <p class="text-dark-50">
+                        <i class="mdi mdi-circle-medium text-success"></i> Pay with debit cards
+                    </p>
+                    <p class="text-dark-50">
+                        <i class="mdi mdi-circle-medium text-success"></i> Pay with credit card
+                    </p>
+                    <p class="text-dark-50">
+                        <i class="mdi mdi-circle-medium text-success"></i> Pay with PayPal
+                    </p>
+                </div>
+
+            </div>
+            <div class="col-lg-6">
+                <h3 class="fw-normal">Learn more about Us.</h3>
+                <p class="text-dark-50 mt-3">
+                    This is the platform that is dedicate to working with you. for the little time we have been there we have designed and worked upon several hundred orders.
+                </p>
+                <div class="mt-4">
+                    <p class="text-dark-50">
+                        <i class="mdi mdi-circle-medium text-success"></i> We ensure that the online assignment is plagirism free.
+                    </p>
+                    <p class="text-dark-50">
+                        <i class="mdi mdi-circle-medium text-success"></i> We handle both theoretical and technical work.
+                    </p>
+                    <p class="text-dark-50">
+                        <i class="mdi mdi-circle-medium text-success"></i> Surveys and research requiring physical work is also welcome to this platform.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- END FEATURES 2 -->
+
+<!-- START FAQ -->
+<section class="py-5 bg-secondary-lighten" id="faqs">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <h1 class="mt-0"><i class="mdi mdi-frequently-asked-questions"></i></h1>
+                    <h3>Frequently Asked <span class="text-primary">Questions</span></h3>
+                    <p class="text-muted mt-2">Here are some of the basic types of questions for our customers. For more
+                        <br>information please contact us.</p>
+
+                    <button type="button" class="btn btn-success btn-sm mt-2"><i class="mdi mdi-email-outline me-1"></i> Email us your question</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-lg-5 offset-lg-1">
+                <!-- Question/Answer -->
+                <div>
+                    <div class="faq-question-q-box">Q.</div>
+                    <h4 class="faq-question text-body">Can I use this get started now?</h4>
+                    <p class="faq-answer mb-4 pb-1 text-muted">
+                        No requirement is need to make an order, jist have a valid email address so that we may be able to commumicate forth with you.
+                    </p>
+                </div>
+
+                <!-- Question/Answer -->
+                <div>
+                    <div class="faq-question-q-box">Q.</div>
+                    <h4 class="faq-question text-body">How do I get help with the services?</h4>
+                    <p class="faq-answer mb-4 pb-1 text-muted">I f you are not registered to us, then press the button with "Create ana order now", then the website will lead you on the procedure to getting started.</p>
+                </div>
+
+            </div>
+            <!--/col-lg-5 -->
+
+            <div class="col-lg-5">
+                <!-- Question/Answer -->
+                <div>
+                    <div class="faq-question-q-box">Q.</div>
+                    <h4 class="faq-question text-body">Can this for my masters?</h4>
+                    <p class="faq-answer mb-4 pb-1 text-muted">
+                        The work we work on is first analyzed to see if the team can work on it. if the work is allowed to proceed then any level such as masters and PHP can be handled.
+                    </p>
+                </div>
+
+                <!-- Question/Answer -->
+                <div>
+                    <div class="faq-question-q-box">Q.</div>
+                    <h4 class="faq-question text-body">Will you regularly give updates?</h4>
+                    <p class="faq-answer mb-4 pb-1 text-muted">
+                        The website have features that will allow you be informed on what state is your work.
+                    </p>
+                </div>
+
+            </div>
+            <!--/col-lg-5-->
+        </div>
+        <!-- end row -->
+
+    </div> <!-- end container-->
+</section>
+<!-- END FAQ -->
+
+
+<!-- START CONTACT -->
+<section class="py-5 bg-light-lighten border-top border-bottom border-light" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <h3>Get In <span class="text-primary">Touch</span></h3>
+                    <p class="text-muted mt-2">Please fill out the following form and we will get back to you shortly. For more
+                        <br>information please contact us.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center mt-3">
+            <div class="col-md-4">
+                <p class="text-muted"><span class="fw-bold">Customer Support:</span><br> <span class="d-block mt-1">+254 ************</span></p>
+                <p class="text-muted mt-4"><span class="fw-bold">Email Address:</span><br> <span class="d-block mt-1">info@kazi.com</span></p>
+                <p class="text-muted mt-4"><span class="fw-bold">Office Address:</span><br> <span class="d-block mt-1">Nairobi Kenya</span></p>
+                <p class="text-muted mt-4"><span class="fw-bold">Office Time:</span><br> <span class="d-block mt-1">9:00AM To 6:00PM</span></p>
+            </div>
+
+            <div class="col-md-8">
+                <form>
+                    <div class="row mt-4">
+                        <div class="col-lg-6">
+                            <div class="mb-2">
+                                <label for="fullname" class="form-label">Your Name</label>
+                                <input class="form-control form-control-light" type="text" id="fullname" placeholder="Name...">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-2">
+                                <label for="emailaddress" class="form-label">Your Email</label>
+                                <input class="form-control form-control-light" type="email" required="" id="emailaddress" placeholder="Enter you email...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-1">
+                        <div class="col-lg-12">
+                            <div class="mb-2">
+                                <label for="subject" class="form-label">Your Subject</label>
+                                <input class="form-control form-control-light" type="text" id="subject" placeholder="Enter subject...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-1">
+                        <div class="col-lg-12">
+                            <div class="mb-2">
+                                <label for="comments" class="form-label">Message</label>
+                                <textarea id="comments" rows="4" class="form-control form-control-light" placeholder="Type your message here..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-12 text-end">
+                            <button class="btn btn-primary">Send a Message <i
+                                    class="mdi mdi-telegram ms-1"></i> </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END CONTACT -->
+
+<style type="text/css">
+    .dropzone {
+        background: white;
+        border-radius: 5px;
+        border: 2px dashed rgb(0, 135, 247);
+        border-image: none;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<div id="create_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="col-xxl-12 col-lg-12">
+                    <div class="card">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body p-4">
+                                    <div class="text-center w-75 m-auto">
+                                        <img src="<?php echo base_url('assets/img/team/avatar.png'); ?>" height="64" alt="company logo" class="rounded-circle shadow">
+                                        <h4 class="text-dark-50 text-center mt-3 fw-bold">Hello Guest, Welcome to Epic Writers. </h4>
+                                        <p class="text-muted mb-4">To get started, please go ahead and enter your email to proced to the next level.</p>
+                                    </div>
+
+                                    <form action="<?php echo base_url('user/new/create'); ?>" method='POST' enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <label for="password" class="form-label">Email</label>
+                                            <input class="form-control" type="email" required="" id="password" name="mail" placeholder="Enter your email address to proceed">
+                                        </div>
+
+                                        <div class="mb-0 text-center">
+                                            <button class="btn btn-primary" type="submit">Proceed</button>
+                                        </div>
+                                    </form>
+
+                                </div> <!-- end card-body-->
+                            </div>
+                            <!-- end card-->
+                            <!-- end row -->
+                        </div> <!-- end col -->
+                    </div> <!-- end card-->
+
+                </div> <!-- end col -->
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- START FOOTER -->
+<footer class="bg-dark py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <img src="assets/images/log.png" alt="Logo" class="logo-dark" height="18" />
+                <p class="text-muted mt-4">
+                    Epic Writers, The best platform to get your work done fast and high quality work.
+                </p>
+
+                <ul class="social-list list-inline mt-3">
+                    <li class="list-inline-item text-center">
+                        <a href="javascript: void(0);" class="social-list-item border-primary text-primary"><i class="mdi mdi-facebook"></i></a>
+                    </li>
+                    <li class="list-inline-item text-center">
+                        <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="mdi mdi-google"></i></a>
+                    </li>
+                    <li class="list-inline-item text-center">
+                        <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="mdi mdi-twitter"></i></a>
+                    </li>
+                    <li class="list-inline-item text-center">
+                        <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="mdi mdi-github"></i></a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="col-lg-2 mt-3 mt-lg-0">
+                <h5 class="text-light">Company</h5>
+
+                <ul class="list-unstyled ps-0 mb-0 mt-3">
+                    <li class="mt-2"><a href="javascript: void(0);" class="text-muted">About Us</a></li>
+                    <li class="mt-2"><a href="javascript: void(0);" class="text-muted">Blog</a></li>
+                    <li class="mt-2"><a href="javascript: void(0);" class="text-muted">Affiliate Program</a></li>
+                </ul>
+
+            </div>
+
+            <div class="col-lg-2 mt-3 mt-lg-0">
+                <h5 class="text-light">Apps</h5>
+
+                <ul class="list-unstyled ps-0 mb-0 mt-3">
+                    <li class="mt-2"><a href="javascript: void(0);" class="text-muted">Android</a></li>
+                    <li class="mt-2"><a href="javascript: void(0);" class="text-muted">iOS</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 mt-3 mt-lg-0">
+                <h5 class="text-light">Discover</h5>
+
+                <ul class="list-unstyled ps-0 mb-0 mt-3">
+                    <li class="mt-2"><a href="javascript: void(0);" class="text-muted">Help Center</a></li>
+                    <li class="mt-2"><a href="javascript: void(0);" class="text-muted">Our Products</a></li>
+                    <li class="mt-2"><a href="javascript: void(0);" class="text-muted">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- bundle -->
+<script src="<?php echo base_url('assets/land/js/vendor.min.js');?>"></script>
+<script src="<?php echo base_url('assets/land/js/app.min.js'); ?>"></script>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
         <div class="col-3"></div>
         <div class="col-6">
             <footer class="footer">
-                <p class="mb-0 text-600">Tafuta Sasa Inc. <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> 2021 &copy;</p>
+                <p class="mb-0 text-600">Epic Writers Inc. <span class="d-none d-sm-inline-block">| </span><br class="d-sm-none" /> 2021 &copy;</p>
             </footer>
         </div>
         <div class="col-3"></div>

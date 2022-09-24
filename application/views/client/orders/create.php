@@ -114,13 +114,8 @@
         </div>
         <div class="card mt-3">
             <div class="card-body">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-md">
-                        <h5 class="mb-2 mb-md-0">Nice Job! You're almost done</h5>
-                    </div>
-                    <div class="col-auto">
-                        <button class="btn btn-falcon-primary btn-sm me-2 create_order" type="button">Order Now</button>
-                    </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary me-1 create_order" type="button" data-bs-toggle="modal" data-bs-target="#modal_upload">Save Order</button>
                 </div>
             </div>
         </div>

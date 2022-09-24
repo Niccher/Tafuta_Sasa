@@ -3,12 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pages extends CI_Controller {
 
-	public function landing($page = 'landing'){
+	public function landing($page = 'land'){
 
 		$this->load->view('template/header');
 		$this->load->view('landing/'.$page);
 		$this->load->view('template/tail');
 	}
+
+    public function land($page = 'land'){
+        $this->load->view('land/'.$page);
+    }
 
 	public function search($page = 'answers_listings'){
 
@@ -81,6 +85,59 @@ class Pages extends CI_Controller {
 		$this->load->view('searches/'.$page, $data);
 		$this->load->view('template/tail');
 	}
+
+    public function view_new_user(){
+
+        $is_there = $this->mod_users->checkmail_exists($_POST['mail']);
+
+        $head1 ='Hello, '.$_POST['mail'].' Welcome to Epic Writers ';
+
+        $head ='<td class="header-row-td" style="font-family: Arial, sans-serif; font-weight: normal; line-height: 19px; color: #478fca; margin: 0px; font-size: 18px; padding-bottom: 10px; padding-top: 15px;" width="378" valign="top" align="left">'.$head1.'</td>';
+        $reciva = $_POST['mail'];
+        $senda = 'admin@tendollarwriters.com-----';
+        $pass_word = random_string('alnum', 8);
+
+        if ($is_there) {
+            $more = '<div style="font-family: Arial, sans-serif; line-height: 20px; color: #444444; font-size: 13px;"> 
+                    <b style="color: #777777;"></b>Thank you for joining this platform, we are pleased to have you and work with you.<br>You can get started by creating an order with us and you will for sure enjoy our services.
+                    Please use <b>'.$_POST['mail'].'</b> as your username<br> and <b>'.$pass_word.'</b> as your password.;
+                </div>';
+            $this->mod_users->make_user($this->mod_crypt->Enc_String($_POST['mail']) , $this->mod_crypt->Enc_String($_POST['mail']) , $this->mod_crypt->Enc_String($pass_word));
+        }else{
+            $more = '<div style="font-family: Arial, sans-serif; line-height: 20px; color: #444444; font-size: 13px;"> 
+                    <b style="color: #777777;"></b>Thank you for showing interest in our products.
+                </div>';
+        }
+
+        $this->mod_emails->mail_this($senda, $reciva, $more, $head, $head1);
+
+        $lg_eml = $this->mod_crypt->Enc_String($_POST['mail']);
+        $lg_pwd = $this->mod_crypt->Enc_String($pass_word);
+
+        $user_id = $this->mod_users->make_login($lg_eml,$lg_pwd);
+        $lg_vars = $this->mod_users->get_vars($user_id);
+
+        if ($user_id) {
+            $lg_name = $lg_vars->Name;
+            $lg_eml = $lg_vars->Email;
+            $user_phone = $lg_vars->Phone;
+            $user_type = $lg_vars->Privilege;
+            $user_logged = array(
+                'log_mail' => $lg_eml,
+                'log_name' => $lg_name,
+                'log_phone' => $user_phone,
+                'log_id' => $user_id,
+                'log_type' => $user_type
+            );
+            $this->session->set_userdata($user_logged);
+        }
+
+        $qu_id = $this->mod_crypt->Dec_String(urldecode($this->uri->segment(3)));
+        $qu_info = $this->mod_questions->get_question_by_id($qu_id);
+
+        echo '11';
+        redirect('client/orders/add');
+    }
 
 	public function view_payform($page = 'answers_clean'){ 
 
