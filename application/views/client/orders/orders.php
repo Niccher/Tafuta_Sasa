@@ -63,8 +63,8 @@
 
                                                 if ($orders['Ord_Pay'] == '00') {
                                                     $paid = '
-                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-warning">Unpaid
-                                                        <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
+                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-warning">
+                                                        <a href="'.base_url("client/orders/pay/".$order_id).'">Pay Now</a>
                                                     </span>
                                                     ';
                                                 }else{
@@ -88,8 +88,8 @@
                                                     </span>
                                                     ';
                                                 }
-
-
+                                                $link_view = base_url("client/orders/view/".$order_id);
+                                                $link_edit = base_url("client/orders/edit/".$order_id);
                                                 echo '
                                                     <tr class="align-middle">
                                                         <td class="text-nowrap">
@@ -104,13 +104,14 @@
                                                         <td>'.$paid.'</td>
                                                         <td>'.$status.'</td>
                                                         <td class="text-end">
-                                                            <span class="badge badge rounded-pill d-block p-2 badge-soft-info">
-                                                                <a href="'.base_url("client/orders/view/".$order_id).'"><span class="ms-1 far far fa-eye badge-soft-info" data-fa-transform="shrink-2"></span>
+                                                            <!--<span class="badge badge rounded-pill d-block p-2 badge-soft-info">
+                                                                <a href="$link_edit">
+                                                                    <span class="ms-1 far far fa-eye badge-soft-info" data-fa-transform="shrink-2"></span>
                                                                 </a>
-                                                                
-                                                            </span>
+                                                            </span>-->
                                                             <span class="badge badge rounded-pill d-block p-2 badge-soft-success">
-                                                                <a href="'.base_url("client/orders/edit/".$order_id).'"><span class="ms-1 far fas fa-edit badge-soft-warning" data-fa-transform="shrink-2"></span>
+                                                                <a href="'.$link_edit.'">Edit
+                                                                    <span class="ms-1 far fas fa-edit badge-soft-success" data-fa-transform="shrink-2"></span>
                                                                 </a>
                                                             </span>
                                                         </td>

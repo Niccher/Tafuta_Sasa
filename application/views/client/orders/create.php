@@ -60,7 +60,7 @@
 		                            </div>
 	                            </div>
                                 <label class="form-label">Expected Price</label>
-                                <input class="form-control" type="number" placeholder="Estimated Price (USD)" name="ord_price" id="ord_price" />
+                                <input class="form-control" type="number" placeholder="Estimated Price Kenya Shillings" name="ord_price" id="ord_price" />
 	                            
 	                        </div>
 	                        <div class="col-md-6">
@@ -95,15 +95,14 @@
                             <div class="col-lg-8">
                                 <small class="text-center text-primary">
                                     <i class="fas fa-info"></i>
-                                    Any neccesary files that may be needed when working on your assignment.
+                                    Any necessary files that may be needed when working on your assignment.
                                 </small>
                                 <hr>
                                 <div class="d-grid gap-2">
                                     <button class="btn btn-outline-primary me-1 mb-1" type="button" data-bs-toggle="modal" data-bs-target="#modal_upload">Click to upload</button>
                                 </div>
 
-                                <div class="d-grid gap-2 temp_files"></div>
-
+                                <div class="d-grid gap-2 temp_files" id="temp_files"></div>
 
                             </div>
                             <div class="col-lg-2"></div>
@@ -115,7 +114,7 @@
         <div class="card mt-3">
             <div class="card-body">
                 <div class="d-grid gap-2">
-                    <button class="btn btn-primary me-1 create_order" type="button" data-bs-toggle="modal" data-bs-target="#modal_upload">Save Order</button>
+                    <button class="btn btn-primary me-1 create_order" type="button" data-bs-toggle="modal" data-bs-target="#modal_upload">Place Order</button>
                 </div>
             </div>
         </div>
@@ -142,7 +141,7 @@
                 </div>
                 <div class="modal-body p-0">
                     <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
-                        <h4 class="mb-1">Upload auxilliary data. </h4>
+                        <h4 class="mb-1">Upload auxiliary data. </h4>
                     </div>
                     <form action="<?php echo base_url('client/orders/attach');?>" class="dropzone" method="post" enctype="multipart/form-data" id="my-awesome-dropzone" data-dropzone="data-dropzone">
                         <div class="fallback">
