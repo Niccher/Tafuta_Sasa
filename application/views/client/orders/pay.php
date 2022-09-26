@@ -77,7 +77,7 @@
                         <p class="text-600 fs--1">Price </p>
                         <h4 class="text-800 mb-0">
                             <?php 
-                            echo number_format($this->mod_crypt->Dec_String($orders_info['Ord_Price']), 2);  ?>
+                            echo " $ ".number_format($this->mod_crypt->Dec_String($orders_info['Ord_Price']), 2);  ?>
                         </h4>
                     </div>
 
@@ -139,7 +139,8 @@
     );  
 
     $order_name = $this->mod_crypt->Dec_String($orders_info['Ord_Name']);
-    $order_cost = $this->mod_crypt->Dec_String($orders_info['Ord_Price']);
+    $cost = $this->mod_crypt->Dec_String($orders_info['Ord_Price']);
+    $order_cost = (((int)$cost) * 110);
     $order_deadline = date('M d H:i A', strtotime($this->mod_crypt->Dec_String($orders_info['Ord_Deadline'])));   
 ?>
 
@@ -202,7 +203,7 @@
             <div class="card-body bg-light">
                 <div class="d-flex justify-content-between fs--1 mb-1 text-info">
                     <p class="mb-0">Price</p>
-                    <span>KES <?php echo number_format($order_cost,2); ?></span>
+                    <span>KES <?php echo number_format( ((int)$order_cost),2); ?></span>
                 </div>
                 <div class="d-flex justify-content-between fs--1 mb-1 text-primary">
                     <p class="mb-0">Additional Payments</p>
@@ -211,7 +212,7 @@
                 <hr />
                 <div class="d-flex justify-content-between fs--1 mb-1 text-success">
                     <p class="mb-0">Total</p>
-                    <span>KES <?php echo number_format($order_cost,2); ?></span>
+                    <span>KES <?php echo number_format( ((int)$order_cost),2); ?></span>
                 </div>
                 <hr />
             </div>

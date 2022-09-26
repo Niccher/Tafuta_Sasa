@@ -41,7 +41,7 @@
                     <a class="nav-link" href="#services">Services</a>
                 </li>
                 <li class="nav-item mx-lg-1">
-                    <a class="nav-link" href="#features">Create An Order</a>
+                    <a class="nav-link" data-bs-toggle="modal" data-bs-target="#create_modal">Create An Order</a>
                 </li>
                 <li class="nav-item mx-lg-1">
                     <a class="nav-link" href="#faqs">FAQS</a>
@@ -70,6 +70,13 @@
 <!-- NAVBAR END -->
 
 <section class="bg-secondary-lighten" style="height: 10px;"></section>
+
+<style>
+    .carousel-caption {
+        background: rgba(0, 0, 0, 0.76);
+    }
+</style>
+
 <!-- START HERO -->
 <section class="bg-secondary-lighten" style="height: 450px; margin-top: 20px;">
     <div class="">
@@ -172,65 +179,63 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6 mt-2 mb-tg-0 order-2 order-lg-1">
-                <ul class="nav nav-tabs flex-column">
-                    <li class="nav-item" data-aos="fade-up">
-                        <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">
-                            <h4>Step One:</h4>
-                            <p>Create an order and fill all the neccessary data within the input fields. ubmit the order request</p>
-                        </a>
-                    </li>
-                    <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="100">
-                        <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
-                            <h4>Step Two:</h4>
-                            <p>The administrator checks the order and makes sure it is feasible.</p>
-                        </a>
-                    </li>
-                    <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="200">
-                        <a class="nav-link" data-bs-toggle="tab" href="#tab-3">
-                            <h4>Step Three:</h4>
-                            <p>The client pays for the order, after it has been verrified by the admin.</p>
-                        </a>
-                    </li>
-                    <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="300">
-                        <a class="nav-link" data-bs-toggle="tab" href="#tab-4">
-                            <h4>Step Four:</h4>
-                            <p>Once payment has been made, the work is worked upon and high quality work submitted.</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in">
-                <div class="tab-content">
-                    <div class="tab-pane active show" id="tab-1">
-                        <figure>
-                            <img src="<?php echo base_url('assets/land/land/img/features-1.png'); ?>" alt="" class="img-fluid">
-                        </figure>
+            <div class="col-12">
+                <div class="timeline" dir="ltr">
+                    <div class="timeline-show mb-3 text-center">
+                        <h5 class="m-0 time-show-name">Step Sequence</h5>
                     </div>
-                    <div class="tab-pane" id="tab-2">
-                        <figure>
-                            <img src="<?php echo base_url('assets/land/land/img/features-2.png'); ?>" alt="" class="img-fluid">
-                        </figure>
+                    <div class="timeline-lg-item timeline-item-left">
+                        <div class="timeline-desk">
+                            <div class="timeline-box">
+                                <span class="arrow-alt"></span>
+                                <span class="timeline-icon"><i class="mdi mdi-adjust"></i></span>
+                                <h4 class="mt-0 mb-1 font-16">Step One</h4>
+                                <p>Create an order and fill all the necessary data within the input fields. Submit the order request </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tab-pane" id="tab-3">
-                        <figure>
-                            <img src="<?php echo base_url('assets/land/land/img/features-3.png'); ?>" alt="" class="img-fluid">
-                        </figure>
+                    <div class="timeline-lg-item timeline-item-right">
+                        <div class="timeline-desk">
+                            <div class="timeline-box">
+                                <span class="arrow"></span>
+                                <span class="timeline-icon"><i class="mdi mdi-adjust"></i></span>
+                                <h4 class="mt-0 mb-1 font-16">Step Two</h4>
+                                <p class="text-muted"><small>22 July, 2019</small></p>
+                                <p>The administrator checks the order and makes sure it is feasible.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="tab-pane" id="tab-4">
-                        <figure>
-                            <img src="<?php echo base_url('assets/land/land/img/features-4.png'); ?>" alt="" class="img-fluid">
-                        </figure>
+                    <div class="timeline-lg-item timeline-item-left">
+                        <div class="timeline-desk">
+                            <div class="timeline-box">
+                                <span class="arrow-alt"></span>
+                                <span class="timeline-icon"><i class="mdi mdi-adjust"></i></span>
+                                <h4 class="mt-0 mb-1 font-16">Step Three</h4>
+                                <p>he client pays for the order, after it has been verified by the admin.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-lg-item timeline-item-right">
+                        <div class="timeline-desk">
+                            <div class="timeline-box">
+                                <span class="arrow"></span>
+                                <span class="timeline-icon"><i class="mdi mdi-adjust"></i></span>
+                                <h4 class="mt-0 mb-1 font-16">Step Four.</h4>
+                                <p>Once payment has been made, the work is worked upon and high quality work submitted.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <!-- end timeline -->
             </div>
+            <!-- end col -->
         </div>
     </div>
 </section>
 <!-- End Features Section -->
 
-<!-- START SERVICES -->
-<section class="py-5 bg-secondary-lighten" id="services">
+<!-- START SERVICES bg-secondary-lighten-->
+<section class="py-5 bg-light-lighten" id="services">
     <div class="container">
         <div class="row py-4">
             <div class="col-lg-12">
@@ -388,8 +393,8 @@
 </section>
 <!-- END FEATURES 2 -->
 
-<!-- START FAQ -->
-<section class="py-5 bg-secondary-lighten" id="faqs">
+<!-- START FAQ bg-secondary-lighten-->
+<section class="py-5 bg-light-lighten" id="faqs">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -452,6 +457,86 @@
     </div> <!-- end container-->
 </section>
 <!-- END FAQ -->
+
+<!-- START Testimonials -->
+<section class="py-5 bg-light-lighten border-top border-bottom border-light" id="testimonials">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <h3><span class="text-primary">Testimonials</span></h3>
+                    <p class="text-muted mt-2">A list of our happy customers.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Carousel wrapper -->
+            <div id="carouseltestimonials" class="carousel slide text-center carousel-dark" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="rounded-circle shadow-1-strong mb-4"
+                             src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp" alt="avatar"
+                             style="width: 150px;" />
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-lg-8">
+                                <h5 class="mb-3">Maria Kate</h5>
+                                <p>Maths and Statistics <span class="text-bold">Canada</span></p>
+                                <p class="text-muted">
+                                    <i class="fas fa-quote-left pe-2"></i>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus et deleniti nesciunt sint eligendi reprehenderit reiciendis, quibusdam illo, beatae quia
+                                    fugit consequatur laudantium velit magnam error. Consectetur distinctio fugitdoloremque.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="rounded-circle shadow-1-strong mb-4"
+                             src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar"
+                             style="width: 150px;" />
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-lg-8">
+                                <h5 class="mb-3">John Doe</h5>
+                                <p>Literature Essays <span class="text-muted">Australia</span></p>
+                                <p class="text-muted">
+                                    <i class="fas fa-quote-left pe-2"></i>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus et deleniti nesciunt sint eligendi reprehenderit reiciendis.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="rounded-circle shadow-1-strong mb-4"
+                             src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp" alt="avatar" style="width: 150px;" />
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-lg-8">
+                                <h5 class="mb-3">Anna Deynah</h5>
+                                <p>Astronomy <span class="text-muted">USA</span></p>
+                                <p class="text-muted">
+                                    <i class="fas fa-quote-left pe-2"></i>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus et deleniti
+                                    nesciunt sint eligendi reprehenderit reiciendis, quibusdam illo, beatae quia
+                                    fugit consequatur laudantium velit magnam error. Consectetur distinctio fugit
+                                    doloremque.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouseltestimonials" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouseltestimonials" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <!-- Carousel wrapper -->
+        </div>
+    </div>
+</section>
+<!-- END Testimonials -->
 
 
 <!-- START CONTACT -->
@@ -777,6 +862,20 @@
 <!-- bundle -->
 <script src="<?php echo base_url('assets/land/js/vendor.min.js');?>"></script>
 <script src="<?php echo base_url('assets/land/js/app.min.js'); ?>"></script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/6331896037898912e96b51ae/1gdso18ud';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
 
 </body>
 </html>

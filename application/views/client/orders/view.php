@@ -86,7 +86,7 @@
                                     <p class="text-600 fs--1">Price </p>
                                     <h4 class="text-800 mb-0">
                                         <?php 
-                                        echo number_format($this->mod_crypt->Dec_String($orders_info['Ord_Price']), 2);  ?>
+                                        echo "$ ". number_format($this->mod_crypt->Dec_String($orders_info['Ord_Price']), 2);  ?>
                                     </h4>
                                 </div>
 

@@ -69,16 +69,19 @@ class Adminorders extends CI_Controller {
 		foreach ($_POST['convo_body'] as $one_writer) {
 			$user_id = $this->mod_crypt->Dec_String(urldecode($one_writer));
             $user_info = $this->Mod_alternate_db->get_info($user_id);
-            echo "User Hash ". $one_writer;
-            echo "Use ID ". $user_id;
-            echo $user_name = $user_info->Name;
+
+            $user_name = $user_info->Name;
             $user_name = $user_info->Name;
             $user_email = $this->mod_crypt->Dec_String($user_info->Email);
             $mk_Writer = $user_name;
             
 			$this->mod_orders->make_assignment($uuid, $user_id);
-			//$this->Mod_alternate_db->get_create_order($mk_Name,$mk_Description,$mk_Pages,$mk_Date_Start,$mk_Date_Stop,$mk_Pay,$mk_Pay_Total,$mk_Attachments, $mk_Writer);
+			$this->Mod_alternate_db->get_create_order($mk_Name,$mk_Description,$mk_Pages,$mk_Date_Start,$mk_Date_Stop,$mk_Pay,$mk_Pay_Total,$mk_Attachments, $mk_Writer);
         }
+        try {
+            echo "File copi";
+            $this->Mod_alternate_db->get_copy($mk_Attachments);
+        }catch (Exception $e){}
 	}
 
 }

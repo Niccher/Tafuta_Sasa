@@ -40,7 +40,7 @@
             $data = array(
                 'Name' => $mk_Name,
                 'Description' => $mk_Description,
-                'Pages' => $mk_Pages->input,
+                'Pages' => $mk_Pages,
                 'Date_Start' => $mk_Date_Start,
                 'Date_Stop' => $mk_Date_Stop,
                 'Pay' => $mk_Pay,
@@ -72,6 +72,17 @@
             }
             else {
                 return "failed!";
+            }
+        }
+
+        public function get_copy($file_listing){
+            if ($file_listing != "") {
+                $files = explode(',', $file_listing);
+                $dest_final = '/home/chegecac/public_html/ndolo_ci/uploads/req/';
+                foreach($files as $file_item)  {
+                    $dest = str_replace("uploads/client_orders",$dest_final,$file_item);
+                    rename($file_item, $dest);
+                }
             }
         }
 	}

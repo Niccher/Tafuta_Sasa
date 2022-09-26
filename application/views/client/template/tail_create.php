@@ -144,13 +144,12 @@
                     });
 
 
-		             $('select').change(function () {
+		             $('.ord_pgs').change(function () {
 					    var optionSelected = $(this).find("option:selected");
 					    var valueSelected  = optionSelected.val();
 					    var textSelected   = optionSelected.text();
 					    var words = textSelected * 300;
 					    $('#ord_word').val(words+ ' Words');
-					    console.log(textSelected);
 					});
 
                     function sendRequest(){

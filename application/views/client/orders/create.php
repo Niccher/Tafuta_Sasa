@@ -4,7 +4,7 @@
         <div class="card-body">
             <div class="row flex-between-center">
                 <div class="col-md">
-                    <h5 class="mb-2 mb-md-0">Create a your order please</h5>
+                    <h5 class="mb-2 mb-md-0">Create for your order please</h5>
                 </div>
             </div>
         </div>
@@ -44,8 +44,8 @@
 	                            <input class="form-control datetimepicker" id="datetimepicker" type="text" placeholder="d M YYYY h:m" name="ord_date" data-options='{"enableTime":true,"dateFormat":"d M Y h:m","disableMobile":true}' />
 	                            <div class="row">
 	                            	<div class="col-md-6">
-		                            	<label class="form-label" for="datetimepicker">Pages</label>
-		                            	<select class="form-select" name="ord_pgs" id="ord_pgs">
+		                            	<label class="form-label" for="ord_pgs">Pages</label>
+		                            	<select class="form-select ord_pgs" name="ord_pgs" id="ord_pgs">
 			                                <option value="ord_pg_count_1" selected="selected" name="count_1" id="count_1">1</option>
 			                                <?php
 			                                for ($i=2; $i < 50; $i++) { 
@@ -55,12 +55,12 @@
 			                            </select>
 		                            </div>
 		                            <div class="col-md-6">
-		                            	<label class="form-label" for="datetimepicker">Word Count</label>
+		                            	<label class="form-label" for="ord_word">Word Count</label>
 		                            	<input class="form-control" type="text" name="ord_word" id="ord_word" disabled="" placeholder="Word count" value="300 Words" />
 		                            </div>
 	                            </div>
                                 <label class="form-label">Expected Price</label>
-                                <input class="form-control" type="number" placeholder="Estimated Price Kenya Shillings" name="ord_price" id="ord_price" />
+                                <input class="form-control" type="number" placeholder="Estimated Price in Dollars" name="ord_price" id="ord_price" />
 	                            
 	                        </div>
 	                        <div class="col-md-6">
