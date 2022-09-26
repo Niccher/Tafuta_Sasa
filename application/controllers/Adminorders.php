@@ -52,14 +52,33 @@ class Adminorders extends CI_Controller {
 
 		$uuid = $this->mod_crypt->Dec_String(urldecode($order_id));
 
-		echo $uuid;
-		print_r($_POST);
+        $orders_info = $this->mod_orders->orders_by_id($uuid);
+
+        $mk_level = $this->mod_crypt->Dec_String($orders_info['Ord_Level']);
+        $mk_cite = $this->mod_crypt->Dec_String($orders_info['Ord_Cite']);
+
+        $mk_Name = $this->mod_crypt->Dec_String($orders_info['Ord_Name']);
+        $mk_Description = ' Level '. $mk_level. '. Citiation '. $mk_cite. ' ' . $this->mod_crypt->Dec_String($orders_info['Ord_Body']);
+        $mk_Pages = $this->mod_crypt->Dec_String($orders_info['Ord_Pages']);
+        $mk_Date_Start = $orders_info['Ord_Created'];
+        $mk_Date_Stop = $this->mod_crypt->Dec_String($orders_info['Ord_Deadline']);
+        $mk_Pay = $this->mod_crypt->Dec_String($orders_info['Ord_Price']);
+        $mk_Pay_Total = $this->mod_crypt->Dec_String($orders_info['Ord_Price']);
+        $mk_Attachments = $this->Mod_alternate_db->get_attachments($orders_info['Ord_Attachment']);
 
 		foreach ($_POST['convo_body'] as $one_writer) {
 			$user_id = $this->mod_crypt->Dec_String(urldecode($one_writer));
-			//echo $one_writer." as ID ".$this->mod_crypt->Dec_String(urldecode($one_writer))."<br><br>";
+            $user_info = $this->Mod_alternate_db->get_info($user_id);
+            echo "User Hash ". $one_writer;
+            echo "Use ID ". $user_id;
+            echo $user_name = $user_info->Name;
+            $user_name = $user_info->Name;
+            $user_email = $this->mod_crypt->Dec_String($user_info->Email);
+            $mk_Writer = $user_name;
+            
 			$this->mod_orders->make_assignment($uuid, $user_id);
-		}
+			//$this->Mod_alternate_db->get_create_order($mk_Name,$mk_Description,$mk_Pages,$mk_Date_Start,$mk_Date_Stop,$mk_Pay,$mk_Pay_Total,$mk_Attachments, $mk_Writer);
+        }
 	}
 
 }

@@ -103,13 +103,14 @@
 
                 $('.assigned').click(function(){
                     var msg = $('#writer_list').val();
+                    var order_home = "<?php echo base_url('admin/orders'); ?>";
                     console.log(msg);
                     $.ajax({
                         url: "<?php echo base_url('admin/order/assign/'.($this->uri->segment(4))); ?>",
                         type: 'POST',
                         data: { convo_body:msg },
                         success: function(response){
-                            window.location.replace("<?php echo base_url('admin/orders'); ?>");
+                            window.location.replace(order_home);
                         }
                     });
                 });

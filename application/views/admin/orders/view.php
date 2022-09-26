@@ -105,8 +105,9 @@
                                     if ( ($orders_info['Ord_Pay'] == "11")) {
                                         echo '
                                             <div class="row">
-                                                <div class="col-md-6 offset-md-3">
-                                                    <button class="btn btn-outline-info btn-block" type="button" data-bs-toggle="modal" data-bs-target="#modal_assign">Assign Order to Writer</button>
+                                                <div class="text-center">
+                                                    <br>
+                                                    <button class="btn btn-primary btn-block" type="button" data-bs-toggle="modal" data-bs-target="#modal_assign">Assign Order to Writer</button>
                                                 </div>
                                             </div>
                                         ';
@@ -240,7 +241,7 @@
                         </select>
                         <br>
                         <div class="text-secondary">
-                            An order can be assigned to several Writers as you may deem neccesary.
+                            An order can be assigned to several Writers as you may deem necessary.
                         </div>
                         <br><br>
                     </form>
@@ -248,7 +249,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-primary assigned" id="assigned" type="button">Assign Order to Writers</button>
+                <button class="btn btn-primary assigned" id="assigned" type="button">Assign Order</button>
             </div>
         </div>
     </div>

@@ -15,7 +15,7 @@
                                             <div class="bg-holder bg-auth-card-shape" style="background-image:url(../../../assets/img/icons/spot-illustrations/half-circle.png);"></div>
                                             <!--/.bg-holder-->
                                             <div class="z-index-1 position-relative">
-                                                <a class="link-light mb-4 font-sans-serif fs-4 d-inline-block fw-bolder" href="#">Tafuta Sasa</a>
+                                                <a class="link-light mb-4 font-sans-serif fs-4 d-inline-block fw-bolder" href="#">Epic Writers</a>
                                                 <p class="opacity-75 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                                                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
