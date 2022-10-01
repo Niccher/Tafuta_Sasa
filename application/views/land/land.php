@@ -13,14 +13,46 @@
     <link href="<?php echo base_url('assets/land/css/icons.min.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/land/css/app.min.css'); ?>" rel="stylesheet" type="text/css" id="light-style" />
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 
 <body class="loading" data-layout-config='{"darkMode":false}'>
 
+
+<!-- Nav live Chat -->
+<style>
+    .livechats{
+        height: 40px;
+    }
+</style>
+<section>
+    <div class="row bg-dark livechats text-light pt-2">
+        <div class="col-md-6 pl-5 ">
+            <div class="">
+                Need Help now <span class="fw-bold">admin@chegecache@gmail.com </span>
+
+                <a href="https://wa.me/12525010198" target="_blank">
+                    <i class="fa fa-whatsapp"></i>WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="col-md-6 text-right pr-5  d-flex justify-content-center">
+            <div>
+                Contact me via +1 (252) 501-0198 &nbsp;
+                <i class="fa fa-facebook" aria-hidden="true"></i> &nbsp;
+                <i class="fa fa-twitter" aria-hidden="true"></i> &nbsp;
+                <i class="fa fa-whatsapp" aria-hidden="true"></i> &nbsp;
+                <i class="fa fa-instagram" aria-hidden="true"></i> &nbsp;
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nav live Chat -->
+
 <!-- NAVBAR START -->
-<nav class="navbar navbar-expand-md py-md-3 navbar-dark fixed-top bg-secondary" id="nav_area">
+<nav class="navbar navbar-expand-md py-md-3 navbar-dark fixed-top bg-secondary" id="nav_area" style="margin-top: 40px">
     <div class="container">
-        <!-- logo -->
         <a href="" class="navbar-brand me-lg-5">
             <img src="assets/land/images/loo.png" alt="Logo" class="logo-dark" height="18" />
         </a>
@@ -28,10 +60,7 @@
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <i class="mdi mdi-menu"></i>
         </button>
-
-        <!-- menus -->
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
             <!-- left menu -->
             <ul class="navbar-nav me-auto align-items-center">
                 <li class="nav-item mx-lg-1">
@@ -233,6 +262,37 @@
     </div>
 </section>
 <!-- End Features Section -->
+
+<style>
+    body{
+        font-family:Verdana, Geneva, sans-serif;
+    }
+
+    .float{
+        position:fixed;
+        width:60px;
+        height:60px;
+        bottom:40px;
+        left:40px;
+        background-color:#25d366;
+        color:#FFF;
+        border-radius:50px;
+        text-align:center;
+        font-size:30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index:100;
+    }
+    .my-float{
+        margin-top:16px;
+    }
+
+</style>
+
+<div class="floating-container">
+    <a href="https://wa.me/12525010198" class="float" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
+</div>
 
 <!-- START SERVICES bg-secondary-lighten-->
 <section class="py-5 bg-light-lighten" id="services">
@@ -538,7 +598,6 @@
 </section>
 <!-- END Testimonials -->
 
-
 <!-- START CONTACT -->
 <section class="py-5 bg-light-lighten border-top border-bottom border-light" id="contact">
     <div class="container">
@@ -621,7 +680,6 @@
 </style>
 
 <!-- Signup modal-->
-
 <div id="signup_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -797,7 +855,6 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
 
 <!-- START FOOTER -->
 <footer class="bg-dark py-5">
