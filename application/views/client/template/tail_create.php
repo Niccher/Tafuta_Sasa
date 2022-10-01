@@ -150,7 +150,35 @@
 					    var textSelected   = optionSelected.text();
 					    var words = textSelected * 300;
 					    $('#ord_word').val(words+ ' Words');
+
+                         calcPrice();
 					});
+
+                    $('.ord_level').change(function () {
+                        calcPrice();
+					});
+
+                    function calcPrice(){
+                        var levelSelected = $('.ord_level').find(":selected").val();
+
+                        var calc_rate = 1;
+                        if(levelSelected == "level_high_school"){
+                            calc_rate = 8;
+                        }else if(levelSelected == "level_college"){
+                            calc_rate = 10;
+                        }else if(levelSelected == "level_undergraduate"){
+                            calc_rate = 10;
+                        }else if(levelSelected == "level_postgraduate"){
+                            calc_rate = 15;
+                        }else if(levelSelected == "level_phd") {
+                            calc_rate = 20;
+                        }
+
+                        var pagesSelected = $('.ord_pgs').find(":selected").text();
+                        var price = pagesSelected * calc_rate;
+
+                        $('#ord_price').val(price+ ' USD');
+                    }
 
                     function sendRequest(){
                         $.ajax({ 

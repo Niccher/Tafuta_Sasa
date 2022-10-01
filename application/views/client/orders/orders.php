@@ -54,8 +54,8 @@
                                         
                                         <?php 
                                             foreach ($client_orders as $orders) {
-                                                $name = $this->mod_crypt->Dec_String($orders['Ord_Name']);
-                                                $desc = $this->mod_crypt->Dec_String($orders['Ord_Body']);
+                                                $name = strip_tags($this->mod_crypt->Dec_String($orders['Ord_Name']));
+                                                $desc = strip_tags($this->mod_crypt->Dec_String($orders['Ord_Body']));
                                                 $stop = $this->mod_crypt->Dec_String($orders['Ord_Deadline']);
                                                 $start = date('M d H:i:s', $orders['Ord_Created']);
                                                 $order_id = urlencode($this->mod_crypt->Enc_String($orders['Ord_Id']));

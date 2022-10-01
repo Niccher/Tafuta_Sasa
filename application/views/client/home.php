@@ -32,7 +32,7 @@
                         <div class="card-body d-flex flex-column justify-content-end">
                             <div class="row">
                                 <div class="col">
-                                    <p class="font-sans-serif lh-1 mb-1 fs-4"><?php echo "KES ".number_format($qn_paid, 2);?></p>
+                                    <p class="font-sans-serif lh-1 mb-1 fs-4"><?php echo "USD ".number_format($qn_paid, 2);?></p>
                                 </div>
                                 <div class="col-auto ps-0">
                                     <div class="echart-bar-weekly-sales h-100"></div>
@@ -49,7 +49,7 @@
                         <div class="card-body d-flex flex-column justify-content-end">
                             <div class="row justify-content-between">
                                 <div class="col-auto align-self-end">
-                                    <div class="fs-4 fw-normal font-sans-serif text-700 lh-1 mb-1"><?php echo "KES ".number_format($qn_paid_month, 2);?></div>
+                                    <div class="fs-4 fw-normal font-sans-serif text-700 lh-1 mb-1"><?php echo "USD ".number_format($qn_paid_month, 2);?></div>
                                 </div>
                                 <div class="col-auto ps-0 mt-n4">
                                     <div class="echart-default-total-order" data-echarts='{"tooltip":{"trigger":"axis","formatter":"{b0} : {c0}"},"xAxis":{"data":["Week 4","Week 5","week 6","week 7"]},"series":[{"type":"line","data":[20,40,100,120],"smooth":true,"lineStyle":{"width":3}}],"grid":{"bottom":"2%","top":"2%","right":"10px","left":"10px"}}' data-echart-responsive="true"></div>

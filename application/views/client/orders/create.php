@@ -60,7 +60,7 @@
 		                            </div>
 	                            </div>
                                 <label class="form-label">Expected Price</label>
-                                <input class="form-control" type="number" placeholder="Estimated Price in Dollars" name="ord_price" id="ord_price" />
+                                <input class="form-control disabled" placeholder="Estimated Price in Dollars" disabled name="ord_price" id="ord_price" />
 	                            
 	                        </div>
 	                        <div class="col-md-6">
@@ -73,12 +73,11 @@
 	                            </select>
 
 	                            <label class="form-label">Level</label>
-                            	<select class="form-select" name="ord_level" id="ord_level">
-	                                <option value="level_undergraduate" selected="selected">Undergraduate</option>
+                            	<select class="form-select ord_level" name="ord_level" id="ord_level">
 	                                <option value="level_high_school">High School</option>
 	                                <option value="level_college">College</option>
+                                    <option value="level_undergraduate" selected="selected">Undergraduate</option>
 	                                <option value="level_postgraduate">Post Graduate</option>
-	                                <option value="level_masters">Masters</option>
 	                                <option value="level_phd">PHD</option>
 	                            </select>
 		                    </div>
