@@ -84,4 +84,70 @@ class Adminorders extends CI_Controller {
         }catch (Exception $e){}
 	}
 
+    public function submit_temp_files(){
+        $referrer =  $this->agent->referrer();
+        $url = explode("/", $referrer);
+        $order_id = $this->mod_crypt->Dec_String($url[6]);
+        if (!empty($_FILES) ) {
+            $tempFile = $_FILES['file']['tmp_name'];
+            $realFile = $_FILES['file']['name'];
+
+            $ext = strtolower(pathinfo($realFile, PATHINFO_EXTENSION));
+
+            $old_name = $_FILES['file']['name'];
+            $new_name = preg_replace('/[^A-Za-z0-9.]/', '_', $old_name);
+
+            $code = substr(time(), -7);
+            $newfilename = $code."_".$new_name;
+
+            $this->mod_submit->submit_temp_upload($newfilename, $order_id);
+            move_uploaded_file($tempFile, "uploads/admin_submit_temp_orders/" . $newfilename);
+        }
+    }
+
+    public function submit_temp_make_attachment_ui() {
+        $referrer =  $this->agent->referrer();
+        $url = explode("/", $referrer);
+        $order_id = $this->mod_crypt->Dec_String($url[6]);
+        $files = $this->mod_submit->submit_temp_attachments($order_id);
+
+        $fina_file_list='';
+
+        $fina_file_list.='
+            <div class="mb-3 position-relative">
+                <div class="text-start">';
+        foreach ($files as $file) {
+            $fn_name = $file["file_name"];
+            $fina_file_list.= '
+                <p class="text-muted mb-0">
+                    <strong>'.$fn_name.' </strong>
+                    <span class="text-danger far fa-trash-alt delete_attach_file_" id="delete_attach_file_'.$fn_name.'"></span>
+                </p>';
+        }
+
+        $fina_file_list.= '
+                </div>
+            </div>';
+
+        echo $fina_file_list;
+    }
+
+    public function submit_temp_attachment_delete() {
+        $typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Admin") {
+            redirect('auth/login');
+        }
+
+        $file = explode("delete_attach_file_", $this->uri->segment(4));
+        unlink('uploads/admin_submit_temp_orders/'.$file[1]);
+        $this->mod_submit->submit_temp_attachments_delete($file[1]);
+
+    }
+
+    public function orders_get_attachment() {
+        echo $filename = urldecode($this->uri->segment(4));
+        $filepath = 'uploads/client_orders/'.$filename;
+        force_download($filepath, NULL);
+    }
+
 }

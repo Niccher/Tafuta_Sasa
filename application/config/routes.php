@@ -30,6 +30,8 @@ $route['admin/mail/with/(:any)'] = 'chat/admin_convo_with/$1';
 $route['admin/sales'] = 'admin/sales';
 $route['admin/analytics'] = 'admin/analytics';
 
+$route['admin/test/files'] = 'admin/analytics';
+
 $route['questions/get_attachment/(:any)'] = 'questions/questions_get_attachment';
 $route['questions/delete/(:any)'] = 'questions/questions_deleted/$1';
 
@@ -43,6 +45,10 @@ $route['admin/orders'] = 'adminorders';
 $route['admin/order/assign/(:any)'] = 'adminorders/order_assign/$1';
 
 $route['orders/uploads/attachment/(:any)'] = 'clientorders/orders_get_attachment';
+
+$route['orders/temp_submit'] = 'adminorders/submit_temp_files';
+$route['admin/get/submit_temp_attachments'] = 'adminorders/submit_temp_make_attachment_ui';
+$route['admin/get/submit_temp_attachment_delete/(:any)'] = 'adminorders/submit_temp_attachment_delete';
 
 
 $route['auth'] = 'auth/login';
@@ -59,6 +65,7 @@ $route['auth/home'] = 'auth/home';
 $route['auth/logout'] = 'auth/logout';
 
 $route['home'] = 'pages/landing';
+$route['home/v1'] = 'pages/landing';
 $route['home/v2'] = 'pages/land';
 $route['search'] = 'pages/search';
 $route['search/question'] = 'pages/view_answer';

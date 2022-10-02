@@ -94,6 +94,7 @@
         <script src="<?php echo base_url('assets/plugins/fontawesome/all.min.js'); ?>"></script>
 
         <script src="<?php echo base_url('assets/plugins/datatables/datatables.js');?>"></script>
+        <script src="<?php echo base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
 
         <script src="<?php echo base_url('assets/plugins/choosen/chosen.jquery.min.js');?>"></script>
         <script src="<?php echo base_url('assets/plugins/choosen/docsupport/prism.js1');?>"></script>
@@ -122,7 +123,35 @@
                     ordering: false
                 });
 
+                function getTempSubmit(){
+                    $.ajax({
+                        url: '<?php echo base_url("admin/get/submit_temp_attachments"); ?>',
+                        type: 'GET',
+                        success: function(response){
+                            $(".temp_files").html(response).fadeIn();
+                            console.log("edsa");
+                            setTimeout(function(){
+                                getTempSubmit();
+                            }, 5000);
+
+                        }
+                    });
+                }
+                getTempSubmit();
+
+                $(document).on("click", '.delete_attach_file_', function(event) {
+                    var fileid = this.id;
+                    $.ajax({
+                        url: '<?php echo base_url("admin/get/submit_temp_attachment_delete/"); ?>'+fileid,
+                        type: 'GET',
+                        success: function(response){
+                            console.log(response);
+                        }
+                    });
+
+                });
             });
+
         </script>
 
 

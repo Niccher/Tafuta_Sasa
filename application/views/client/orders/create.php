@@ -113,7 +113,7 @@
         <div class="card mt-3">
             <div class="card-body">
                 <div class="d-grid gap-2">
-                    <button class="btn btn-primary me-1 create_order" type="button" data-bs-toggle="modal" data-bs-target="#modal_upload">Place Order</button>
+                    <button class="btn btn-primary me-1 create_order" type="button">Place Order</button>
                 </div>
             </div>
         </div>
