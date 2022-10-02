@@ -112,6 +112,8 @@
             <script src="<?php echo base_url('assets/plugins/dayjs/dayjs.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/js/flatpickr.js'); ?>"></script>
 
+            <script src="<?php echo base_url('assets/plugins/datatables/datatables.js');?>"></script>
+
         </body>
     </html>
 

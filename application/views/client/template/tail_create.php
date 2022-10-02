@@ -98,6 +98,8 @@
             <script src="<?php echo base_url('assets/plugins/summernote/summernote-bs4.js'); ?>"></script>
 	        <script src="<?php echo base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
 
+            <script src="<?php echo base_url('assets/plugins/datatables/datatables.js');?>"></script>
+
 	        <script type="text/javascript">
 	            $(document).ready(function() {
 	                $('#ord_body').summernote();
@@ -121,6 +123,12 @@
 		                });
 		                
 		            });
+
+                    $('.table_clean').DataTable({
+                        pageLength: 25,
+                        ordering: false
+
+                    });
 
 
                     $('.create_order').click(function(){

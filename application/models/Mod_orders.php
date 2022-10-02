@@ -6,6 +6,7 @@
         }
 
         public function get_orders(){
+            $this->db->order_by('Ord_Id', 'DESC');
             $query = $this->db->get('tbl_Orders');
             return $query->result_array();
         }
@@ -13,6 +14,7 @@
         public function orders_by_owner($p_id){
             $array = array('Ord_Owner =' => $p_id);
             $this->db->where($array);
+            $this->db->order_by('Ord_Id', 'DESC');
             $query = $this->db->get('tbl_Orders');
             return $query->result_array();
 

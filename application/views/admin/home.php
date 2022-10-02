@@ -156,7 +156,7 @@
                                             <?php
                                                 foreach ($list_answers_viewed as $viewed) {
                                                     $qn = $this->mod_questions->get_question_by_id($viewed["View_Question"]);
-                                                    $qn_nm = $this->mod_crypt->Dec_String($qn->Qn_Name);
+                                                    $qn_nm = strip_tags($this->mod_crypt->Dec_String($qn->Qn_Name));
                                                     echo '
                                                     <tr class="btn-reveal-trigger">
                                                         <td class="order py-2 align-middle white-space-nowrap">

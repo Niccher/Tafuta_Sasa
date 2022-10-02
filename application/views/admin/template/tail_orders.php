@@ -93,6 +93,8 @@
         <script src="<?php echo base_url('assets/plugins/prism/prism.js'); ?>"></script>
         <script src="<?php echo base_url('assets/plugins/fontawesome/all.min.js'); ?>"></script>
 
+        <script src="<?php echo base_url('assets/plugins/datatables/datatables.js');?>"></script>
+
         <script src="<?php echo base_url('assets/plugins/choosen/chosen.jquery.min.js');?>"></script>
         <script src="<?php echo base_url('assets/plugins/choosen/docsupport/prism.js1');?>"></script>
         <script src="<?php echo base_url('assets/plugins/choosen/docsupport/init.js1');?>"></script>
@@ -113,6 +115,11 @@
                             window.location.replace(order_home);
                         }
                     });
+                });
+
+                $('.table_clean').DataTable({
+                    pageLength: 25,
+                    ordering: false
                 });
 
             });

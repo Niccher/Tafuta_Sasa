@@ -1,3 +1,5 @@
+<link href="<?php echo  base_url('assets/plugins/datatables/datatables.css'); ?>" rel="stylesheet">
+
 <div class="row">
     <div class="col-lg-12 col-xl-12 h-100">
         <div class="card theme-wizard mb-5">
@@ -39,7 +41,7 @@
                     <div class="tab-pane active " role="tabpanel" aria-labelledby="tab_orders_all" id="tab_orders_all">
                         <form novalidate="novalidate">
                             <div class="table-responsive scrollbar">
-                                <table class="table table-hover table-striped overflow-hidden">
+                                <table class="table table-hover table-striped overflow-hidden table_clean">
                                     <thead>
                                         <tr>
                                             <th scope="col">Name</th>
@@ -54,8 +56,8 @@
                                         
                                         <?php 
                                             foreach ($client_orders as $orders) {
-                                                $name = strip_tags($this->mod_crypt->Dec_String($orders['Ord_Name']));
-                                                $desc = strip_tags($this->mod_crypt->Dec_String($orders['Ord_Body']));
+                                                $name = character_limiter(strip_tags($this->mod_crypt->Dec_String($orders['Ord_Name'])), 30);
+                                                $desc = character_limiter(strip_tags($this->mod_crypt->Dec_String($orders['Ord_Body'])), 45);
                                                 $stop = $this->mod_crypt->Dec_String($orders['Ord_Deadline']);
                                                 $start = date('M d H:i:s', $orders['Ord_Created']);
                                                 $order_id = urlencode($this->mod_crypt->Enc_String($orders['Ord_Id']));
@@ -128,7 +130,7 @@
                     <div class="tab-pane " role="tabpanel" aria-labelledby="tab_orders_paid" id="tab_orders_paid">
                         <form>
                             <div class="table-responsive scrollbar">
-                                <table class="table table-hover table-striped overflow-hidden">
+                                <table class="table table-hover table-striped overflow-hidden table_clean">
                                     <thead>
                                         <tr>
                                             <th scope="col">Name</th>
@@ -142,8 +144,8 @@
                                         
                                         <?php 
                                             foreach ($client_orders as $orders) {
-                                                $name = $this->mod_crypt->Dec_String($orders['Ord_Name']);
-                                                $desc = $this->mod_crypt->Dec_String($orders['Ord_Body']);
+                                                $name = character_limiter(strip_tags($this->mod_crypt->Dec_String($orders['Ord_Name'])), 30);
+                                                $desc = character_limiter(strip_tags($this->mod_crypt->Dec_String($orders['Ord_Body'])), 45);
                                                 $stop = $this->mod_crypt->Dec_String($orders['Ord_Deadline']);
                                                 $start = date('M d H:i:s', $orders['Ord_Created']);
                                                 $order_id = urlencode($this->mod_crypt->Enc_String($orders['Ord_Id']));
@@ -199,7 +201,7 @@
                     <div class="tab-pane " role="tabpanel" aria-labelledby="tab_orders_unpaid" id="tab_orders_unpaid">
                         <form>
                             <div class="table-responsive scrollbar">
-                                <table class="table table-hover table-striped overflow-hidden">
+                                <table class="table table-hover table-striped overflow-hidden table_clean">
                                     <thead>
                                         <tr>
                                             <th scope="col">Name</th>
@@ -213,8 +215,8 @@
                                         
                                         <?php 
                                             foreach ($client_orders as $orders) {
-                                                $name = $this->mod_crypt->Dec_String($orders['Ord_Name']);
-                                                $desc = $this->mod_crypt->Dec_String($orders['Ord_Body']);
+                                                $name = character_limiter(strip_tags($this->mod_crypt->Dec_String($orders['Ord_Name'])), 30);
+                                                $desc = character_limiter(strip_tags($this->mod_crypt->Dec_String($orders['Ord_Body'])), 45);
                                                 $stop = $this->mod_crypt->Dec_String($orders['Ord_Deadline']);
                                                 $start = date('M d H:i:s', $orders['Ord_Created']);
                                                 $order_id = urlencode($this->mod_crypt->Enc_String($orders['Ord_Id']));
@@ -270,7 +272,7 @@
                     <div class="tab-pane " role="tabpanel" aria-labelledby="tab_orders_pending" id="tab_orders_pending">
                         <form class="form-validation">
                             <div class="table-responsive scrollbar">
-                                <table class="table table-hover table-striped overflow-hidden">
+                                <table class="table table-hover table-striped overflow-hidden table_clean">
                                     <thead>
                                         <tr>
                                             <th scope="col">Name</th>
@@ -284,8 +286,8 @@
                                         
                                         <?php 
                                             foreach ($client_orders as $orders) {
-                                                $name = $this->mod_crypt->Dec_String($orders['Ord_Name']);
-                                                $desc = $this->mod_crypt->Dec_String($orders['Ord_Body']);
+                                                $name = character_limiter(strip_tags($this->mod_crypt->Dec_String($orders['Ord_Name'])), 30);
+                                                $desc = character_limiter(strip_tags($this->mod_crypt->Dec_String($orders['Ord_Body'])), 45);
                                                 $stop = $this->mod_crypt->Dec_String($orders['Ord_Deadline']);
                                                 $start = date('M d H:i:s', $orders['Ord_Created']);
                                                 $order_id = urlencode($this->mod_crypt->Enc_String($orders['Ord_Id']));
@@ -341,7 +343,7 @@
                     <div class="tab-pane text-center " role="tabpanel" aria-labelledby="tab_orders_completed" id="tab_orders_completed">
                         <form class="form-validation">
                             <div class="table-responsive scrollbar">
-                                <table class="table table-hover table-striped overflow-hidden">
+                                <table class="table table-hover table-striped overflow-hidden table_clean">
                                     <thead>
                                         <tr>
                                             <th scope="col">Name</th>
@@ -355,8 +357,8 @@
                                         
                                         <?php 
                                             foreach ($client_orders as $orders) {
-                                                $name = $this->mod_crypt->Dec_String($orders['Ord_Name']);
-                                                $desc = $this->mod_crypt->Dec_String($orders['Ord_Body']);
+                                                $name = character_limiter(strip_tags($this->mod_crypt->Dec_String($orders['Ord_Name'])), 30);
+                                                $desc = character_limiter(strip_tags($this->mod_crypt->Dec_String($orders['Ord_Body'])), 45);
                                                 $stop = $this->mod_crypt->Dec_String($orders['Ord_Deadline']);
                                                 $start = date('M d H:i:s', $orders['Ord_Created']);
                                                 
