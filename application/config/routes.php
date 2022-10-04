@@ -99,6 +99,8 @@ $route['client/orders/view/(:any)'] = 'clientorders/orders_view/$1';
 $route['client/orders/delete/(:any)'] = 'clientorders/orders_delete/$1';
 $route['client/orders/pay/(:any)'] = 'clientorders/orders_pay/$1';
 
+$route['client/orders/download_attachments/(:any)'] = 'clientorders/download_attachments/$1';
+
 $route['client/profile/add'] = 'client/profileadd';
 $route['client/profile/attach_img'] = 'client/profile_add_image';
 $route['client/massage/send'] = 'chat/client_send';

@@ -157,7 +157,13 @@ class Clientorders extends CI_Controller {
 		$filepath = 'uploads/client_orders/'.$filename;
 		force_download($filepath, NULL);
 	}
-	
+
+    public function download_attachments($filename) {
+		echo $filename = urldecode($this->uri->segment(4));
+		$filepath = 'uploads/admin_submit_temp_orders/'.$filename;
+		force_download($filepath, NULL);
+	}
+
 	public function orders_view($order_id) {
 		$typ = $this->session->userdata('log_type');
         if (! $this->session->userdata('log_id') || $typ != "Client") {

@@ -11,7 +11,6 @@ class Mod_submit extends CI_Model{
             'file_name' => $file_name,
             'upload_time' => time(),
             'temp_Status' => "00",
-
         );
         return $this->db->insert('tbl_Submit_Temp_Upload', $data);
     }
@@ -34,10 +33,19 @@ class Mod_submit extends CI_Model{
         $this->db->update('tbl_Orders', $data);
     }
 
+    public function client_download_order($order_id){
+        $array = array('order_Id =' => $order_id);
+        $this->db->order_by('submit_Id', 'DESC');
+        $this->db->limit(1);
+        $this->db->where($array);
+        $query = $this->db->get('tbl_Submited_Orders');
+        return $query->row_array();
+    }
+
     public function submit_order($order_id, $msg, $sub_attachment){
         $data = array(
             'order_Id' => $order_id,
-            'submit_Msg' => $msg,
+            'submit_Msg' => $this->$msg,
             'submit_Attachment' => $sub_attachment,
             'submit_Seen' => "00",
             'submit_Time' => time(),

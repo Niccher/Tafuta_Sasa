@@ -99,6 +99,17 @@
 
                                                 $link_view = base_url("client/orders/view/".$order_id);
                                                 $link_edit = base_url("client/orders/edit/".$order_id);
+
+                                                $link_edit_button = "";
+
+                                                if($orders['Ord_Status'] == "00"){
+                                                    $link_edit_button = '
+                                                            <span class="badge badge rounded-pill d-block p-2 badge-soft-success">
+                                                                <a href="'.$link_edit.'">Edit
+                                                                    <span class="ms-1 far fas fa-edit badge-soft-success" data-fa-transform="shrink-2"></span>
+                                                                </a>
+                                                            </span>';
+                                                }
                                                 echo '
                                                     <tr class="align-middle">
                                                         <td class="text-nowrap">
@@ -118,11 +129,8 @@
                                                                     <span class="ms-1 far far fa-eye badge-soft-info" data-fa-transform="shrink-2"></span>
                                                                 </a>
                                                             </span>-->
-                                                            <span class="badge badge rounded-pill d-block p-2 badge-soft-success">
-                                                                <a href="'.$link_edit.'">Edit
-                                                                    <span class="ms-1 far fas fa-edit badge-soft-success" data-fa-transform="shrink-2"></span>
-                                                                </a>
-                                                            </span>
+                                                            
+                                                            '.$link_edit_button.'
                                                         </td>
                                                     </tr>
                                                 ';

@@ -80,40 +80,36 @@
             </a>
             <!-- ===============================================-->
             <!--    End of Main Content-->
-            <!-- ===============================================-->
 
-            <!-- ===============================================-->
             <!--    JavaScripts-->
             <!-- ===============================================-->
+            <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
             <script src="<?php echo base_url('assets/plugins/popper/popper.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/bootstrap/bootstrap.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/anchorjs/anchor.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/is/is.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/prism/prism.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/fontawesome/all.min.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/plugins/lodash/lodash.min.js'); ?>"></script>
-            <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll'); ?>"></script>
-            <script src="<?php echo base_url('assets/plugins/list.js/list.min.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/js/theme.js'); ?>"></script>
 
             <script src="<?php echo base_url('assets/plugins/fullcalendar/main.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/js/emoji-button.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
 
-
-            <script src="<?php echo base_url('assets/plugins/chart/chart.min.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/plugins/leaflet/leaflet.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/plugins/leaflet.markercluster/leaflet.markercluster.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/plugins/leaflet.tilelayer.colorfilter/leaflet-tilelayer-colorfilter.min.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/plugins/countup/countUp.umd.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/plugins/echarts/echarts.min.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/data/world.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/plugins/progressbar/progressbar.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/dayjs/dayjs.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/js/flatpickr.js'); ?>"></script>
 
             <script src="<?php echo base_url('assets/plugins/datatables/datatables.js');?>"></script>
 
-        </body>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('.download_now').click(function(){
+                        var elmId = $(".download_now").attr("id");
+                        window.open('<?php echo base_url('client/orders/download_attachments/') ?>'+elmId, '_blank');
+                    });
+
+                });
+            </script>
+
+            </body>
     </html>
 
