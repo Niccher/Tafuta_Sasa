@@ -288,7 +288,7 @@
                     <div>
                         <div class="mb-3">
                             <label class="col-form-label" for="message-text">Message to the client:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
+                            <textarea class="form-control" id="order_send_mgs"></textarea>
                         </div>
                         <div class="mb-3">
                             <form action="<?php echo base_url('orders/temp_submit');?>" class="dropzone" method="post" enctype="multipart/form-data" id="my-awesome-dropzone" data-dropzone="data-dropzone">
@@ -309,7 +309,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-primary" type="button">Submit Order </button>
+                <button class="btn btn-primary order_submit" type="button">Submit Order </button>
             </div>
         </div>
     </div>

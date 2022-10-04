@@ -129,7 +129,6 @@
                         type: 'GET',
                         success: function(response){
                             $(".temp_files").html(response).fadeIn();
-                            console.log("edsa");
                             setTimeout(function(){
                                 getTempSubmit();
                             }, 5000);
@@ -138,6 +137,21 @@
                     });
                 }
                 getTempSubmit();
+
+                $('.order_submit').click(function(){
+                    var msg = $('#order_send_mgs').val();
+                    console.log("Message as" + msg);
+                    $.ajax({
+                        data: {"msg": msg},
+                        url: '<?php echo base_url("admin/get/submit_order"); ?>',
+                        type: 'POST',
+                        success: function(response){
+                            /*$("#modal_submit").modal('hide');
+                            $('#textarea').val('');*/
+                            location.href = "<?php echo base_url('admin/orders') ?>";
+                        }
+                    });
+                });
 
                 $(document).on("click", '.delete_attach_file_', function(event) {
                     var fileid = this.id;

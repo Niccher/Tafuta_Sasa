@@ -44,6 +44,32 @@ class Adminorders extends CI_Controller {
 		$this->load->view('admin/template/tail_orders');
 	}
 
+
+    public function order_submit() {
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Admin") {
+            redirect('auth/login');
+        }
+
+        $referrer =  $this->agent->referrer();
+        $url = explode("/", $referrer);
+        $order_id = $this->mod_crypt->Dec_String($url[6]);
+        $msg = $_POST['msg'];
+
+        $files = $this->mod_submit->submit_temp_attachments($order_id);
+        $sub_attachment = "";
+
+        foreach ($files as $file) {
+            $sub_attachment .= "|__|".$file["file_name"];
+        }
+        $this->mod_submit->submit_order($order_id, $msg, $sub_attachment);
+        $this->mod_submit->update_order_status($order_id);
+        foreach ($files as $file) {
+            $sub_attachment .= "|__|".$file["file_name"];
+            $this->mod_submit->submit_temp_attachments_delete($file["file_name"]);
+        }
+	}
+
 	public function order_assign($order_id) {
 		$typ = $this->session->userdata('log_type');
         if (! $this->session->userdata('log_id') || $typ != "Admin") {

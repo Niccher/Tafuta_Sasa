@@ -83,13 +83,20 @@
                                                         <span class="ms-1 fas fa-stream" data-fa-transform="shrink-2"></span>
                                                     </span>
                                                     ';
-                                                }else{
+                                                }else if ($orders['Ord_Status'] == '11') {
+                                                    $status = '
+                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-danger">Submitted
+                                                        <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
+                                                    </span>
+                                                    ';
+                                                } else{
                                                     $status = '
                                                     <span class="badge badge rounded-pill d-block p-2 badge-soft-success">Finished
                                                         <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
                                                     </span>
                                                     ';
                                                 }
+
                                                 $link_view = base_url("client/orders/view/".$order_id);
                                                 $link_edit = base_url("client/orders/edit/".$order_id);
                                                 echo '
@@ -156,7 +163,13 @@
                                                         <span class="ms-1 fas fa-stream" data-fa-transform="shrink-2"></span>
                                                     </span>
                                                     ';
-                                                }else{
+                                                }else if ($orders['Ord_Status'] == '11') {
+                                                    $status = '
+                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-danger">Submitted
+                                                        <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
+                                                    </span>
+                                                    ';
+                                                } else{
                                                     $status = '
                                                     <span class="badge badge rounded-pill d-block p-2 badge-soft-success">Finished
                                                         <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
@@ -227,7 +240,13 @@
                                                         <span class="ms-1 fas fa-stream" data-fa-transform="shrink-2"></span>
                                                     </span>
                                                     ';
-                                                }else{
+                                                }else if ($orders['Ord_Status'] == '11') {
+                                                    $status = '
+                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-danger">Submitted
+                                                        <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
+                                                    </span>
+                                                    ';
+                                                } else{
                                                     $status = '
                                                     <span class="badge badge rounded-pill d-block p-2 badge-soft-success">Finished
                                                         <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
@@ -292,15 +311,21 @@
                                                 $start = date('M d H:i:s', $orders['Ord_Created']);
                                                 $order_id = urlencode($this->mod_crypt->Enc_String($orders['Ord_Id']));
 
-                                                if ($orders['Ord_Pay'] == '00') {
-                                                    $paid = '
-                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-warning">Unpaid
+                                                if ($orders['Ord_Status'] == '00') {
+                                                    $status = '
+                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-warning">Pending
+                                                        <span class="ms-1 fas fa-stream" data-fa-transform="shrink-2"></span>
+                                                    </span>
+                                                    ';
+                                                }else if ($orders['Ord_Status'] == '11') {
+                                                    $status = '
+                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-danger">Submitted
                                                         <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
                                                     </span>
                                                     ';
-                                                }else{
-                                                    $paid = '
-                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-success">Paid
+                                                } else{
+                                                    $status = '
+                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-success">Finished
                                                         <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
                                                     </span>
                                                     ';
@@ -364,15 +389,21 @@
                                                 
                                                 $order_id = urlencode($this->mod_crypt->Enc_String($orders['Ord_Id']));
 
-                                                if ($orders['Ord_Pay'] == '00') {
-                                                    $paid = '
-                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-warning">Unpaid
+                                                if ($orders['Ord_Status'] == '00') {
+                                                    $status = '
+                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-warning">Pending
+                                                        <span class="ms-1 fas fa-stream" data-fa-transform="shrink-2"></span>
+                                                    </span>
+                                                    ';
+                                                }else if ($orders['Ord_Status'] == '11') {
+                                                    $status = '
+                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-danger">Submitted
                                                         <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
                                                     </span>
                                                     ';
-                                                }else{
-                                                    $paid = '
-                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-success">Paid
+                                                } else{
+                                                    $status = '
+                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-success">Finished
                                                         <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
                                                     </span>
                                                     ';

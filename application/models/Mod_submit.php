@@ -28,33 +28,21 @@ class Mod_submit extends CI_Model{
         $this->db->delete('tbl_Submit_Temp_Upload');
     }
 
-    public function make_submit($q_name, $q_desc, $q_files, $q_level,$q_cite, $q_pgs, $q_date, $q_price){
-        $p_id = $this->session->userdata('log_id')."__";
+    public function update_order_status($order_id){
+        $data = ['Ord_Status' => "11"];
+        $this->db->where('Ord_Id', $order_id);
+        $this->db->update('tbl_Orders', $data);
+    }
+
+    public function submit_order($order_id, $msg, $sub_attachment){
         $data = array(
-            'Ord_Name' => $q_name,
-            'Ord_Body' => $q_desc,
-            'Ord_Created' => time(),
-            'Ord_Deadline' => $q_date,
-            'Ord_Pages' => $q_pgs,
-            'Ord_Cite' => $q_cite,
-            'Ord_Level' => $q_level,
-            'Ord_Attachment' => $q_files,
-            'Ord_Pay' => "00",
-            'Ord_Status' => "00",
-            'Ord_Viewed' => "00",
-            'Ord_Price' => $q_price,
-            'Ord_Owner' => $this->session->userdata('log_id'),
+            'order_Id' => $order_id,
+            'submit_Msg' => $msg,
+            'submit_Attachment' => $sub_attachment,
+            'submit_Seen' => "00",
+            'submit_Time' => time(),
         );
-
-        $uploaded = $this->mod_orders->order_get_attachments();
-        //echo $uploaded;
-        $files = explode("|__|", $uploaded);
-        echo count($files);
-        foreach ($files as $file) {
-            rename("uploads/client_temp_orders/".$file, "uploads/client_orders/".$file);
-        }
-
-        return $this->db->insert('tbl_Orders', $data);
+        return $this->db->insert('tbl_Submited_Orders', $data);
     }
 }
 ?>

@@ -49,6 +49,7 @@ $route['orders/uploads/attachment/(:any)'] = 'clientorders/orders_get_attachment
 $route['orders/temp_submit'] = 'adminorders/submit_temp_files';
 $route['admin/get/submit_temp_attachments'] = 'adminorders/submit_temp_make_attachment_ui';
 $route['admin/get/submit_temp_attachment_delete/(:any)'] = 'adminorders/submit_temp_attachment_delete';
+$route['admin/get/submit_order'] = 'adminorders/order_submit';
 
 
 $route['auth'] = 'auth/login';
