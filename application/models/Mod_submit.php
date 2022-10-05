@@ -15,10 +15,26 @@ class Mod_submit extends CI_Model{
         return $this->db->insert('tbl_Submit_Temp_Upload', $data);
     }
 
+    public function submit_rev_temp_file($file_name, $order_id){
+        $data = array(
+            'order_Id' => $order_id,
+            'rev_File' => $file_name,
+            'rev_Time' => time(),
+        );
+        return $this->db->insert('tbl_Submit_Temp_Rev_Upload', $data);
+    }
+
     public function submit_temp_attachments($order_id){
         $array = array('order_Id =' => $order_id);
         $this->db->where($array);
         $query = $this->db->get('tbl_Submit_Temp_Upload');
+        return $query->result_array();
+    }
+
+    public function get_rev_temp_attachments($order_id){
+        $array = array('order_Id =' => $order_id);
+        $this->db->where($array);
+        $query = $this->db->get('tbl_Submit_Temp_Rev_Upload');
         return $query->result_array();
     }
 
@@ -51,6 +67,21 @@ class Mod_submit extends CI_Model{
             'submit_Time' => time(),
         );
         return $this->db->insert('tbl_Submited_Orders', $data);
+    }
+
+    public function make_revison($rev_msg, $order_id, $rev_attached){
+
+        $this->db->where('order_Id', $order_id);
+        $this->db->delete('tbl_Submit_Temp_Rev_Upload');
+
+        $data = array(
+            'order_Id' => $order_id,
+            'rev_Msg' => $rev_msg,
+            'rev_Files' => $rev_attached,
+            'rev_Time' => time(),
+            'rev_Status' => "00",
+        );
+        return $this->db->insert('tbl_Submited_Orders_Revision', $data);
     }
 }
 ?>

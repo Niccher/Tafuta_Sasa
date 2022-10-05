@@ -99,12 +99,24 @@
             <script src="<?php echo base_url('assets/js/flatpickr.js'); ?>"></script>
 
             <script src="<?php echo base_url('assets/plugins/datatables/datatables.js');?>"></script>
+            <script src="<?php echo base_url('assets/plugins/rater-js/rater-js.js');?>"></script>
 
             <script type="text/javascript">
                 $(document).ready(function() {
                     $('.download_now').click(function(){
                         var elmId = $(".download_now").attr("id");
                         window.open('<?php echo base_url('client/orders/download_attachments/') ?>'+elmId, '_blank');
+                    });
+
+                    $('.order_rev_revision').click(function(){
+                        var msg = $('#order_rev_mgs').val();
+                        $.ajax({
+                            url: "<?php echo base_url('client/orders/req_revision'); ?>",
+                            type: 'POST',
+                            data: { convo_body:msg },
+                            success: function(response){
+                            }
+                        });
                     });
 
                 });

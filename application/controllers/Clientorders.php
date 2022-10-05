@@ -77,12 +77,37 @@ class Clientorders extends CI_Controller {
         	$q_cite = $this->mod_crypt->Enc_String($this->input->post('ord_citing'));
         	$q_pgs = $this->mod_crypt->Enc_String($this->input->post('ord_pgs'));
         	$q_date = $this->mod_crypt->Enc_String($this->input->post('ord_date'));
-        	$q_price = $this->mod_crypt->Enc_String($this->input->post('ord_price'));
 
-        	print_r($_POST);
+        	$q_price_calc = ($this->input->post('ord_price'));
+            $q_price_tag = (int) filter_var($q_price_calc, FILTER_SANITIZE_NUMBER_INT);
+            $q_price = $this->mod_crypt->Enc_String($q_price_tag);
 
         	$this->mod_orders->make_order($q_name, $q_desc, $q_files, $q_level,$q_cite, $q_pgs, $q_date, $q_price);
         }
+	}
+
+	public function req_revision(){
+
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Client") {
+            redirect('auth/login');
+        }
+
+        $referrer =  $this->agent->referrer();
+        $url = explode("/", $referrer);
+        $order_id = $this->mod_crypt->Dec_String($url[6]);
+
+        $rev_msg = $this->mod_crypt->Enc_String($this->input->post('convo_body'));
+        $rev_files = $this->mod_submit->get_rev_temp_attachments($order_id);
+
+        $sub_attachment = "";
+        foreach ($rev_files as $file) {
+            $sub_attachment .= "|__|".$file["rev_File"];
+            rename("uploads/client_revision_orders_temp/" .$file["rev_File"], "uploads/client_revision_orders/" . $file["rev_File"]);
+        }
+        $rev_attached = $this->mod_crypt->Enc_String($sub_attachment);
+
+        $this->mod_submit->make_revison($rev_msg, $order_id, $rev_attached);
 	}
 
 	public function orders_add_attachment(){
@@ -112,6 +137,41 @@ class Clientorders extends CI_Controller {
                
             $this->mod_questions->make_temp_upload($person_id, $newfilename);
             move_uploaded_file($tempFile, "uploads/client_temp_orders/" . $newfilename);
+        }
+
+	}
+
+	public function orders_revision_attachment(){
+
+		$typ = $this->session->userdata('log_type');
+        if (! $this->session->userdata('log_id') || $typ != "Client") {
+            redirect('auth/login');
+        }
+
+        $data['user_info'] = $this->mod_users->get_vars($this->session->userdata('log_id'));
+		$person_id = $data['user_info']->Person_ID;
+
+		$file_prefix = $person_id.'___';
+
+        $referrer =  $this->agent->referrer();
+        $url = explode("/", $referrer);
+        $order_id = $this->mod_crypt->Dec_String($url[6]);
+
+		if (!empty($_FILES) ) {
+
+            $tempFile = $_FILES['file']['tmp_name'];
+            $realFile = $_FILES['file']['name'];
+
+            $ext = strtolower(pathinfo($realFile, PATHINFO_EXTENSION));
+
+            $old_name = $_FILES['file']['name'];
+            $new_name = preg_replace('/[^A-Za-z0-9.]/', '_', $old_name);
+
+            $code = substr(time(), -7);
+            $newfilename = $file_prefix.$code."_".$new_name;
+
+            $this->mod_submit->submit_rev_temp_file($newfilename, $order_id);
+            move_uploaded_file($tempFile, "uploads/client_revision_orders_temp/" . $newfilename);
         }
 
 	}
@@ -161,6 +221,12 @@ class Clientorders extends CI_Controller {
     public function download_attachments($filename) {
 		echo $filename = urldecode($this->uri->segment(4));
 		$filepath = 'uploads/admin_submit_temp_orders/'.$filename;
+		force_download($filepath, NULL);
+	}
+
+    public function download_rev_attachments($filename) {
+		echo $filename = urldecode($this->uri->segment(4));
+		$filepath = 'uploads/client_revision_orders/'.$filename;
 		force_download($filepath, NULL);
 	}
 

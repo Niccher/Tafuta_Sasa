@@ -91,6 +91,7 @@ $route['client/chat'] = 'chat/client_init';
 $route['client/orders'] = 'clientorders';
 $route['client/orders/add'] = 'clientorders/orders_make';
 $route['client/orders/attach'] = 'clientorders/orders_add_attachment';
+
 $route['client/order/make'] = 'clientorders/orders_add';
 $route['client/get/order_attachments'] = 'clientorders/orders_make_attachment_ui';
 $route['client/get/attachment_delete/(:any)'] = 'clientorders/orders_attachment_delete/$1';
@@ -100,6 +101,9 @@ $route['client/orders/delete/(:any)'] = 'clientorders/orders_delete/$1';
 $route['client/orders/pay/(:any)'] = 'clientorders/orders_pay/$1';
 
 $route['client/orders/download_attachments/(:any)'] = 'clientorders/download_attachments/$1';
+$route['client/orders/attach_revision'] = 'clientorders/orders_revision_attachment';
+$route['client/orders/req_revision'] = 'clientorders/req_revision';
+$route['client/orders/download_rev_attachments/(:any)'] = 'clientorders/download_rev_attachments/$1';
 
 $route['client/profile/add'] = 'client/profileadd';
 $route['client/profile/attach_img'] = 'client/profile_add_image';

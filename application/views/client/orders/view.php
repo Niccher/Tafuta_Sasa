@@ -91,9 +91,13 @@
                                     <p class="text-600 fs--1">Price </p>
                                     <h4 class="text-800 mb-0">
                                         <?php 
-                                        echo "$ ". number_format($this->mod_crypt->Dec_String($orders_info['Ord_Price']), 2);  ?>
+                                        echo "$ ". number_format($this->mod_crypt->Dec_String($orders_info['Ord_Price']), 2);?>
                                     </h4>
                                 </div>
+
+                            </div>
+
+                            <div class="d-flex py-3">
 
                                 <?php
                                 if($orders_info['Ord_Status'] == "11"){
@@ -106,15 +110,28 @@
                                             </div>
                                         </div>';
 
+                                    echo '<div class="ps-3">
+                                            <p class="text-600 fs--1">Rate and review Order </p>
+                                            <div class="d-flex flex-row-reverse">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal_rate_order" class="p-2 btn btn-primary me-1 mb-1" type="button">
+                                                    <span class="fas fa-download me-1" data-fa-transform="shrink-3"></span>Mark as Complete and Review
+                                                </a>
+                                            </div>
+                                        </div>';
+
+                                    echo '<div class="ps-3">
+                                            <p class="text-600 fs--1">Request Revision </p>
+                                            <div class="d-flex flex-row-reverse">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal_request_revision" class="p-2 btn btn-info me-1 mb-1" type="button">
+                                                    <span class="fas fa-download me-1" data-fa-transform="shrink-3"></span>Request Revision
+                                                </a>
+                                            </div>
+                                        </div>';
+
                                     $submited_info = $this->mod_submit->client_download_order($orders_info['Ord_Id']);
-
-                                    //$submited_files = $submited_info['submit_Attachment'];
                                     $submited_files = substr($submited_info['submit_Attachment'], 4);
-
                                     $submited_time = date('Y F d D H:i:s A',  $submited_info['submit_Time']);
-
                                     $files = explode("|__|" ,$submited_files);
-
                                     $submited_file = "";
                                     $submited_file.='<div class="mb-3 position-relative"><div class="text-start">';
 
@@ -242,6 +259,18 @@
     </div>
 </div>
 
+<style type="text/css">
+    .dropzone {
+        background: white;
+        border-radius: 5px;
+        border: 2px dashed rgb(0, 135, 247);
+        border-image: none;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
 <div class="modal fade" id="modal_download_order" data-keyboard="false" tabindex="-1" aria-labelledby="scrollinglongcontentLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
         <div class="modal-content position-relative">
@@ -273,6 +302,78 @@
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_rate_order" data-keyboard="false" tabindex="-1" aria-labelledby="scrollinglongcontentLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
+        <div class="modal-content position-relative">
+            <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
+                    <h4 class="mb-1" id="modalExampleDemoLabel">Give us a comment and a rating. </h4>
+                </div>
+                <div class="p-4 pb-0">
+                    <div>
+                        <div class="mb-3">
+                            <label class="col-form-label" for="message-text">Comment about work:</label>
+                            <textarea class="form-control" id="message_from_admin" ></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="col-form-label" for="message-text">Rate the work please:</label>
+                            <div class="rater" id="rater"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-primary order_submit" type="button">Mark as Complete </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_request_revision" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
+        <div class="modal-content position-relative">
+            <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
+                    <h4 class="mb-1" id="modalExampleDemoLabel">Request a revision </h4>
+                </div>
+                <div class="p-4 pb-0">
+                    <div>
+                        <div class="mb-3">
+                            <label class="col-form-label" for="message-text">Message to the admin:</label>
+                            <textarea class="form-control" id="order_rev_mgs"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <form action="<?php echo base_url('client/orders/attach_revision');?>" class="dropzone" method="post" enctype="multipart/form-data" id="my-awesome-dropzone" data-dropzone="data-dropzone">
+                                <div class="fallback">
+                                    <input name="file" type="file" multiple />
+                                </div>
+                                <div class="dz-message" data-dz-message="data-dz-message">
+                                    <img class="me-2" src="<?php echo base_url('assets/img/icons/cloud-upload.svg');?>" width="25" alt="" />Drop necessary files here
+                                </div>
+                            </form>
+                        </div>
+                        <div class="mb-3">
+                            <label class="col-form-label" for="message-text">Uploaded files:</label>
+                            <div class="d-grid gap-2 temp_files" id="temp_files"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-primary order_rev_revision" type="button">Request Revision </button>
             </div>
         </div>
     </div>
