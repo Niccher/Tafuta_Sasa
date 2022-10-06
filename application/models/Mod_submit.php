@@ -61,7 +61,7 @@ class Mod_submit extends CI_Model{
     public function submit_order($order_id, $msg, $sub_attachment){
         $data = array(
             'order_Id' => $order_id,
-            'submit_Msg' => $this->$msg,
+            'submit_Msg' => $msg,
             'submit_Attachment' => $sub_attachment,
             'submit_Seen' => "00",
             'submit_Time' => time(),
@@ -82,6 +82,24 @@ class Mod_submit extends CI_Model{
             'rev_Status' => "00",
         );
         return $this->db->insert('tbl_Submited_Orders_Revision', $data);
+    }
+
+    public function is_revised($order_id){
+        $array = array('order_Id =' => $order_id);
+        $this->db->order_by('rev_Id', 'DESC');
+        $this->db->limit(1);
+        $this->db->where($array);
+        $query = $this->db->get('tbl_Submited_Orders_Revision');
+        return $query->row_array();
+    }
+
+    public function is_order_submited_to_client($order_id){
+        $array = array('order_Id =' => $order_id);
+        $this->db->order_by('submit_Id', 'DESC');
+        $this->db->limit(1);
+        $this->db->where($array);
+        $query = $this->db->get('tbl_Submited_Orders');
+        return $query->row_array();
     }
 }
 ?>

@@ -108,6 +108,7 @@
                         window.open('<?php echo base_url('client/orders/download_attachments/') ?>'+elmId, '_blank');
                     });
 
+
                     $('.order_rev_revision').click(function(){
                         var msg = $('#order_rev_mgs').val();
                         $.ajax({
@@ -115,9 +116,14 @@
                             type: 'POST',
                             data: { convo_body:msg },
                             success: function(response){
+                                location.reload();
                             }
                         });
                     });
+
+                    $("#rater").rate();
+                    $("#rater").rater();
+                    $("#rater").rating();
 
                 });
             </script>

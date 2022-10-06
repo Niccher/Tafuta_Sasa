@@ -114,7 +114,7 @@
                                             <p class="text-600 fs--1">Rate and review Order </p>
                                             <div class="d-flex flex-row-reverse">
                                                 <a href="#" data-bs-toggle="modal" data-bs-target="#modal_rate_order" class="p-2 btn btn-primary me-1 mb-1" type="button">
-                                                    <span class="fas fa-download me-1" data-fa-transform="shrink-3"></span>Mark as Complete and Review
+                                                    <span class="far fa-check-circle me-1" data-fa-transform="shrink-3"></span>Mark as Complete and Review
                                                 </a>
                                             </div>
                                         </div>';
@@ -122,8 +122,8 @@
                                     echo '<div class="ps-3">
                                             <p class="text-600 fs--1">Request Revision </p>
                                             <div class="d-flex flex-row-reverse">
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal_request_revision" class="p-2 btn btn-info me-1 mb-1" type="button">
-                                                    <span class="fas fa-download me-1" data-fa-transform="shrink-3"></span>Request Revision
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#modal_request_revision" class="p-2 btn btn-warning me-1 mb-1" type="button">
+                                                    <span class="fas fa-recycle me-1" data-fa-transform="shrink-3"></span>Request Revision
                                                 </a>
                                             </div>
                                         </div>';
@@ -326,6 +326,7 @@
                         <div class="mb-3">
                             <label class="col-form-label" for="message-text">Rate the work please:</label>
                             <div class="rater" id="rater"></div>
+                            <button class="btn btn-primary" type="button">Mark as Complete </button>
                         </div>
                     </div>
                 </div>

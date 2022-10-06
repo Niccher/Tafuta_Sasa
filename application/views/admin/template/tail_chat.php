@@ -146,12 +146,15 @@
                 //$('#posted_msgs').html('');
 
                 $('#admin_send_msg').click(function(){
-                    var msg = $('#info_msg').summernote('code');  
+                    var msg = $('#info_msg').summernote('code');
+                    var uuid = $('.user_code').attr('id');
+                    var u_id = uuid.substring(3, uuid.length);
+
                     console.log(msg);
                     $.ajax({
-                        url: "<?php echo base_url('admin/mail/send/'); ?>"+uid,
+                        url: "<?php echo base_url('admin/mail/send/'); ?>"+u_id,
                         type: 'POST',
-                        data: { convo_body:msg, convo_person:uid },
+                        data: { convo_body:msg, convo_person:u_id },
                         success: function(response){
                             $("#pop_msg").modal('hide');
                         }

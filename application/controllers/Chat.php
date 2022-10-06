@@ -79,7 +79,7 @@ class Chat extends CI_Controller {
         $uuid1 =  $this->mod_crypt->Dec_String(urldecode($_POST['convo_person']));
 
         if ($uuid1 == $uuid) {
-            $this->mod_chats->client_send($msg, $uuid1, "Admin" );
+            $this->mod_chats->client_send($msg, $uuid, "Admin" );
             echo "Message Sent";
         }else{
             echo "Message Not Sent";
@@ -151,7 +151,7 @@ class Chat extends CI_Controller {
                                 <div class="fas fa-chevron-left"></div>
                             </a>
                             <div class="min-w-0">
-                                <h5 class="mb-0 text-truncate fs-0">'.$user_info_name.'</h5>
+                                <h5 class="mb-0 text-truncate fs-0 user_code" name="as_'.$person_id.'" id="as_'.$person_id.'">'.$user_info_name.'</h5>
                                 <div class="fs--2 text-400">Joined '.date('M Y d, H:i:s A',$user_info->Timestamp).'</div>
                             </div>
                         </div>

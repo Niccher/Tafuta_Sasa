@@ -102,29 +102,91 @@
                                     </h4>
                                 </div>
 
-                            </div> 
-                            
+                            </div>
 
-                            <?php
+                        </div>
+
+                        <div class="position-relative z-index-2">
+
+                            <div class="d-flex py-3">
+                                <?php
+                                $is_revised = $this->mod_submit->is_revised($orders_info['Ord_Id']);
+                                $is_order_submited = $this->mod_submit->is_order_submited_to_client($orders_info['Ord_Id']);
 
                                 $assigned = $this->mod_orders->orders_assignment_id($orders_info['Ord_Id']);
                                 if (empty($assigned) || $assigned['Assign_Order'] == "00" ) {
                                     if ( ($orders_info['Ord_Pay'] == "11")) {
                                         echo '
-                                            <div class="row">
-                                                <div class="text-center">
-                                                    <br>
-                                                    <button class="btn btn-primary btn-block" type="button" data-bs-toggle="modal" data-bs-target="#modal_assign">Assign Order to Writer</button>
-                                                </div>
+                                            <div class="ps-3">
+                                                <p class="text-600 fs--1">Assign to someone </p>
+                                                <h4 class="text-800 mb-0">
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#modal_assign" class="p-2 btn btn-info btn-sm me-1 mb-1" type="button">
+                                                        <span class="far fa-handshake me-1" data-fa-transform="shrink-3"></span>Assign Order to Writer
+                                                    </a>
+                                                </h4>
                                             </div>
                                         ';
                                     }
-                                    
                                 }
 
-                            ?>
+                                echo '
+                                    <div class="ps-3">
+                                        <p class="text-600 fs--1">Submit Order </p>
+                                        <h4 class="text-800 mb-0">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal_submit" class="p-2 btn btn-primary btn-sm me-1 mb-1" type="button">
+                                                <span class="fas fa-upload me-1" data-fa-transform="shrink-3"></span>Submit Order
+                                            </a>
+                                        </h4>
+                                    </div>
+                                ';
+
+                                if (empty($is_order_submited)){
+                                }else{
+                                    echo '
+                                    <div class="ps-3">
+                                        <p class="text-600 fs--1">Mark as complete </p>
+                                        <h4 class="text-800 mb-0">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#modal_mark_complete" class="p-2 btn btn-success btn-sm me-1 mb-1" type="button">
+                                                <span class="far fa-check-circle me-1" data-fa-transform="shrink-3"></span>Mark order as Complete
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    ';
+                                }
+
+
+                                if (!empty($is_revised) && !empty($is_order_submited)){
+                                    $last_revision = $is_revised['rev_Time'];
+                                    $last_submission = $is_order_submited['submit_Time'];
+
+                                    if ($last_revision < $last_submission){
+                                        //echo "Revision is delivered by admin";
+                                    }else{
+                                        if (!empty($is_revised)){
+                                            $submited_time = date('Y F d D H:i:s A',  $is_revised['rev_Time']);
+                                            $submited_files = $this->mod_crypt->Dec_String($is_revised['rev_Files']);
+                                            $submited_files_ = explode('|__|', $submited_files);
+                                            //$submited_rev_files = array_shift($submited_files_);
+                                            echo '
+                                                <div class="ps-3">
+                                                    <p class="text-600 fs--1">View revision requirement </p>
+                                                    <h4 class="text-800 mb-0">
+                                                        <a href="#" data-bs-toggle="modal" data-bs-target="#modal_view_revisions" class="p-2 btn btn-warning btn-sm me-1 mb-1" type="button">
+                                                            <span class="fas fa-eye me-1" data-fa-transform="shrink-3"></span>View Revision comments
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                ';
+                                        }
+                                    }
+                                }
+
+                                ?>
+
+                            </div>
 
                         </div>
+
                     </div>
 
                     <?php
@@ -182,7 +244,7 @@
                         }
                     }
                     ?>
-                    
+
                     <?php
 	                    if ($orders_info['Ord_Pay'] == "00") {
 	                    	echo '
@@ -231,6 +293,18 @@
     </div>
 </div>
 
+<style type="text/css">
+    .dropzone {
+        background: white;
+        border-radius: 5px;
+        border: 2px dashed rgb(0, 135, 247);
+        border-image: none;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
 <div class="modal fade" id="modal_assign" data-keyboard="false" tabindex="-1" aria-labelledby="scrollinglongcontentLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
         <div class="modal-content position-relative">
@@ -261,18 +335,6 @@
         </div>
     </div>
 </div>
-
-<style type="text/css">
-    .dropzone {
-        background: white;
-        border-radius: 5px;
-        border: 2px dashed rgb(0, 135, 247);
-        border-image: none;
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-</style>
 
 <div class="modal fade" id="modal_submit" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
@@ -310,6 +372,86 @@
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
                 <button class="btn btn-primary order_submit" type="button">Submit Order </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_mark_complete" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
+        <div class="modal-content position-relative">
+            <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
+                    <h4 class="mb-1" id="modalExampleDemoLabel">Mark order as complete </h4>
+                </div>
+                <div class="p-4 pb-0">
+                    <div>
+                        <div class="mb-3">
+                            <label class="col-form-label" for="message-text">Note</label>
+                            <div>Once an order has been marked as Complete, it will not be possible to work on it again.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-success order_flag_complete" type="button">Mark as Complete </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_view_revisions" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
+        <div class="modal-content position-relative">
+            <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="rounded-top-lg py-3 ps-4 pe-6 bg-light">
+                    <h4 class="mb-1" id="modalExampleDemoLabel">Revision comments </h4>
+                </div>
+                <div class="p-4 pb-0">
+                    <div>
+                        <div class="mb-3">
+                            <label class="col-form-label" for="message-text">Comment from the client:</label>
+                            <div>
+                                <?php
+                                    echo $this->mod_crypt->Dec_String($is_revised['rev_Msg']);
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="mb-3">
+                            <label class="col-form-label" for="message-text">Files</label>
+                            <div>
+                                <?php
+                                foreach ($submited_files_ as $rev_file) {
+                                    echo $rev_file;
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="mb-3">
+                            <small>
+                                <div class="d-grid gap-2 text-muted" id="">
+                                    Submitted at <?php echo $submited_time; ?>
+                                </div>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
