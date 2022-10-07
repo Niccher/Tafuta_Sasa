@@ -53,6 +53,9 @@ class Adminorders extends CI_Controller {
         $referrer =  $this->agent->referrer();
         $url = explode("/", $referrer);
         $order_id = $this->mod_crypt->Dec_String($url[6]);
+
+        $this->mod_submit->notify_client($order_id);
+
         $msg = $_POST['msg'];
 
         $files = $this->mod_submit->submit_temp_attachments($order_id);

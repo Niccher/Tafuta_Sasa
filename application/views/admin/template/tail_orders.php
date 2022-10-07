@@ -145,6 +145,7 @@
                         url: '<?php echo base_url("admin/get/submit_order"); ?>',
                         type: 'POST',
                         success: function(response){
+                            console.log(response);
                             location.href = "<?php echo base_url('admin/orders') ?>";
                         }
                     });

@@ -116,5 +116,20 @@ class Mod_submit extends CI_Model{
         );
         return $this->db->insert('tbl_Order_Comment', $data);
     }
+
+    public function notify_client($order_id){
+        try {
+            $order_info = $this->mod_orders->orders_by_id($order_id);
+            $order_owner = $order_info['Ord_Owner'];
+            $owner_info = $this->mod_users->get_vars($order_owner);
+
+            $owner_email = $this->mod_crypt->Dec_String($owner_info->Email);
+
+            $this->mod_emails->mail_this("academic@chegecache.co.ke", $owner_email, "Order has been delivered, Please check your account", "Order Delivery", "Order delivery" );
+        }catch (Exception $es){
+            echo "exception <br>".$es;
+        }
+    }
+
 }
 ?>

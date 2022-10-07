@@ -336,7 +336,7 @@
                                             <th scope="col">Paid</th>
                                         </tr>
                                     </thead>
-                                    
+
                                     <tbody>
                                         <?php
                                             foreach ($client_orders as $orders) {
