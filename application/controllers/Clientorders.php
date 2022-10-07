@@ -213,19 +213,19 @@ class Clientorders extends CI_Controller {
 	}
 
 	public function orders_get_attachment() {
-		echo $filename = urldecode($this->uri->segment(4));
+		$filename = urldecode($this->uri->segment(4));
 		$filepath = 'uploads/client_orders/'.$filename;
 		force_download($filepath, NULL);
 	}
 
     public function download_attachments($filename) {
-		echo $filename = urldecode($this->uri->segment(4));
+		$filename = urldecode($this->uri->segment(4));
 		$filepath = 'uploads/admin_submit_temp_orders/'.$filename;
 		force_download($filepath, NULL);
 	}
 
     public function download_rev_attachments($filename) {
-		echo $filename = urldecode($this->uri->segment(4));
+		$filename = urldecode($this->uri->segment(4));
 		$filepath = 'uploads/client_revision_orders/'.$filename;
 		force_download($filepath, NULL);
 	}
@@ -280,8 +280,6 @@ class Clientorders extends CI_Controller {
             redirect('auth/login');
         }
 
-		$title['pg_name'] = 'order';
-
 		$uuid = $this->mod_crypt->Dec_String(urldecode($order_id));
 
 		$data['orders_info'] = $this->mod_orders->orders_by_id($uuid);
@@ -316,5 +314,17 @@ class Clientorders extends CI_Controller {
 		$this->load->view('client/orders/pay', $data);
 		$this->load->view('client/template/tail');
 	}
+
+    public function order_mark_complete() {
+        $referrer =  $this->agent->referrer();
+        $url = explode("/", $referrer);
+
+        $order_id = $this->mod_crypt->Dec_String($url[6]);
+
+        $com_msg = $this->mod_crypt->Enc_String($_POST['convo_body']);
+        $com_source = "Client";
+
+        $this->mod_submit->order_mark_complete($order_id, $com_msg, $com_source);
+    }
 
 }

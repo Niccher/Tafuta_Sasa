@@ -59,7 +59,7 @@
 	                            	<select class="form-select" name="ord_pgs" id="ord_pgs">
 		                                <option value="ord_pg_count_1" selected="selected" name="count_1" id="count_1">1</option>
 		                                <?php
-		                                for ($i=2; $i < 50; $i++) { 
+		                                for ($i=2; $i < 50; $i++) {
 		                                	echo '<option value="ord_pg_count_'.$i.'" name="count_'.$i.'" unt_'.$i.'" id="count_'.$i.'">'.$i.'</option>';
 		                                }
 		                                ?>
@@ -70,7 +70,7 @@
 	                            	<input class="form-control" type="text" name="ord_word" id="ord_word" disabled="" placeholder="Word count" value="300 Words" />
 	                            </div>
                             </div>
-                            
+
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Citation:</label>

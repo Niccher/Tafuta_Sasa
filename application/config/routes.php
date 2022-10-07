@@ -42,6 +42,9 @@ $route['admin/orders/view/(:any)'] = 'adminorders/orders_view/$1';
 $route['admin/orders/delete/(:any)'] = 'adminorders/orders_delete/$1';
 $route['admin/orders'] = 'adminorders';
 
+$route['admin/order/mark_complete'] = 'adminorders/order_mark_complete';
+
+$route['admin/get/rev_attachments/(:any)'] = 'adminorders/rev_admin_download_attachment/$1';
 $route['admin/order/assign/(:any)'] = 'adminorders/order_assign/$1';
 
 $route['orders/uploads/attachment/(:any)'] = 'clientorders/orders_get_attachment';
@@ -109,6 +112,8 @@ $route['client/profile/add'] = 'client/profileadd';
 $route['client/profile/attach_img'] = 'client/profile_add_image';
 $route['client/massage/send'] = 'chat/client_send';
 $route['client/convos/(:any)'] = 'chat/client_convo_with/$1';
+
+$route['client/order/mark_complete'] = 'clientorders/order_mark_complete';
 
 $route['user/new/create'] = 'pages/view_new_user';
 $route['buyer/pay/(:any)'] = 'pages/view_payform/$1'; 

@@ -99,7 +99,6 @@
             <script src="<?php echo base_url('assets/js/flatpickr.js'); ?>"></script>
 
             <script src="<?php echo base_url('assets/plugins/datatables/datatables.js');?>"></script>
-            <script src="<?php echo base_url('assets/plugins/rater-js/rater-js.js');?>"></script>
 
             <script type="text/javascript">
                 $(document).ready(function() {
@@ -121,9 +120,17 @@
                         });
                     });
 
-                    $("#rater").rate();
-                    $("#rater").rater();
-                    $("#rater").rating();
+                    $('.order_set_complete').click(function(){
+                        var complete_msg = $('#message_for_admin').val();
+                        $.ajax({
+                            data: { convo_body: complete_msg },
+                            url: '<?php echo base_url("client/order/mark_complete"); ?>',
+                            type: 'POST',
+                            success: function(response){
+                                location.href = "<?php echo base_url('client/orders') ?>";
+                            }
+                        });
+                    });
 
                 });
             </script>

@@ -49,7 +49,6 @@
                                             <th scope="col">Date</th>
                                             <th scope="col">Paid</th>
                                             <th scope="col">Status</th>
-                                            <th scope="col">More</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -111,12 +110,6 @@
                                                         <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
                                                         <td>'.$paid.'</td>
                                                         <td>'.$status.'</td>
-                                                        <td class="text-end">
-                                                            <span class="badge badge rounded-pill d-block p-2 badge-soft-info">
-                                                                <a href="'.base_url("admin/orders/view/".$order_id).'"><span class="ms-1 far far fa-eye badge-soft-info" data-fa-transform="shrink-2"></span>
-                                                                </a>
-                                                            </span>
-                                                        </td>
                                                     </tr>
                                                 ';
                                             }
@@ -137,7 +130,6 @@
                                             <th scope="col">Description</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Status</th>
-                                            <th scope="col">More</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -185,12 +177,6 @@
                                                             <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                             <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
                                                             <td>'.$status.'</td>
-                                                            <td class="text-end">
-                                                                <span class="badge badge rounded-pill d-block p-2 badge-soft-info">
-                                                                    <a href="'.base_url("admin/orders/view/".$order_id).'"><span class="ms-1 far far fa-eye badge-soft-info" data-fa-transform="shrink-2"></span>
-                                                                    </a>
-                                                                </span>
-                                                            </td>
                                                         </tr>
                                                     ';
                                                 }
@@ -212,7 +198,6 @@
                                             <th scope="col">Description</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Status</th>
-                                            <th scope="col">More</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -260,12 +245,6 @@
                                                             <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                             <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
                                                             <td>'.$status.'</td>
-                                                            <td class="text-end">
-                                                                <span class="badge badge rounded-pill d-block p-2 badge-soft-info">
-                                                                    <a href="'.base_url("admin/orders/view/".$order_id).'"><span class="ms-1 far far fa-eye badge-soft-info" data-fa-transform="shrink-2"></span>
-                                                                    </a>
-                                                                </span>
-                                                            </td>
                                                         </tr>
                                                     ';
                                                 }
@@ -287,7 +266,6 @@
                                             <th scope="col">Description</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Paid</th>
-                                            <th scope="col">More</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -333,12 +311,6 @@
                                                             <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                             <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
                                                             <td>'.$paid.'</td>
-                                                            <td class="text-end">
-                                                                <span class="badge badge rounded-pill d-block p-2 badge-soft-info">
-                                                                    <a href="'.base_url("admin/orders/view/".$order_id).'"><span class="ms-1 far far fa-eye badge-soft-info" data-fa-transform="shrink-2"></span>
-                                                                    </a>
-                                                                </span>
-                                                            </td>
                                                         </tr>
                                                     ';
                                                 }
@@ -352,7 +324,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="tab-pane text-center " role="tabpanel" aria-labelledby="tab_orders_completed" id="tab_orders_completed">
+                    <div class="tab-pane " role="tabpanel" aria-labelledby="tab_orders_completed" id="tab_orders_completed">
                         <form class="form-validation">
                             <div class="table-responsive scrollbar">
                                 <table class="table table-hover table-striped overflow-hidden table_clean">
@@ -362,35 +334,19 @@
                                             <th scope="col">Description</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Paid</th>
-                                            <th scope="col">More</th>
                                         </tr>
                                     </thead>
+                                    
                                     <tbody>
-                                        
-                                        <?php 
+                                        <?php
                                             foreach ($client_orders as $orders) {
                                                 $name = character_limiter(strip_tags($this->mod_crypt->Dec_String($orders['Ord_Name'])), 30);
                                                 $desc = character_limiter(strip_tags($this->mod_crypt->Dec_String($orders['Ord_Body'])), 45);
                                                 $stop = $this->mod_crypt->Dec_String($orders['Ord_Deadline']);
                                                 $start = date('M d H:i:s', $orders['Ord_Created']);
-                                                
                                                 $order_id = urlencode($this->mod_crypt->Enc_String($orders['Ord_Id']));
 
-                                                if ($orders['Ord_Pay'] == '00') {
-                                                    $paid = '
-                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-warning">Unpaid
-                                                        <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
-                                                    </span>
-                                                    ';
-                                                }else{
-                                                    $paid = '
-                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-success">Paid
-                                                        <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
-                                                    </span>
-                                                    ';
-                                                }
-
-                                                if ($orders['Ord_Status'] != '00') {
+                                                if ($orders['Ord_Status'] == '22') {
                                                      echo '
                                                         <tr class="align-middle">
                                                             <td class="text-nowrap">
@@ -403,17 +359,11 @@
                                                             <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                             <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
                                                             <td>'.$paid.'</td>
-                                                            <td class="text-end">
-                                                                <span class="badge badge rounded-pill d-block p-2 badge-soft-info">
-                                                                    <a href="'.base_url("admin/orders/view/".$order_id).'"><span class="ms-1 far far fa-eye badge-soft-info" data-fa-transform="shrink-2"></span>
-                                                                    </a>
-                                                                </span>
-                                                            </td>
                                                         </tr>
                                                     ';
                                                 }
 
-                                               
+
                                             }
                                         ?>
 

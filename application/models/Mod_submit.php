@@ -101,5 +101,20 @@ class Mod_submit extends CI_Model{
         $query = $this->db->get('tbl_Submited_Orders');
         return $query->row_array();
     }
+
+    public function order_mark_complete($order_id, $com_msg, $com_source){
+
+        $data = ['Ord_Status' => "22"];
+        $this->db->where('Ord_Id', $order_id);
+        $this->db->update('tbl_Orders', $data);
+
+        $data = array(
+            'order_Id' => $order_id,
+            'comment_Mgs' => $com_msg,
+            'comment_Source' => $com_source,
+            'comment_Time' => time(),
+        );
+        return $this->db->insert('tbl_Order_Comment', $data);
+    }
 }
 ?>

@@ -44,7 +44,6 @@ class Adminorders extends CI_Controller {
 		$this->load->view('admin/template/tail_orders');
 	}
 
-
     public function order_submit() {
 		$typ = $this->session->userdata('log_type');
         if (! $this->session->userdata('log_id') || $typ != "Admin") {
@@ -171,9 +170,26 @@ class Adminorders extends CI_Controller {
     }
 
     public function orders_get_attachment() {
-        echo $filename = urldecode($this->uri->segment(4));
+        $filename = urldecode($this->uri->segment(4));
         $filepath = 'uploads/client_orders/'.$filename;
         force_download($filepath, NULL);
+    }
+
+    public function rev_admin_download_attachment($file_id) {
+        $filename = urldecode($this->uri->segment(4));
+        $filepath = 'uploads/client_revision_orders/'.$filename;
+        force_download($filepath, NULL);
+    }
+
+    public function order_mark_complete() {
+        $referrer =  $this->agent->referrer();
+        $url = explode("/", $referrer);
+
+        $order_id = $this->mod_crypt->Dec_String($url[6]);
+        $com_msg = "";
+        $com_source = "Admin";
+
+        $this->mod_submit->order_mark_complete($order_id, $com_msg, $com_source);
     }
 
 }

@@ -49,7 +49,6 @@
                                             <th scope="col">Date</th>
                                             <th scope="col">Paid</th>
                                             <th scope="col">Status</th>
-                                            <th scope="col">More</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -97,19 +96,6 @@
                                                     ';
                                                 }
 
-                                                $link_view = base_url("client/orders/view/".$order_id);
-                                                $link_edit = base_url("client/orders/edit/".$order_id);
-
-                                                $link_edit_button = "";
-
-                                                if($orders['Ord_Status'] == "00"){
-                                                    $link_edit_button = '
-                                                            <span class="badge badge rounded-pill d-block p-2 badge-soft-success">
-                                                                <a href="'.$link_edit.'">Edit
-                                                                    <span class="ms-1 far fas fa-edit badge-soft-success" data-fa-transform="shrink-2"></span>
-                                                                </a>
-                                                            </span>';
-                                                }
                                                 echo '
                                                     <tr class="align-middle">
                                                         <td class="text-nowrap">
@@ -123,15 +109,6 @@
                                                         <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
                                                         <td>'.$paid.'</td>
                                                         <td>'.$status.'</td>
-                                                        <td class="text-end">
-                                                            <!--<span class="badge badge rounded-pill d-block p-2 badge-soft-info">
-                                                                <a href="$link_edit">
-                                                                    <span class="ms-1 far far fa-eye badge-soft-info" data-fa-transform="shrink-2"></span>
-                                                                </a>
-                                                            </span>-->
-                                                            
-                                                            '.$link_edit_button.'
-                                                        </td>
                                                     </tr>
                                                 ';
                                             }
@@ -152,7 +129,6 @@
                                             <th scope="col">Description</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Status</th>
-                                            <th scope="col">More</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -200,14 +176,6 @@
                                                             <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                             <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
                                                             <td>'.$status.'</td>
-                                                            <td class="text-end">
-                                                                <span class="badge badge rounded-pill d-block p-2 badge-soft-info">
-                                                                    <a href="'.base_url("client/orders/view/".$order_id).'"><span class="ms-1 far far fa-eye badge-soft-info" data-fa-transform="shrink-2"></span>
-                                                                    </a>
-                                                                    <a href="'.base_url("client/orders/edit/".$order_id).'"><span class="ms-1 far fas fa-edit badge-soft-primary" data-fa-transform="shrink-2"></span>
-                                                                    </a>
-                                                                </span>
-                                                            </td>
                                                         </tr>
                                                     ';
                                                 }
@@ -229,7 +197,6 @@
                                             <th scope="col">Description</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Status</th>
-                                            <th scope="col">More</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -277,14 +244,6 @@
                                                             <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                             <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
                                                             <td>'.$status.'</td>
-                                                            <td class="text-end">
-                                                                <span class="badge badge rounded-pill d-block p-2 badge-soft-info">
-                                                                    <a href="'.base_url("client/orders/view/".$order_id).'"><span class="ms-1 far far fa-eye badge-soft-info" data-fa-transform="shrink-2"></span>
-                                                                    </a>
-                                                                    <a href="'.base_url("client/orders/edit/".$order_id).'"><span class="ms-1 far fas fa-edit badge-soft-primary" data-fa-transform="shrink-2"></span>
-                                                                    </a>
-                                                                </span>
-                                                            </td>
                                                         </tr>
                                                     ';
                                                 }
@@ -306,7 +265,6 @@
                                             <th scope="col">Description</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Paid</th>
-                                            <th scope="col">More</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -318,26 +276,6 @@
                                                 $stop = $this->mod_crypt->Dec_String($orders['Ord_Deadline']);
                                                 $start = date('M d H:i:s', $orders['Ord_Created']);
                                                 $order_id = urlencode($this->mod_crypt->Enc_String($orders['Ord_Id']));
-
-                                                if ($orders['Ord_Status'] == '00') {
-                                                    $status = '
-                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-warning">Pending
-                                                        <span class="ms-1 fas fa-stream" data-fa-transform="shrink-2"></span>
-                                                    </span>
-                                                    ';
-                                                }else if ($orders['Ord_Status'] == '11') {
-                                                    $status = '
-                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-danger">Submitted
-                                                        <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
-                                                    </span>
-                                                    ';
-                                                } else{
-                                                    $status = '
-                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-success">Finished
-                                                        <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
-                                                    </span>
-                                                    ';
-                                                }
 
                                                 if ($orders['Ord_Status'] == '00') {
                                                      echo '
@@ -352,19 +290,10 @@
                                                             <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                             <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
                                                             <td>'.$paid.'</td>
-                                                            <td class="text-end">
-                                                                <span class="badge badge rounded-pill d-block p-2 badge-soft-info">
-                                                                    <a href="'.base_url("client/orders/view/".$order_id).'"><span class="ms-1 far far fa-eye badge-soft-info" data-fa-transform="shrink-2"></span>
-                                                                    </a>
-                                                                    <a href="'.base_url("client/orders/edit/".$order_id).'"><span class="ms-1 far fas fa-edit badge-soft-primary" data-fa-transform="shrink-2"></span>
-                                                                    </a>
-                                                                </span>
-                                                            </td>
                                                         </tr>
                                                     ';
                                                 }
 
-                                               
                                             }
                                         ?>
 
@@ -373,7 +302,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="tab-pane text-center " role="tabpanel" aria-labelledby="tab_orders_completed" id="tab_orders_completed">
+                    <div class="tab-pane " role="tabpanel" aria-labelledby="tab_orders_completed" id="tab_orders_completed">
                         <form class="form-validation">
                             <div class="table-responsive scrollbar">
                                 <table class="table table-hover table-striped overflow-hidden table_clean">
@@ -383,41 +312,19 @@
                                             <th scope="col">Description</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Paid</th>
-                                            <th scope="col">More</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
-                                        <?php 
+
+                                        <?php
                                             foreach ($client_orders as $orders) {
                                                 $name = character_limiter(strip_tags($this->mod_crypt->Dec_String($orders['Ord_Name'])), 30);
                                                 $desc = character_limiter(strip_tags($this->mod_crypt->Dec_String($orders['Ord_Body'])), 45);
                                                 $stop = $this->mod_crypt->Dec_String($orders['Ord_Deadline']);
                                                 $start = date('M d H:i:s', $orders['Ord_Created']);
-                                                
                                                 $order_id = urlencode($this->mod_crypt->Enc_String($orders['Ord_Id']));
 
-                                                if ($orders['Ord_Status'] == '00') {
-                                                    $status = '
-                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-warning">Pending
-                                                        <span class="ms-1 fas fa-stream" data-fa-transform="shrink-2"></span>
-                                                    </span>
-                                                    ';
-                                                }else if ($orders['Ord_Status'] == '11') {
-                                                    $status = '
-                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-danger">Submitted
-                                                        <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
-                                                    </span>
-                                                    ';
-                                                } else{
-                                                    $status = '
-                                                    <span class="badge badge rounded-pill d-block p-2 badge-soft-success">Finished
-                                                        <span class="ms-1 fas fa-check" data-fa-transform="shrink-2"></span>
-                                                    </span>
-                                                    ';
-                                                }
-
-                                                if ($orders['Ord_Status'] != '00') {
+                                                if ($orders['Ord_Status'] == '22') {
                                                      echo '
                                                         <tr class="align-middle">
                                                             <td class="text-nowrap">
@@ -430,17 +337,9 @@
                                                             <td class="text-nowrap">'.word_limiter($desc, 10).'</td>
                                                             <td class="text-nowrap">Created '.$start.'<br>Due '.$stop.'</td>
                                                             <td>'.$paid.'</td>
-                                                            <td class="text-end">
-                                                                <span class="badge badge rounded-pill d-block p-2 badge-soft-info">
-                                                                    <a href="'.base_url("client/orders/view/".$order_id).'"><span class="ms-1 far far fa-eye badge-soft-info" data-fa-transform="shrink-2"></span>
-                                                                    </a>
-                                                                </span>
-                                                            </td>
                                                         </tr>
                                                     ';
                                                 }
-
-                                               
                                             }
                                         ?>
 

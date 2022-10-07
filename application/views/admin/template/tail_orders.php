@@ -140,17 +140,29 @@
 
                 $('.order_submit').click(function(){
                     var msg = $('#order_send_mgs').val();
-                    console.log("Message as" + msg);
                     $.ajax({
                         data: {"msg": msg},
                         url: '<?php echo base_url("admin/get/submit_order"); ?>',
                         type: 'POST',
                         success: function(response){
-                            /*$("#modal_submit").modal('hide');
-                            $('#textarea').val('');*/
                             location.href = "<?php echo base_url('admin/orders') ?>";
                         }
                     });
+                });
+
+                $('.order_flag_complete').click(function(){
+                    $.ajax({
+                        url: '<?php echo base_url("admin/order/mark_complete"); ?>',
+                        type: 'GET',
+                        success: function(response){
+                            //location.href = "<?php //echo base_url('admin/orders') ?>";
+                        }
+                    });
+                });
+
+                $('.download_rev_now').click(function(){
+                    var elmId = $(this).attr("id");
+                    window.open('<?php echo base_url('admin/get/rev_attachments/') ?>'+elmId, '_blank');
                 });
 
                 $(document).on("click", '.delete_attach_file_', function(event) {

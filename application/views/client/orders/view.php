@@ -251,6 +251,28 @@
                             </div>
                             ';
                         }
+
+
+                    if ($orders_info['Ord_Status'] == "22") {
+                        echo '
+                            <br>
+	                    	<div class="card-body p-0">
+		                        <ul class="mb-0 list-unstyled">
+		                            <li class="alert mb-0 rounded-0 py-3 px-card alert-primary border-x-0 border-top-0">
+		                                <div class="row flex-between-center">
+		                                    <div class="col">
+		                                        <div class="d-flex">
+		                                            <div class="fas fa-circle mt-1 fs--2"></div>
+		                                            <p class="fs--1 ps-2 mb-0">Order <strong>#' . $orders_info['Ord_Id'] . '</strong> Is Marked as complete</p>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                            </li>
+		                        </ul>
+		                    </div>
+	                    	';
+                    }
+
                     ?>
 
                 </div>
@@ -321,19 +343,14 @@
                     <div>
                         <div class="mb-3">
                             <label class="col-form-label" for="message-text">Comment about work:</label>
-                            <textarea class="form-control" id="message_from_admin" ></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="col-form-label" for="message-text">Rate the work please:</label>
-                            <div class="rater" id="rater"></div>
-                            <button class="btn btn-primary" type="button">Mark as Complete </button>
+                            <textarea class="form-control" id="message_for_admin" ></textarea>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-primary order_submit" type="button">Mark as Complete </button>
+                <button class="btn btn-primary order_set_complete" type="button">Mark as Complete </button>
             </div>
         </div>
     </div>

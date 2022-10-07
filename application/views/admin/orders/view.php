@@ -287,6 +287,28 @@
                                 ';
                         }
                     ?>
+
+                    <?php
+	                    if ($orders_info['Ord_Status'] == "22") {
+	                    	echo '
+                            <br>
+	                    	<div class="card-body p-0">
+		                        <ul class="mb-0 list-unstyled">
+		                            <li class="alert mb-0 rounded-0 py-3 px-card alert-primary border-x-0 border-top-0">
+		                                <div class="row flex-between-center">
+		                                    <div class="col">
+		                                        <div class="d-flex">
+		                                            <div class="fas fa-circle mt-1 fs--2"></div>
+		                                            <p class="fs--1 ps-2 mb-0">Order <strong>#'.$orders_info['Ord_Id'].'</strong> Is Marked as complete</p>
+		                                        </div>
+		                                    </div>
+		                                </div>
+		                            </li>
+		                        </ul>
+		                    </div>
+	                    	';
+	                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -432,7 +454,13 @@
                             <div>
                                 <?php
                                 foreach ($submited_files_ as $rev_file) {
-                                    echo $rev_file;
+                                    echo  '
+                                        <p class="text-muted mb-0">
+                                            <a href="#" class="download_rev_now" name="'.$rev_file.'" id="'.$rev_file.'">
+                                                <strong>'.$rev_file.' </strong>
+                                                <span class="text-info fa fa-download"></span>
+                                            </a>
+                                        </p>';
                                 }
                                 ?>
                             </div>
