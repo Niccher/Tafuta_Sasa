@@ -52,7 +52,6 @@ class Transaction extends CI_Controller {
 
 		//check whether the charge is successful
 		if($chargeJson['amount_refunded'] == 0 && empty($chargeJson['failure_code']) && $chargeJson['paid'] == 1 && $chargeJson['captured'] == 1){
-			//order details 
 			$amount = $chargeJson['amount'];
 			$balance_transaction = $chargeJson['balance_transaction'];
 			$currency = $chargeJson['currency'];
@@ -75,23 +74,15 @@ class Transaction extends CI_Controller {
 			
 			$this->db->where('Ord_Id', $order_id);
             $this->db->update('tbl_Orders', $dataupdate);
-			
-			/*if ($this->db->insert('tbl_Stripe', $dataDB)) {
-				if($this->db->insert_id() && $status == 'succeeded'){
-					redirect('buyer/'.$user_url.'/orders/view/'.$id);
-				}else{
-					echo "Transaction has been failed";
-				}
-			}else{
-				
-			}*/
 
+            $this->db->insert('tbl_Stripe', $dataDB);
+            redirect('client/orders');
+            
 		}else{
 			$statusMsg = "";
+            redirect('client/orders/pay/'.urldecode($this->uri->segment(3)));
 			
 		}
-
-		redirect('client/orders');
         
 	}
 	

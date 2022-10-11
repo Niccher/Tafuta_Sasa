@@ -12,7 +12,9 @@ class Client extends CI_Controller {
 
 		$title['pg_name'] = 'home';
 		$uuid = $this->session->userdata('log_id');
+
 		$data['question_viewed'] = $this->mod_questions->get_questions_viewed_by($uuid);
+        $data['client_orders'] = $this->mod_orders->orders_by_owner($this->session->userdata('log_id'));
 
 		$this->load->view('client/template/header');
 		$this->load->view('client/template/sidebar', $title);
