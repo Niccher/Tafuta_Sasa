@@ -25,8 +25,8 @@
         height: 40px;
     }
 </style>
-<section>
-    <div class="row bg-dark livechats text-light pt-2">
+<section class="live_chat" id="live_chat">
+    <div class="row bg-dark livechats text-light pt-2" id="livechats">
         <div class="col-md-6 pl-5 ">
             <div class="">
                 Need Help now <span class="fw-bold">admin@chegecache@gmail.com </span>
@@ -931,6 +931,42 @@
         s1.setAttribute('crossorigin','*');
         s0.parentNode.insertBefore(s1,s0);
     })();
+
+    $(document).ready(function() {
+        var didScroll;
+        var lastScrollTop = 0;
+        var delta = 5;
+        var navbarHeight = $('live_chat').outerHeight();
+
+        $(window).scroll(function(event){didScroll = true;});
+
+        setInterval(function() {
+            if (didScroll) {
+                hasScrolled();
+                didScroll = false;
+            }
+        }, 250);
+
+        function hasScrolled() {
+            var st = $(this).scrollTop();
+            if(Math.abs(lastScrollTop - st) <= delta)
+                return;
+            if (st > lastScrollTop && st > navbarHeight){
+                $('live_chat').show();
+            } else {
+                if(st + $(window).height() < $(document).height()) {
+                    if (st > 40){
+                        $('live_chat').remove();
+                        $('#nav_area').css('margin-top', '0px');
+                    }else {
+                        $('live_chat').show();
+                        $('#nav_area').css('margin-top', '40px');
+                    }
+                }
+            }
+            lastScrollTop = st;
+        }
+    });
 </script>
 <!--End of Tawk.to Script-->
 
