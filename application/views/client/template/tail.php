@@ -129,6 +129,8 @@
                         });
                     });
 
+                    $('.table_clean').DataTable();
+
                 });
             </script>
 

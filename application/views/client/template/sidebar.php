@@ -34,7 +34,7 @@
                             </span>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="#l">
+                    <a class="navbar-brand" href="#">
                         <div class="d-flex align-items-center py-3">
                             <span class="font-sans-serif">Epic Writers</span>
                         </div>

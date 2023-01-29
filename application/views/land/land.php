@@ -5,10 +5,10 @@
     <meta charset="utf-8" />
     <title>Epic Writers</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Epic Writers description here." />
+    <meta content="This website helps students find reliable and experienced professionals to handle their assignments. Get help with your assignments quickly and easily." />
     <meta content="Work Assignments" name="author" />
 
-    <link rel="shortcut icon" href="<?php echo base_url('assets/images/favicon.ico'); ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url('assets/img/favicons/favicon-32x32.png'); ?>">
 
     <link href="<?php echo base_url('assets/land/css/icons.min.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url('assets/land/css/app.min.css'); ?>" rel="stylesheet" type="text/css" id="light-style" />
@@ -54,7 +54,7 @@
 <nav class="navbar navbar-expand-md py-md-3 navbar-dark fixed-top bg-secondary" id="nav_area" style="margin-top: 40px">
     <div class="container">
         <a href="" class="navbar-brand me-lg-5">
-            <img src="assets/land/images/loo.png" alt="Logo" class="logo-dark" height="18" />
+            <img class="me-2" src="<?php echo base_url('assets/img/icons/spot-illustrations/logo.png'); ?>" alt="Logo" width="50" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

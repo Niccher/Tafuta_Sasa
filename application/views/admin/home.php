@@ -82,42 +82,6 @@
                     </div>
                 </div>
             </div>
-            <div class="card-body p-0">
-                <ul class="mb-0 list-unstyled">
-                    <li class="alert mb-0 rounded-0 py-3 px-card alert-warning border-x-0 border-top-0">
-                        <div class="row flex-between-center">
-                            <div class="col">
-                                <div class="d-flex">
-                                    <div class="fas fa-circle mt-1 fs--2"></div>
-                                    <p class="fs--1 ps-2 mb-0"><strong>5 Answers</strong> didn’t publish to your</p>
-                                </div>
-                            </div>
-                            <div class="col-auto d-flex align-items-center">
-                                <a class="alert-link fs--1 fw-medium" href="#">
-                                    View products
-                                    <i class="fas fa-chevron-right ms-1 fs--2"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="alert mb-0 rounded-0 py-3 px-card greetings-item border-top border-x-0 border-top-0">
-                        <div class="row flex-between-center">
-                            <div class="col">
-                                <div class="d-flex">
-                                    <div class="fas fa-circle mt-1 fs--2 text-primary"></div>
-                                    <p class="fs--1 ps-2 mb-0"><strong>7 orders</strong> have payments that need to be captured</p>
-                                </div>
-                            </div>
-                            <div class="col-auto d-flex align-items-center">
-                                <a class="alert-link fs--1 fw-medium" href="#">
-                                    View payments
-                                    <i class="fas fa-chevron-right ms-1 fs--2"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
         </div>
     </div>
 
@@ -144,7 +108,7 @@
 
                             <div class="tab-pane fade show active" id="tab_last_10_viewed" role="tabpanel" aria-labelledby="profile-tab">
                                 <div class="table-responsive scrollbar">
-                                    <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
+                                    <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden tbl_last_ten">
                                         <thead class="bg-200 text-900">
                                             <tr>
                                                 <th class="sort pe-1 align-middle white-space-nowrap" data-sort="order">Source</th>

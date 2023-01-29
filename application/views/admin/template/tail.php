@@ -98,11 +98,14 @@
         <script src="<?php echo base_url('assets/js/emoji-button.js'); ?>"></script>
 
         <script src="<?php echo base_url('assets/plugins/summernote/summernote-lite.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/plugins/datatables/datatables.min.js'); ?>"></script>
 
         <script type="text/javascript">
             $(document).ready(function() {
                 $('#answer_note').summernote();
                 $('#question_note').summernote();
+
+                $('.tbl_last_ten').DataTable();
             });
         </script>
 

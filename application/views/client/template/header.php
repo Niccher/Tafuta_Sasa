@@ -4,6 +4,7 @@
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta content="This website helps students find reliable and experienced professionals to handle their assignments. Get help with your assignments quickly and easily." />
 
             <title>Epic Writers</title>
 
@@ -15,10 +16,9 @@
             
             <link href="<?php echo base_url('assets/plugins/summernote/summernote-bs4.css'); ?>" rel="stylesheet">
             <link href="<?php echo base_url('assets/plugins/dropzone/dropzone.min.css'); ?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/plugins/datatables/datatables.min.css'); ?>" rel="stylesheet">
 
-            <link href="<?php echo base_url('assets/plugins/summernote/summernote-bs4.css'); ?>" rel="stylesheet">
-
-            <link href="<?php echo  base_url('assets/plugins/overlayscrollbars/OverlayScrollbars.min.css'); ?>" rel="stylesheet">
+            <link href="<?php echo base_url('assets/plugins/overlayscrollbars/OverlayScrollbars.min.css'); ?>" rel="stylesheet">
 
             <link href="<?php echo base_url('assets/css/theme.min.css'); ?>" rel="stylesheet" id="style-default">
             <link href="<?php echo base_url('assets/css/user.min.css'); ?>" rel="stylesheet" id="user-style-default">

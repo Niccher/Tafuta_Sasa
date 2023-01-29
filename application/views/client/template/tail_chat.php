@@ -127,14 +127,13 @@
                                     url: "<?php echo base_url('client/convos/'.urlencode($this->mod_crypt->Enc_String($this->session->userdata('log_id')))); ?>",
                                     type: 'POST',
                                     success: function(response){
-                                        $('.posted_msgs').html(response); 
+                                        $('.posted_msgs').html(response);
+                                        $('#info_msg').summernote('reset');
                                     }
                                 });
                             }
                         });  
                         $('.posted_msgs').scrollTop($('.posted_msgs')[0].scrollHeight);
-                        $("#info_msg").val('');
-                        $(".info_msg").val('');                 
                     });
 
                     function sendRequest(){

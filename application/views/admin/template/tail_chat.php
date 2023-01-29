@@ -90,10 +90,9 @@
         <script src="<?php echo base_url('assets/plugins/bootstrap/bootstrap.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets/plugins/fontawesome/all.min.js'); ?>"></script>
 
-        <script src="<?php echo base_url('assets/js/emoji-button.js1'); ?>"></script>
-
         <script src="<?php echo base_url('assets/plugins/summernote/summernote-lite.js'); ?>"></script>
         <script src="<?php echo base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
+                    <script src="<?php echo base_url('assets/plugins/datatables/datatables.min.js'); ?>"></script>
 
         <script type="text/javascript">
             $(document).ready(function() {
@@ -109,8 +108,8 @@
 	                    type: 'POST',
 	                    data: { convo_body:msg },
 	                    success: function(response){
-	                        if(response == 1){ 
-	                            //$('textarea').val('')  
+	                        if(response == 1){
+	                            //$('textarea').val('')
 	                        }else{
 	                            //alert('Invalid ID.');
 	                        }
@@ -157,9 +156,11 @@
                         data: { convo_body:msg, convo_person:u_id },
                         success: function(response){
                             $("#pop_msg").modal('hide');
+                            $('#info_msg').summernote('reset');
                         }
                     });
-                    $("#msg_area").animate({ scrollTop: $('#msg_area').prop("scrollHeight")}, 1000);
+                    //$("#msg_area").animate({ scrollTop: $('#msg_area').prop("scrollHeight")}, 1000);
+                    $("#posted_msgs").scrollTop = $("#posted_msgs").scrollHeight;
                     
                 });
 
@@ -177,6 +178,8 @@
                     });
                     
                 });
+
+                $('.tbl_users').DataTable();
                 
             });
         </script>

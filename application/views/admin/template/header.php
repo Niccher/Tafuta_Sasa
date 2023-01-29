@@ -4,6 +4,7 @@
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta content="This website helps students find reliable and experienced professionals to handle their assignments. Get help with your assignments quickly and easily." />
 
             <title>Epic Writers</title>
 
@@ -18,6 +19,7 @@
             <link href="<?php echo  base_url('assets/plugins/fullcalendar/main.min.css'); ?>" rel="stylesheet">
 
             <link href="<?php echo  base_url('assets/plugins/choosen/chosen.min.css'); ?>" rel="stylesheet">
+            <link href="<?php echo  base_url('assets/plugins/datatables/datatables.min.css'); ?>" rel="stylesheet">
 
             <script>
                 var linkRTL = document.getElementById('style-rtl');

@@ -10,7 +10,7 @@
     </div>
     <div class="card-body p-0">
         <div class="table-responsive scrollbar">
-            <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden">
+            <table class="table table-sm table-striped fs--1 mb-0 overflow-hidden tbl_users">
                 <thead class="bg-200 text-900">
                     <tr>
                         <th class="sort pe-1 align-middle white-space-nowrap" data-sort="order">Name</th>

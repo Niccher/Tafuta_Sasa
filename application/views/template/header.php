@@ -13,8 +13,6 @@
 		<script src="<?php echo base_url('assets/js/config.js'); ?>"></script>
         
         <script src="<?php echo base_url('assets/plugins/overlayscrollbars/OverlayScrollbars.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/plugins/datatables/datatables.min.css'); ?>"></script>
-        <link href="<?php echo  base_url('assets/plugins/prism/prism-okaidia.css'); ?>" rel="stylesheet">
         
         <link href="<?php echo  base_url('assets/plugins/overlayscrollbars/OverlayScrollbars.min.css'); ?>" rel="stylesheet">
         <link href="<?php echo base_url('assets/css/theme.min.css'); ?>" rel="stylesheet" id="style-default">
