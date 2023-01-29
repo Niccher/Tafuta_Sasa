@@ -36,7 +36,6 @@
                     </div>
                     <a class="navbar-brand" href="#l">
                         <div class="d-flex align-items-center py-3">
-                            <img class="me-2" src="<?php echo base_url('assets/img/favicons/favicon-32x32.png'); ?>" alt="" width="40" />
                             <span class="font-sans-serif">Epic Writers</span>
                         </div>
                     </a>

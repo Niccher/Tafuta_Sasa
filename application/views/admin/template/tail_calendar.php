@@ -89,7 +89,6 @@
         <script src="<?php echo base_url('assets/plugins/popper/popper.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets/plugins/bootstrap/bootstrap.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets/plugins/fontawesome/all.min.js'); ?>"></script>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll'); ?>"></script>
 
         <script src="<?php echo base_url('assets/plugins/fullcalendar/main.min.js'); ?>"></script>
 

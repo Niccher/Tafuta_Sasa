@@ -13,20 +13,15 @@
                                     <div class="bg-holder bg-auth-card-shape" style="background-image:url(<?php echo base_url('assets/img/icons/spot-illustrations/half-circle.png'); ?>);"></div>
                                     <!--/.bg-holder-->
                                     <div class="z-index-1 position-relative">
-                                        <a class="link-light mb-4 font-sans-serif fs-4 d-inline-block fw-bolder" href="#">Epic Writers</a>
-                                        <p class="opacity-75 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                        <a class="link-light mb-4 font-sans-serif fs-4 d-inline-block fw-bolder" href="#">Ten_Dollar Tutors & Essay Writers</a>
+                                        <p class="opacity-75 text-white">You've forgotten your password? Don't worry, we can help you reset it. Just enter your email address below and we'll send you a link to reset your password. Once you've reset your password, you'll be able to log in and access your account. Thanks for being a valued customer!</p>
                                     </div>
                                 </div>
                                 <div class="mt-3 mb-4 mt-md-4 mb-md-5 light">
                                     <p class="text-white">Don't have an account?<br>
                                         <a class="text-decoration-underline link-light" href="<?php echo base_url('auth/register');?>"> Get started!</a>
                                     </p>
-                                    <p class="mb-0 mt-4 mt-md-5 fs--1 fw-semi-bold text-white opacity-75">Read our 
+                                    <p class="mb-0 mt-4 mt-md-5 fs--1 fw-semi-bold text-white opacity-75">Read our
                                         <a class="text-decoration-underline text-white" href="<?php echo base_url('auth/terms');?>">terms</a> and <a class="text-decoration-underline text-white" href="<?php echo base_url('auth/conditions');?> ">conditions </a>
                                     </p>
                                 </div>
@@ -40,15 +35,15 @@
                                     <div class="row justify-content-center">
                                         <div class="col-sm-12 col-md">
                                             <?php
-                                                echo $auth_error;
-                                                echo validation_errors();
-                                                echo form_open('auth/forgot'); 
+                                            echo $auth_error;
+                                            echo validation_errors();
+                                            echo form_open('auth/forgot');
                                             ?>
-                                                <br>
-                                                <input class="form-control" type="email" placeholder="Email address" name="forgot_mail" />
-                                                <div class="mb-3">
-                                                    <button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">Send reset link</button>
-                                                </div>
+                                            <br>
+                                            <input class="form-control" type="email" placeholder="Email address" name="forgot_mail" />
+                                            <div class="mb-3">
+                                                <button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">Send reset link</button>
+                                            </div>
                                             </form>
                                             <a class="fs--1 text-600" href="<?php echo base_url('auth/forgot');?>">I can't recover my account using this page<span class="d-inline-block ms-1">&rarr;</span></a>
                                         </div>

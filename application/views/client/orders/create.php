@@ -1,5 +1,5 @@
 
-
+    <link href="<?php echo  base_url('assets/plugins/flatpickr/flatpickr.min.css'); ?>" rel="stylesheet">
     <div class="card mb-3">
         <div class="card-body">
             <div class="row flex-between-center">

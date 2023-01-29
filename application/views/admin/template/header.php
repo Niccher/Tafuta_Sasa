@@ -7,21 +7,16 @@
 
             <title>Epic Writers</title>
 
-            <link rel="apple-touch-icon" sizes="180x180" href="<?php echo base_url('assets/img/favicons/apple-touch-icon.png'); ?>">
             <link rel="icon" type="image/png" sizes="32x32" href="<?php echo base_url('assets/img/favicons/favicon-32x32.png'); ?>">
 
             <meta name="theme-color" content="#ffffff">
             <script src="<?php echo base_url('assets/plugins/overlayscrollbars/OverlayScrollbars.min.js'); ?>"></script>
-            <link href="<?php echo base_url('assets/css/theme-rtl.min.css'); ?>" rel="stylesheet" id="style-rtl">
             <link href="<?php echo base_url('assets/css/theme.min.css'); ?>" rel="stylesheet" id="style-default">
-            <link href="<?php echo base_url('assets/css/user-rtl.min.css'); ?>" rel="stylesheet" id="user-style-rtl">
             <link href="<?php echo base_url('assets/css/user.min.css'); ?>" rel="stylesheet" id="user-style-default">
             <link href="<?php echo base_url('assets/plugins/summernote/summernote-lite.css'); ?>" rel="stylesheet">
             <link href="<?php echo base_url('assets/plugins/dropzone/dropzone.min.css'); ?>" rel="stylesheet">
             <link href="<?php echo  base_url('assets/plugins/fullcalendar/main.min.css'); ?>" rel="stylesheet">
 
-            <link href="<?php echo  base_url('assets/plugins/choosen/docsupport/style.css1'); ?>" rel="stylesheet">
-            <link href="<?php echo  base_url('assets/plugins/choosen/docsupport/prism.css1'); ?>" rel="stylesheet">
             <link href="<?php echo  base_url('assets/plugins/choosen/chosen.min.css'); ?>" rel="stylesheet">
 
             <script>

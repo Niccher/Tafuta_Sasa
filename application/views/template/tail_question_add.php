@@ -92,8 +92,6 @@
 <script src="<?php echo base_url('assets/plugins/datatables/datatables.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/typed.js/typed.js'); ?>"></script>
 
-
-
 <script type="text/javascript">
     $(document).ready(function() {
 

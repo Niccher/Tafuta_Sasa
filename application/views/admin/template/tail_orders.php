@@ -88,17 +88,13 @@
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script src="<?php echo base_url('assets/plugins/popper/popper.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets/plugins/bootstrap/bootstrap.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/plugins/anchorjs/anchor.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets/plugins/is/is.min.js'); ?>"></script>
-        <script src="<?php echo base_url('assets/plugins/prism/prism.js'); ?>"></script>
         <script src="<?php echo base_url('assets/plugins/fontawesome/all.min.js'); ?>"></script>
 
         <script src="<?php echo base_url('assets/plugins/datatables/datatables.js');?>"></script>
         <script src="<?php echo base_url('assets/plugins/dropzone/dropzone.min.js'); ?>"></script>
 
         <script src="<?php echo base_url('assets/plugins/choosen/chosen.jquery.min.js');?>"></script>
-        <script src="<?php echo base_url('assets/plugins/choosen/docsupport/prism.js1');?>"></script>
-        <script src="<?php echo base_url('assets/plugins/choosen/docsupport/init.js1');?>"></script>
 
         <script type="text/javascript">
             $(document).ready(function() {
@@ -175,7 +171,6 @@
                             console.log(response);
                         }
                     });
-
                 });
             });
 

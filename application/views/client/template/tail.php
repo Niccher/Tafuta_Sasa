@@ -86,9 +86,6 @@
             <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
             <script src="<?php echo base_url('assets/plugins/popper/popper.min.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/bootstrap/bootstrap.min.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/plugins/anchorjs/anchor.min.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/plugins/is/is.min.js'); ?>"></script>
-            <script src="<?php echo base_url('assets/plugins/prism/prism.js'); ?>"></script>
             <script src="<?php echo base_url('assets/plugins/fontawesome/all.min.js'); ?>"></script>
 
             <script src="<?php echo base_url('assets/plugins/fullcalendar/main.min.js'); ?>"></script>
